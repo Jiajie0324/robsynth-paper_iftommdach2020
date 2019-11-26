@@ -1,0 +1,144 @@
+% Latex-Template für die VDI Mechatroniktagung 2015
+% Lehrstuhl für Regelungssystemtechnik, TU Dortmund
+% Letzte Änderung: 18.02.2014
+
+\documentclass[fleqn,a4paper,10pt]{article}
+
+% Packages
+\usepackage{mathptmx} % Times Schriftart (auch in der Math-Umgebung)
+\usepackage{ngerman,bibgerm}
+\usepackage[latin1]{inputenc} % Deutsche Sonderzeichen/Umlaute gestatten
+\usepackage[T1]{fontenc}
+\usepackage[nooneline,bf,figurename=Bild,labelsep=quad,font=small]{caption} % Bildunterschrift linksbündig
+
+\usepackage{multicol}
+
+\usepackage{amsmath} % Zur Abbildung mathematischer Symbole und Formeln
+\usepackage{amssymb} 
+\usepackage[fleqn]{nccmath} % Ausrichtung von Gleichungen
+
+\usepackage{graphicx}
+\usepackage{geometry}
+
+\usepackage{booktabs} % Erweiterte Tabellenumgebung
+\usepackage{cite} % Erweitertes Zitiermöglichkeiten
+
+\usepackage{titlesec} % Abstand vor und hinter Abschnittstiteln.
+
+\usepackage{etoolbox} % Scriptsammlung. Z.B. horizontalen Abstand zwischen Literatureintrag und jeweiligem Label verändern.
+
+
+% Seiteneinstellungen
+\geometry{left=2.025cm, right=2cm, top=2.07cm, bottom=2.8cm} % Geringe Änderungen, um mit Word übereinzustimmen.
+\parindent0cm
+\columnsep5mm
+\parskip 0pt   
+\pagestyle{empty}                  % Kopf- und Fußzeile entfernen
+
+% Abschnittsüberschriften
+\captionsetup[table]{skip=-1.4ex} % Abstand zwischen Tabelle und Tabellenbeschriftung
+\captionsetup[figure]{skip=5mm} % Abstand zwischen Bild und Bildunterschrift
+
+% Paper-Titel
+\titlespacing*{\section}{0pt}{6pt}{6pt}
+\titlespacing*{\subsection}{0pt}{6pt}{6pt}
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection\hskip 1cm}{0pt}{} % Abstand zwischen Titelnummer und Beschriftung.
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection\hskip 0.7cm}{0pt}{}
+
+% Gleichungen
+\setlength{\mathindent}{0.5cm} % Abstand von Gleichungen zum linken Rand.
+
+% Tabelleneinstellungen
+\renewcommand{\arraystretch}{9.5} % Abstand zwischen Zeilen in einer Tabelle
+\setlength{\tabcolsep}{6pt} % Abstand zwischen Spalten in einer Tabelle
+
+% Umgebungsdefinitionen
+\newenvironment{mytitle}{\fontsize{16pt}{1.0} \selectfont \bfseries}{\\} 
+\newenvironment*{myabstract}{\begin{Large}\bfseries}{\end{Large}\\[6pt]}%
+
+\renewenvironment{figure}
+  {\par\vspace{6pt}\noindent\minipage{\linewidth}}
+  {\endminipage\par\vspace{6pt}}
+
+
+\renewenvironment{table}
+  {\par\vspace{6pt}\noindent\minipage{\linewidth}\fontsize{8.5pt}{1.2} \selectfont}
+  {\endminipage\par\vspace{6pt}}
+
+\makeatletter
+
+\g@addto@macro\normalsize{%        % Abstand vor und hinter Gleichungsumgebungen.
+  \setlength\abovedisplayskip{6pt}
+  \setlength\belowdisplayskip{6pt}
+  \setlength\abovedisplayshortskip{6pt}
+  \setlength\belowdisplayshortskip{6pt}
+}
+
+\makeatother
+
+% Literaturverzeichnis
+\patchcmd{\thebibliography}{\advance\leftmargin\labelsep}
+  {\advance\leftmargin\labelsep \labelsep=0.4cm}{}{} % Horizontalen Abstand anpassen (etoolbox)
+\patchcmd{\thebibliography}{\section*}{\section}{}{} % Abschnittsnummer hinzufügen
+
+\let\OLDthebibliography\thebibliography % Vertikalen Abstand anpassen
+\renewcommand\thebibliography[1]{
+  \OLDthebibliography{#1}
+  \setlength{\parskip}{0pt}
+  \setlength{\itemsep}{2pt}
+}
+
+
+\begin{document}
+
+\begin{mytitle} 
+Mechatronik: Risiken und Chancen \\[6pt] % Falls Zeilenumbruch erforderlich, \\[6pt] anfügen.
+Mechatronics: Risks and Opportunities
+\end{mytitle}
+
+Prof. Dr.-Ing. Michael Mechatronik, RWTH Aachen University, Institut für Mechatronik, 52062 Aachen, Deutschland, michael.mechatronik@ifm.rwth-aachen.de
+
+\vspace{24pt} % Bitte nicht entfernen.
+
+\begin{myabstract} Kurzfassung \end{myabstract}
+Hier steht auf einer Seite (Times, 10pt), warum der geneigte Leser sich unbedingt mit diesem Beitrag befassen sollte. Literaturzitate sollten entsprechend \cite{literaturpabst2010} in den Text gesetzt werden. Bei mehreren Literaturzitaten kann z.B. als \cite{literaturpabst2010,mueller2011} oder \cite{literaturpabst2010,meyer2009,mueller2011} zitiert werden. Hier steht auf einer Seite (Times, 10pt), warum der geneigte Leser sich unbedingt mit diesem Beitrag befassen sollte. Literaturzitate sollten entsprechend \cite{literaturpabst2010} in den Text gesetzt werden. Bei mehreren Literaturzitaten kann z.B. als \cite{literaturpabst2010,mueller2011} oder \cite{literaturpabst2010,meyer2009,mueller2011} zitiert werden. Hier steht auf einer Seite (Times, 10pt), warum der geneigte Leser sich unbedingt mit diesem Beitrag befassen sollte. Literaturzitate sollten entsprechend \cite{literaturpabst2010} in den Text gesetzt werden. Bei mehreren Literaturzitaten kann z.B. als \cite{literaturpabst2010,mueller2011} oder \cite{literaturpabst2010,meyer2009,mueller2011} zitiert werden. Hier steht auf einer Seite (Times, 10pt), warum der geneigte Leser sich unbedingt mit diesem Beitrag befassen sollte. Literaturzitate sollten entsprechend \cite{literaturpabst2010} in den Text gesetzt werden. Bei mehreren Literaturzitaten kann z.B. als \cite{literaturpabst2010,mueller2011} oder \cite{literaturpabst2010,meyer2009,mueller2011} zitiert werden.
+
+Hier steht auf einer Seite (Times, 10pt), warum der geneigte Leser sich unbedingt mit diesem Beitrag befassen sollte. Literaturzitate sollten entsprechend \cite{literaturpabst2010} in den Text gesetzt werden. Bei mehreren Literaturzitaten kann z.B. als \cite{literaturpabst2010,mueller2011} oder \cite{literaturpabst2010,meyer2009,mueller2011} zitiert werden. Hier steht auf einer Seite (Times, 10pt), warum der geneigte Leser sich unbedingt mit diesem Beitrag befassen sollte. Literaturzitate sollten entsprechend \cite{literaturpabst2010} in den Text gesetzt werden. Bei mehreren Literaturzitaten kann z.B. als \cite{literaturpabst2010,mueller2011} oder \cite{literaturpabst2010,meyer2009,mueller2011} zitiert werden. Hier steht auf einer Seite (Times, 10pt), warum der geneigte Leser sich unbedingt mit diesem Beitrag befassen sollte. Literaturzitate sollten entsprechend \cite{literaturpabst2010} in den Text gesetzt werden. Bei mehreren Literaturzitaten kann z.B. als \cite{literaturpabst2010,mueller2011} oder \cite{literaturpabst2010,meyer2009,mueller2011} zitiert werden.
+
+Hier steht auf einer Seite (Times, 10pt), warum der geneigte Leser sich unbedingt mit diesem Beitrag befassen sollte. Literaturzitate sollten entsprechend \cite{literaturpabst2010} in den Text gesetzt werden. Bei mehreren Literaturzitaten kann z.B. als \cite{literaturpabst2010,mueller2011} oder \cite{literaturpabst2010,meyer2009,mueller2011} zitiert werden. Hier steht auf einer Seite (Times, 10pt), warum der geneigte Leser sich unbedingt mit diesem Beitrag befassen sollte. Literaturzitate sollten entsprechend \cite{literaturpabst2010} in den Text gesetzt werden. Bei mehreren Literaturzitaten kann z.B. als \cite{literaturpabst2010,mueller2011} oder \cite{literaturpabst2010,meyer2009,mueller2011} zitiert werden. Hier steht auf einer Seite (Times, 10pt), warum der geneigte Leser sich unbedingt mit diesem Beitrag befassen sollte. Literaturzitate sollten entsprechend \cite{literaturpabst2010} in den Text gesetzt werden. Bei mehreren Literaturzitaten kann z.B. als \cite{literaturpabst2010,mueller2011} oder \cite{literaturpabst2010,meyer2009,mueller2011} zitiert werden.
+
+Hier steht auf einer Seite (Times, 10pt), warum der geneigte Leser sich unbedingt mit diesem Beitrag befassen sollte. Literaturzitate sollten entsprechend \cite{literaturpabst2010} in den Text gesetzt werden. Bei mehreren Literaturzitaten kann z.B. als \cite{literaturpabst2010,mueller2011} oder \cite{literaturpabst2010,meyer2009,mueller2011} zitiert werden. Hier steht auf einer Seite (Times, 10pt), warum der geneigte Leser sich unbedingt mit diesem Beitrag befassen sollte. Literaturzitate sollten entsprechend \cite{literaturpabst2010} in den Text gesetzt werden. Bei mehreren Literaturzitaten kann z.B. als \cite{literaturpabst2010,mueller2011} oder \cite{literaturpabst2010,meyer2009,mueller2011} zitiert werden. Hier steht auf einer Seite (Times, 10pt), warum der geneigte Leser sich unbedingt mit diesem Beitrag befassen sollte. Literaturzitate sollten entsprechend \cite{literaturpabst2010} in den Text gesetzt werden. Bei mehreren Literaturzitaten kann z.B. als \cite{literaturpabst2010,mueller2011} oder \cite{literaturpabst2010,meyer2009,mueller2011} zitiert werden.
+
+Hier steht auf einer Seite (Times, 10pt), warum der geneigte Leser sich unbedingt mit diesem Beitrag befassen sollte. Literaturzitate sollten entsprechend \cite{literaturpabst2010} in den Text gesetzt werden. Bei mehreren Literaturzitaten kann z.B. als \cite{literaturpabst2010,mueller2011} oder \cite{literaturpabst2010,meyer2009,mueller2011} zitiert werden. Hier steht auf einer Seite (Times, 10pt), warum der geneigte Leser sich unbedingt mit diesem Beitrag befassen sollte. Literaturzitate sollten entsprechend \cite{literaturpabst2010} in den Text gesetzt werden. Bei mehreren Literaturzitaten kann z.B. als \cite{literaturpabst2010,mueller2011} oder \cite{literaturpabst2010,meyer2009,mueller2011} zitiert werden. Hier steht auf einer Seite (Times, 10pt), warum der geneigte Leser sich unbedingt mit diesem Beitrag befassen sollte. Literaturzitate sollten entsprechend \cite{literaturpabst2010} in den Text gesetzt werden. Bei mehreren Literaturzitaten kann z.B. als \cite{literaturpabst2010,mueller2011} oder \cite{literaturpabst2010,meyer2009,mueller2011} zitiert werden.
+
+\vspace{18pt} 
+
+\textbf{Gerne darf die Kurzfassung auch um eine Abbildung bereichert werden.}
+
+\vspace{18pt} 
+
+\begingroup\Large{\textbf{Literatur}}\endgroup
+\begingroup % Bitte nicht entfernen.
+\renewcommand{\section}[1]{} % Bitte nicht entfernen.
+\begin{thebibliography}{99}
+\bibitem{literaturpabst2010}
+Literaturpabst, J. P:
+\newblock \textit{Ein Literaturbeispiel aus einer Fachzeitschrift}.
+\newblock MECHATRONIK. (2010) 1-2, ISSN 1867-2590, S. 11-22.
+
+\bibitem{mueller2011}
+Müller, H.-H (Hrsg.):
+\newblock \textit{Ein Literaturbeispiel aus einem Fachbuch}.
+\newblock Berlin, Heidelberg, New York: Hüpfer-Verlag, 2011.
+
+\bibitem{meyer2009}
+Meyer, B.; Müller, P.:
+\newblock \textit{Ein Literaturbeispiel aus einem Tagungsbeitrag}.
+\newblock In: Tagung Mechatronik 2009. 2./13. Mai 2009 Wiesloch. VDI Wissensforum Düsseldorf 2009. ISBN 978-3-98-12624-5-2. S. 295-302. 
+
+\end{thebibliography}
+\endgroup % Bitte nicht entfernen.
+
+\clearpage  % Verhindert automatischen Umbruch auf der letzten Seite. Bei Bedarf entfernen.
+
+\end{document}
