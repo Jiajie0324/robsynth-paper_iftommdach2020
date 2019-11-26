@@ -1,0 +1,204 @@
+% Latex-Template für die VDI Mechatroniktagung 2015
+% Lehrstuhl für Regelungssystemtechnik, TU Dortmund
+% Letzte Änderung: 18.02.2014
+
+\documentclass[fleqn,a4paper,10pt]{article}
+
+% Packages
+\usepackage{mathptmx} % Times Schriftart (auch in der Math-Umgebung)
+\usepackage{ngerman,bibgerm}
+\usepackage[latin1]{inputenc} % Deutsche Sonderzeichen/Umlaute gestatten
+\usepackage[T1]{fontenc}
+\usepackage[nooneline,bf,figurename=Bild,labelsep=quad,font=small]{caption} % Bildunterschrift linksbündig
+
+\usepackage{multicol}
+
+\usepackage{amsmath} % Zur Abbildung mathematischer Symbole und Formeln
+\usepackage{amssymb} 
+\usepackage[fleqn]{nccmath} % Ausrichtung von Gleichungen
+
+\usepackage{graphicx}
+\usepackage{geometry}
+
+\usepackage{booktabs} % Erweiterte Tabellenumgebung
+\usepackage{cite} % Erweitertes Zitiermöglichkeiten
+
+\usepackage{titlesec} % Abstand vor und hinter Abschnittstiteln.
+
+\usepackage{etoolbox} % Scriptsammlung. Z.B. horizontalen Abstand zwischen Literatureintrag und jeweiligem Label verändern.
+
+
+% Seiteneinstellungen
+\geometry{left=2.025cm, right=2cm, top=2.07cm, bottom=2.8cm} % Geringe Änderungen, um mit Word übereinzustimmen.
+\parindent0cm
+\columnsep5mm
+\parskip 0pt   
+\pagestyle{empty}                  % Kopf- und Fußzeile entfernen
+
+% Abschnittsüberschriften
+\captionsetup[table]{skip=-1.4ex} % Abstand zwischen Tabelle und Tabellenbeschriftung
+\captionsetup[figure]{skip=5mm} % Abstand zwischen Bild und Bildunterschrift
+
+% Paper-Titel
+\titlespacing*{\section}{0pt}{6pt}{6pt}
+\titlespacing*{\subsection}{0pt}{6pt}{6pt}
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection\hskip 1cm}{0pt}{} % Abstand zwischen Titelnummer und Beschriftung.
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection\hskip 0.7cm}{0pt}{}
+
+% Gleichungen
+\setlength{\mathindent}{0.5cm} % Abstand von Gleichungen zum linken Rand.
+
+% Tabelleneinstellungen
+\renewcommand{\arraystretch}{9.5} % Abstand zwischen Zeilen in einer Tabelle
+\setlength{\tabcolsep}{6pt} % Abstand zwischen Spalten in einer Tabelle
+
+% Umgebungsdefinitionen
+\newenvironment{mytitle}{\fontsize{16pt}{1.0} \selectfont \bfseries}{\\} 
+\newenvironment*{myabstract}{\begin{Large}\bfseries}{\end{Large}\\[6pt]}%
+
+\renewenvironment{figure}
+  {\par\vspace{6pt}\noindent\minipage{\linewidth}}
+  {\endminipage\par\vspace{6pt}}
+
+
+\renewenvironment{table}
+  {\par\vspace{6pt}\noindent\minipage{\linewidth}\fontsize{8.5pt}{1.2} \selectfont}
+  {\endminipage\par\vspace{6pt}}
+
+\makeatletter
+
+\g@addto@macro\normalsize{%        % Abstand vor und hinter Gleichungsumgebungen.
+  \setlength\abovedisplayskip{6pt}
+  \setlength\belowdisplayskip{6pt}
+  \setlength\abovedisplayshortskip{6pt}
+  \setlength\belowdisplayshortskip{6pt}
+}
+
+\makeatother
+
+% Literaturverzeichnis
+\patchcmd{\thebibliography}{\advance\leftmargin\labelsep}
+  {\advance\leftmargin\labelsep \labelsep=0.4cm}{}{} % Horizontalen Abstand anpassen (etoolbox)
+\patchcmd{\thebibliography}{\section*}{\section}{}{} % Abschnittsnummer hinzufügen
+
+\let\OLDthebibliography\thebibliography % Vertikalen Abstand anpassen
+\renewcommand\thebibliography[1]{
+  \OLDthebibliography{#1}
+  \setlength{\parskip}{0pt}
+  \setlength{\itemsep}{2pt}
+}
+
+
+\begin{document}
+
+\begin{mytitle} 
+Mechatronik: Risiken und Chancen \\[6pt] % Falls Zeilenumbruch erforderlich, \\[6pt] anfügen.
+Mechatronics: Risks and Opportunities
+\end{mytitle}
+
+Prof. Dr.-Ing. Michael Mechatronik, RWTH Aachen University, Institut für Mechatronik, 52062 Aachen, Deutschland, michael.mechatronik@ifm.rwth-aachen.de
+
+\vspace{24pt} % Bitte nicht entfernen.
+
+\begin{myabstract} Kurzfassung \end{myabstract}
+Hier steht auf Deutsch in maximal 10 Zeilen, warum der geneigte Leser sich unbedingt mit diesem Beitrag befassen sollte. Hier steht in maximal 10 Zeilen, warum der geneigte Leser sich unbedingt mit diesem Beitrag befassen sollte. Hier steht in maximal 10 Zeilen, warum der geneigte Leser sich unbedingt mit diesem Beitrag befassen sollte. Hier steht in maximal 10 Zeilen, warum der geneigte Leser sich unbedingt mit diesem Beitrag befassen sollte. Hier steht in maximal 10 Zeilen, warum der geneigte Leser sich unbedingt mit diesem Beitrag befassen sollte. Hier steht in maximal 10 Zeilen, warum der geneigte Leser sich unbedingt mit diesem Beitrag befassen sollte. Hier steht in maximal 10 Zeilen, warum der geneigte Leser sich unbedingt mit diesem Beitrag befassen sollte. Hier steht in maximal 10 Zeilen, warum der geneigte Leser sich unbedingt mit diesem Beitrag befassen sollte. Hier steht in maximal 10 Zeilen, warum der geneigte Leser sich unbedingt mit diesem Beitrag befassen sollte. Hier steht in maximal 10 Zeilen, warum der geneigte Leser sich unbedingt mit diesem Beitrag befassen sollte.
+
+
+\vspace{12pt} % Bitte nicht entfernen.
+
+
+\begin{myabstract} Abstract \end{myabstract}
+Please explain in English at most in 10 lines, why anybody should spend his time reading your complete article. Please explain in English at most in 10 lines, why anybody should spend his time reading your complete article. Please explain in English at most in 10 lines, why anybody should spend his time reading your complete article. Please explain in English at most in 10 lines, why anybody should spend his time reading your complete article. Please explain in English at most in 10 lines, why anybody should spend his time reading your complete article. Please explain in English at most in 10 lines, why anybody should spend his time reading your complete article. Please explain in English at most in 10 lines, why anybody should spend his time reading your complete article. Please explain in English at most in 10 lines, why anybody should spend his time reading your complete article. Please explain in English at most in 10 lines, why anybody should spend his time reading your complete article. Please explain in English at most in 10 lines, why anybody should spend his time reading your complete article.
+
+
+\vspace{18pt} % Bitte nicht entfernen.
+
+
+\begin{multicols}{2}
+
+\section{Einleitung}
+Eine kurze Einleitung, in der in die Thematik des Beitrages eingeführt wird. 
+
+%\begin{figure}
+%	\centering
+%	\includegraphics[height=2.97cm,width=7.19cm]{Images/mechatronisches_antriebsystem.png}
+%	\captionof{figure}{Struktur eines mechatronischen Antriebssystems}
+%	\label{fig:myfigure1}
+%\end{figure}
+
+Abbildungen (siehe \textbf{Bild \ref{fig:myfigure1}}) sollten zentriert eingesetzt werden.
+Jede Abbildung ist im Text zu erwähnen.
+Erstmalig auftretende Abbildungs- und Tabellenreferenzen sind fettgedruckt anzugeben.
+
+\section{Formeln}
+
+Formeln sind mit einer fortlaufenden Nummer zu versehen. Die einzelnen Terme einer Gleichung sind unmittelbar vor beziehungsweise nach der Gleichung zu erklären. Bei der Darstellung einzelner Terme ist eine einheitliche Nomenklatur zu verwenden, so dass z. B. zwischen skalaren, vektoriellen und Matrixgrößen eindeutig unterschieden werden
+kann.
+Beispiel einer Gleichung:
+\begin{equation}
+	\frac{dI}{dt} = -\frac{R}{L} \cdot I + \frac{1}{L} \cdot (U-U_{EMF})
+\end{equation}
+
+Einheiten sind sie wie folgt anzugeben: $1{,}5\,\textrm{m}$. Latex-Code: \$1\{,\}5\textbackslash ,\textbackslash text\{m\}\$.
+
+
+\subsection{Unterkapitel}
+
+Beispiel für ein Unterkapitel.
+
+
+\section{Tabellen}
+Tabellen enthalten ebenso wie Abbildungen eine fortlaufende Nummerierung und werden zentriert eingesetzt. Zudem ist
+jede Tabelle im Text zu erläutern. \textbf{Tabelle \ref{tab:tabelle1}} stellt ein Beispiel dar.
+
+\begin{table}
+\captionof{table}{Tabellenbeschreibung}
+\label{tab:tabelle1}
+\begin{center}
+\begin{tabular}{c c c}
+\toprule
+\textit{Description 1} & \textit{Description 2} & \textit{Description 3}\\ 
+\toprule %\midrule
+Row 1, Col 1 & Row 1, Col 2 & Row 1, Col 3 \\
+Row 2, Col 1 & Row 2, Col 2 & Row 2, Col 3 \\
+Row 3, Col 1 & Row 3, Col 2 & Row 3, Col 3 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}
+
+\section{Literaturzitate}
+Literaturzitate sollten entsprechend \cite{literaturpabst2010} in den Text gesetzt werden. Bei mehreren Literaturzitaten kann z.B. als \cite{literaturpabst2010,mueller2011} oder \cite{literaturpabst2010,meyer2009,mueller2011} zitiert werden.
+
+\section{Zusammenfassung}
+
+Am Ende des Beitrages sollten die wichtigsten Ergebnisse zusammengefasst und eventuell zukünftig geplante weitere Untersuchungen skizziert werden.
+
+
+\begin{thebibliography}{99}
+
+\bibitem{literaturpabst2010}
+Literaturpabst, J. P:
+\newblock \textit{Ein Literaturbeispiel aus einer Fachzeitschrift}.
+\newblock MECHATRONIK. (2010) 1-2, ISSN 1867-2590, S. 11-22.
+
+\bibitem{mueller2011}
+Müller, H.-H (Hrsg.):
+\newblock \textit{Ein Literaturbeispiel aus einem Fachbuch}.
+\newblock Berlin, Heidelberg, New York: Hüpfer-Verlag, 2011.
+
+\bibitem{meyer2009}
+Meyer, B.; Müller, P.:
+\newblock \textit{Ein Literaturbeispiel aus einem Tagungsbeitrag}.
+\newblock In: Tagung Mechatronik 2009. 2./13. Mai 2009 Wiesloch. VDI Wissensforum Düsseldorf 2009. ISBN 978-3-98-12624-5-2. S. 295-302. 
+
+\end{thebibliography}
+
+
+\clearpage  % Verhindert automatischen Umbruch auf der letzten Seite. Bei Bedarf entfernen.
+
+
+\end{multicols}
+
+
+\end{document}
