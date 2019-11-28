@@ -1,42 +1,49 @@
-% Latex-Template für die VDI Mechatroniktagung 2015
-% Lehrstuhl für Regelungssystemtechnik, TU Dortmund
-% Letzte Änderung: 18.02.2014
+% !TEX encoding = UTF-8 Unicode
+% !TeX spellcheck = de_DE
+
+% Latex-Template fÃ¼r die VDI Mechatroniktagung 2015
+% Lehrstuhl fÃ¼r Regelungssystemtechnik, TU Dortmund
+% Letzte Ã„nderung: 18.02.2014
 
 \documentclass[fleqn,a4paper,10pt]{article}
 
 % Packages
 \usepackage{mathptmx} % Times Schriftart (auch in der Math-Umgebung)
 \usepackage{ngerman,bibgerm}
-\usepackage[latin1]{inputenc} % Deutsche Sonderzeichen/Umlaute gestatten
+\usepackage[utf8]{inputenc} % Deutsche Sonderzeichen/Umlaute gestatten
 \usepackage[T1]{fontenc}
-\usepackage[nooneline,bf,figurename=Bild,labelsep=quad,font=small]{caption} % Bildunterschrift linksbündig
+\usepackage[nooneline,bf,figurename=Bild,labelsep=quad,font=small]{caption} % Bildunterschrift linksbÃ¼ndig
 
 \usepackage{multicol}
 
 \usepackage{amsmath} % Zur Abbildung mathematischer Symbole und Formeln
 \usepackage{amssymb} 
+\newcommand{\bm}[1]{\mathbf{#1}}
+\renewcommand{\Phi}[1]{\varPhi{#1}}
+\newcommand{\transp}[0]{{\mathrm{T}}}
 \usepackage[fleqn]{nccmath} % Ausrichtung von Gleichungen
 
 \usepackage{graphicx}
 \graphicspath{{./Bilder/}}
+\usepackage{color}
 \usepackage{geometry}
 
 \usepackage{booktabs} % Erweiterte Tabellenumgebung
-\usepackage{cite} % Erweitertes Zitiermöglichkeiten
+\usepackage{cite} % Erweitertes ZitiermÃ¶glichkeiten
 
 \usepackage{titlesec} % Abstand vor und hinter Abschnittstiteln.
 
-\usepackage{etoolbox} % Scriptsammlung. Z.B. horizontalen Abstand zwischen Literatureintrag und jeweiligem Label verändern.
+\usepackage{etoolbox} % Scriptsammlung. Z.B. horizontalen Abstand zwischen Literatureintrag und jeweiligem Label verÃ¤ndern.
 
 
 % Seiteneinstellungen
-\geometry{left=2.025cm, right=2cm, top=2.07cm, bottom=2.8cm} % Geringe Änderungen, um mit Word übereinzustimmen.
+\geometry{left=2.025cm, right=2cm, top=2.07cm, bottom=2.8cm} % Geringe Ã„nderungen, um mit Word Ã¼bereinzustimmen.
 \parindent0cm
 \columnsep5mm
 \parskip 0pt   
-\pagestyle{empty}                  % Kopf- und Fußzeile entfernen
+\pagestyle{empty}                  % Kopf- und FuÃŸzeile entfernen
 
-% Abschnittsüberschriften
+% AbschnittsÃ¼berschriften
 \captionsetup[table]{skip=-1.4ex} % Abstand zwischen Tabelle und Tabellenbeschriftung
 \captionsetup[figure]{skip=5mm} % Abstand zwischen Bild und Bildunterschrift
 
@@ -50,7 +57,7 @@
 \setlength{\mathindent}{0.5cm} % Abstand von Gleichungen zum linken Rand.
 
 % Tabelleneinstellungen
-\renewcommand{\arraystretch}{9.5} % Abstand zwischen Zeilen in einer Tabelle
+%\renewcommand{\arraystretch}{9.5} % Abstand zwischen Zeilen in einer Tabelle -> Steht in Vorlage, fÃ¼hrt in Formel-Array zu sehr groÃŸem Abstand
 \setlength{\tabcolsep}{6pt} % Abstand zwischen Spalten in einer Tabelle
 
 % Umgebungsdefinitionen
@@ -80,7 +87,7 @@
 % Literaturverzeichnis
 \patchcmd{\thebibliography}{\advance\leftmargin\labelsep}
   {\advance\leftmargin\labelsep \labelsep=0.4cm}{}{} % Horizontalen Abstand anpassen (etoolbox)
-\patchcmd{\thebibliography}{\section*}{\section}{}{} % Abschnittsnummer hinzufügen
+\patchcmd{\thebibliography}{\section*}{\section}{}{} % Abschnittsnummer hinzufÃ¼gen
 
 \let\OLDthebibliography\thebibliography % Vertikalen Abstand anpassen
 \renewcommand\thebibliography[1]{
@@ -93,27 +100,44 @@
 \begin{document}
 
 \begin{mytitle} 
-Kombinierte Struktur- und Maßsynthese für Parallele Roboter: Erste Ergebnisse \\[6pt] % Falls Zeilenumbruch erforderlich, \\[6pt] anfügen.
-Combined Structural and Dimensional Synthesis of Parallel Robots: First Results
+Kombinierte Struktur- und MaÃŸsynthese fÃ¼r Parallele Roboter: Dynamik mit vollstÃ¤ndigen kinematischen Zwangsbedingungen \\[6pt] % Falls Zeilenumbruch erforderlich, \\[6pt] anfÃ¼gen.
+Combined Structural and Dimensional Synthesis of Parallel Robots: Dynamics using Full Kinematic Constraints
 \end{mytitle}
 
-Moritz Schappler, Prof. Dr.-Ing. Tobias Ortmaier, Leibniz Universität Hannover, Institut für Mechatronische Systeme, Appelstraße 11a, 30167 Hannover, Deutschland. Korrespondenz: moritz.schappler@imes.uni-hannover.de.
+Moritz Schappler, Prof. Dr.-Ing. Tobias Ortmaier, Leibniz UniversitÃ¤t Hannover, Institut fÃ¼r Mechatronische Systeme, AppelstraÃŸe 11a, 30167 Hannover, Deutschland. Korrespondenz: moritz.schappler@imes.uni-hannover.de.
 
 \vspace{24pt} % Bitte nicht entfernen.
 
 \begin{myabstract} Kurzfassung \end{myabstract}
 Hier steht auf einer Seite (Times, 10pt), warum der geneigte Leser sich unbedingt mit diesem Beitrag befassen sollte. Literaturzitate sollten entsprechend \cite{literaturpabst2010} in den Text gesetzt werden. Bei mehreren Literaturzitaten kann z.B. als \cite{literaturpabst2010,mueller2011} oder \cite{literaturpabst2010,meyer2009,mueller2011} zitiert werden.
 
+%\begin{figure}
+%	\centering
+%    \input{./Bilder/overview.pdf_tex}
+%    \captionof{figure}{Ãœberblick.}
+%    \label{fig:overview}
+%\end{figure}
+
+Hier geht der Text weiter. Ist das fett? $\mathit{{q}}$, $r$
+
+$\chi_M(x)=\left\{\begin{array}{ll} 1, & x\in M \\0, & x\not\in M\end{array}\right.$
+    
+\begin{equation}
+\chi_M(x)=\left\{\begin{array}{ll} 1, & x\in M \\
+0, & x\not\in M\end{array}\right. .
+\end{equation}
+$\bm{\varPhi}$
+
+$\tilde{\bm{J}}$
+
+Und noch ein Bild
+
 \begin{figure}
-	\centering
-    \input{./Bilder/overview.pdf_tex}
-    \captionof{figure}{Überblick.}
-    \label{fig:overview}
+    \centering
+    \input{./Bilder/Details_Kin_Dyn.pdf_tex}
+    \captionof{figure}{Details fÃ¼r Kinematik und Dynamik Ansatz.}
+    \label{fig:details_kindyn}
 \end{figure}
-
-\vspace{18pt} 
-
-\textbf{Gerne darf die Kurzfassung auch um eine Abbildung bereichert werden.}
 
 \vspace{18pt} 
 
@@ -127,14 +151,14 @@ Literaturpabst, J. P:
 \newblock MECHATRONIK. (2010) 1-2, ISSN 1867-2590, S. 11-22.
 
 \bibitem{mueller2011}
-Müller, H.-H (Hrsg.):
+MÃ¼ller, H.-H (Hrsg.):
 \newblock \textit{Ein Literaturbeispiel aus einem Fachbuch}.
-\newblock Berlin, Heidelberg, New York: Hüpfer-Verlag, 2011.
+\newblock Berlin, Heidelberg, New York: HÃ¼pfer-Verlag, 2011.
 
 \bibitem{meyer2009}
-Meyer, B.; Müller, P.:
+Meyer, B.; MÃ¼ller, P.:
 \newblock \textit{Ein Literaturbeispiel aus einem Tagungsbeitrag}.
-\newblock In: Tagung Mechatronik 2009. 2./13. Mai 2009 Wiesloch. VDI Wissensforum Düsseldorf 2009. ISBN 978-3-98-12624-5-2. S. 295-302. 
+\newblock In: Tagung Mechatronik 2009. 2./13. Mai 2009 Wiesloch. VDI Wissensforum DÃ¼sseldorf 2009. ISBN 978-3-98-12624-5-2. S. 295-302. 
 
 \end{thebibliography}
 \endgroup % Bitte nicht entfernen.

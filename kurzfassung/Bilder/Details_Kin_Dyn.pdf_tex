@@ -1,0 +1,72 @@
+%% Creator: Inkscape inkscape 0.91, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'Details_Kin_Dyn.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{476.22047244bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.35714286)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{Details_Kin_Dyn.pdf}}%
+    \put(0.01007936,0.31078045){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Inverse Kinematik}}}%
+    \put(0.01075943,0.28617468){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{für $k=1,...,n_t$}}}%
+    \put(0.00914775,0.26122993){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Vollst. ZB: $\tilde{\bm{J}}^{-1}=-\bm{\Phi}_{\bm{q}}^{-1} \bm{\Phi}_{\bm{x}}$}}}%
+    \put(0.00887777,0.2372614){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\dot{\bm{q}}=\tilde{\bm{J}}^{-1}\dot{\bm{x}}$}}}%
+    \put(0.00929775,0.21347291){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\ddot{\bm{q}}=\tilde{\bm{J}}^{-1}\ddot{\bm{x}}+\dot{\tilde{\bm{J}}}^{-1}\dot{\bm{x}}$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{Details_Kin_Dyn.pdf}}%
+    \put(0.349178,0.31078045){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Inverse Dynamik}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{Details_Kin_Dyn.pdf}}%
+    \put(0.74371308,0.31078045){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Zielfunktion: Energie}}}%
+    \put(0.00929775,0.18683125){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{q}_{k+1}=\bm{q}_k+\dot{\bm{q}}_k \Delta t+\frac{1}{2}\ddot{\bm{q}}_k\Delta t^2$}}}%
+    \put(0.34709007,0.28617468){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Subsystem-Methode: $\tilde{\bm{M}}, \tilde{\bm{c}}, \tilde{\bm{g}}$}}}%
+    \put(0.34649009,0.26307618){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Projektion: $\tilde{\bm{R}}^\transp=\left(\tilde{\bm{J}}^{-\transp},\bm{1}\right)$}}}%
+    \put(0.34690752,0.23274837){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{M}=\tilde{\bm{R}}^\transp\tilde{\bm{M}}\tilde{\bm{R}}, \bm{g}=\tilde{\bm{R}}^\transp\tilde{\bm{g}}$}}}%
+    \put(0.34711062,0.20384156){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{c}=\tilde{\bm{R}}^\transp (\tilde{\bm{M}}\dot{\tilde{\bm{R}}}\dot{\bm{x}}+\tilde{\bm{c}})$}}}%
+    \put(0.73708606,0.28333662){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{\tau}_\mathrm{a}=\bm{J}^{-\transp} (\bm{M}\ddot{\bm{x}}+\bm{c}+\bm{g})$}}}%
+    \put(0.7368954,0.25781328){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$P_{\mathrm{Kreis}}=\bm{\tau}_\mathrm{a}^\transp \dot{\bm{q}}_\mathrm{a}$}}}%
+    \put(0.7346911,0.21533095){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$P_{\mathrm{Netz}}=\left\{\begin{array}{ll} P_{\mathrm{Kreis}}, & P_{\mathrm{Kreis}}<0 \\0, & \mathrm{sonst}\end{array}\right.$}}}%
+    \put(0.73464953,0.16816494){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$E_{\mathrm{Netz}}=\int{} P_{\mathrm{Netz}}$}}}%
+  \end{picture}%
+\endgroup%
