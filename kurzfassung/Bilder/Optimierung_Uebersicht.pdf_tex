@@ -85,5 +85,8 @@
     \put(0.15097654,0.09578799){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Modell-}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=8]{Optimierung_Uebersicht.pdf}}%
     \put(0.15467531,0.06914633){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{aktual.}}}%
+    \put(0.49306493,0.21069339){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{p}$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{Optimierung_Uebersicht.pdf}}%
+    \put(0.10008969,0.09820048){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{p}$}}}%
   \end{picture}%
 \endgroup%
