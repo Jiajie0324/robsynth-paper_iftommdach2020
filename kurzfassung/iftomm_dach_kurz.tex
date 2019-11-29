@@ -104,7 +104,7 @@ Maßsynthese für Parallele Roboter: Einheitliche Kinematik und Dynamik mit voll
 Dimensional Synthesis of Parallel Robots: Unified Kinematics and Dynamics using Full Kinematic Constraints
 \end{mytitle}
 
-Moritz Schappler und Prof. Dr.-Ing. Tobias Ortmaier, Leibniz Universität Hannover, Institut für Mechatronische Systeme, Appelstraße 11a, 30167 Hannover, Deutschland. Korrespondenz: moritz.schappler@imes.uni-hannover.de.
+Moritz Schappler, Prof. Dr.-Ing. Tobias Ortmaier, Leibniz Universität Hannover, Institut für Mechatronische Systeme, Appelstraße 11a, 30167 Hannover, Deutschland. Korrespondenz: moritz.schappler@imes.uni-hannover.de.
 
 \vspace{24pt} % Bitte nicht entfernen.
 
@@ -117,8 +117,8 @@ Moritz Schappler und Prof. Dr.-Ing. Tobias Ortmaier, Leibniz Universität Hannov
 %\item Vorliegender Beitrag führt eine Methodik zur Maßsynthese beliebiger PKM ein
 %\item Der Schwerpunkt liegt in der Ausnutzung struktureller Eigenschaften in der Optimierung
 %\end{itemize}
-Die Struktursynthese paralleler Roboter hat durch die systematische Nutzung der Schraubentheorie \cite{KongGos2007} und der evolutionären Morphologie \cite{Gogu2008} eine Vielzahl neuer Kinematiken hervorgebracht, für die Großteils noch keine praktische Anwendung gefunden wurde.
-Um für gegebene Anforderungen das bestmögliche System auszuwählen, ist eine automatische Auslegung (Maßsynthese) notwendig, die für die Vielzahl verschiedener Kinematiken anwendbar ist.
+Die Struktursynthese paralleler Roboter hat durch die systematische Nutzung der Schraubentheorie \cite{KongGos2007} und der evolutionären Morphologie \cite{Gogu2008} eine Vielzahl neuer Parallelkinematiken hervorgebracht, für die Großteils noch keine praktische Anwendung gefunden wurde.
+Um für gegebene Anforderungen an einen Roboter den bestgeeigneten auszuwählen, ist eine automatische Auslegung (Maßsynthese) notwendig, die für die Vielzahl verfügbarer Kinematiken anwendbar ist.
 Der Vorliegende Beitrag behandelt eine allgemeine Methodik für die Maßsynthese paralleler Kinematiken unter Ausnutzung struktureller Eigenschaften von Kinematik und Dynamik sowie der effizienten Strukturierung des Optimierungsproblems.
 
 %Neuer Absatz: Detail zu Optimierung
@@ -129,9 +129,9 @@ Der Vorliegende Beitrag behandelt eine allgemeine Methodik für die Maßsynthese
 %\end{itemize}
 Für das hochdimensionale Problem der Parameterfindung der Roboter wird die etablierte Partikel-Schwarm-Optimierung (PSO) eingesetzt, wie in Bild\,\ref{fig:uebersicht} skizziert.
 Zur effizienten Berücksichtigung von Nebenbedingungen werden diese hierarchisch berechnet und normierte Strafterme $s_i$ direkt in der stückweise definierten Fitness-Funktion $f$ eingesetzt.
-Als Zielfunktion $z$ wird der Energieverbrauch des Roboters über eine Referenz-Trajektorie $\bm{x}(t)$ gewählt.
-Diese skalare Zielfunktion erlaubt einen direkten Vergleich unterschiedlicher Kinematiken und eine monetäre Bewertung.
-Des Weiteren wird eine Korrelation mit anderen Zielfunktionen wie Gesamtmasse des Systems oder der gleichförmigkeit der Bewegung (Konditionszahl der Jacobi-Matrix) erwartet.
+Als skalare Zielfunktion $z$ wird der Energieverbrauch des Roboters über eine Referenz-Trajektorie $\bm{x}(t)$ gewählt, was einen direkten Vergleich unterschiedlicher Kinematiken erlaubt.
+Des Weiteren wird eine Korrelation mit anderen Zielfunktionen wie Gesamtmasse des Systems oder der Gleichförmigkeit der Eigenschaften (Konditionszahl der Jacobi-Matrix) erwartet.
+Die hierarchische Eigenschaft wird durch die Bedingung $s_1(\bm{p})>s_2(\bm{p})>\dots>z(\bm{p})>$ und eine Normierung umgesetzt.
 
 \begin{figure}
 	\centering
@@ -148,48 +148,58 @@ Des Weiteren wird eine Korrelation mit anderen Zielfunktionen wie Gesamtmasse de
 %\end{itemize}
 
 Zur Bestimmung von Nebenbedingungen wie der Einhaltung der Gelenkwinkelgrenzen ist eine Berechnung der passiven Gelenke und der Plattform-Koppelgelenke notwendig.
-Eine Elimination der passiven Gelenke ist nicht für alle Strukturen möglich.
+%Eine analytische Elimination der passiven Gelenke ist nicht für alle automatisch synthetisierten Strukturen aus möglich.
 Zusätzlich wird ein effizienter und allgemeingültiger Ansatz für die Dynamik benötigt.
-Der in Bild\,\ref{fig:details_kindyn} dargestellte Ansatz erfüllt diese Anforderungen.
+Der in Bild\,\ref{fig:details_kindyn} dargestellte und im Folgenden skizzierte  Ansatz erfüllt diese Anforderungen.
 
 \begin{figure}
     \centering
     \input{./Bilder/Details_Kin_Dyn.pdf_tex}
-    \captionof{figure}{Details für Kinematik und Dynamik Ansatz.}
+    \captionof{figure}{Einheitliche Berechnung von inverser Kinematik und inverser Dynamik in der PSO-Fitness-Funktion als Ablaufskizze.}
     \label{fig:details_kindyn}
 \end{figure}
 
-Zunächst werden die Gelenkgrößen des Roboters $\bm{q},\dot{\bm{q}},\ddot{\bm{q}}$ des Roboters mittels der vollständigen \emph{inversen Kinematik} \cite{SchapplerTapOrt2019c} berechnet.
-Die dafür notwendigen vollständigen kinematischen Zwangsbedingungen $\bm{\Phi}$ enthalten für jede Beinkette sowohl den Positions-, als auch den in Euler-Winkeln ausgedrückten Orientierungsfehler \cite{SchapplerTapOrt2019c}.
-Durch Bildung der Gradienten ($\bm{\Phi}_\bm{q}$ und $\bm{\Phi}_\bm{x}$) können mit der vollständigen Jacobi-Matrix $\tilde{\bm{J}}$ neben den aktiven Gelenkkoordinaten $\bm{q}_\mathrm{a}$ auch passive Gelenke und Schnittgelenke der Plattform berechnet werden.
+Zunächst werden die Gelenkgrößen $\bm{q},\dot{\bm{q}},\ddot{\bm{q}}$ des Roboters mittels der vollständigen \emph{inversen Kinematik} berechnet (linker Block in Bild\,\ref{fig:details_kindyn}).
+Die dafür notwendigen vollständigen kinematischen Zwangsbedingungen (\glqq{}ZB\grqq{}) $\bm{\Phi}$ enthalten für jede Beinkette sowohl den Positions-, als auch den in Euler-Winkeln ausgedrückten Orientierungsfehler \cite{SchapplerTapOrt2019c}.
+Durch Bildung der Gradienten ($\bm{\Phi}_\bm{q}$ und $\bm{\Phi}_\bm{x}$) können mit der vollständigen Jacobi-Matrix $\tilde{\bm{J}}$ neben den aktiven Gelenkkoordinaten $\bm{q}_\mathrm{a}$ auch passive Gelenke und Schnittgelenke der Plattform berechnet werden, die gemeinsam in $\bm{q}$ zusammengefasst sind.
 
 Für die Bestimmung des Energieverbrauchs für eine Referenztrajektorie wird ein allgemeingültiger Ansatz für die \emph{inverse Dynamik} beliebiger paralleler Roboter benötigt.
 Das zu diesem Zweck in \cite{AbdellatifHei2009,DoThanhKotHeiOrt2009b} vorgestellte Prinzip der Energieäquivalenz wird dafür erweitert:
-Zunächst erfolgt die Zerlegung des parallelen Roboters in einzelne Subsysteme (Beinketten und Plattform), in deren jeweiligen Minimalkoordinaten (Gelenk- und Plattformkoordinaten) die Dynamik einzeln nach dem \textsc{Lagrange}schen Formalismus aufgestellt wird (Massenmatrix $\tilde{\bm{M}}$, Coriolis- und Fliehkraftterme $\tilde{\bm{c}}$, Gravitationsterme $\tilde{\bm{g}}$).
-Anschließend erfolgt die Projektion der Dynamik in die Minimal- und Plattformkoordinaten $\bm{x}$ des Roboters durch Anwendung des \textsc{D'Alembert}schen Prinzips \cite{DoThanhKotHeiOrt2009b,AbdellatifHei2009}, woraus die Dynamik-Terme $\bm{M},\bm{c},\bm{g}$ bezogen auf die Plattform resultieren (siehe mittlerer Block in Bild\,\ref{fig:details_kindyn}).
-Die Jacobi-Matrix $\tilde{\bm{J}}$ aus der inversen Kinematik kann direkt ohne Neuberechnung für die Projektionsmatrix der Dynamik $\tilde{\bm{R}}$ verwendet werden.
+Zunächst erfolgt die Zerlegung des parallelen Roboters in einzelne Subsysteme (Beinketten und Plattform), in deren jeweiligen Minimalkoordinaten (Gelenk- und Plattformkoordinaten) die Dynamik einzeln nach dem \textsc{Lagrange}schen Formalismus aufgestellt wird (vollständige Massenmatrix $\tilde{\bm{M}}$, Coriolis- und Fliehkraftterme $\tilde{\bm{c}}$, Gravitationsterme $\tilde{\bm{g}}$).
+Anschließend erfolgt die Projektion der Dynamik in die Minimal-/Plattformkoordinaten $\bm{x}$ des Roboters durch Anwendung des \textsc{D'Alembert}schen Prinzips \cite{DoThanhKotHeiOrt2009b,AbdellatifHei2009}, woraus die Dynamik-Terme $\bm{M},\bm{c},\bm{g}$ bezogen auf die Plattform resultieren (siehe mittlerer Block in Bild\,\ref{fig:details_kindyn}).
+Die Jacobi-Matrix $\tilde{\bm{J}}$ aus der inversen Kinematik kann direkt ohne Neuberechnung für die Dynamik-Projektionsmatrix $\tilde{\bm{R}}$ eingesetzt werden.
 Durch die Verwendung rotatorischer Zwangsbedingungen zusätzlich zu den üblicherweise verwendeten translatorischen Zwangsbedingungen kann die implizite Annahme aus \cite{AbdellatifHei2009} aufgehoben werden, dass die Beinketten räumlicher Parallelkinematiken in Kugelgelenken enden müssen.
+Diese Bedingung wird z.\,B. von einigen der durch Gosselin et al. \cite{KongGos2007} und Gogu et al. \cite{Gogu2008} erzeugten Roboter nicht erfüllt.
 
-Für die Berechnung der \emph{Energie als Zielfunktion} (rechter Block in Bild\,\ref{fig:details_kindyn}) erfolgt eine Projektion der Dynamik in die Antriebskräfte $\bm{\tau}_\mathrm{a}$. 
+Für die Berechnung der \emph{Energie als Zielfunktion} (rechter Block in Bild\,\ref{fig:details_kindyn}) erfolgt eine Projektion der Dynamik auf die Antriebskräfte $\bm{\tau}_\mathrm{a}$. 
 Für die dafür notwendige Jacobi-Matrix $\bm{J}$ müssen lediglich die entsprechenden Spalten aus $\tilde{\bm{J}}$ gewählt werden.
 Es wird angenommen, dass alle Antriebe ihre Leistung in einem elektrischen Zwischenkreis austauschen können (resultierend zu $P_\mathrm{Kreis}$).
 Für die aus dem Netz aufzunehmende Leistung $P_\mathrm{Netz}$ wird die Möglichkeit einer  Rückspeisung ausgeschlossen.
 Aus der aufintegrierten Energie $E_\mathrm{Netz}$ wird durch eine Normierung (mittels arctan-Funktion) der Zielfunktionswert $z$ gebildet.
 
 Erste Ergebnisse der Methodik sind beispielhaft in Bild\,\ref{fig:ergebnisse} dargestellt.
-Die der Optimierung zu Grunde liegende Aufgabe ist das Abfahren der Eckpunkte eines Würfels mit Kantenlänge $30\,\textrm{mm}$ und Kippwinkeln bis zu $10^\circ$ mit einem Beschleunigungs-Trapez-Profil.
+Es wurde eine Optimierung der 6\underline{P}RRS- und \underline 6\underline{R}RRS-Kinematik durchgeführt, wobei das Kugelgelenk (S) einmal beibehalten und einmal durch drei versetzt angeordnete Drehgelenke (R) ersetzt wurde, um die allgemeinere Dynamik-Modellierung in der Maßsynthese zu validieren.
+Die der Optimierung zu Grunde liegende Aufgabe ist das Abfahren der Eckpunkte eines Würfels mit Kantenlänge $30\,\textrm{mm}$ und Kippwinkeln bis zu $10^\circ$ mit einem Beschleunigungs-Trapez-Profil mit einer Gesamt-Verfahrdauer von ca. $11\,\textrm{s}$.
 
 \begin{figure}
     \centering
     \input{./Bilder/Optimierung_Ergebnisse.pdf_tex}
-    \captionof{figure}{Ergebnisse der Maßsynthese für vier Beispiel-PKM mit 6 Plattform-Freiheitsgraden.}
+    \captionof{figure}{Ergebnisse der Maßsynthese für vier Beispiel-PKM mit Angabe der Zielfunktion $E_\mathrm{Netz}$ und der Parameteranzahl $\mathrm{dim}(\bm{p})$.}
     \label{fig:ergebnisse}
 \end{figure}
 
-Durch die Vorgabe von maximaler Geschwindigkeit von $1\,\textrm{m/s}$ bzw. $60^\circ\textrm{/s}$ und Beschleunigung von $3\,\textrm{m/s}^2$ bzw. $180^\circ\textrm{/s}^2$ und einer Zusatzmasse von $3\,\textrm{kg}$ wird versucht, einen ausreichend großen Einfluss der Dynamik auf das Optimierungsergebnis zu erzielen.
-Der PSO-Algorithmus wurde mit 30 Generationen mit 70 Individuen parametriert, was angesichts der 16 bis 20 Optimierungsparameter noch wenig erscheint und eine sinnvolle Wahl der Parametergrenzen und -abhängigkeiten notwendig macht.
-Optimierungsparameter sind bspw. die DH-Parameter der seriellen Beinketten, Durchmesser von Gestell und Plattform, Morphologieparameter wie Koppelpunktpaarabstand und Neigung des gestellnahen Gelenks. 
-Als weitere Arbeiten sind Plausibilisierungen hinsichtlich Straftermen für Selbstkollisionen und die Reduktion der Optimierungsparameter geplant.
+%Durch die Vorgabe einer maximalen Plattform-Geschwindigkeit von $1\,\textrm{m/s}$ bzw. $60^\circ\textrm{/s}$ und -Beschleunigung von $3\,\textrm{m/s}^2$ bzw. $180^\circ\textrm{/s}^2$ und einer Zusatzmasse von $3\,\textrm{kg}$ wird versucht, einen ausreichend großen Einfluss der Dynamik auf das Optimierungsergebnis zu erzielen.
+Optimierungsparameter der durchgeführten Maßsynthese sind u.\,a. die Größenskalierung des Roboters, die \textsc{Denavit-Hartenberg}-Parameter der seriellen Beinketten, die Durchmesser von Gestell und Plattform und Morphologieparameter wie Koppelpunktpaarabstand und Neigung des gestellnahen Gelenks.
+%Über die Modellierung der Beinsegmente als Hohlzylinder und der Plattform als Kreisscheibe führt die Veränderung der kinematikbeeinflussenden Parameter
+%Parameter wie Gelenk- und Antriebsauswahl, Stärke von Beinsegmenten und Plattform wurden nicht optimiert sondern in späteren Untersuchungen als Entwurfsoptimierung separat betrachtet.
+%Einfluss auf die Ergebnisse hatten daher nur die Modellierung der Beinsegmente als Hohlzylinder und der Plattform als Kreisscheibe.
+Der PSO-Algorithmus wurde mit 30 Generationen und 70 Individuen parametriert, was angesichts der 15 bis 19 Optimierungsparameter noch gering erscheint.
+Der hohen Dimensionalität wurde durch eine Reduzierung der Abhängigkeiten zwischen Parametern und plausibel gewählten Grenzen begegnet.
+
+In dem Konferenzvortrag werden die Ergebnisse und der Ansatz der Optimierung im Detail vorgestellt.
+Perspektivisch wird auch die Integration der Entwurfsoptimierung von Antriebs- und Segmentdimensionierung und die Behandlung zusätzlicher Nebenbedingungen und Zielfunktionen diskutiert.
+
+%Als weitere Arbeiten sind Plausibilisierungen hinsichtlich Straftermen für Selbstkollisionen und die Reduktion der Optimierungsparameter geplant.
 
 Die Autoren bedanken sich für die Unterstützung durch die Deutsche Forschungsgemeinschaft (DFG, OR 196/33-1).
 
@@ -199,21 +209,22 @@ Die Autoren bedanken sich für die Unterstützung durch die Deutsche Forschungsg
 \begingroup % Bitte nicht entfernen.
 \renewcommand{\section}[1]{} % Bitte nicht entfernen.
 \begin{thebibliography}{99}
-
-\bibitem{AbdellatifHei2009}
-Abdellatif, H. and Heimann, B.:
-\newblock \textit{Computational efficient inverse dynamics of 6-DOF fully parallel manipulators by using the Lagrangian formalism}.
-\newblock Mechanism and Machine Theory 44. (2009), 1, S. 192-207.
+    
+\bibitem{KongGos2007}
+Kong, X.; Gosselin, C.M.:
+\newblock \textit{Type synthesis of parallel mechanisms}.
+\newblock Springer-Verlag Berlin Heidelberg, 2007.
 
 \bibitem{Gogu2008}
 Gogu, G.:
 \newblock \textit{Structural Synthesis of Parallel Robots, Part 1: Methodology}.
 \newblock Springer Netherlands, 2008.
 
-\bibitem{KongGos2007}
-Kong, X.; Gosselin, C.M.:
-\newblock \textit{Type synthesis of parallel mechanisms}.
-\newblock Springer-Verlag Berlin Heidelberg, 2007.
+\bibitem{AbdellatifHei2009}
+Abdellatif, H. and Heimann, B.:
+\newblock \textit{Computational efficient inverse dynamics of 6-DOF fully parallel manipulators by using the Lagrangian formalism}.
+\newblock Mechanism and Machine Theory 44. (2009), 1, S. 192-207.
+
 
 \bibitem{DoThanhKotHeiOrt2009b}
 Do Thanh, T.; Kotlarski, J.; Heimann, B.; Ortmaier, T.:
