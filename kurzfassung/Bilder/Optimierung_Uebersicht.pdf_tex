@@ -48,37 +48,37 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.35714286)%
+  \begin{picture}(1,0.2797619)%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{Optimierung_Uebersicht.pdf}}%
-    \put(0.02590349,0.29900407){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Initialisierung}}}%
-    \put(0.18800373,0.27804594){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Parametervariation}}}%
-    \put(0.1878353,0.30222753){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Partikel-Schwarm-Opt.}}}%
-    \put(0.18817642,0.24970726){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Abbruchkriterien}}}%
-    \put(0.41929405,0.29009731){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Fitness: Nebenbedingungen und}}}%
-    \put(0.41818972,0.26150497){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Zielfunktion}}}%
-    \put(0.28019838,0.17091076){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Geom.}}}%
-    \put(0.2783985,0.14991208){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{plausibel?}}}%
+    \put(0.02590349,0.22508875){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Initialisierung}}}%
+    \put(0.18800372,0.20413058){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Parametervariation}}}%
+    \put(0.1878353,0.22831217){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Partikel-Schwarm-Opt.}}}%
+    \put(0.18817641,0.1757919){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Abbruchkriterien}}}%
+    \put(0.41929404,0.21618195){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Fitness: Nebenbedingungen und}}}%
+    \put(0.41818971,0.18758961){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Zielfunktion}}}%
+    \put(0.28019837,0.0969954){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Geom.}}}%
+    \put(0.27839849,0.07599673){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{plausibel?}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{Optimierung_Uebersicht.pdf}}%
-    \put(0.42118952,0.17031063){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{IK lösbar?}}}%
-    \put(0.40595048,0.14931196){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(Arb. Raum)}}}%
+    \put(0.42118951,0.09639528){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{IK lösbar?}}}%
+    \put(0.40595047,0.0753965){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(Arb. Raum)}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{Optimierung_Uebersicht.pdf}}%
-    \put(0.56530044,0.17151047){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{IK lösbar?}}}%
-    \put(0.57693968,0.15051169){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(Traj)}}}%
+    \put(0.56530042,0.09759512){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{IK lösbar?}}}%
+    \put(0.57693967,0.07659634){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(Traj)}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=4]{Optimierung_Uebersicht.pdf}}%
-    \put(0.70065197,0.17211029){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Gelenk-}}}%
-    \put(0.70221185,0.15111151){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{grenzen}}}%
+    \put(0.70065195,0.09819493){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Gelenk-}}}%
+    \put(0.70221183,0.07719626){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{grenzen}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=5]{Optimierung_Uebersicht.pdf}}%
-    \put(0.82004446,0.16671061){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Zielfunktion}}}%
+    \put(0.82004444,0.09279526){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Zielfunktion}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=6]{Optimierung_Uebersicht.pdf}}%
-    \put(0.30779665,0.09171571){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$f=p_1$}}}%
-    \put(0.46138699,0.09351557){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$f=p_2$}}}%
-    \put(0.60897768,0.08811589){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$f=p_3$}}}%
-    \put(0.74456914,0.08691595){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$f=p_4$}}}%
-    \put(0.8987594,0.08631604){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$f=z$}}}%
-    \put(0.3715437,0.17133504){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{ja}}}%
-    \put(0.52418384,0.17345839){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{ja}}}%
-    \put(0.65712571,0.17133504){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{ja}}}%
-    \put(0.78642638,0.17727434){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{ja}}}%
-    \put(0.81809168,0.14287014){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(z.\,B. Energie)}}}%
+    \put(0.30779664,0.01780036){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$f=p_1$}}}%
+    \put(0.46138697,0.01960021){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$f=p_2$}}}%
+    \put(0.60897767,0.01420044){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$f=p_3$}}}%
+    \put(0.74456912,0.0130006){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$f=p_4$}}}%
+    \put(0.89875938,0.01240058){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$f=z$}}}%
+    \put(0.37154369,0.09741968){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{ja}}}%
+    \put(0.52418383,0.09954303){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{ja}}}%
+    \put(0.65712569,0.09741968){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{ja}}}%
+    \put(0.78642636,0.10335899){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{ja}}}%
+    \put(0.81809166,0.06895479){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(z.\,B. Energie)}}}%
   \end{picture}%
 \endgroup%

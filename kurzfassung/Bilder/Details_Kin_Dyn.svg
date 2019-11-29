@@ -10,8 +10,8 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="168mm"
-   height="60mm"
-   viewBox="0 0 595.27562 212.59842"
+   height="33mm"
+   viewBox="0 0 595.27562 116.92914"
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
@@ -221,9 +221,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="5.6"
-     inkscape:cx="80.334952"
-     inkscape:cy="150.1296"
+     inkscape:zoom="1.979899"
+     inkscape:cx="285.32635"
+     inkscape:cy="143.4122"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -254,56 +254,49 @@
      inkscape:label="Ebene 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-839.76378)">
-    <rect
-       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.81038237;stroke-miterlimit:4;stroke-dasharray:2.43114716, 0.81038237;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect4277-7-6"
-       width="594.46527"
-       height="185.59331"
-       x="0.40519118"
-       y="844.03693" />
+     transform="translate(0,-935.43307)">
     <rect
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.10558379;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        id="rect4239"
        width="149.95537"
        height="94.528992"
        x="4.1911001"
-       y="852.47211" />
+       y="940.47211" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="5.999999"
-       y="867.36218"
+       y="955.36218"
        id="text4244"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4246"
          x="5.999999"
-         y="867.36218"
+         y="955.36218"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">Inverse Kinematik</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="6.4048271"
-       y="882.0094"
+       y="970.0094"
        id="text4244-3"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4246-6"
          x="6.4048271"
-         y="882.0094"
+         y="970.0094"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">für $k=1,...,n_t$</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="5.4454355"
-       y="896.8584"
+       y="984.8584"
        id="text4244-3-7"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4246-6-5"
          x="5.4454355"
-         y="896.8584"
+         y="984.8584"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">Vollst. ZB: $<tspan
    style="font-size:2.50000024px"
    id="tspan4303">\tilde{\bm{J}}^{-1}=-\bm{\Phi}_{\bm{q}}^{-1} \bm{\Phi}_{\bm{x}}</tspan>$</tspan></text>
@@ -311,13 +304,13 @@
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="5.2847214"
-       y="911.12628"
+       y="999.12628"
        id="text4244-3-7-3"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4246-6-5-5"
          x="5.2847214"
-         y="911.12628"
+         y="999.12628"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">$<tspan
    style="font-size:2.50000024px"
    id="tspan4303-6">\dot{\bm{q}}=\tilde{\bm{J}}^{-1}\dot{\bm{x}}</tspan>$</tspan></text>
@@ -325,13 +318,13 @@
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="5.5347214"
-       y="925.28699"
+       y="1013.287"
        id="text4244-3-7-2"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4246-6-5-9"
          x="5.5347214"
-         y="925.28699"
+         y="1013.287"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">$<tspan
    style="font-size:2.50000024px"
    id="tspan4303-1">\ddot{\bm{q}}=\tilde{\bm{J}}^{-1}\ddot{\bm{x}}+\dot{\tilde{\bm{J}}}^{-1}\dot{\bm{x}}</tspan>$</tspan></text>
@@ -341,18 +334,18 @@
        width="154.07507"
        height="94.514"
        x="197.48433"
-       y="852.47955" />
+       y="940.47955" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="207.85716"
-       y="867.36218"
+       y="955.36218"
        id="text4244-7"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4246-0"
          x="207.85716"
-         y="867.36218"
+         y="955.36218"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">Inverse Dynamik</tspan></text>
     <rect
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.23063314;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
@@ -360,30 +353,30 @@
        width="159.49306"
        height="110.11824"
        x="430.96796"
-       y="852.53461" />
+       y="940.53461" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="442.71429"
-       y="867.36218"
+       y="955.36218"
        id="text4244-7-3"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4246-0-6"
          x="442.71429"
-         y="867.36218"
+         y="955.36218"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">Zielfunktion: Energie</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="5.5347214"
-       y="941.14612"
+       y="1029.1461"
        id="text4244-3-7-2-0"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4246-6-5-9-6"
          x="5.5347214"
-         y="941.14612"
+         y="1029.1461"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">$<tspan
    style="font-size:2.50000024px"
    id="tspan4303-1-2">\bm{q}_{k+1}=\bm{q}_k+\dot{\bm{q}}_k \Delta t+\frac{1}{2}\ddot{\bm{q}}_k\Delta t^2</tspan>$</tspan></text>
@@ -391,13 +384,13 @@
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="206.61427"
-       y="882.0094"
+       y="970.0094"
        id="text4244-3-6"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4246-6-1"
          x="206.61427"
-         y="882.0094"
+         y="970.0094"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">Subsystem-Methode: $<tspan
    style="font-size:1.25000012px"
    id="tspan4264">\tilde{\bm{M}}, \tilde{\bm{c}}, \tilde{\bm{g}}</tspan>$</tspan></text>
@@ -405,13 +398,13 @@
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="206.25711"
-       y="895.7594"
+       y="983.7594"
        id="text4244-3-6-3"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4246-6-1-6"
          x="206.25711"
-         y="895.7594"
+         y="983.7594"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">Projektion: $<tspan
    style="font-size:1.25000012px"
    id="tspan4264-7">\tilde{\bm{R}}^\transp=\left(\tilde{\bm{J}}^{-\transp},\bm{1}\right)</tspan>$</tspan></text>
@@ -419,13 +412,13 @@
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="206.5056"
-       y="913.81281"
+       y="1001.8128"
        id="text4244-3-7-3-5"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4246-6-5-5-3"
          x="206.5056"
-         y="913.81281"
+         y="1001.8128"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">$<tspan
    style="font-size:2.50000024px"
    id="tspan4303-6-5">\bm{M}=\tilde{\bm{R}}^\transp\tilde{\bm{M}}\tilde{\bm{R}}, \bm{g}=\tilde{\bm{R}}^\transp\tilde{\bm{g}}</tspan>$</tspan></text>
@@ -433,13 +426,13 @@
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="206.6265"
-       y="931.02032"
+       y="1019.0204"
        id="text4244-3-7-3-5-6"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4246-6-5-5-3-2"
          x="206.6265"
-         y="931.02032"
+         y="1019.0204"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">$<tspan
    style="font-size:2.50000024px"
    id="tspan4303-6-5-9">\bm{c}=\tilde{\bm{R}}^\transp (\tilde{\bm{M}}\dot{\tilde{\bm{R}}}\dot{\bm{x}}+\tilde{\bm{c}})</tspan>$</tspan></text>
@@ -447,13 +440,13 @@
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="438.76938"
-       y="883.69885"
+       y="971.69885"
        id="text4244-3-7-3-5-6-1"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4246-6-5-5-3-2-2"
          x="438.76938"
-         y="883.69885"
+         y="971.69885"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">$<tspan
    style="font-size:2.50000024px"
    id="tspan4303-6-5-9-7">\bm{\tau}_\mathrm{a}=\bm{J}^{-\transp} (\bm{M}\ddot{\bm{x}}+\bm{c}+\bm{g})</tspan>$</tspan></text>
@@ -461,13 +454,13 @@
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="438.65588"
-       y="898.89227"
+       y="986.89227"
        id="text4244-3-7-3-5-6-1-0"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4246-6-5-5-3-2-2-9"
          x="438.65588"
-         y="898.89227"
+         y="986.89227"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">$<tspan
    style="font-size:2.50000024px"
    id="tspan4303-6-5-9-7-3">P_{\mathrm{Kreis}}=\bm{\tau}_\mathrm{a}^\transp \dot{\bm{q}}_\mathrm{a}</tspan>$</tspan></text>
@@ -475,13 +468,13 @@
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="437.34372"
-       y="924.18097"
+       y="1012.181"
        id="text4244-3-7-3-5-6-1-0-2"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4246-6-5-5-3-2-2-9-6"
          x="437.34372"
-         y="924.18097"
+         y="1012.181"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">$<tspan
    style="font-size:2.50000024px"
    id="tspan4303-6-5-9-7-3-1">P_{\mathrm{Netz}}=\left\{\begin{array}{ll} P_{\mathrm{Kreis}}, &amp; P_{\mathrm{Kreis}}&lt;0 \\0, &amp; \mathrm{sonst}\end{array}\right.</tspan>$</tspan></text>
@@ -489,13 +482,13 @@
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="437.31897"
-       y="952.25775"
+       y="1040.2578"
        id="text4244-3-7-3-5-6-1-0-8"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4246-6-5-5-3-2-2-9-7"
          x="437.31897"
-         y="952.25775"
+         y="1040.2578"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">$<tspan
    style="font-size:2.50000024px"
    id="tspan4303-6-5-9-7-3-9">E_{\mathrm{Netz}}=\int{} P_{\mathrm{Netz}}</tspan>$</tspan></text>
