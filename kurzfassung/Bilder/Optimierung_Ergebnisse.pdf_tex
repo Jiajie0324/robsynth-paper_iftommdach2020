@@ -48,18 +48,19 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.2797619)%
+  \begin{picture}(1,0.25595238)%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{Optimierung_Ergebnisse.pdf}}%
-    \put(0.03550289,0.23948782){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{6\underline{P}RRS}}}%
+    \put(0.08110002,0.22604868){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{6\underline{P}RRS}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{Optimierung_Ergebnisse.pdf}}%
-    \put(0.27308792,0.235888){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{6\underline{P}RRRRR}}}%
+    \put(0.32108489,0.22604868){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{6\underline{P}RRRRR}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{Optimierung_Ergebnisse.pdf}}%
-    \put(0.52987172,0.23708794){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{6\underline{R}RRS}}}%
+    \put(0.58146848,0.22604868){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{6\underline{R}RRS}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=4]{Optimierung_Ergebnisse.pdf}}%
-    \put(0.78065593,0.23948782){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{6\underline{R}RRRRR}}}%
-    \put(0.01635708,0.03493622){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$E_\mathrm{Netz}=25\,\textrm{J}$}}}%
-    \put(0.26624133,0.03643627){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$E_\mathrm{Netz}=46\,\textrm{J}$}}}%
-    \put(0.5468199,0.03465405){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$E_\mathrm{Netz}=69\,\textrm{J}$}}}%
-    \put(0.78830466,0.03225417){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$E_\mathrm{Netz}=89\,\textrm{J}$}}}%
+    \put(0.82025345,0.22604868){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{6\underline{R}RRRRR}}}%
+    \put(0.01299729,0.02149708){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$E_\mathrm{Netz}=25\,\textrm{J}, \mathrm{dim}(\bm{p})=19$}}}%
+    \put(0.26288154,0.02299714){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$E_\mathrm{Netz}=46\,\textrm{J}, \mathrm{dim}(\bm{p})=23$}}}%
+    \put(0.51994159,0.02121491){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$E_\mathrm{Netz}=71\,\textrm{J}, \mathrm{dim}(\bm{p})=15$}}}%
+    \put(0.77150572,0.01881504){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$E_\mathrm{Netz}=67\,\textrm{J}, \mathrm{dim}(\bm{p})=19$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{Optimierung_Ergebnisse.pdf}}%
   \end{picture}%
 \endgroup%

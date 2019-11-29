@@ -508,8 +508,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.8"
-     inkscape:cx="480.57625"
-     inkscape:cy="88.854237"
+     inkscape:cx="335.07264"
+     inkscape:cy="75.27529"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -1013,7 +1013,7 @@
        sodipodi:nodetypes="cc" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.99921274;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Mend-6-1)"
-       d="m 96.08507,933.63195 19.29211,0"
+       d="m 94.08507,933.63195 19.29211,0"
        id="path4580-9-7"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
@@ -1054,5 +1054,17 @@
          y="1011.2011"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times"
          id="tspan4304-3-9-2-0-06-7">aktual.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="293.50955"
+       y="926.94159"
+       id="text4244-7-3-3-7-2-1-7-9-6-3"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="293.50955"
+         y="926.94159"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.25000012px;font-family:Times;-inkscape-font-specification:Times"
+         id="tspan4304-3-9-2-0-3-5-6">$\bm{p}$</tspan></text>
   </g>
 </svg>
