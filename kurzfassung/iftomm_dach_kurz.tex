@@ -176,6 +176,9 @@ Es wird angenommen, dass alle Antriebe ihre Leistung in einem elektrischen Zwisc
 Für die aus dem Netz aufzunehmende Leistung $P_\mathrm{Netz}$ wird die Möglichkeit einer  Rückspeisung ausgeschlossen.
 Aus der aufintegrierten Energie $E_\mathrm{Netz}$ wird durch eine Normierung (mittels arctan-Funktion) der Zielfunktionswert $z$ gebildet.
 
+Erste Ergebnisse der Methodik sind beispielhaft in Bild\,\ref{fig:ergebnisse} dargestellt.
+Die der Optimierung zu Grunde liegende Aufgabe ist das Abfahren der Eckpunkte eines Würfels mit Kantenlänge $30\,\textrm{mm}$ und Kippwinkeln bis zu $10^\circ$ mit einem Beschleunigungs-Trapez-Profil.
+
 \begin{figure}
     \centering
     \input{./Bilder/Optimierung_Ergebnisse.pdf_tex}
@@ -183,6 +186,10 @@ Aus der aufintegrierten Energie $E_\mathrm{Netz}$ wird durch eine Normierung (mi
     \label{fig:ergebnisse}
 \end{figure}
 
+Durch die Vorgabe von maximaler Geschwindigkeit von $1\,\textrm{m/s}$ bzw. $60^\circ\textrm{/s}$ und Beschleunigung von $3\,\textrm{m/s}^2$ bzw. $180^\circ\textrm{/s}^2$ und einer Zusatzmasse von $3\,\textrm{kg}$ wird versucht, einen ausreichend großen Einfluss der Dynamik auf das Optimierungsergebnis zu erzielen.
+Der PSO-Algorithmus wurde mit 30 Generationen mit 70 Individuen parametriert.
+
+Die Autoren bedanken sich für die Unterstützung durch die Deutsche Forschungsgemeinschaft (DFG, OR 196/33-1).
 
 \vspace{18pt} 
 

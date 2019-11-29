@@ -7,6 +7,7 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="168mm"
@@ -371,9 +372,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="153.63073"
-     inkscape:cy="71.948265"
+     inkscape:zoom="15.839192"
+     inkscape:cx="50.869502"
+     inkscape:cy="43.330014"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -396,7 +397,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -405,18 +406,6 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(0,-885.82681)">
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="21.134007"
-       y="909.80096"
-       id="text4244-7-3"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan4246-0-6"
-         x="21.134007"
-         y="909.80096"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">Rob 1 Kugelgelenk</tspan></text>
     <rect
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.39606326;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.79212651,1.39606326;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        id="rect4500-2-8-9-7"
@@ -429,6 +418,44 @@
        d="m 0,46.505427 20,0"
        id="path4580-6"
        inkscape:connector-curvature="0" />
+    <image
+       sodipodi:absref="/home/schappler/IMES/REPO/dok/paper_iftommdach_2020/kurzfassung/Bilder/PaperRob1_Rob7_P6PRRRRR6V2G4P3A1_Skizze_3D_r864.png"
+       xlink:href="PaperRob1_Rob7_P6PRRRRR6V2G4P3A1_Skizze_3D_r864.png"
+       y="895.9483"
+       x="0"
+       id="image4392"
+       preserveAspectRatio="none"
+       height="119.4139"
+       width="141.7323" />
+    <image
+       sodipodi:absref="/home/schappler/IMES/REPO/dok/paper_iftommdach_2020/kurzfassung/Bilder/PaperRob2_Rob17_P6PRRRRR6G4P3A1_Skizze_3D_r864.png"
+       xlink:href="PaperRob2_Rob17_P6PRRRRR6G4P3A1_Skizze_3D_r864.png"
+       y="902.19983"
+       x="153.26773"
+       id="image4403"
+       preserveAspectRatio="none"
+       height="118.1624"
+       width="141.7323" />
+    <image
+       sodipodi:absref="/home/schappler/IMES/REPO/dok/paper_iftommdach_2020/kurzfassung/Bilder/PaperRob3_Rob3_P6RRRRRR10V3G1P1A1_Skizze_3D_r864.png"
+       xlink:href="PaperRob3_Rob3_P6RRRRRR10V3G1P1A1_Skizze_3D_r864.png"
+       y="910.36224"
+       x="305.00003"
+       id="image4425"
+       preserveAspectRatio="none"
+       height="102.25793"
+       width="141.7323"
+       inkscape:transform-center-x="-254.59071"
+       inkscape:transform-center-y="-14.302841" />
+    <image
+       sodipodi:absref="/home/schappler/IMES/REPO/dok/paper_iftommdach_2020/kurzfassung/Bilder/PaperRob4_Rob5_P6RRRRRR10G1P1A1_Skizze_3D_r864.png"
+       xlink:href="PaperRob4_Rob5_P6RRRRRR10G1P1A1_Skizze_3D_r864.png"
+       y="907.52472"
+       x="455.00006"
+       id="image4436"
+       preserveAspectRatio="none"
+       height="107.83753"
+       width="141.7323" />
     <rect
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.6493696;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        id="rect4500-2-8-9-7-3"
@@ -436,26 +463,24 @@
        height="149.74944"
        x="0.3246848"
        y="894.28516" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="21.134007"
+       y="909.80096"
+       id="text4244-7-3"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4246-0-6"
+         x="21.134007"
+         y="909.80096"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">6\underline{P}RRS</tspan></text>
     <rect
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.6493696;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        id="rect4500-2-8-9-7-3-6"
        width="141.08295"
        height="149.74945"
        x="151.5058"
-       y="894.28516" />
-    <rect
-       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.6493696;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-       id="rect4500-2-8-9-7-3-6-7"
-       width="141.08296"
-       height="149.74947"
-       x="302.68692"
-       y="894.28516" />
-    <rect
-       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.6493696;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-       id="rect4500-2-8-9-7-3-6-7-5"
-       width="141.08298"
-       height="149.74948"
-       x="453.86807"
        y="894.28516" />
     <text
        xml:space="preserve"
@@ -468,7 +493,14 @@
          id="tspan4246-0-6-5"
          x="162.56259"
          y="911.94385"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">Rob 1 beliebiges Gelenk</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">6\underline{P}RRRRR</tspan></text>
+    <rect
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.6493696;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       id="rect4500-2-8-9-7-3-6-7"
+       width="141.08296"
+       height="149.74947"
+       x="302.68692"
+       y="894.28516" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -480,7 +512,14 @@
          id="tspan4246-0-6-5-2"
          x="315.41974"
          y="911.22955"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">Rob 2 Kugelgelenk</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">6\underline{P}RRS</tspan></text>
+    <rect
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.6493696;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       id="rect4500-2-8-9-7-3-6-7-5"
+       width="141.08298"
+       height="149.74948"
+       x="453.86807"
+       y="894.28516" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -492,6 +531,22 @@
          id="tspan4246-0-6-5-2-1"
          x="464.70547"
          y="909.80096"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">Rob 2 beliebiges Gelenk</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">6\underline{R}RRRRR</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="7.9512587"
+       y="1024.9584"
+       id="text4244-7-3-36"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4246-0-6-7"
+         x="7.9512587"
+         y="1024.9584"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">$<tspan
+   style="font-size:2.50000024px"
+   id="tspan4457">E_\mathrm{Netz}=</tspan>25<tspan
+   style="font-size:2.50000024px"
+   id="tspan4339">\,\textrm{J}</tspan>$</tspan></text>
   </g>
 </svg>

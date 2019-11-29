@@ -49,10 +49,17 @@
   \global\let\svgscale\undefined%
   \makeatother%
   \begin{picture}(1,0.2797619)%
-    \put(0.03550289,0.23948782){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Rob 1 Kugelgelenk}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{Optimierung_Ergebnisse.pdf}}%
-    \put(0.27308792,0.235888){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Rob 1 beliebiges Gelenk}}}%
-    \put(0.52987172,0.23708794){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Rob 2 Kugelgelenk}}}%
-    \put(0.78065593,0.23948782){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Rob 2 beliebiges Gelenk}}}%
+    \put(0.03550289,0.23948782){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{6\underline{P}RRS}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{Optimierung_Ergebnisse.pdf}}%
+    \put(0.27308792,0.235888){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{6\underline{P}RRRRR}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{Optimierung_Ergebnisse.pdf}}%
+    \put(0.52987172,0.23708794){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{6\underline{R}RRS}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{Optimierung_Ergebnisse.pdf}}%
+    \put(0.78065593,0.23948782){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{6\underline{R}RRRRR}}}%
+    \put(0.01635708,0.03493622){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$E_\mathrm{Netz}=25\,\textrm{J}$}}}%
+    \put(0.26624133,0.03643627){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$E_\mathrm{Netz}=46\,\textrm{J}$}}}%
+    \put(0.5468199,0.03465405){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$E_\mathrm{Netz}=69\,\textrm{J}$}}}%
+    \put(0.78830466,0.03225417){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$E_\mathrm{Netz}=89\,\textrm{J}$}}}%
   \end{picture}%
 \endgroup%
