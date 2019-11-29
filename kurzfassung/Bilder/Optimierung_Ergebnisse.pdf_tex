@@ -57,10 +57,30 @@
     \put(0.58146848,0.22604868){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{6\underline{R}RRS}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=4]{Optimierung_Ergebnisse.pdf}}%
     \put(0.82025345,0.22604868){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{6\underline{R}RRRRR}}}%
-    \put(0.01299729,0.02149708){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$E_\mathrm{Netz}=25\,\textrm{J}, \mathrm{dim}(\bm{p})=19$}}}%
-    \put(0.26288154,0.02299714){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$E_\mathrm{Netz}=46\,\textrm{J}, \mathrm{dim}(\bm{p})=23$}}}%
-    \put(0.51994159,0.02121491){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$E_\mathrm{Netz}=71\,\textrm{J}, \mathrm{dim}(\bm{p})=15$}}}%
-    \put(0.77150572,0.01881504){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$E_\mathrm{Netz}=67\,\textrm{J}, \mathrm{dim}(\bm{p})=19$}}}%
+    \put(0.01299729,0.01209546){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$E_\mathrm{Netz}=25\,\textrm{J}, \mathrm{dim}(\bm{p})=19$}}}%
+    \put(0.26288154,0.01209546){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$E_\mathrm{Netz}=46\,\textrm{J}, \mathrm{dim}(\bm{p})=23$}}}%
+    \put(0.51994159,0.01209546){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$E_\mathrm{Netz}=71\,\textrm{J}, \mathrm{dim}(\bm{p})=15$}}}%
+    \put(0.77150572,0.01209546){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$E_\mathrm{Netz}=67\,\textrm{J}, \mathrm{dim}(\bm{p})=19$}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=5]{Optimierung_Ergebnisse.pdf}}%
+    \put(0.06626415,0.19081079){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{aktives Schubgelenk}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{Optimierung_Ergebnisse.pdf}}%
+    \put(0.0160336,0.05556446){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{Plattform}}}}%
+    \put(0.2668283,0.20400612){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{passives}}}}%
+    \put(0.2670083,0.18474732){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{Drehgelenk}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{Optimierung_Ergebnisse.pdf}}%
+    \put(0.4149851,0.19013295){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{Gestell}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{Optimierung_Ergebnisse.pdf}}%
+    \put(0.06753687,0.17129587){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{mit Führungsschiene}}}}%
+    \put(0.65211451,0.20370201){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{aktives}}}}%
+    \put(0.65338725,0.18418708){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{Drehgelenk}}}}%
+    \put(0.40878845,0.0658373){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{Trajektorie}}}}%
+    \put(0.40908843,0.04603846){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{(Würfel)}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{Optimierung_Ergebnisse.pdf}}%
+    \put(0.54902486,0.04461285){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{Kugelgelenk}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{Optimierung_Ergebnisse.pdf}}%
+    \put(0.88960219,0.19106025){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{Beinsegmente}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{Optimierung_Ergebnisse.pdf}}%
+    \put(0.52597805,0.18803308){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{Beinketten}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=12]{Optimierung_Ergebnisse.pdf}}%
   \end{picture}%
 \endgroup%
