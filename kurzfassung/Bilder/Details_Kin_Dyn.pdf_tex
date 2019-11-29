@@ -48,25 +48,27 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.19642857)%
+  \begin{picture}(1,0.1875)%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{Details_Kin_Dyn.pdf}}%
-    \put(0.01007936,0.16294977){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Inverse Kinematik}}}%
-    \put(0.01075943,0.138344){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{für $k=1,...,n_t$}}}%
-    \put(0.00914775,0.11339925){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Vollst. ZB: $\tilde{\bm{J}}^{-1}=-\bm{\Phi}_{\bm{q}}^{-1} \bm{\Phi}_{\bm{x}}$}}}%
-    \put(0.00887777,0.08943072){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\dot{\bm{q}}=\tilde{\bm{J}}^{-1}\dot{\bm{x}}$}}}%
-    \put(0.00929775,0.06564224){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\ddot{\bm{q}}=\tilde{\bm{J}}^{-1}\ddot{\bm{x}}+\dot{\tilde{\bm{J}}}^{-1}\dot{\bm{x}}$}}}%
+    \put(0.06671579,0.15863008){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\emph{Inverse Kinematik}}}}%
+    \put(0.01747901,0.13162443){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{für $k=1,...,n_t$ (Trajektorie)}}}%
+    \put(0.01586733,0.10121151){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Vollst. ZB: $\tilde{\bm{J}}^{-1}=-\bm{\Phi}_{\bm{q}}^{-1} \bm{\Phi}_{\bm{x}}$}}}%
+    \put(0.01559735,0.07136561){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\dot{\bm{q}}=\tilde{\bm{J}}^{-1}\dot{\bm{x}}, \quad \ddot{\bm{q}}=\tilde{\bm{J}}^{-1}\ddot{\bm{x}}+\dot{\tilde{\bm{J}}}^{-1}\dot{\bm{x}}$}}}%
+    \put(0.01601732,0.0415198){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{q}_{k+1}=\bm{q}_k+\dot{\bm{q}}_k \Delta t+\frac{1}{2}\ddot{\bm{q}}_k\Delta t^2$}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{Details_Kin_Dyn.pdf}}%
-    \put(0.349178,0.16294977){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Inverse Dynamik}}}%
+    \put(0.41493384,0.15863008){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\emph{Inverse Dynamik}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{Details_Kin_Dyn.pdf}}%
-    \put(0.74371308,0.16294977){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Zielfunktion: Energie}}}%
-    \put(0.00929775,0.03900058){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{q}_{k+1}=\bm{q}_k+\dot{\bm{q}}_k \Delta t+\frac{1}{2}\ddot{\bm{q}}_k\Delta t^2$}}}%
-    \put(0.34709007,0.138344){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Subsystem-Methode: $\tilde{\bm{M}}, \tilde{\bm{c}}, \tilde{\bm{g}}$}}}%
-    \put(0.34649008,0.11524546){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Projektion: $\tilde{\bm{R}}^\transp=\left(\tilde{\bm{J}}^{-\transp},\bm{1}\right)$}}}%
-    \put(0.34690751,0.08491765){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{M}=\tilde{\bm{R}}^\transp\tilde{\bm{M}}\tilde{\bm{R}}, \bm{g}=\tilde{\bm{R}}^\transp\tilde{\bm{g}}$}}}%
-    \put(0.34711061,0.05601073){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{c}=\tilde{\bm{R}}^\transp (\tilde{\bm{M}}\dot{\tilde{\bm{R}}}\dot{\bm{x}}+\tilde{\bm{c}})$}}}%
-    \put(0.73708604,0.1355059){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{\tau}_\mathrm{a}=\bm{J}^{-\transp} (\bm{M}\ddot{\bm{x}}+\bm{c}+\bm{g})$}}}%
-    \put(0.73689538,0.10998256){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$P_{\mathrm{Kreis}}=\bm{\tau}_\mathrm{a}^\transp \dot{\bm{q}}_\mathrm{a}$}}}%
-    \put(0.73469108,0.06750013){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$P_{\mathrm{Netz}}=\left\{\begin{array}{ll} P_{\mathrm{Kreis}}, & P_{\mathrm{Kreis}}<0 \\0, & \mathrm{sonst}\end{array}\right.$}}}%
-    \put(0.7346495,0.02033411){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$E_{\mathrm{Netz}}=\int{} P_{\mathrm{Netz}}$}}}%
+    \put(0.76531172,0.15863008){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\emph{Zielfunktion: Energie}}}}%
+    \put(0.01601732,0.0116738){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Korrektur mit kin. ZB aus \cite{SchapplerTapOrt2019c}}}}%
+    \put(0.37282242,0.13162443){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Subsysteme: $\tilde{\bm{M}}, \tilde{\bm{c}}, \tilde{\bm{g}}$}}}%
+    \put(0.37336838,0.10198061){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Projektion mit $\tilde{\bm{R}}^\transp=\left(\tilde{\bm{J}}^{-\transp},\bm{1}\right)$:}}}%
+    \put(0.37278041,0.07096143){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{M}=\tilde{\bm{R}}^\transp\tilde{\bm{M}}\tilde{\bm{R}}, \quad \bm{g}=\tilde{\bm{R}}^\transp\tilde{\bm{g}}$}}}%
+    \put(0.37278041,0.04131761){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{c}=\tilde{\bm{R}}^\transp (\tilde{\bm{M}}\dot{\tilde{\bm{R}}}\dot{\bm{x}}+\tilde{\bm{c}})$}}}%
+    \put(0.37278041,0.0116738){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{\tau}_\mathrm{a}=\bm{J}^{-\transp} (\bm{M}\ddot{\bm{x}}+\bm{c}+\bm{g})$}}}%
+    \put(0.7346495,0.13162443){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$P_{\mathrm{Kreis}}=\bm{\tau}_\mathrm{a}^\transp \dot{\bm{q}}_\mathrm{a}$}}}%
+    \put(0.7346495,0.08647102){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$P_{\mathrm{Netz}}=\left\{\begin{array}{ll} P_{\mathrm{Kreis}}, & P_{\mathrm{Kreis}}<0 \\0, & \mathrm{sonst}\end{array}\right.$}}}%
+    \put(0.7346495,0.04131761){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$E_{\mathrm{Netz}}=\int{} P_{\mathrm{Netz}}$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{Details_Kin_Dyn.pdf}}%
+    \put(0.7346495,0.0116738){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$z=f_\mathrm{norm}(E_{\mathrm{Netz}})$}}}%
   \end{picture}%
 \endgroup%

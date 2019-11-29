@@ -10,8 +10,8 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="168mm"
-   height="33mm"
-   viewBox="0 0 595.27562 116.92914"
+   height="31.5mm"
+   viewBox="0 0 595.27562 111.61417"
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
@@ -213,6 +213,51 @@
          transform="matrix(-0.8,0,0,-0.8,-10,0)"
          inkscape:connector-curvature="0" />
     </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker8795"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Mend">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         id="path8797" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker8795-3"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Mend">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         id="path8797-6" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker8795-5"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Mend">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         id="path8797-62" />
+    </marker>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -222,8 +267,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.979899"
-     inkscape:cx="285.32635"
-     inkscape:cy="143.4122"
+     inkscape:cx="256.70724"
+     inkscape:cy="127.03828"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -254,227 +299,239 @@
      inkscape:label="Ebene 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-935.43307)">
+     transform="translate(0,-940.74804)">
     <rect
-       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.10558379;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.88582683;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        id="rect4239"
-       width="149.95537"
-       height="94.528992"
-       x="4.1911001"
-       y="940.47211" />
+       width="161.76131"
+       height="108.61168"
+       x="4.158731"
+       y="943.18378" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="5.999999"
-       y="955.36218"
+       x="39.714287"
+       y="957.93359"
        id="text4244"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4246"
-         x="5.999999"
-         y="955.36218"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">Inverse Kinematik</tspan></text>
+         x="39.714287"
+         y="957.93359"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times"><tspan
+   style="font-size:1.25000012px"
+   id="tspan4480">\emph{</tspan>Inverse Kinematik<tspan
+   style="font-size:1.25000012px"
+   id="tspan4482">}</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="6.4048271"
-       y="970.0094"
+       x="10.404827"
+       y="974.0094"
        id="text4244-3"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4246-6"
-         x="6.4048271"
-         y="970.0094"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">für $k=1,...,n_t$</tspan></text>
+         x="10.404827"
+         y="974.0094"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">für $k=1,...,n_t$ (Trajektorie)</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="5.4454355"
-       y="984.8584"
+       x="9.4454365"
+       y="992.11346"
        id="text4244-3-7"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4246-6-5"
-         x="5.4454355"
-         y="984.8584"
+         x="9.4454365"
+         y="992.11346"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">Vollst. ZB: $<tspan
    style="font-size:2.50000024px"
    id="tspan4303">\tilde{\bm{J}}^{-1}=-\bm{\Phi}_{\bm{q}}^{-1} \bm{\Phi}_{\bm{x}}</tspan>$</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="5.2847214"
-       y="999.12628"
+       x="9.2847223"
+       y="1009.88"
        id="text4244-3-7-3"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4246-6-5-5"
-         x="5.2847214"
-         y="999.12628"
+         x="9.2847223"
+         y="1009.88"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">$<tspan
    style="font-size:2.50000024px"
-   id="tspan4303-6">\dot{\bm{q}}=\tilde{\bm{J}}^{-1}\dot{\bm{x}}</tspan>$</tspan></text>
+   id="tspan4303-6">\dot{\bm{q}}=\tilde{\bm{J}}^{-1}\dot{\bm{x}}, \quad \ddot{\bm{q}}=\tilde{\bm{J}}^{-1}\ddot{\bm{x}}+\dot{\tilde{\bm{J}}}^{-1}\dot{\bm{x}}</tspan>$</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="5.5347214"
-       y="1013.287"
+       x="9.5347223"
+       y="1027.6465"
        id="text4244-3-7-2"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4246-6-5-9"
-         x="5.5347214"
-         y="1013.287"
+         x="9.5347223"
+         y="1027.6465"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">$<tspan
    style="font-size:2.50000024px"
-   id="tspan4303-1">\ddot{\bm{q}}=\tilde{\bm{J}}^{-1}\ddot{\bm{x}}+\dot{\tilde{\bm{J}}}^{-1}\dot{\bm{x}}</tspan>$</tspan></text>
+   id="tspan4303-1">\bm{q}_{k+1}=\bm{q}_k+\dot{\bm{q}}_k \Delta t+\frac{1}{2}\ddot{\bm{q}}_k\Delta t^2</tspan>$</tspan></text>
     <rect
-       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.12057877;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.88582683;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        id="rect4239-2"
-       width="154.07507"
-       height="94.514"
-       x="197.48433"
-       y="940.47955" />
+       width="161.76131"
+       height="108.61168"
+       x="216.75717"
+       y="943.18384" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="207.85716"
-       y="955.36218"
+       x="247.00002"
+       y="957.93359"
        id="text4244-7"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4246-0"
-         x="207.85716"
-         y="955.36218"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">Inverse Dynamik</tspan></text>
+         x="247.00002"
+         y="957.93359"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times"><tspan
+   style="font-size:1.25000012px"
+   id="tspan4484">\emph{</tspan>Inverse Dynamik<tspan
+   style="font-size:1.25000012px"
+   id="tspan4486">}</tspan></tspan></text>
     <rect
-       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.23063314;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.88582683;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        id="rect4239-2-9"
-       width="159.49306"
-       height="110.11824"
-       x="430.96796"
-       y="940.53461" />
+       width="161.76129"
+       height="108.61168"
+       x="429.35562"
+       y="943.18384" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="442.71429"
-       y="955.36218"
+       x="455.57144"
+       y="957.93359"
        id="text4244-7-3"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4246-0-6"
-         x="442.71429"
-         y="955.36218"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">Zielfunktion: Energie</tspan></text>
+         x="455.57144"
+         y="957.93359"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times"><tspan
+   style="font-size:1.25000012px"
+   id="tspan4488">\emph{</tspan>Zielfunktion: Energie<tspan
+   style="font-size:1.25000012px"
+   id="tspan4490">}</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="5.5347214"
-       y="1029.1461"
+       x="9.5347223"
+       y="1045.4131"
        id="text4244-3-7-2-0"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4246-6-5-9-6"
-         x="5.5347214"
-         y="1029.1461"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">$<tspan
-   style="font-size:2.50000024px"
-   id="tspan4303-1-2">\bm{q}_{k+1}=\bm{q}_k+\dot{\bm{q}}_k \Delta t+\frac{1}{2}\ddot{\bm{q}}_k\Delta t^2</tspan>$</tspan></text>
+         x="9.5347223"
+         y="1045.4131"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">Korrektur mit kin. ZB aus <tspan
+   style="font-size:1.25000011px"
+   id="tspan4339">\cite{SchapplerTapOrt2019c}</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="206.61427"
-       y="970.0094"
+       x="221.93211"
+       y="974.0094"
        id="text4244-3-6"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4246-6-1"
-         x="206.61427"
-         y="970.0094"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">Subsystem-Methode: $<tspan
+         x="221.93211"
+         y="974.0094"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">Subsysteme: $<tspan
    style="font-size:1.25000012px"
    id="tspan4264">\tilde{\bm{M}}, \tilde{\bm{c}}, \tilde{\bm{g}}</tspan>$</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="206.25711"
-       y="983.7594"
+       x="222.25711"
+       y="991.65564"
        id="text4244-3-6-3"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4246-6-1-6"
-         x="206.25711"
-         y="983.7594"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">Projektion: $<tspan
+         x="222.25711"
+         y="991.65564"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">Projektion mit $<tspan
    style="font-size:1.25000012px"
-   id="tspan4264-7">\tilde{\bm{R}}^\transp=\left(\tilde{\bm{J}}^{-\transp},\bm{1}\right)</tspan>$</tspan></text>
+   id="tspan4264-7">\tilde{\bm{R}}^\transp=\left(\tilde{\bm{J}}^{-\transp},\bm{1}\right)</tspan>$:</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="206.5056"
-       y="1001.8128"
+       x="221.9071"
+       y="1010.1206"
        id="text4244-3-7-3-5"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4246-6-5-5-3"
-         x="206.5056"
-         y="1001.8128"
+         x="221.9071"
+         y="1010.1206"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">$<tspan
    style="font-size:2.50000024px"
-   id="tspan4303-6-5">\bm{M}=\tilde{\bm{R}}^\transp\tilde{\bm{M}}\tilde{\bm{R}}, \bm{g}=\tilde{\bm{R}}^\transp\tilde{\bm{g}}</tspan>$</tspan></text>
+   id="tspan4303-6-5">\bm{M}=\tilde{\bm{R}}^\transp\tilde{\bm{M}}\tilde{\bm{R}}, \quad \bm{g}=\tilde{\bm{R}}^\transp\tilde{\bm{g}}</tspan>$</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="206.6265"
-       y="1019.0204"
+       x="221.9071"
+       y="1027.7668"
        id="text4244-3-7-3-5-6"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4246-6-5-5-3-2"
-         x="206.6265"
-         y="1019.0204"
+         x="221.9071"
+         y="1027.7668"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">$<tspan
    style="font-size:2.50000024px"
    id="tspan4303-6-5-9">\bm{c}=\tilde{\bm{R}}^\transp (\tilde{\bm{M}}\dot{\tilde{\bm{R}}}\dot{\bm{x}}+\tilde{\bm{c}})</tspan>$</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="438.76938"
-       y="971.69885"
+       x="221.9071"
+       y="1045.4131"
        id="text4244-3-7-3-5-6-1"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4246-6-5-5-3-2-2"
-         x="438.76938"
-         y="971.69885"
+         x="221.9071"
+         y="1045.4131"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">$<tspan
    style="font-size:2.50000024px"
    id="tspan4303-6-5-9-7">\bm{\tau}_\mathrm{a}=\bm{J}^{-\transp} (\bm{M}\ddot{\bm{x}}+\bm{c}+\bm{g})</tspan>$</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="438.65588"
-       y="986.89227"
+       x="437.31897"
+       y="974.0094"
        id="text4244-3-7-3-5-6-1-0"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4246-6-5-5-3-2-2-9"
-         x="438.65588"
-         y="986.89227"
+         x="437.31897"
+         y="974.0094"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">$<tspan
    style="font-size:2.50000024px"
    id="tspan4303-6-5-9-7-3">P_{\mathrm{Kreis}}=\bm{\tau}_\mathrm{a}^\transp \dot{\bm{q}}_\mathrm{a}</tspan>$</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="437.34372"
-       y="1012.181"
+       x="437.31897"
+       y="1000.8881"
        id="text4244-3-7-3-5-6-1-0-2"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4246-6-5-5-3-2-2-9-6"
-         x="437.34372"
-         y="1012.181"
+         x="437.31897"
+         y="1000.8881"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">$<tspan
    style="font-size:2.50000024px"
    id="tspan4303-6-5-9-7-3-1">P_{\mathrm{Netz}}=\left\{\begin{array}{ll} P_{\mathrm{Kreis}}, &amp; P_{\mathrm{Kreis}}&lt;0 \\0, &amp; \mathrm{sonst}\end{array}\right.</tspan>$</tspan></text>
@@ -482,15 +539,41 @@
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="437.31897"
-       y="1040.2578"
+       y="1027.7668"
        id="text4244-3-7-3-5-6-1-0-8"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4246-6-5-5-3-2-2-9-7"
          x="437.31897"
-         y="1040.2578"
+         y="1027.7668"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">$<tspan
    style="font-size:2.50000024px"
    id="tspan4303-6-5-9-7-3-9">E_{\mathrm{Netz}}=\int{} P_{\mathrm{Netz}}</tspan>$</tspan></text>
+    <path
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.88582683;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker8795);color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 168.56931,997.48962 44.80512,0"
+       id="path4580-9"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.88582683;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker8795-3);color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 381.28362,997.48968 44.80513,0"
+       id="path4580-9-7"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="437.31897"
+       y="1045.4131"
+       id="text4244-3-7-3-5-6-1-0-8-1"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4246-6-5-5-3-2-2-9-7-2"
+         x="437.31897"
+         y="1045.4131"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">$<tspan
+   style="font-size:2.50000024px"
+   id="tspan4303-6-5-9-7-3-9-7">z=f_\mathrm{norm}(E_{\mathrm{Netz}})</tspan>$</tspan></text>
   </g>
 </svg>
