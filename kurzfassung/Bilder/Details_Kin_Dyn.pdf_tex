@@ -66,7 +66,7 @@
     \put(0.37278041,0.04131761){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{c}=\tilde{\bm{R}}^\transp (\tilde{\bm{M}}\dot{\tilde{\bm{R}}}\dot{\bm{x}}+\tilde{\bm{c}})$}}}%
     \put(0.37278041,0.0116738){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{\tau}_\mathrm{a}=\bm{J}^{-\transp} (\bm{M}\ddot{\bm{x}}+\bm{c}+\bm{g})$}}}%
     \put(0.7346495,0.13162443){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$P_{\mathrm{Kreis}}=\bm{\tau}_\mathrm{a}^\transp \dot{\bm{q}}_\mathrm{a}$}}}%
-    \put(0.7346495,0.08647102){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$P_{\mathrm{Netz}}=\left\{\begin{array}{ll} P_{\mathrm{Kreis}}, & P_{\mathrm{Kreis}}<0 \\0, & \mathrm{sonst}\end{array}\right.$}}}%
+    \put(0.7346495,0.08647102){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$P_{\mathrm{Netz}}=\left\{\begin{array}{ll} P_{\mathrm{Kreis}}, & P_{\mathrm{Kreis}}>0 \\0, & \mathrm{sonst}\end{array}\right.$}}}%
     \put(0.7346495,0.04131761){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$E_{\mathrm{Netz}}=\int{} P_{\mathrm{Netz}}$}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=4]{Details_Kin_Dyn.pdf}}%
     \put(0.7346495,0.0116738){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$z=f_\mathrm{norm}(E_{\mathrm{Netz}})$}}}%

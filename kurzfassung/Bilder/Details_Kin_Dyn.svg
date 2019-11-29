@@ -266,9 +266,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.979899"
-     inkscape:cx="256.70724"
-     inkscape:cy="127.03828"
+     inkscape:zoom="7.919596"
+     inkscape:cx="496.11057"
+     inkscape:cy="66.309766"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -534,7 +534,7 @@
          y="1000.8881"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">$<tspan
    style="font-size:2.50000024px"
-   id="tspan4303-6-5-9-7-3-1">P_{\mathrm{Netz}}=\left\{\begin{array}{ll} P_{\mathrm{Kreis}}, &amp; P_{\mathrm{Kreis}}&lt;0 \\0, &amp; \mathrm{sonst}\end{array}\right.</tspan>$</tspan></text>
+   id="tspan4303-6-5-9-7-3-1">P_{\mathrm{Netz}}=\left\{\begin{array}{ll} P_{\mathrm{Kreis}}, &amp; P_{\mathrm{Kreis}}&gt;0 \\0, &amp; \mathrm{sonst}\end{array}\right.</tspan>$</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
