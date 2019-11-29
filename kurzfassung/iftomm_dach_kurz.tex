@@ -104,7 +104,7 @@ Maßsynthese für Parallele Roboter: Einheitliche Kinematik und Dynamik mit voll
 Dimensional Synthesis of Parallel Robots: Unified Kinematics and Dynamics using Full Kinematic Constraints
 \end{mytitle}
 
-Moritz Schappler, Prof. Dr.-Ing. Tobias Ortmaier, Leibniz Universität Hannover, Institut für Mechatronische Systeme, Appelstraße 11a, 30167 Hannover, Deutschland. Korrespondenz: moritz.schappler@imes.uni-hannover.de.
+Moritz Schappler und Prof. Dr.-Ing. Tobias Ortmaier, Leibniz Universität Hannover, Institut für Mechatronische Systeme, Appelstraße 11a, 30167 Hannover, Deutschland. Korrespondenz: moritz.schappler@imes.uni-hannover.de.
 
 \vspace{24pt} % Bitte nicht entfernen.
 
@@ -124,10 +124,10 @@ Der Vorliegende Beitrag behandelt eine allgemeine Methodik für die Maßsynthese
 %Neuer Absatz: Detail zu Optimierung
 %\begin{itemize}
 %\item Die etablierte Partikel-Schwarm-Optimierung zur Lösung des hochdimensionalen Problems der Parameterfindung von Robotern wird hinsichtlich der Behandlung der Nebenbedingungen modifiziert.
-%\item Stückweise definierte Fitness-Funktion mit Zielfunktion und Nebenbedingungen als Strafterm hierarchisch, um Rechenzeit zu sparen. Siehe Bild\,\ref{fig:overview}.
+%\item Stückweise definierte Fitness-Funktion mit Zielfunktion und Nebenbedingungen als Strafterm hierarchisch, um Rechenzeit zu sparen. Siehe Bild\,\ref{fig:uebersicht}.
 %\item Energieverbrauch als Zielfunktion, da skalare Größe gut vergleichbar und andere Zielfunktionen wie Gesamtmasse und damit Dynamik dazu korrelierend
 %\end{itemize}
-Für das hochdimensionale Problem der Parameterfindung der Roboter wird die etablierte Partikel-Schwarm-Optimierung (PSO) eingesetzt, wie in Bild\,\ref{fig:overview} skizziert.
+Für das hochdimensionale Problem der Parameterfindung der Roboter wird die etablierte Partikel-Schwarm-Optimierung (PSO) eingesetzt, wie in Bild\,\ref{fig:uebersicht} skizziert.
 Zur effizienten Berücksichtigung von Nebenbedingungen werden diese hierarchisch berechnet und normierte Strafterme $p_i$ direkt in der stückweise definierten Fitness-Funktion $f$ eingesetzt.
 Als Zielfunktion $z$ wird der Energieverbrauch des Roboters über eine Referenz-Trajektorie $\bm{x}(t)$ gewählt.
 Diese skalare Zielfunktion erlaubt einen direkten Vergleich unterschiedlicher Kinematiken und eine monetäre Bewertung.
@@ -137,7 +137,7 @@ Des Weiteren wird eine Korrelation mit anderen Zielfunktionen wie Gesamtmasse de
 	\centering
     \input{./Bilder/Optimierung_Uebersicht.pdf_tex}
     \captionof{figure}{Überblick über die PSO-Optimierung und die Struktur der Fitness-Funktion mit hierarchischen Nebenbedingungen.}
-    \label{fig:overview}
+    \label{fig:uebersicht}
 \end{figure}
 
 %Neuer Absatz: Kinematik und Dynamik
@@ -147,7 +147,8 @@ Des Weiteren wird eine Korrelation mit anderen Zielfunktionen wie Gesamtmasse de
 %\item Durch die Reduzierung des Rechenaufwands ist die Auswertung vieler Parameterkombinationen möglich
 %\end{itemize}
 
-Zur Bestimmung von Nebenbedingungen wie Einhaltung der Gelenkwinkelgrenzen ist eine Berechnung der passiven Gelenke und der Plattform-Koppelgelenke notwendig.
+Zur Bestimmung von Nebenbedingungen wie der Einhaltung der Gelenkwinkelgrenzen ist eine Berechnung der passiven Gelenke und der Plattform-Koppelgelenke notwendig.
+Eine Elimination der passiven Gelenke ist nicht für alle Strukturen möglich.
 Zusätzlich wird ein effizienter und allgemeingültiger Ansatz für die Dynamik benötigt.
 Der in Bild\,\ref{fig:details_kindyn} dargestellte Ansatz erfüllt diese Anforderungen.
 
@@ -165,10 +166,23 @@ Durch Bildung der Gradienten ($\bm{\Phi}_\bm{q}$ und $\bm{\Phi}_\bm{x}$) können
 Für die Bestimmung des Energieverbrauchs für eine Referenztrajektorie wird ein allgemeingültiger Ansatz für die \emph{inverse Dynamik} beliebiger paralleler Roboter benötigt.
 Das zu diesem Zweck in \cite{AbdellatifHei2009,DoThanhKotHeiOrt2009b} vorgestellte Prinzip der Energieäquivalenz wird dafür erweitert:
 Zunächst erfolgt die Zerlegung des parallelen Roboters in einzelne Subsysteme (Beinketten und Plattform), in deren jeweiligen Minimalkoordinaten (Gelenk- und Plattformkoordinaten) die Dynamik einzeln nach dem \textsc{Lagrange}schen Formalismus aufgestellt wird (Massenmatrix $\tilde{\bm{M}}$, Coriolis- und Fliehkraftterme $\tilde{\bm{c}}$, Gravitationsterme $\tilde{\bm{g}}$).
-Anschließend erfolgt die Projektion der Dynamik in die Minimalkoordinaten $\bm{x}$ des Roboters durch Anwendung des \textsc{D'Alembert}schen Prinzips \cite{DoThanhKotHeiOrt2009b,AbdellatifHei2009}, woraus die Dynamik-Terme $\bm{M},\bm{c},\bm{g}$ bezogen auf die Plattform resultieren (siehe mittlerer Block in Bild\,\ref{fig:details_kindyn}).
+Anschließend erfolgt die Projektion der Dynamik in die Minimal- und Plattformkoordinaten $\bm{x}$ des Roboters durch Anwendung des \textsc{D'Alembert}schen Prinzips \cite{DoThanhKotHeiOrt2009b,AbdellatifHei2009}, woraus die Dynamik-Terme $\bm{M},\bm{c},\bm{g}$ bezogen auf die Plattform resultieren (siehe mittlerer Block in Bild\,\ref{fig:details_kindyn}).
 Die Jacobi-Matrix $\tilde{\bm{J}}$ aus der inversen Kinematik kann direkt ohne Neuberechnung für die Projektionsmatrix der Dynamik $\tilde{\bm{R}}$ verwendet werden.
+Durch die Verwendung rotatorischer Zwangsbedingungen zusätzlich zu den üblicherweise verwendeten translatorischen Zwangsbedingungen kann die implizite Annahme aus \cite{AbdellatifHei2009} aufgehoben werden, dass die Beinketten räumlicher Parallelkinematiken in Kugelgelenken enden müssen.
 
-Die Vorgehensweise aus \cite{DoThanhKotHeiOrt2009b}
+Für die Berechnung der \emph{Energie als Zielfunktion} (rechter Block in Bild\,\ref{fig:details_kindyn}) erfolgt eine Projektion der Dynamik in die Antriebskräfte $\bm{\tau}_\mathrm{a}$. 
+Für die dafür notwendige Jacobi-Matrix $\bm{J}$ müssen lediglich die entsprechenden Spalten aus $\tilde{\bm{J}}$ gewählt werden.
+Es wird angenommen, dass alle Antriebe ihre Leistung in einem elektrischen Zwischenkreis austauschen können (resultierend zu $P_\mathrm{Kreis}$).
+Für die aus dem Netz aufzunehmende Leistung $P_\mathrm{Netz}$ wird die Möglichkeit einer  Rückspeisung ausgeschlossen.
+Aus der aufintegrierten Energie $E_\mathrm{Netz}$ wird durch eine Normierung (mittels arctan-Funktion) der Zielfunktionswert $z$ gebildet.
+
+\begin{figure}
+    \centering
+    \input{./Bilder/Optimierung_Ergebnisse.pdf_tex}
+    \captionof{figure}{Ergebnisse der Maßsynthese für PKM mit 6 Plattform-Freiheitsgraden}
+    \label{fig:ergebnisse}
+\end{figure}
+
 
 \vspace{18pt} 
 
