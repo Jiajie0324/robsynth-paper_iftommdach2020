@@ -36,3 +36,42 @@ for i = 1:length(Robots)
   writetable(ResTab_Robi, RobTableFile, 'Delimiter', ';');
 end
 fprintf('Ergebnistabellen nach %s geschrieben\n', RobTableFile);
+
+%% Bild für Materialausnutzung und Konditionszahl
+figure(1);clf;hold on;
+I_condlim = contains(ResTab_ges.OptName, 'KondLim1');
+for i = 1:length(Robots)
+  RobName = Robots{i};
+  I_Robi = strcmp(ResTab_ges.Name, RobName);
+  I = I_Robi&I_condlim;
+  plot(ResTab_ges.Kondition_phys(I), 100*ResTab_ges.Materialspannung(I), 'x');
+end
+ylim([0,200]);
+legend(Robots);
+xlabel('Konditionszahl Jacobi');
+ylabel('Materialbeanspruchung in Prozent');
+grid on;
+saveas(1,     fullfile(outputdir, sprintf('Materialbeanspruchung_vs_Jacobi')));
+export_fig(1, fullfile(outputdir, sprintf('Materialbeanspruchung_vs_Jacobi.png')));
+%% Bild für Anzahl erfolgreicher Parametersätze
+figure(2);clf;hold on;
+I_condlim = contains(ResTab_ges.OptName, 'KondLim1');
+winkel = [0,5,10,20,30,45];
+Winkel_ges = NaN(length(tokens), 1);
+[tokens,~] = regexp(ResTab_ges.OptName,'.*Winkel(\d+).*', 'tokens','match');
+for i = 1:length(tokens)
+  Winkel_ges(i) = str2double(tokens{i}{1});
+end
+quota = ResTab_ges.num_succ ./ (ResTab_ges.num_fail + ResTab_ges.num_succ);
+for i = 1:length(Robots)
+  RobName = Robots{i};
+  I_Robi = strcmp(ResTab_ges.Name, RobName);
+  I = I_Robi&I_condlim;
+  plot(Winkel_ges(I), 100*quota(I), 'x');
+end
+legend(Robots);
+xlabel('Neigungswinkel');
+ylabel('Erfolgreiche Partikel (in Prozent)');
+grid on;
+saveas(2,     fullfile(outputdir, sprintf('Vergleich_Anteil_Erfolgreich')));
+export_fig(2, fullfile(outputdir, sprintf('Vergleich_Anteil_Erfolgreich.png')));
