@@ -1,41 +1,46 @@
-% Latex-Template f�r die VDI Mechatroniktagung 2015
-% Lehrstuhl f�r Regelungssystemtechnik, TU Dortmund
-% Letzte �nderung: 18.02.2014
+% Latex-Template für die VDI Mechatroniktagung 2015
+% Lehrstuhl für Regelungssystemtechnik, TU Dortmund
+% Letzte Änderung: 18.02.2014
 
 \documentclass[fleqn,a4paper,10pt]{article}
 
 % Packages
 \usepackage{mathptmx} % Times Schriftart (auch in der Math-Umgebung)
 \usepackage{ngerman,bibgerm}
-\usepackage[latin1]{inputenc} % Deutsche Sonderzeichen/Umlaute gestatten
+\usepackage[utf8]{inputenc} % Deutsche Sonderzeichen/Umlaute gestatten
 \usepackage[T1]{fontenc}
-\usepackage[nooneline,bf,figurename=Bild,labelsep=quad,font=small]{caption} % Bildunterschrift linksb�ndig
+\usepackage[nooneline,bf,figurename=Bild,labelsep=quad,font=small]{caption} % Bildunterschrift linksbündig
 
 \usepackage{multicol}
 
 \usepackage{amsmath} % Zur Abbildung mathematischer Symbole und Formeln
 \usepackage{amssymb} 
+\newcommand{\bm}[1]{\mathbf{#1}}
+\renewcommand{\Phi}[1]{\varPhi{#1}}
+\newcommand{\transp}[0]{{\mathrm{T}}}
 \usepackage[fleqn]{nccmath} % Ausrichtung von Gleichungen
 
 \usepackage{graphicx}
+\graphicspath{{./Bilder/}}
+\usepackage{color}
 \usepackage{geometry}
 
 \usepackage{booktabs} % Erweiterte Tabellenumgebung
-\usepackage{cite} % Erweitertes Zitierm�glichkeiten
+\usepackage{cite} % Erweitertes Zitiermöglichkeiten
 
 \usepackage{titlesec} % Abstand vor und hinter Abschnittstiteln.
 
-\usepackage{etoolbox} % Scriptsammlung. Z.B. horizontalen Abstand zwischen Literatureintrag und jeweiligem Label ver�ndern.
+\usepackage{etoolbox} % Scriptsammlung. Z.B. horizontalen Abstand zwischen Literatureintrag und jeweiligem Label verändern.
 
 
 % Seiteneinstellungen
-\geometry{left=2.025cm, right=2cm, top=2.07cm, bottom=2.8cm} % Geringe �nderungen, um mit Word �bereinzustimmen.
+\geometry{left=2.025cm, right=2cm, top=2.07cm, bottom=2.8cm} % Geringe Änderungen, um mit Word übereinzustimmen.
 \parindent0cm
 \columnsep5mm
 \parskip 0pt   
-\pagestyle{empty}                  % Kopf- und Fu�zeile entfernen
+\pagestyle{empty}                  % Kopf- und Fußzeile entfernen
 
-% Abschnitts�berschriften
+% Abschnittsüberschriften
 \captionsetup[table]{skip=-1.4ex} % Abstand zwischen Tabelle und Tabellenbeschriftung
 \captionsetup[figure]{skip=5mm} % Abstand zwischen Bild und Bildunterschrift
 
@@ -49,7 +54,7 @@
 \setlength{\mathindent}{0.5cm} % Abstand von Gleichungen zum linken Rand.
 
 % Tabelleneinstellungen
-\renewcommand{\arraystretch}{9.5} % Abstand zwischen Zeilen in einer Tabelle
+%\renewcommand{\arraystretch}{9.5} % Abstand zwischen Zeilen in einer Tabelle -> Steht in Vorlage, führt in Formel-Array zu sehr großem Abstand
 \setlength{\tabcolsep}{6pt} % Abstand zwischen Spalten in einer Tabelle
 
 % Umgebungsdefinitionen
@@ -79,7 +84,7 @@
 % Literaturverzeichnis
 \patchcmd{\thebibliography}{\advance\leftmargin\labelsep}
   {\advance\leftmargin\labelsep \labelsep=0.4cm}{}{} % Horizontalen Abstand anpassen (etoolbox)
-\patchcmd{\thebibliography}{\section*}{\section}{}{} % Abschnittsnummer hinzuf�gen
+\patchcmd{\thebibliography}{\section*}{\section}{}{} % Abschnittsnummer hinzufügen
 
 \let\OLDthebibliography\thebibliography % Vertikalen Abstand anpassen
 \renewcommand\thebibliography[1]{
@@ -92,11 +97,11 @@
 \begin{document}
 
 \begin{mytitle} 
-Mechatronik: Risiken und Chancen \\[6pt] % Falls Zeilenumbruch erforderlich, \\[6pt] anf�gen.
-Mechatronics: Risks and Opportunities
+Maßsynthese für Parallele Roboter: Einheitliche Kinematik und\\ Dynamik mit vollständigen kinematischen Zwangsbedingungen \\[6pt] % Falls Zeilenumbruch erforderlich, \\[6pt] anfügen.
+Dimensional Synthesis of Parallel Robots: Unified Kinematics and\\ Dynamics using Full Kinematic Constraints
 \end{mytitle}
 
-Prof. Dr.-Ing. Michael Mechatronik, RWTH Aachen University, Institut f�r Mechatronik, 52062 Aachen, Deutschland, michael.mechatronik@ifm.rwth-aachen.de
+Moritz Schappler, Prof. Dr.-Ing. Tobias Ortmaier, Leibniz Universität Hannover, Institut für Mechatronische Systeme, Appelstraße 11a, 30167 Hannover, Deutschland. Korrespondenz: moritz.schappler@imes.uni-hannover.de.
 
 \vspace{24pt} % Bitte nicht entfernen.
 
@@ -117,80 +122,139 @@ Please explain in English at most in 10 lines, why anybody should spend his time
 \begin{multicols}{2}
 
 \section{Einleitung}
-Eine kurze Einleitung, in der in die Thematik des Beitrages eingef�hrt wird. 
 
-%\begin{figure}
-%	\centering
-%	\includegraphics[height=2.97cm,width=7.19cm]{Images/mechatronisches_antriebsystem.png}
-%	\captionof{figure}{Struktur eines mechatronischen Antriebssystems}
-%	\label{fig:myfigure1}
-%\end{figure}
+Die Struktursynthese paralleler Roboter hat durch die systematische Nutzung der Schraubentheorie \cite{KongGos2007} und der evolutionären Morphologie \cite{Gogu2008} eine Vielzahl neuer Parallelkinematiken hervorgebracht, für die Großteils noch keine praktische Anwendung gefunden wurde.
+Um für gegebene Anforderungen an einen Roboter den bestgeeignetsten auszuwählen, ist eine automatische Auslegung (Maßsynthese) notwendig, die für die Vielzahl verfügbarer Kinematiken anwendbar ist.
+Der vorliegende Beitrag behandelt eine allgemeine Methodik für die Maßsynthese paralleler Kinematiken unter Ausnutzung struktureller Eigenschaften von Kinematik und Dynamik sowie der effizienten Strukturierung des Optimierungsproblems.
 
-Abbildungen (siehe \textbf{Bild \ref{fig:myfigure1}}) sollten zentriert eingesetzt werden.
-Jede Abbildung ist im Text zu erw�hnen.
-Erstmalig auftretende Abbildungs- und Tabellenreferenzen sind fettgedruckt anzugeben.
+\section{Optimierungsproblem}
 
-\section{Formeln}
+%Neuer Absatz: Detail zu Optimierung
+%\begin{itemize}
+%\item Die etablierte Partikel-Schwarm-Optimierung zur Lösung des hochdimensionalen Problems der Parameterfindung von Robotern wird hinsichtlich der Behandlung der Nebenbedingungen modifiziert.
+%\item Stückweise definierte Fitness-Funktion mit Zielfunktion und Nebenbedingungen als Strafterm hierarchisch, um Rechenzeit zu sparen. Siehe Bild\,\ref{fig:uebersicht}.
+%\item Energieverbrauch als Zielfunktion, da skalare Größe gut vergleichbar und andere Zielfunktionen wie Gesamtmasse und damit Dynamik dazu korrelierend
+%\end{itemize}
+Für das hochdimensionale Problem der Parameterfindung der Roboter wird die etablierte Partikel-Schwarm-Optimierung (PSO) eingesetzt, wie in Bild\,\ref{fig:uebersicht} skizziert.
+Zur effizienten Berücksichtigung von Nebenbedingungen werden diese hierarchisch berechnet und normierte Strafterme $s_i$ direkt in der stückweise definierten Fitness-Funktion $f$ eingesetzt.
+Als skalare Zielfunktion $z$ wird der Energieverbrauch des Roboters über eine Referenz-Trajektorie $\bm{x}(t)$ gewählt, was einen direkten Vergleich unterschiedlicher Kinematiken erlaubt.
+Des Weiteren wird eine Korrelation mit anderen Zielfunktionen wie Gesamtmasse des Systems oder der Gleichförmigkeit der Eigenschaften (Konditionszahl der Jacobi-Matrix) erwartet.
+Die hierarchische Eigenschaft wird durch die Bedingung $s_1(\bm{p})>s_2(\bm{p})>\dots>z(\bm{p})$ und eine Normierung umgesetzt.
 
-Formeln sind mit einer fortlaufenden Nummer zu versehen. Die einzelnen Terme einer Gleichung sind unmittelbar vor beziehungsweise nach der Gleichung zu erkl�ren. Bei der Darstellung einzelner Terme ist eine einheitliche Nomenklatur zu verwenden, so dass z. B. zwischen skalaren, vektoriellen und Matrixgr��en eindeutig unterschieden werden
-kann.
-Beispiel einer Gleichung:
-\begin{equation}
-	\frac{dI}{dt} = -\frac{R}{L} \cdot I + \frac{1}{L} \cdot (U-U_{EMF})
-\end{equation}
+\begin{figure*}
+	\centering
+	\input{./Bilder/Optimierung_Uebersicht.pdf_tex}
+	\captionof{figure}{Überblick über die PSO-Optimierung und die Struktur der Fitness-Funktion mit hierarchischen Nebenbedingungen.}
+	\label{fig:uebersicht}
+\end{figure*}
 
-Einheiten sind sie wie folgt anzugeben: $1{,}5\,\textrm{m}$. Latex-Code: \$1\{,\}5\textbackslash ,\textbackslash text\{m\}\$.
+%Neuer Absatz: Kinematik und Dynamik
+%\begin{itemize}
+%\item Generische Ansätze für inverse Dynamik \cite{DoThanhKotHeiOrt2009b,AbdellatifHei2009} bisher explizit nur für klassische PKM definiert, deren Plattform mit Kugelgelenken verbunden ist
+%\item Durch Nutzung von vollständigen Zwangsbedingungen (Position und Orientierung) \cite{Gogu2008,SchapplerTapOrt2019c} einheitlicher Ansatz zum Lösen der inversen Kinematik und der inversen Dynamik möglich.
+%\item Durch die Reduzierung des Rechenaufwands ist die Auswertung vieler Parameterkombinationen möglich
+%\end{itemize}
+
+Zur Bestimmung von Nebenbedingungen wie der Einhaltung der Gelenkwinkelgrenzen ist eine Berechnung der passiven Gelenke und der Plattform-Koppelgelenke notwendig.
+%Eine analytische Elimination der passiven Gelenke ist nicht für alle automatisch synthetisierten Strukturen aus möglich.
+Zusätzlich wird ein effizienter und allgemeingültiger Ansatz für die Dynamik benötigt.
+Der in Bild\,\ref{fig:details_kindyn} dargestellte und im Folgenden skizzierte  Ansatz erfüllt diese Anforderungen.
+
+\section{Einheitliche Kinematik und Dynamik}
+
+\begin{figure*}
+	\centering
+	\input{./Bilder/Details_Kin_Dyn.pdf_tex}
+	\captionof{figure}{Einheitliche Berechnung von inverser Kinematik und inverser Dynamik in der PSO-Fitness-Funktion als Ablaufskizze.}
+	\label{fig:details_kindyn}
+\end{figure*}
+
+Zunächst werden die Gelenkgrößen $\bm{q},\dot{\bm{q}},\ddot{\bm{q}}$ des Roboters mittels der vollständigen \emph{inversen Kinematik} berechnet (linker Block in Bild\,\ref{fig:details_kindyn}).
+Die dafür notwendigen vollständigen kinematischen Zwangsbedingungen (\glqq{}ZB\grqq{}) $\bm{\Phi}$ enthalten für jede Beinkette sowohl den Positions-, als auch den in Euler-Winkeln ausgedrückten Orientierungsfehler \cite{SchapplerTapOrt2019c}.
+Durch Bildung der Gradienten ($\bm{\Phi}_\bm{q}$ und $\bm{\Phi}_\bm{x}$) können mit der vollständigen Jacobi-Matrix $\tilde{\bm{J}}$ neben den aktiven Gelenkkoordinaten $\bm{q}_\mathrm{a}$ auch passive Gelenke und Schnittgelenke der Plattform berechnet werden, die gemeinsam in $\bm{q}$ zusammengefasst sind.
+
+Für die Bestimmung des Energieverbrauchs für eine Referenztrajektorie wird ein allgemeingültiger Ansatz für die \emph{inverse Dynamik} beliebiger paralleler Roboter benötigt.
+Das zu diesem Zweck in \cite{AbdellatifHei2009,DoThanhKotHeiOrt2009b} vorgestellte Prinzip der Energieäquivalenz wird dafür erweitert.
+Zunächst erfolgt die Zerlegung des parallelen Roboters in einzelne Subsysteme (Beinketten und Plattform), in deren jeweiligen Minimalkoordinaten (Gelenk- und Plattformkoordinaten) die Dynamik einzeln nach dem \textsc{Lagrange}schen Formalismus aufgestellt wird (vollständige Massenmatrix $\tilde{\bm{M}}$, Coriolis- und Fliehkraftterme $\tilde{\bm{c}}$, Gravitationsterme $\tilde{\bm{g}}$) \cite{DoThanhKotHeiOrt2009b}.
+Anschließend erfolgt die Projektion der Dynamik in die Minimal-/Plattformkoordinaten $\bm{x}$ des Roboters durch Anwendung des \textsc{D'Alembert}schen Prinzips, woraus die Dynamik-Terme $\bm{M},\bm{c},\bm{g}$ bezogen auf die Plattform resultieren \cite{DoThanhKotHeiOrt2009b,AbdellatifHei2009} (siehe mittlerer Block in Bild\,\ref{fig:details_kindyn}).
+Die Jacobi-Matrix $\tilde{\bm{J}}$ aus der inversen Kinematik kann direkt ohne Neuberechnung für die Dynamik-Projektionsmatrix $\tilde{\bm{R}}$ eingesetzt werden.
+Durch die Verwendung rotatorischer Zwangsbedingungen \cite{SchapplerTapOrt2019c} zusätzlich zu den translatorischen Zwangsbedingungen kann die implizite Annahme aus \cite{AbdellatifHei2009} aufgehoben werden, dass die Beinketten räumlicher Parallelkinematiken in Kugelgelenken enden müssen.
+Diese Bedingung wird z.\,B. von einigen der durch Gosselin et al. \cite{KongGos2007} und Gogu et al. \cite{Gogu2008} erzeugten Roboter nicht erfüllt.
+
+Für die Berechnung der \emph{Energie als Zielfunktion} (rechter Block in Bild\,\ref{fig:details_kindyn}) erfolgt eine Projektion der Dynamik auf die Antriebskräfte $\bm{\tau}_\mathrm{a}$. 
+Für die dafür notwendige Jacobi-Matrix $\bm{J}$ müssen lediglich die entsprechenden Spalten aus $\tilde{\bm{J}}$ gewählt werden.
+Es wird angenommen, dass alle Antriebe ihre Leistung in einem elektrischen Zwischenkreis austauschen können (resultierend zu $P_\mathrm{Kreis}$), was einem zukünftigen Szenario zur Erhöhung der Energieeffizienz entspricht.
+Für die aus dem Netz aufzunehmende Leistung $P_\mathrm{Netz}$ wird die Möglichkeit einer  Rückspeisung ausgeschlossen.
+Aus der aufintegrierten Energie $E_\mathrm{Netz}$ wird durch eine Normierung $f_\mathrm{norm}(\cdot)$ (mittels arctan-Funktion) der Zielfunktionswert $z$ gebildet.
+
+\section{Ergebnisse}
+
+Erste Ergebnisse der Methodik sind beispielhaft in Bild\,\ref{fig:ergebnisse} dargestellt.
+Es wurde eine Optimierung der 6\underline{P}RRS- und  6\underline{R}RRS-Kinematik durchgeführt, wobei das Kugelgelenk (S) einmal beibehalten und einmal durch drei versetzt angeordnete Drehgelenke (RRR) ersetzt wurde, um die allgemeinere Dynamik-Modellierung in der Maßsynthese zu validieren.
+Die der Optimierung zugrunde liegende Aufgabe ist das Abfahren der Eckpunkte eines Würfels mit Kantenlänge $30\,\textrm{mm}$ und Kippwinkeln bis zu $10^\circ$ mit einem Beschleunigungs-Trapez-Profil mit einer Gesamt-Verfahrdauer von ca. $11\,\textrm{s}$.
+
+\begin{figure*}
+\centering
+\input{./Bilder/Optimierung_Ergebnisse.pdf_tex}
+\captionof{figure}{Ergebnisse der Maßsynthese für vier Beispiel-PKM mit Angabe der Zielfunktion $E_\mathrm{Netz}$ und der Parameteranzahl $\mathrm{dim}(\bm{p})$.}
+\label{fig:ergebnisse}
+\end{figure*}
+
+%Durch die Vorgabe einer maximalen Plattform-Geschwindigkeit von $1\,\textrm{m/s}$ bzw. $60^\circ\textrm{/s}$ und -Beschleunigung von $3\,\textrm{m/s}^2$ bzw. $180^\circ\textrm{/s}^2$ und einer Zusatzmasse von $3\,\textrm{kg}$ wird versucht, einen ausreichend großen Einfluss der Dynamik auf das Optimierungsergebnis zu erzielen.
+Die Optimierungsparameter der durchgeführten Maßsynthese sind u.\,a. die Größenskalierung des Roboters, die \textsc{Denavit-Hartenberg}-Parameter der seriellen Beinketten, die Durchmesser von Gestell und Plattform und Morphologieparameter wie Koppelpunktpaarabstand und Neigung des gestellnahen Gelenks.
+%Über die Modellierung der Beinsegmente als Hohlzylinder und der Plattform als Kreisscheibe führt die Veränderung der kinematikbeeinflussenden Parameter
+%Parameter wie Gelenk- und Antriebsauswahl, Stärke von Beinsegmenten und Plattform wurden nicht optimiert sondern in späteren Untersuchungen als Entwurfsoptimierung separat betrachtet.
+%Einfluss auf die Ergebnisse hatten daher nur die Modellierung der Beinsegmente als Hohlzylinder und der Plattform als Kreisscheibe.
+Der PSO-Algorithmus wurde mit 30 Generationen und 70 Individuen parametriert, was angesichts der 15 bis 19 Optimierungsparameter noch gering erscheint.
+Der hohen Dimensionalität wurde durch eine Reduzierung der Abhängigkeiten zwischen Parametern und plausibel gewählten Grenzen begegnet.
 
 
-\subsection{Unterkapitel}
-
-Beispiel f�r ein Unterkapitel.
 
 
-\section{Tabellen}
-Tabellen enthalten ebenso wie Abbildungen eine fortlaufende Nummerierung und werden zentriert eingesetzt. Zudem ist
-jede Tabelle im Text zu erl�utern. \textbf{Tabelle \ref{tab:tabelle1}} stellt ein Beispiel dar.
 
-\begin{table}
-\captionof{table}{Tabellenbeschreibung}
-\label{tab:tabelle1}
-\begin{center}
-\begin{tabular}{c c c}
-\toprule
-\textit{Description 1} & \textit{Description 2} & \textit{Description 3}\\ 
-\toprule %\midrule
-Row 1, Col 1 & Row 1, Col 2 & Row 1, Col 3 \\
-Row 2, Col 1 & Row 2, Col 2 & Row 2, Col 3 \\
-Row 3, Col 1 & Row 3, Col 2 & Row 3, Col 3 \\
-\bottomrule
-\end{tabular}
-\end{center}
-\end{table}
 
-\section{Literaturzitate}
-Literaturzitate sollten entsprechend \cite{literaturpabst2010} in den Text gesetzt werden. Bei mehreren Literaturzitaten kann z.B. als \cite{literaturpabst2010,mueller2011} oder \cite{literaturpabst2010,meyer2009,mueller2011} zitiert werden.
+
+
 
 \section{Zusammenfassung}
 
-Am Ende des Beitrages sollten die wichtigsten Ergebnisse zusammengefasst und eventuell zuk�nftig geplante weitere Untersuchungen skizziert werden.
+In dem Konferenzvortrag werden die Ergebnisse und der Ansatz der Optimierung im Detail und weitere Beispiele vorgestellt.
+%Dafür wird die Optimierung für weitere Kinematiken und längere Optimierungsdauern durchgeführt sowie statistischen Untersuchungen angestrebt.
+Perspektivisch wird auch die Integration der Entwurfsoptimierung von Antriebs- und Segmentdimensionierung und die Behandlung zusätzlicher Nebenbedingungen und Zielfunktionen diskutiert.
 
+%Als weitere Arbeiten sind Plausibilisierungen hinsichtlich Straftermen für Selbstkollisionen und die Reduktion der Optimierungsparameter geplant.
+
+\section{Danksagung}
+
+Die Autoren bedanken sich für die Unterstützung durch die Deutsche Forschungsgemeinschaft (DFG, OR 196/33-1).
 
 \begin{thebibliography}{99}
 
-\bibitem{literaturpabst2010}
-Literaturpabst, J. P:
-\newblock \textit{Ein Literaturbeispiel aus einer Fachzeitschrift}.
-\newblock MECHATRONIK. (2010) 1-2, ISSN 1867-2590, S. 11-22.
+\bibitem{KongGos2007}
+Kong, X.; Gosselin, C.M.:
+\newblock \textit{Type synthesis of parallel mechanisms}.
+\newblock Springer-Verlag Berlin Heidelberg, 2007.
 
-\bibitem{mueller2011}
-M�ller, H.-H (Hrsg.):
-\newblock \textit{Ein Literaturbeispiel aus einem Fachbuch}.
-\newblock Berlin, Heidelberg, New York: H�pfer-Verlag, 2011.
+\bibitem{Gogu2008}
+Gogu, G.:
+\newblock \textit{Structural Synthesis of Parallel Robots, Part 1: Methodology}.
+\newblock Springer Netherlands, 2008.
 
-\bibitem{meyer2009}
-Meyer, B.; M�ller, P.:
-\newblock \textit{Ein Literaturbeispiel aus einem Tagungsbeitrag}.
-\newblock In: Tagung Mechatronik 2009. 2./13. Mai 2009 Wiesloch. VDI Wissensforum D�sseldorf 2009. ISBN 978-3-98-12624-5-2. S. 295-302. 
+\bibitem{AbdellatifHei2009}
+Abdellatif, H. and Heimann, B.:
+\newblock \textit{Computational efficient inverse dynamics of 6-DOF fully parallel manipulators by using the Lagrangian formalism}.
+\newblock Mechanism and Machine Theory 44. (2009), 1, S. 192-207.
+
+
+\bibitem{DoThanhKotHeiOrt2009b}
+Do Thanh, T.; Kotlarski, J.; Heimann, B.; Ortmaier, T.:
+\newblock \textit{On the inverse dynamics problem of general parallel robots}.
+\newblock In: IEEE International Conference on Mechatronics 2009. 14.-17. April 2009 Malaga/Spanien. IEEE 2009. ISBN 978-1-4244-4194-5. S. 1-6. 
+
+\bibitem{SchapplerTapOrt2019c}
+Schappler, M. and Tappe, S. and Ortmaier, T.:
+\newblock \textit{Modeling Parallel Robot Kinematics for 3T2R and 3T3R Tasks Using Reciprocal Sets of Euler Angles}.
+\newblock MDPI Robotics 8, 68 (2019).
 
 \end{thebibliography}
 
