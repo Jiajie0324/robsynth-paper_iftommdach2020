@@ -42,7 +42,7 @@ Set.structures.whitelist = { ...
   'P6RRRRRR10G1P1A1', 'P6RRRRRR10V3G1P1A1', ...
   'P6PRRRRR6G8P1A1', 'P6PRRRRR6V2G8P1A1'};
 % Verschiedene Schwenkwinkel durchgehen
-for maxangle = [0, 5, 10, 20, 30, 45]
+for maxangle = [0, 45, 20, 5, 10, 30]
   % Prüfung mit Begrenzung der Konditionszahl und ohne
   for cond_limit = [1, 0]
     % Einstellungen anpassen
@@ -51,7 +51,7 @@ for maxangle = [0, 5, 10, 20, 30, 45]
     else
       Set.optimization.constraint_obj(4) = 1e12; % Setze auf hohen Wert, damit Kondition trotzdem berechnet wird.
     end
-    Set.optimization.optname = sprintf('IFToMMDACH_Vgl_Winkel%d_KondLim%d', maxangle, cond_limit);
+    Set.optimization.optname = sprintf('IFToMMDACH_Vgl_Winkel%d_KondLim%d_20200124_nachts', maxangle, cond_limit);
     Set.task.maxangle = maxangle*pi/180; 
     Traj = cds_gen_traj(DoF, Traj_no, Set.task);
     cds_start
