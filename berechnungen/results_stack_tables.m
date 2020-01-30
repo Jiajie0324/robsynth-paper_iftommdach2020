@@ -56,9 +56,8 @@ export_fig(1, fullfile(outputdir, sprintf('Materialbeanspruchung_vs_Jacobi.png')
 %% Bild für Anzahl erfolgreicher Parametersätze
 figure(2);clf;hold on;
 I_condlim = contains(ResTab_ges.OptName, 'KondLim1');
-winkel = [0,5,10,20,30,45];
-Winkel_ges = NaN(length(tokens), 1);
 [tokens,~] = regexp(ResTab_ges.OptName,'.*Winkel(\d+).*', 'tokens','match');
+Winkel_ges = NaN(length(ResTab_ges.OptName), 1);
 for i = 1:length(tokens)
   Winkel_ges(i) = str2double(tokens{i}{1});
 end
