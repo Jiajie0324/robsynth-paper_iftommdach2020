@@ -47,8 +47,8 @@ for repno = 1:10
   % Verschiedene Schwenkwinkel durchgehen
   for maxangle = [10, 30, 45]
     % Einstellungen anpassen
-    Set.optimization.optname = sprintf('IFToMMDACH_Vgl_Winkel%d_KondLim%d_20200130_Wdh%d', ...
-      maxangle, cond_limit, repno);
+    Set.optimization.optname = sprintf('IFToMMDACH_Vgl_Winkel%d_20200130_Wdh%d', ...
+      maxangle, repno);
     Set.task.maxangle = maxangle*pi/180; 
     Traj = cds_gen_traj(DoF, Traj_no, Set.task);
     cds_start
