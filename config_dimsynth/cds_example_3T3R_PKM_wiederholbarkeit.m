@@ -28,10 +28,11 @@ Set.optimization.platform_size_limits = [0.3 1];
 Set.optimization.base_morphology = true;
 Set.optimization.platform_morphology = true;
 Set.optimization.movebase = false;
+Set.optimization.constraint_obj(4) = 1e3; % Konditionszahl darf nicht total schlecht sein
 Set.optimization.constraint_link_yieldstrength = 1; % Beachte Materialbeanspruchung
 Set.general.max_retry_bestfitness_reconstruction = 1;
 Set.general.verbosity = 3;
-Set.general.matfile_verbosity = 0;
+Set.general.matfile_verbosity = 3;
 Set.structures.use_serial = false;
 Set.optimization.ee_rotation = false;
 Set.general.parcomp_struct = true;
@@ -42,22 +43,14 @@ Set.structures.whitelist = { ...
   'P6PRRRRR6G8P3A1', 'P6PRRRRR6V2G8P3A1', ...
   'P6RRRRRR10G1P1A1', 'P6RRRRRR10V3G1P1A1'};
 % Optimierung mehrfach wiederholen
-for repno = 1:5
+for repno = 1:10
   % Verschiedene Schwenkwinkel durchgehen
-  for maxangle = [10, 45]
-    % Prüfung mit Begrenzung der Konditionszahl und ohne
-    for cond_limit = [1, 0]
-      % Einstellungen anpassen
-      if cond_limit == 1
-        Set.optimization.constraint_obj(4) = 1e3;
-      else
-        Set.optimization.constraint_obj(4) = 1e12; % Setze auf hohen Wert, damit Kondition trotzdem berechnet wird.
-      end
-      Set.optimization.optname = sprintf('IFToMMDACH_Vgl_Winkel%d_KondLim%d_20200129_Wdh%d', ...
-        maxangle, cond_limit, repno);
-      Set.task.maxangle = maxangle*pi/180; 
-      Traj = cds_gen_traj(DoF, Traj_no, Set.task);
-      cds_start
-    end
+  for maxangle = [10, 30, 45]
+    % Einstellungen anpassen
+    Set.optimization.optname = sprintf('IFToMMDACH_Vgl_Winkel%d_KondLim%d_20200130_Wdh%d', ...
+      maxangle, cond_limit, repno);
+    Set.task.maxangle = maxangle*pi/180; 
+    Traj = cds_gen_traj(DoF, Traj_no, Set.task);
+    cds_start
   end
 end
