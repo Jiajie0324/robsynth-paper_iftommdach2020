@@ -29,7 +29,7 @@ Set.optimization.base_morphology = true;
 Set.optimization.platform_morphology = true;
 Set.optimization.movebase = false;
 Set.optimization.constraint_obj(4) = 1e3; % Konditionszahl darf nicht total schlecht sein
-Set.optimization.constraint_link_yieldstrength = 1; % Beachte Materialbeanspruchung
+Set.optimization.constraint_link_yieldstrength = 1.0; % Beachte Materialbeanspruchung
 Set.general.max_retry_bestfitness_reconstruction = 1;
 Set.general.verbosity = 3;
 Set.general.matfile_verbosity = 3;
@@ -43,11 +43,11 @@ Set.structures.whitelist = { ...
   'P6PRRRRR6G8P3A1', 'P6PRRRRR6V2G8P3A1', ...
   'P6RRRRRR10G1P1A1', 'P6RRRRRR10V3G1P1A1'};
 % Optimierung mehrfach wiederholen
-for repno = 1:10
+for repno = 1:20
   % Verschiedene Schwenkwinkel durchgehen
-  for maxangle = [10, 30, 45]
+  for maxangle = [10]%, 30, 45]
     % Einstellungen anpassen
-    Set.optimization.optname = sprintf('IFToMMDACH_Vgl_Winkel%d_20200130_Wdh%d', ...
+    Set.optimization.optname = sprintf('IFToMMDACH_Vgl_Winkel%d_20200131_nachts_Wdh%d', ...
       maxangle, repno);
     Set.task.maxangle = maxangle*pi/180; 
     Traj = cds_gen_traj(DoF, Traj_no, Set.task);
