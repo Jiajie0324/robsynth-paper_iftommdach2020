@@ -6,7 +6,7 @@
 
 % Packages
 \usepackage{mathptmx} % Times Schriftart (auch in der Math-Umgebung)
-\usepackage{ngerman,bibgerm}
+%\usepackage{nenglish} %ngerman,bibgerm
 \usepackage[utf8]{inputenc} % Deutsche Sonderzeichen/Umlaute gestatten
 \usepackage[T1]{fontenc}
 \usepackage[nooneline,bf,figurename=Bild,labelsep=quad,font=small]{caption} % Bildunterschrift linksbündig
@@ -170,7 +170,7 @@ Der in Bild\,\ref{fig:details_kindyn} dargestellte und im Folgenden skizzierte  
 \end{figure*}
 
 Zunächst werden die Gelenkgrößen $\bm{q},\dot{\bm{q}},\ddot{\bm{q}}$ des Roboters mittels der vollständigen \emph{inversen Kinematik} berechnet (linker Block in Bild\,\ref{fig:details_kindyn}).
-Die dafür notwendigen vollständigen kinematischen Zwangsbedingungen (\glqq{}ZB\grqq{}) $\bm{\Phi}$ enthalten für jede Beinkette sowohl den Positions-, als auch den in Euler-Winkeln ausgedrückten Orientierungsfehler \cite{SchapplerTapOrt2019c}.
+Die dafür notwendigen vollständigen kinematischen Zwangsbedingungen (``ZB'') $\bm{\Phi}$ enthalten für jede Beinkette sowohl den Positions-, als auch den in Euler-Winkeln ausgedrückten Orientierungsfehler \cite{SchapplerTapOrt2019c}.
 Durch Bildung der Gradienten ($\bm{\Phi}_\bm{q}$ und $\bm{\Phi}_\bm{x}$) können mit der vollständigen Jacobi-Matrix $\tilde{\bm{J}}$ neben den aktiven Gelenkkoordinaten $\bm{q}_\mathrm{a}$ auch passive Gelenke und Schnittgelenke der Plattform berechnet werden, die gemeinsam in $\bm{q}$ zusammengefasst sind.
 
 Für die Bestimmung des Energieverbrauchs für eine Referenztrajektorie wird ein allgemeingültiger Ansatz für die \emph{inverse Dynamik} beliebiger paralleler Roboter benötigt.
@@ -228,36 +228,8 @@ Perspektivisch wird auch die Integration der Entwurfsoptimierung von Antriebs- u
 
 Die Autoren bedanken sich für die Unterstützung durch die Deutsche Forschungsgemeinschaft (DFG, OR 196/33-1).
 
-\begin{thebibliography}{99}
-
-\bibitem{KongGos2007}
-Kong, X.; Gosselin, C.M.:
-\newblock \textit{Type synthesis of parallel mechanisms}.
-\newblock Springer-Verlag Berlin Heidelberg, 2007.
-
-\bibitem{Gogu2008}
-Gogu, G.:
-\newblock \textit{Structural Synthesis of Parallel Robots, Part 1: Methodology}.
-\newblock Springer Netherlands, 2008.
-
-\bibitem{AbdellatifHei2009}
-Abdellatif, H. and Heimann, B.:
-\newblock \textit{Computational efficient inverse dynamics of 6-DOF fully parallel manipulators by using the Lagrangian formalism}.
-\newblock Mechanism and Machine Theory 44. (2009), 1, S. 192-207.
-
-
-\bibitem{DoThanhKotHeiOrt2009b}
-Do Thanh, T.; Kotlarski, J.; Heimann, B.; Ortmaier, T.:
-\newblock \textit{On the inverse dynamics problem of general parallel robots}.
-\newblock In: IEEE International Conference on Mechatronics 2009. 14.-17. April 2009 Malaga/Spanien. IEEE 2009. ISBN 978-1-4244-4194-5. S. 1-6. 
-
-\bibitem{SchapplerTapOrt2019c}
-Schappler, M. and Tappe, S. and Ortmaier, T.:
-\newblock \textit{Modeling Parallel Robot Kinematics for 3T2R and 3T3R Tasks Using Reciprocal Sets of Euler Angles}.
-\newblock MDPI Robotics 8, 68 (2019).
-
-\end{thebibliography}
-
+\bibliographystyle{spmpsci_unsrt}
+\bibliography{literatur}
 
 \clearpage  % Verhindert automatischen Umbruch auf der letzten Seite. Bei Bedarf entfernen.
 
