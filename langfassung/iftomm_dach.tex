@@ -18,9 +18,11 @@
 \usepackage{multicol}
 
 \usepackage{amsmath} % Zur Abbildung mathematischer Symbole und Formeln
-\usepackage{amssymb} 
+\usepackage{amssymb}
 \newcommand{\bm}[1]{\mathbf{#1}}
 \renewcommand{\Phi}[1]{\varPhi{#1}}
+\newcommand{\rotmat}[2]{{{ }^{#1}\bm{R}}_{#2}}
+\newcommand{\ortvek}[4]{{ }_{(#1)}{\bm{#2}}^{#3}_{#4} }
 \newcommand{\transp}[0]{{\mathrm{T}}}
 \usepackage[fleqn]{nccmath} % Ausrichtung von Gleichungen
 
@@ -112,15 +114,22 @@ Moritz Schappler, Prof. Dr.-Ing. Tobias Ortmaier, Leibniz Universität Hannover,
 
 \foreignlanguage{german}{
 \begin{myabstract} Kurzfassung \end{myabstract}
-Hier steht auf Deutsch in maximal 10 Zeilen, warum der geneigte Leser sich unbedingt mit diesem Beitrag befassen sollte. Hier steht in maximal 10 Zeilen, warum der geneigte Leser sich unbedingt mit diesem Beitrag befassen sollte. Hier steht in maximal 10 Zeilen, warum der geneigte Leser sich unbedingt mit diesem Beitrag befassen sollte. Hier steht in maximal 10 Zeilen, warum der geneigte Leser sich unbedingt mit diesem Beitrag befassen sollte. Hier steht in maximal 10 Zeilen, warum der geneigte Leser sich unbedingt mit diesem Beitrag befassen sollte. Hier steht in maximal 10 Zeilen, warum der geneigte Leser sich unbedingt mit diesem Beitrag befassen sollte. Hier steht in maximal 10 Zeilen, warum der geneigte Leser sich unbedingt mit diesem Beitrag befassen sollte. Hier steht in maximal 10 Zeilen, warum der geneigte Leser sich unbedingt mit diesem Beitrag befassen sollte. Hier steht in maximal 10 Zeilen, warum der geneigte Leser sich unbedingt mit diesem Beitrag befassen sollte. Hier steht in maximal 10 Zeilen, warum der geneigte Leser sich unbedingt mit diesem Beitrag befassen sollte.}
+Durch systematische Struktursynthese wurden bislang eine Vielzahl unterschiedlicher Parallelkinematiken (PKM) beschrieben. 
+Um die passendste Roboterkinematik für eine gegebene Aufgabe zu finden, ist eine effiziente und allgemeingültige Auswahlsystematik erforderlich. 
+Für einfache Systeme mit mehrwertigen Gelenken wie die Gough-Stewart-PKM liegen bereits Modellierungs- und Optimierungsverfahren vor. 
+Für komplexere Strukturen mit mehr einwertigen Gelenken ist die Auswahl an Verfahren eingeschränkter. 
+Der vorliegende Beitrag führt allgemeine Ansätze für die Modellierung der Kinematik und Dynamik zusammen, um eine für die Maßsynthese von PKM besonders effiziente Struktur zu erhalten.}
 
 
 \vspace{12pt} % Bitte nicht entfernen.
 
 
 \begin{myabstract} Abstract \end{myabstract}
-Please explain in English at most in 10 lines, why anybody should spend his time reading your complete article. Please explain in English at most in 10 lines, why anybody should spend his time reading your complete article. Please explain in English at most in 10 lines, why anybody should spend his time reading your complete article. Please explain in English at most in 10 lines, why anybody should spend his time reading your complete article. Please explain in English at most in 10 lines, why anybody should spend his time reading your complete article. Please explain in English at most in 10 lines, why anybody should spend his time reading your complete article. Please explain in English at most in 10 lines, why anybody should spend his time reading your complete article. Please explain in English at most in 10 lines, why anybody should spend his time reading your complete article. Please explain in English at most in 10 lines, why anybody should spend his time reading your complete article. Please explain in English at most in 10 lines, why anybody should spend his time reading your complete article.
-
+A variety of different structures for parallel kinematic machines (PKM) have been found by means of systematic structural synthesis.
+To find the structure that is suited best for a specific task an efficient and generic selection method is necessary.
+For simple structures with multi-degree-of-freedom joints like the Gough-Stewart-robot methods for modeling and dimensional optimization are well established.
+For more complex structures with single-degree-of-freedom joints less methods are available.
+This contribution combines general approaches for the modeling of the kinematics and dynamics of parallel robots to obtain an especially efficient structure for the dimensional synthesis of PKM.
 
 \vspace{18pt} % Bitte nicht entfernen.
 
@@ -129,12 +138,42 @@ Please explain in English at most in 10 lines, why anybody should spend his time
 
 \section{Introduction}
 
-Die Struktursynthese paralleler Roboter hat durch die systematische Nutzung der Schraubentheorie \cite{KongGos2007} und der evolutionären Morphologie \cite{Gogu2008} eine Vielzahl neuer Parallelkinematiken hervorgebracht, für die Großteils noch keine praktische Anwendung gefunden wurde.
-Um für gegebene Anforderungen an einen Roboter den bestgeeignetsten auszuwählen, ist eine automatische Auslegung (Maßsynthese) notwendig, die für die Vielzahl verfügbarer Kinematiken anwendbar ist.
-Der vorliegende Beitrag behandelt eine allgemeine Methodik für die Maßsynthese paralleler Kinematiken unter Ausnutzung struktureller Eigenschaften von Kinematik und Dynamik sowie der effizienten Strukturierung des Optimierungsproblems.
+\begin{itemize}
+\item Die Struktursynthese paralleler Roboter hat durch die systematische Nutzung der Schraubentheorie \cite{KongGos2007} und der evolutionären Morphologie \cite{Gogu2008} eine Vielzahl neuer Parallelkinematiken hervorgebracht, für die Großteils noch keine praktische Anwendung gefunden wurde.
+\item Um für gegebene Anforderungen an einen Roboter den bestgeeignetsten auszuwählen, ist eine automatische Auslegung (Maßsynthese) notwendig, die für die Vielzahl verfügbarer Kinematiken anwendbar ist.
+\item Der vorliegende Beitrag behandelt eine allgemeine Methodik für die Maßsynthese paralleler Kinematiken unter Ausnutzung struktureller Eigenschaften von Kinematik und Dynamik sowie der effizienten Strukturierung des Optimierungsproblems.
+\item Maßsynthese paralleler Roboter großer Schwerpunkt in den 2000er Jahren [Quellen]
+\item Bisher hauptsächlich Fokus auf Klassischen PKM mit mehrwertigen Gelenken und wenigen Gliedern [Quellen]
+\item Keine systematische Berücksichtigung der Schnittkräfte mittels analytischer Modelle, nur mit FEM [Quellen]
+\end{itemize}
 
+Quellen (z.B.)
+\cite{JamwalHusXie2015}
+\cite{Krefft2006}
+\cite{CarboneOttCec2007}
+\cite{ZhouBaiHan2011}
+
+Einschränkungen Stand der Technik
+\begin{itemize}
+\item Modellierung häufig nicht generisch sondern an zu optimierenden Roboter angepasst
+\item mehrkriterielle Optimierung relativ aufwändig
+\end{itemize}
+
+Beiträge des Papers
+\begin{itemize}
+\item Anwendung der allgemeinen PKM-Modellierung auf nicht-konventionelle PKM
+\item Vorschlag einer effizienten Optimierungsstruktur für die Maßsynthese von PKM
+\item Beispiele und simulative Validierung des Verfahrens
+\end{itemize}
+
+Gliederung
+\ref{sec:sysmdl}
+\ref{sec:opti}
+\ref{sec:results}
+\ref{sec:summary}
 
 \section{System Description and Model}
+\label{sec:sysmdl}
 
 \begin{itemize}
 \item Paralleler Roboter mit 6 FG, Plattform-Pose $\bm{x}$, translatorischer und rotatorischer Teil mit Euler-Winkeln
@@ -147,9 +186,68 @@ Der vorliegende Beitrag behandelt eine allgemeine Methodik für die Maßsynthese
 \subsection{Full Kinematic Constraints}
 
 
-Zunächst werden die Gelenkgrößen $\bm{q},\dot{\bm{q}},\ddot{\bm{q}}$ des Roboters mittels der vollständigen \emph{inversen Kinematik} berechnet (linker Block in Bild\,\ref{fig:details_kindyn}).
-Die dafür notwendigen vollständigen kinematischen Zwangsbedingungen (``ZB'') $\bm{\Phi}$ enthalten für jede Beinkette sowohl den Positions-, als auch den in Euler-Winkeln ausgedrückten Orientierungsfehler \cite{SchapplerTapOrt2019c}.
-Durch Bildung der Gradienten ($\bm{\Phi}_\bm{q}$ und $\bm{\Phi}_\bm{x}$) können mit der vollständigen Jacobi-Matrix $\tilde{\bm{J}}$ neben den aktiven Gelenkkoordinaten $\bm{q}_\mathrm{a}$ auch passive Gelenke und Schnittgelenke der Plattform berechnet werden, die gemeinsam in $\bm{q}$ zusammengefasst sind.
+
+\begin{itemize}
+\item Zunächst werden die Gelenkgrößen $\bm{q},\dot{\bm{q}},\ddot{\bm{q}}$ des Roboters mittels der vollständigen \emph{inversen Kinematik} berechnet (linker Block in Bild\,\ref{fig:details_kindyn}).
+\item Die dafür notwendigen vollständigen kinematischen Zwangsbedingungen (``ZB'') $\bm{\Phi}$ enthalten für jede Beinkette sowohl den Positions-, als auch den in Euler-Winkeln ausgedrückten Orientierungsfehler \cite{SchapplerTapOrt2019c}.
+\item Definition der ZB mit Formeln
+\item Durch Bildung der Gradienten ($\bm{\Phi}_\bm{q}$ und $\bm{\Phi}_\bm{x}$) können mit der vollständigen Jacobi-Matrix $\tilde{\bm{J}}$ neben den aktiven Gelenkkoordinaten $\bm{q}_\mathrm{a}$ auch passive Gelenke und Schnittgelenke der Plattform berechnet werden, die gemeinsam in $\bm{q}$ zusammengefasst sind.
+\end{itemize}
+
+
+%
+\begin{equation}
+\bm{\Phi}_{\mathrm{t},i}(\bm{q}_i,\bm{x}) = - \bm{r}_{A_iB_i}(\bm{x}) + \bm{r}_{A_iB_i}(\bm{q}_i)
+\label{equ:kinconstrAB}
+\end{equation}
+%
+
+\begin{align}
+\bm{\Phi}_{\mathrm{r},i}(\bm{q}_i,\bm{x})
+=
+\bm{\alpha}\left(\rotmat{0}{D}^\transp (\bm{x}_{\mathrm{r}})\rotmat{0}{E}(\bm{q}_i)\right),
+\label{equ:Phir_def_i}
+\end{align}
+
+\begin{equation}
+\bm{\Phi}_i=\begin{bmatrix}
+\bm{\Phi}_{\mathrm{t},i}^\transp & \bm{\Phi}_{\mathrm{r},i}^\transp
+\end{bmatrix}^\transp,
+\label{equ:Phi_def}
+\end{equation}
+
+\begin{equation}
+\bm{\Phi}
+=
+\begin{bmatrix}
+\bm{\Phi}_1^\transp &
+\bm{\Phi}_2^\transp &
+\cdots &
+\bm{\Phi}_m^\transp
+\end{bmatrix}^\transp.
+\label{equ:constr_Phi_PKM}
+\end{equation}
+
+%
+
+\begin{equation}
+\tilde{\bm{J}}^{-1}=-\bm{\Phi}_{\bm{q}}^{-1} \bm{\Phi}_{\bm{x}}
+\end{equation}
+
+\begin{equation}
+\bm{J}^{-1}=\bm{P}_{\mathrm{a}} \tilde{\bm{J}}^{-1}
+\end{equation}
+
+\begin{equation}
+\dot{\bm{q}}=\tilde{\bm{J}}^{-1}\dot{\bm{x}}, \quad \ddot{\bm{q}}=\tilde{\bm{J}}^{-1}\ddot{\bm{x}}+\dot{\tilde{\bm{J}}}^{-1}\dot{\bm{x}}
+\end{equation}
+
+für $k=1,...,n_t$ (Trajektorie)
+
+\begin{equation}
+\bm{q}_{k+1}=\bm{q}_k+\dot{\bm{q}}_k \Delta t+\frac{1}{2}\ddot{\bm{q}}_k\Delta t^2
+\end{equation}
+
 
 \subsection{Unified Kinematics and Dynamics}
 
@@ -170,15 +268,84 @@ Durch die Verwendung rotatorischer Zwangsbedingungen \cite{SchapplerTapOrt2019c}
 Diese Bedingung wird z.\,B. von einigen der durch Gosselin et al. \cite{KongGos2007} und Gogu et al. \cite{Gogu2008} erzeugten Roboter nicht erfüllt.
 
 
+\begin{equation}
+\tilde{\bm{M}}, \tilde{\bm{c}}, \tilde{\bm{g}}
+\end{equation}
+
+\begin{equation}
+\tilde{\bm{R}}^\transp=\left(\tilde{\bm{J}}^{-\transp},\bm{1}\right)
+\end{equation}
+
+\begin{equation}
+\bm{M}=\tilde{\bm{R}}^\transp\tilde{\bm{M}}\tilde{\bm{R}}, \quad \bm{g}=\tilde{\bm{R}}^\transp\tilde{\bm{g}}
+\end{equation}
+
+
+\begin{equation}
+\bm{c}=\tilde{\bm{R}}^\transp (\tilde{\bm{M}}\dot{\tilde{\bm{R}}}\dot{\bm{x}}+\tilde{\bm{c}})
+\end{equation}
+
+\begin{equation}
+\bm{\tau}_\mathrm{a}=\bm{J}^{-\transp} (\bm{M}\ddot{\bm{x}}+\bm{c}+\bm{g})
+\end{equation}
+
+
+
 \subsection{Internal Forces in Parallel Robots Legs}
 
+\cite{KhalilGue2004}
+
+\begin{equation}
+\bm{w}_{i,\mathrm{int}}=\bm{w}_{i,\mathrm{int}}(\bm{q}_i,\dot{\bm{q}}_i,\ddot{\bm{q}}_i)
+\end{equation} % =\begin{pmatrix}\bm{w}_{i,\mathrm{int},0}^\transp & \cdots & \bm{w}_{i,\mathrm{int},n_i}^\transp\end{pmatrix}^\transp
+
+\begin{equation}
+\bm{\tau}_i
+=\bm{M}_i \ddot{\bm{q}}_i + \bm{c}_i + \bm{g}_i
+=\bm{\tau}_{\mathrm{m},i} + \bm{J}_{i}^{\transp} \bm{w}_{B_i}
+\end{equation}
+
+\begin{equation}
+\bm{w}_{B_i}=\bm{J}_{i}^{-\transp} (\bm{\tau}_i - \bm{\tau}_{\mathrm{m},i})
+\end{equation}
+
+\begin{equation}
+\bm{w}_{i,\mathrm{coupl}}=\bm{J}_{i,\mathrm{full}}^{\transp} \bm{w}_{B_i}
+\end{equation}
+
+
+\begin{equation}
+\bm{w}_{i} = -\bm{w}_{i,\mathrm{coupl}} + \bm{w}_{i,int}
+\end{equation}
+
+
 \section{Optimization}
+\label{sec:opti}
 
 \subsection{Formulation of the Problem}
 
 \subsection{Definition of Parameters}
 
 \subsection{Objective Function}
+
+
+\begin{equation}
+P_{\mathrm{Kreis}}=\bm{\tau}_\mathrm{a}^\transp \dot{\bm{q}}_\mathrm{a}
+\end{equation}
+
+
+\begin{equation}
+P_{\mathrm{Netz}}=\left\{\begin{array}{ll} P_{\mathrm{Kreis}}, & P_{\mathrm{Kreis}}>0 \\0, & \mathrm{sonst}\end{array}\right.
+\end{equation}
+
+\begin{equation}
+E_{\mathrm{Netz}}=\int{} P_{\mathrm{Netz}}
+\end{equation}
+
+
+\begin{equation}
+z=f_\mathrm{norm}(E_{\mathrm{Netz}})
+\end{equation}
 
 Für die Berechnung der \emph{Energie als Zielfunktion} (rechter Block in Bild\,\ref{fig:details_kindyn}) erfolgt eine Projektion der Dynamik auf die Antriebskräfte $\bm{\tau}_\mathrm{a}$. 
 Für die dafür notwendige Jacobi-Matrix $\bm{J}$ müssen lediglich die entsprechenden Spalten aus $\tilde{\bm{J}}$ gewählt werden.
@@ -191,8 +358,45 @@ Aus der aufintegrierten Energie $E_\mathrm{Netz}$ wird durch eine Normierung $f_
 
 \subsubsection{Geometric Feasibility}
 
+\subsubsection{Inverse Kinematics of Points and Trajectory}
 
-\subsection{Simulation Results}
+\subsubsection{Joint Limits: Range, Velocity, Configuration}
+
+Joint range
+
+
+
+Joint speed
+
+\begin{equation}
+f_{\mathrm{jspeed},k} = \max\limits_{t}(\dot{q}_k(t)) / \dot{q}_{k,\mathrm{max}}
+\end{equation}
+\begin{equation}
+p_{\mathrm{jspeed}} = f_\mathrm{Norm}(\max\limits_{k} f_{\mathrm{jspeed},k}-1)
+\end{equation}
+\subsubsection{Condition Number of the Jacobian}
+
+\begin{equation}
+p_{\mathrm{cond}} = f_\mathrm{Norm}(\mathrm{log}(\max\limits_{t}( \mathrm{cond}(\bm{J}(t))))/k_{\mathrm{cond}})
+\end{equation}
+
+\subsubsection{Material Stress from Internal Forces}
+
+\begin{itemize}
+\item Schnittkräfte und -momente $\bm{w}_{i}$ werden benutzt, um Materialspannung $\sigma_ij$ für alle Segmente $j$ der Beinkette zu berechnen
+\item Modell: Hohlzylinder
+\end{itemize}
+
+\begin{equation}
+f_\mathrm{stress} = \max\limits_{i,j} \frac{\sigma_{i,j}}{\sigma_{i,j,\mathrm{max}}} % \max\limits_{i \in \{1,..m\}} \max\limits_{j \in \{1,..n_i\}}
+\end{equation}
+
+\begin{equation}
+p_{\mathrm{stress}} = f_\mathrm{Norm}(f_\mathrm{stress}-1)
+\end{equation}
+
+\section{Simulation Results}
+\label{sec:results}
 
 Erste Ergebnisse der Methodik sind beispielhaft in Bild\,\ref{fig:ergebnisse} dargestellt.
 Es wurde eine Optimierung der 6\underline{P}RRS- und  6\underline{R}RRS-Kinematik durchgeführt, wobei das Kugelgelenk (S) einmal beibehalten und einmal durch drei versetzt angeordnete Drehgelenke (RRR) ersetzt wurde, um die allgemeinere Dynamik-Modellierung in der Maßsynthese zu validieren.
@@ -219,13 +423,13 @@ Der hohen Dimensionalität wurde durch eine Reduzierung der Abhängigkeiten zwis
 
 
 
-\subsubsection{Scenario}
+\subsection{Scenario}
 
-\subsubsection{Convergence and Distribution}
+\subsection{Convergence and Distribution}
 
-\subsubsection{Evaluation of Condition and Material Stress}
+\subsection{Evaluation of Condition and Material Stress}
 
-\subsubsection{Evaluation of Condition and Pivoting Angles}
+\subsection{Evaluation of Condition and Pivoting Angles}
 
 %Neuer Absatz: Detail zu Optimierung
 %\begin{itemize}
@@ -260,6 +464,7 @@ Der in Bild\,\ref{fig:details_kindyn} dargestellte und im Folgenden skizzierte  
 
 
 \section{Summary}
+\label{sec:summary}
 
 In dem Konferenzvortrag werden die Ergebnisse und der Ansatz der Optimierung im Detail und weitere Beispiele vorgestellt.
 %Dafür wird die Optimierung für weitere Kinematiken und längere Optimierungsdauern durchgeführt sowie statistischen Untersuchungen angestrebt.
@@ -274,7 +479,7 @@ Die Autoren bedanken sich für die Unterstützung durch die Deutsche Forschungsg
 \bibliographystyle{spmpsci_unsrt}
 \bibliography{literatur}
 
-\clearpage  % Verhindert automatischen Umbruch auf der letzten Seite. Bei Bedarf entfernen.
+%\clearpage  % Verhindert automatischen Umbruch auf der letzten Seite. Bei Bedarf entfernen.
 
 
 \end{multicols}
