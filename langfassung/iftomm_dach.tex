@@ -24,6 +24,7 @@
 \newcommand{\rotmat}[2]{{{ }^{#1}\bm{R}}_{#2}}
 \newcommand{\ortvek}[4]{{ }_{(#1)}{\bm{#2}}^{#3}_{#4} }
 \newcommand{\transp}[0]{{\mathrm{T}}}
+\newcommand{\ks}[1]{{(\mathrm{CS})}_{#1}}
 \usepackage[fleqn]{nccmath} % Ausrichtung von Gleichungen
 
 \usepackage{graphicx}
@@ -175,6 +176,16 @@ Gliederung
 \section{System Description and Model}
 \label{sec:sysmdl}
 
+\cite{BriotKha2015}
+
+\begin{figure}
+\graphicspath{{./Bilder/}}
+\centering
+\input{Bilder/PKM_Kinematik.pdf_tex}
+\captionof{figure}{Sketch of the kinematics of the PKM.}
+\label{fig:PKM_kinematics}
+\end{figure}
+
 \begin{itemize}
 \item Paralleler Roboter mit 6 FG, Plattform-Pose $\bm{x}$, translatorischer und rotatorischer Teil mit Euler-Winkeln
 \item $m$ Beinketten mit den Gelenkwinkeln $\bm{q}_1$, ..., $\bm{q}_m$ jeweils mit allen aktiven und passiven Gelenken inklusive der Koppelgelenke mit der Plattform
@@ -182,6 +193,9 @@ Gliederung
 \item Schließung der kinematischen ZB über Zwangsbedingungen $\bm{\Phi}$ für gesamte PKM
 %\item Lösung des IKP für jede Beinkette einzeln. 
 \end{itemize}
+
+
+$\bm{q}_i=(q_{i,1},\cdots,q_{i,n_i})^\transp$
 
 \subsection{Full Kinematic Constraints}
 
