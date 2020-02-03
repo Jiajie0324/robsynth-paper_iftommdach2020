@@ -57,8 +57,27 @@ ylabel('Materialbeanspruchung in Prozent');
 grid on;
 saveas(1,     fullfile(outputdir, sprintf('Materialbeanspruchung_vs_Jacobi')));
 export_fig(1, fullfile(outputdir, sprintf('Materialbeanspruchung_vs_Jacobi.png')));
-%% Bild für Anzahl erfolgreicher Parametersätze
+
+%% Bild für Energie und Konditionszahl
 figure(2);clf;hold on;
+
+% I_condlim = contains(ResTab_ges.OptName, 'KondLim1');
+for i = 1:length(Robots)
+  RobName = Robots{i};
+  I_Robi = strcmp(ResTab_ges.Name, RobName);
+  I = I_Robi;%&I_condlim;
+  plot(ResTab_ges.Kondition_phys(I), ResTab_ges.Energie_phys(I), 'x');
+end
+% ylim([0,200]);
+legend(Robots);
+xlabel('Konditionszahl Jacobi');
+ylabel('Energie in J');
+grid on;
+saveas(2,     fullfile(outputdir, sprintf('Energie_vs_Jacobi')));
+export_fig(2, fullfile(outputdir, sprintf('Energie_vs_Jacobi.png')));
+
+%% Bild für Anzahl erfolgreicher Parametersätze
+figure(3);clf;hold on;
 % I_condlim = contains(ResTab_ges.OptName, 'KondLim1');
 [tokens,~] = regexp(ResTab_ges.OptName,'.*Winkel(\d+).*', 'tokens','match');
 Winkel_ges = NaN(length(ResTab_ges.OptName), 1);
@@ -76,13 +95,29 @@ legend(Robots);
 xlabel('Neigungswinkel');
 ylabel('Erfolgreiche Partikel (in Prozent)');
 grid on;
-saveas(2,     fullfile(outputdir, sprintf('Vergleich_Anteil_Erfolgreich')));
-export_fig(2, fullfile(outputdir, sprintf('Vergleich_Anteil_Erfolgreich.png')));
+saveas(3,     fullfile(outputdir, sprintf('Vergleich_Anteil_Erfolgreich')));
+export_fig(3, fullfile(outputdir, sprintf('Vergleich_Anteil_Erfolgreich.png')));
 
 %% Bild für Kinematikparameter
-
+figure(4);clf;
 for i = 1:length(Robots)
-  
-  
-  
+  RobName = Robots{i};
+  % Alle Ergebnisse laden
+  I_Robi = strcmp(ResTab_ges.Name, RobName);
+  pval_robi_norm = [];
+  for j = find(I_Robi)'
+    OptName_j = ResTab_ges.OptName{j};
+    robnr = ResTab_ges.LfdNr(j);
+    resfile_j = fullfile(importdir, OptName_j, sprintf('Rob%d_%s_Endergebnis.mat', robnr, RobName));
+    tmp = load(resfile_j, 'RobotOptRes', 'Set', 'Traj', 'PSO_Detail_Data');
+    pval_robi_norm = [pval_robi_norm;(tmp.RobotOptRes.p_val-tmp.RobotOptRes.p_limits(:,1)')./...
+      diff(tmp.RobotOptRes.p_limits')]; %#ok<AGROW>
+  end
+  subplot(2,2,i);hold on;
+  plot(pval_robi_norm');
+  title(sprintf('Parameterverlauf für Rob %d (%s)', i, RobName));
+  ylabel('Parameterwert (normiert)');
+  xlabel('Parameter lfd Nummer');
+  fprintf('Roboter %s; Parameter:\n', RobName);
+  disp(tmp.RobotOptRes.Structure.varnames);
 end
