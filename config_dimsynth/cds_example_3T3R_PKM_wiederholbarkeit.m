@@ -6,7 +6,9 @@
 
 clc
 clear
-
+% serroblib_create_template_functions({'S6PRRRRR6', 'S6PRRRRR6V2', 'S6RRRRRR10', 'S6RRRRRR10V3'}, false, true);
+% mex_all_matlabfcn_in_dir('/home/schappler/IMES/REPO/robotersynthese/serrob_mdlbib/mdl_6dof/S6RRRRRR10/hd');
+% mex_all_matlabfcn_in_dir('/home/schappler/IMES/REPO/robotersynthese/serrob_mdlbib/mdl_6dof/S6PRRRRR6/hd');
 % Aufgaben-FG
 DoF = [1 1 1 1 1 1];
 Traj_no = 1;
@@ -43,11 +45,11 @@ Set.structures.whitelist = { ...
   'P6PRRRRR6G8P3A1', 'P6PRRRRR6V2G8P3A1', ...
   'P6RRRRRR10G1P1A1', 'P6RRRRRR10V3G1P1A1'};
 % Optimierung mehrfach wiederholen
-for repno = 1:20
+for repno = 1:5
   % Verschiedene Schwenkwinkel durchgehen
-  for maxangle = [10]%, 30, 45]
+  for maxangle = [60, 30, 45]
     % Einstellungen anpassen
-    Set.optimization.optname = sprintf('IFToMMDACH_Vgl_Winkel%d_20200131_nachts_Wdh%d', ...
+    Set.optimization.optname = sprintf('IFToMMDACH_Vgl_Winkel%d_20200203_nachts_Wdh%d', ...
       maxangle, repno);
     Set.task.maxangle = maxangle*pi/180; 
     Traj = cds_gen_traj(DoF, Traj_no, Set.task);
