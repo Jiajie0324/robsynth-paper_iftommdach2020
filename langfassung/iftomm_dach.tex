@@ -283,6 +283,8 @@ To extract only velocity of the actuated joints $\dot{\bm{q}}_\mathrm{a}$, the c
 %
 \begin{equation}
 \bm{J}^{-1}=\bm{P}_{\mathrm{a}} \tilde{\bm{J}}^{-1}
+\quad \mathrm{and} \quad
+\bm{q}_{\mathrm{a}} = \bm{P}_{\mathrm{a}} \bm{q}
 \label{equ:jacobian_actuation}
 \end{equation}
 %
@@ -294,8 +296,8 @@ The joint accelerations can be obtained by differential calculus to
 \label{equ:acceleration_jacobian}
 \end{equation}
 %
-The nonlinear terms $\bm{\Phi}_{\bm{q}}$ and $\bm{\Phi}_{\bm{x}}$ can be calculated symbolically as described in \cite{SchapplerTapOrt2019c}.
-The inversion of the $36 \times 36$-matrix should be performed numerically.
+The nonlinear terms $\bm{\Phi}_{\bm{q}}$ and $\bm{\Phi}_{\bm{x}}$ can be partially  calculated in analytic form, as described in \cite{SchapplerTapOrt2019c}.
+The inversion of the $36 \times 36$-matrix $\bm{\Phi}_{\bm{q}}$ (in the full-mobility case) should be performed numerically.
 The derivatives of the terms required for (\ref{equ:acceleration_jacobian}) can also be calculated symbolically.
 
 For an efficient calculation of the whole trajectory of the platform for time steps $t=k \Delta t$ with $k=1,...,n_t$, the kinematic relation
@@ -373,25 +375,51 @@ The actuator force for the calculation of the power consumption of the parallel 
 \label{equ:actforce}
 \end{equation}
 
-
+Using \textsc{D'Alembert}'s principle (``virtual work''), as proposed in \cite{DoThanhKotHeiOrt2009b} requires the definition of kinematic constraints at the position level, which demands some additional efforts for the orientation \cite{SchapplerTapOrt2019c}.
+By defining the constraints on velocity level \cite{Gogu2008}, the calculation of the Jacobian is simplified by being able to use angular velocities and corresponding geometric Jacobians instead of Euler angles and their gradient matrices.
+The dynamics are then effectively obtained with \textsc{Jourdain}'s principle (``virtual power''), leading to the same result.
 
 \subsection{Internal Forces in Parallel Robots Legs}
 
-\cite{KhalilGue2004}
+For an evaluation of the mechanical stress in the structure of the parallel robots legs, the internal forces and moments have to be known.
+The projection-based dynamics does not produce cutting forces, since they do not perform work.
+Using the Newton-Euler algorithm would provide these forces, but requires setting up a system of equations, which may be less generic than the projection approach.
 
+The internal forces can be reconstructed by adapting the procedure presented in \cite{KhalilGue2004}.
+
+
+\begin{figure}
+\graphicspath{{./Bilder/}}
+\centering
+\input{./Bilder/PKM_internal_forces.pdf_tex}
+\captionof{figure}{Internal forces in the leg chains of the parallel robot}
+\label{fig:PKM_internal_forces}
+\end{figure}
+
+With the known joint velocity $\dot{\bm{q}}_i$ and acceleration $\ddot{\bm{q}}_i$ from (\ref{equ:jacobian}) and (\ref{equ:acceleration_jacobian}) for all active and passive joints of the leg chain $i$, the internal forces
+%
 \begin{equation}
 \bm{w}_{i,\mathrm{int}}=\bm{w}_{i,\mathrm{int}}(\bm{q}_i,\dot{\bm{q}}_i,\ddot{\bm{q}}_i)
 \end{equation} % =\begin{pmatrix}\bm{w}_{i,\mathrm{int},0}^\transp & \cdots & \bm{w}_{i,\mathrm{int},n_i}^\transp\end{pmatrix}^\transp
-
+%
+can be computed with the recursive Newton-Euler algorithm for serial link kinematics.
+As sketched in Fig.\,\ref{fig:PKM_internal_forces}, the single leg chain $i$ cut open can be regarded as a serial link chain with an external wrench $\bm{w}_{B_i}$ acting at the last joint, giving the dynamics equation
+ %
 \begin{equation}
 \bm{\tau}_i
 =\bm{M}_i \ddot{\bm{q}}_i + \bm{c}_i + \bm{g}_i
-=\bm{\tau}_{\mathrm{m},i} + \bm{J}_{i}^{\transp} \bm{w}_{B_i}
+=\bm{\tau}_{\mathrm{m},i} + \bm{J}_{i}^{\transp} \bm{w}_{B_i}.
 \end{equation}
-
+%
+The Jacobian $\bm{J}_{i}$ projects the external wrench (from perspective of the cut open leg chain) into the joint space coordinates $\bm{q}_i$ of the leg chain.
+By assuming no kinematic redundancy and singularity, the equation can be rewritten to
+%
 \begin{equation}
-\bm{w}_{B_i}=\bm{J}_{i}^{-\transp} (\bm{\tau}_i - \bm{\tau}_{\mathrm{m},i})
+\bm{w}_{B_i}=\bm{J}_{i}^{-\transp} (\bm{\tau}_i - \bm{\tau}_{\mathrm{m},i}),
 \end{equation}
+%
+yielding the cut force and moment $\bm{w}_{B_i}$ in the coupling point $B_i$.
+The motor torque $\bm{\tau}_{\mathrm{m},i}$ in the leg chain has zeros for passive joints and the corresponding entry $\bm{\tau}_{\mathrm{a},i}$ from (\ref{equ:actforce}).
 
 \begin{equation}
 \bm{w}_{i,\mathrm{coupl}}=\bm{J}_{i,\mathrm{full}}^{\transp} \bm{w}_{B_i}
