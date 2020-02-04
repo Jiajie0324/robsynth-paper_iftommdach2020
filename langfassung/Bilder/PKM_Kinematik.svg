@@ -14,7 +14,7 @@
    viewBox="0 0 283.46458 127.55905"
    id="svg2"
    version="1.1"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   inkscape:version="0.91 r13725"
    sodipodi:docname="PKM_Kinematik.svg">
   <defs
      id="defs4">
@@ -611,17 +611,17 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="3.959798"
-     inkscape:cx="257.60022"
-     inkscape:cy="77.875786"
+     inkscape:zoom="5.6"
+     inkscape:cx="121.26838"
+     inkscape:cy="60.349246"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="true"
      borderlayer="true"
-     inkscape:window-width="1633"
-     inkscape:window-height="995"
-     inkscape:window-x="47"
-     inkscape:window-y="27"
+     inkscape:window-width="1867"
+     inkscape:window-height="1056"
+     inkscape:window-x="1973"
+     inkscape:window-y="24"
      inkscape:window-maximized="1"
      showguides="false" />
   <metadata
@@ -964,7 +964,7 @@
        inkscape:connector-curvature="0" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.88582677;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker7719-94)"
-       d="m 149.24416,1042.4755 c 51.9021,-13.0773 52.66508,-48.90032 38.76743,-74.45974"
+       d="m 145.31559,1038.3684 c 51.9021,-13.0773 56.59365,-44.79322 42.696,-70.35264"
        id="path7709-0"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
@@ -1016,8 +1016,8 @@
        cy="963.57928"
        r="3.1044765" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.88582683;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker7719-9-4-3)"
-       d="m 125.38641,958.25363 c 8.1069,-5.12694 13.89127,-3.54111 21.77173,0.95698"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.88582677;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker7719-9-4-3)"
+       d="m 148.80932,962.60991 c -4.64627,-6.26336 -12.5621,-8.4656 -22.80125,-4.97766"
        id="path7709-0-7-4"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
