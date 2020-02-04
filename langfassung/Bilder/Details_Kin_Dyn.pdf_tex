@@ -1,0 +1,71 @@
+%% Creator: Inkscape inkscape 0.91, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'Details_Kin_Dyn.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{476.22047244bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.1875)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{Details_Kin_Dyn.pdf}}%
+    \put(0.05663643,0.15863008){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\emph{Inverse Kinematics}}}}%
+    \put(0.00739964,0.13162443){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{for $k=1,...,n_t$ (Trajectory)}}}%
+    \put(0.02258691,0.10121151){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{velocity/acceleration: (\ref{equ:jacobian}), (\ref{equ:acceleration_jacobian})}}}%
+    \put(0.02231693,0.07136561){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{IK a priori (\ref{equ:IK_initialvalue})}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{Details_Kin_Dyn.pdf}}%
+    \put(0.41493384,0.15863008){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\emph{Inverse Dynamics}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{Details_Kin_Dyn.pdf}}%
+    \put(0.76531172,0.15863008){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\emph{Zielfunktion: Energie}}}}%
+    \put(0.0227369,0.04527168){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{IK correction e.g. \cite{SchapplerTapOrt2019c}}}}%
+    \put(0.37282242,0.13162443){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Subsystems: $\tilde{\bm{M}}, \tilde{\bm{c}}, \tilde{\bm{g}}$, (\ref{equ:subsys_implicit_dyn})}}}%
+    \put(0.37336838,0.10198061){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Projection: (\ref{equ:dyn_projection_matrix}), (\ref{equ:invdyn_Mc}), (\ref{equ:invdyn_gtau})}}}%
+    \put(0.37278041,0.07096143){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Actuator force: (\ref{equ:actforce})}}}%
+    \put(0.7346495,0.13162443){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$P_{\mathrm{Kreis}}=\bm{\tau}_\mathrm{a}^\transp \dot{\bm{q}}_\mathrm{a}$}}}%
+    \put(0.7346495,0.08647102){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$P_{\mathrm{Netz}}=\left\{\begin{array}{ll} P_{\mathrm{Kreis}}, & P_{\mathrm{Kreis}}>0 \\0, & \mathrm{sonst}\end{array}\right.$}}}%
+    \put(0.7346495,0.04131761){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$E_{\mathrm{Netz}}=\int{} P_{\mathrm{Netz}}$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{Details_Kin_Dyn.pdf}}%
+    \put(0.7346495,0.0116738){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$z=f_\mathrm{norm}(E_{\mathrm{Netz}})$}}}%
+  \end{picture}%
+\endgroup%

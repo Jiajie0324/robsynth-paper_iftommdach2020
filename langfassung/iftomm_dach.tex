@@ -13,7 +13,7 @@
 \usepackage[german, english]{babel}
 \usepackage[utf8]{inputenc} % Deutsche Sonderzeichen/Umlaute gestatten
 \usepackage[T1]{fontenc}
-\usepackage[nooneline,bf,figurename=Bild,labelsep=quad,font=small]{caption} % Bildunterschrift linksbündig
+\usepackage[nooneline,bf,labelsep=quad,font=small]{caption} % Bildunterschrift linksbündig
 
 \usepackage{multicol}
 
@@ -146,6 +146,7 @@ This contribution combines general approaches for the modeling of the kinematics
 \item Maßsynthese paralleler Roboter großer Schwerpunkt in den 2000er Jahren [Quellen]
 \item Bisher hauptsächlich Fokus auf Klassischen PKM mit mehrwertigen Gelenken und wenigen Gliedern [Quellen]
 \item Keine systematische Berücksichtigung der Schnittkräfte mittels analytischer Modelle, nur mit FEM [Quellen]
+\item Ursache ist die voraussichtlich niedrigere Steifigkeit und Kollisionsanfälligkeit von PKM mit mehrgliedrigen Beinketten
 \end{itemize}
 
 Quellen (z.B.)
@@ -157,6 +158,7 @@ Quellen (z.B.)
 Einschränkungen Stand der Technik
 \begin{itemize}
 \item Modellierung häufig nicht generisch sondern an zu optimierenden Roboter angepasst
+\item Für PKM mit mehrgliedrigen Beinketten gibt es nicht immer eine analytische Lösung von Kinematik und Dynamik
 \item mehrkriterielle Optimierung relativ aufwändig
 \end{itemize}
 
@@ -176,131 +178,199 @@ Gliederung
 \section{System Description and Model}
 \label{sec:sysmdl}
 
-\cite{BriotKha2015}
+%\cite{Merlet2006}
+%\cite{Gogu2008}
+%\cite{BriotKha2015}
 
 \begin{figure}
 \graphicspath{{./Bilder/}}
 \centering
 \input{Bilder/PKM_Kinematik.pdf_tex}
-\captionof{figure}{Sketch of the kinematics of the PKM.}
+\captionof{figure}{Sketch of the kinematics of a general parallel robot}
 \label{fig:PKM_kinematics}
 \end{figure}
 
-\begin{itemize}
-\item Paralleler Roboter mit 6 FG, Plattform-Pose $\bm{x}$, translatorischer und rotatorischer Teil mit Euler-Winkeln
-\item $m$ Beinketten mit den Gelenkwinkeln $\bm{q}_1$, ..., $\bm{q}_m$ jeweils mit allen aktiven und passiven Gelenken inklusive der Koppelgelenke mit der Plattform
-\item Definition Koppelpunkte $A_i$ und $B_i$, Basis $O$ und Plattform $E$
-\item Schließung der kinematischen ZB über Zwangsbedingungen $\bm{\Phi}$ für gesamte PKM
-%\item Lösung des IKP für jede Beinkette einzeln. 
-\end{itemize}
+%\begin{itemize}
+%\item Paralleler Roboter mit 6 FG, Plattform-Pose $\bm{x}$, translatorischer und rotatorischer Teil mit Euler-Winkeln
+%\item $m$ Beinketten mit den Gelenkwinkeln $\bm{q}_1$, ..., $\bm{q}_m$ jeweils mit allen aktiven und passiven Gelenken inklusive der Koppelgelenke mit der Plattform
+%\item Definition Koppelpunkte $A_i$ und $B_i$, Basis $O$ und Plattform $E$
+%\item Schließung der kinematischen ZB über Zwangsbedingungen $\bm{\Phi}$ für gesamte PKM
+%%\item Lösung des IKP für jede Beinkette einzeln. 
+%\end{itemize}
 
 
-$\bm{q}_i=(q_{i,1},\cdots,q_{i,n_i})^\transp$
+The general parallel robot model subject to the dimensional synthesis in this paper consists of $m$ leg chains with $n_i$ joints each, which support the moving platform with respect to a fixed base.
+A sketch of the robot is depicted in Fig.\,\ref{fig:PKM_kinematics} with the necessary coordinate frames (``CS'') for kinematic modeling, including a base frame $\ks{0}$ of the PKM, base frames $\ks{A_i}$ and virtual end effectors $\ks{E_i}$ for the leg chains  that couple with the platform frames $\ks{B_i}$.
+The moving platform frame $\ks{P}$ is expressed with the minimal coordinates $\bm{x}$ containing the position $\bm{x}_\mathrm{t}$ and orientation  $\bm{x}_\mathrm{r}$ (in Euler angles).
+All joint coordinates $\bm{q}_i$ of the leg chain $i$ are stacked in the vector
+
+\begin{equation}
+\bm{q}^\transp=(\bm{q}_{i}^\transp,\cdots,\bm{q}_{m}^\transp) \quad \mathrm{with}  \quad \bm{q}_i^\transp=(q_{i,1},\cdots,q_{i,n_i}).
+\end{equation}
+
+This general model extends the formulation in textbooks \cite{Merlet2006,BriotKha2015} by including coordinates of passive and coupling joints to avoid assumptions on the 	solvability of the kinematic equations (``minimal kinematics set'', \cite{Merlet2006}). 
+%A set of kinematic constraints $\bm{\Phi}$ is used to close the kinematic loops w
 
 \subsection{Full Kinematic Constraints}
 
+%\cite{SchapplerTapOrt2019c}
 
 
-\begin{itemize}
-\item Zunächst werden die Gelenkgrößen $\bm{q},\dot{\bm{q}},\ddot{\bm{q}}$ des Roboters mittels der vollständigen \emph{inversen Kinematik} berechnet (linker Block in Bild\,\ref{fig:details_kindyn}).
-\item Die dafür notwendigen vollständigen kinematischen Zwangsbedingungen (``ZB'') $\bm{\Phi}$ enthalten für jede Beinkette sowohl den Positions-, als auch den in Euler-Winkeln ausgedrückten Orientierungsfehler \cite{SchapplerTapOrt2019c}.
-\item Definition der ZB mit Formeln
-\item Durch Bildung der Gradienten ($\bm{\Phi}_\bm{q}$ und $\bm{\Phi}_\bm{x}$) können mit der vollständigen Jacobi-Matrix $\tilde{\bm{J}}$ neben den aktiven Gelenkkoordinaten $\bm{q}_\mathrm{a}$ auch passive Gelenke und Schnittgelenke der Plattform berechnet werden, die gemeinsam in $\bm{q}$ zusammengefasst sind.
-\end{itemize}
+%\begin{itemize}
+%\item Zunächst werden die Gelenkgrößen $\bm{q},\dot{\bm{q}},\ddot{\bm{q}}$ des Roboters mittels der vollständigen \emph{inversen Kinematik} berechnet (linker Block in Bild\,\ref{fig:details_kindyn}).
+%\item Die dafür notwendigen vollständigen kinematischen Zwangsbedingungen (``ZB'') $\bm{\Phi}$ enthalten für jede Beinkette sowohl den Positions-, als auch den in Euler-Winkeln ausgedrückten Orientierungsfehler \cite{SchapplerTapOrt2019c}.
+%\item Definition der ZB mit Formeln
+%\item Durch Bildung der Gradienten ($\bm{\Phi}_\bm{q}$ und $\bm{\Phi}_\bm{x}$) können mit der vollständigen Jacobi-Matrix $\tilde{\bm{J}}$ neben den aktiven Gelenkkoordinaten $\bm{q}_\mathrm{a}$ auch passive Gelenke und Schnittgelenke der Plattform berechnet werden, die gemeinsam in $\bm{q}$ zusammengefasst sind.
+%\end{itemize}
 
+To be able to solve the inverse kinematics problem for all active and passive joint coordinates $\bm{q}$, a full set of kinematic constraints has to be defined.
+In the context of dimensional synthesis, a trajectory of the platform pose $\bm{x}(t)$ is given and has to be accomplished by the simulated parallel robot.
+These constraints can e.g. be defined as vector loops between two leg chains, as used in \cite{Gogu2008} on velocity level with the advantage of using linear and angular velocities directly.
+The formulation of the full kinematic constraints on position level has the advantage of providing a feasible residual for a gradient-based solution of the inverse kinematics problem, as presented by the authors in \cite{SchapplerTapOrt2019c}. 
+
+%able to solve the inverse kinematics problem 
+The translational part of the full kinematic constraints can be formulated as the difference of the coupling point position $B_i$ on the platform and the corresponding coupling joint $E_i$ on the leg chain $i$ with
+
+%For a parallel robot with full mobility, three translational
 
 %
 \begin{equation}
-\bm{\Phi}_{\mathrm{t},i}(\bm{q}_i,\bm{x}) = - \bm{r}_{A_iB_i}(\bm{x}) + \bm{r}_{A_iB_i}(\bm{q}_i)
+\bm{\Phi}_{\mathrm{t},i}(\bm{q}_i,\bm{x}) = - \bm{r}_{A_iB_i}(\bm{x}) + \bm{r}_{A_iB_i}(\bm{q}_i),
 \label{equ:kinconstrAB}
 \end{equation}
 %
-
+as established in the state of the art \cite{Merlet2006} and sketched in Fig.\,\ref{fig:PKM_kinematics}.
+The minimal form of the kinematic constraints rotational part is calculated with the Euler angles of the rotational difference of the frames $\ks{E_i}$ on the leg chain and $\ks{B_i}$ on the platform, with
+%
 \begin{align}
 \bm{\Phi}_{\mathrm{r},i}(\bm{q}_i,\bm{x})
 =
-\bm{\alpha}\left(\rotmat{0}{D}^\transp (\bm{x}_{\mathrm{r}})\rotmat{0}{E}(\bm{q}_i)\right),
+\bm{\phi}_{XYZ}\left(\rotmat{0}{B_i}^\transp (\bm{x}_{\mathrm{r}})\rotmat{0}{E_i}(\bm{q}_i)\right),
 \label{equ:Phir_def_i}
 \end{align}
-
+%
+as elaborated in detail in \cite{SchapplerTapOrt2019c}.
+%
+The kinematic constraints for the whole robot are then stacked of the terms for the single leg chains with 
+%
 \begin{equation}
-\bm{\Phi}_i=\begin{bmatrix}
-\bm{\Phi}_{\mathrm{t},i}^\transp & \bm{\Phi}_{\mathrm{r},i}^\transp
-\end{bmatrix}^\transp,
-\label{equ:Phi_def}
-\end{equation}
-
-\begin{equation}
-\bm{\Phi}
+\bm{\Phi}^\transp
 =
-\begin{bmatrix}
-\bm{\Phi}_1^\transp &
-\bm{\Phi}_2^\transp &
-\cdots &
+(\bm{\Phi}_1^\transp,
+\cdots,
 \bm{\Phi}_m^\transp
-\end{bmatrix}^\transp.
+)
+\quad
+\mathrm{and}
+\quad
+\bm{\Phi}_i^\transp=(
+\bm{\Phi}_{\mathrm{t},i}^\transp, \bm{\Phi}_{\mathrm{r},i}^\transp
+).
 \label{equ:constr_Phi_PKM}
 \end{equation}
 
+The full parallel robot inverse Jacobian 
 %
-
 \begin{equation}
 \tilde{\bm{J}}^{-1}=-\bm{\Phi}_{\bm{q}}^{-1} \bm{\Phi}_{\bm{x}}
+\quad \mathrm{with} \quad
+\dot{\bm{q}}=\tilde{\bm{J}}^{-1} \dot{\bm{x}}
+\label{equ:jacobian}
 \end{equation}
-
+%
+is obtained by time differentiation of the constraint equation (\ref{equ:constr_Phi_PKM})  and relates the velocities $\dot{\bm{q}}$ of all joints and the platform $\dot{\bm{x}}$.
+To extract only velocity of the actuated joints $\dot{\bm{q}}_\mathrm{a}$, the corresponding rows in $\dot{\bm{q}}$ are extracted with the selection matrix $\bm{P}_{\mathrm{a}}$ with
+%
 \begin{equation}
 \bm{J}^{-1}=\bm{P}_{\mathrm{a}} \tilde{\bm{J}}^{-1}
+\label{equ:jacobian_actuation}
 \end{equation}
-
+%
+giving the analytic Jacobian of the parallel robot, which is square for non-redundant robots and subject to investigations known from literature \cite{Merlet2006}.
+The joint accelerations can be obtained by differential calculus to
+%
 \begin{equation}
-\dot{\bm{q}}=\tilde{\bm{J}}^{-1}\dot{\bm{x}}, \quad \ddot{\bm{q}}=\tilde{\bm{J}}^{-1}\ddot{\bm{x}}+\dot{\tilde{\bm{J}}}^{-1}\dot{\bm{x}}
+\ddot{\bm{q}}=\tilde{\bm{J}}^{-1}\ddot{\bm{x}}+\dot{\tilde{\bm{J}}}^{-1}\dot{\bm{x}}.
+\label{equ:acceleration_jacobian}
 \end{equation}
+%
+The nonlinear terms $\bm{\Phi}_{\bm{q}}$ and $\bm{\Phi}_{\bm{x}}$ can be calculated symbolically as described in \cite{SchapplerTapOrt2019c}.
+The inversion of the $36 \times 36$-matrix should be performed numerically.
+The derivatives of the terms required for (\ref{equ:acceleration_jacobian}) can also be calculated symbolically.
 
-für $k=1,...,n_t$ (Trajektorie)
-
+For an efficient calculation of the whole trajectory of the platform for time steps $t=k \Delta t$ with $k=1,...,n_t$, the kinematic relation
+%
 \begin{equation}
 \bm{q}_{k+1}=\bm{q}_k+\dot{\bm{q}}_k \Delta t+\frac{1}{2}\ddot{\bm{q}}_k\Delta t^2
+\label{equ:IK_initialvalue}
 \end{equation}
-
+%
+can be used as an initial value for the gradient-based solution of the inverse kinematics problem.
 
 \subsection{Unified Kinematics and Dynamics}
 
 \begin{figure*}
-	\centering
-	\input{../kurzfassung/Bilder/Details_Kin_Dyn.pdf_tex}
-	\captionof{figure}{Einheitliche Berechnung von inverser Kinematik und inverser Dynamik in der PSO-Fitness-Funktion als Ablaufskizze.}
-	\label{fig:details_kindyn}
+\graphicspath{{./Bilder/}}
+\centering
+\input{./Bilder/Details_Kin_Dyn.pdf_tex}
+\captionof{figure}{Unified calculation of the inverse kinematics and inverse dynamics for application in the dimensional synthesis}
+\label{fig:details_kindyn}
 \end{figure*}
 
 
-Für die Bestimmung des Energieverbrauchs für eine Referenztrajektorie wird ein allgemeingültiger Ansatz für die \emph{inverse Dynamik} beliebiger paralleler Roboter benötigt.
-Das zu diesem Zweck in \cite{AbdellatifHei2009,DoThanhKotHeiOrt2009b} vorgestellte Prinzip der Energieäquivalenz wird dafür erweitert.
-Zunächst erfolgt die Zerlegung des parallelen Roboters in einzelne Subsysteme (Beinketten und Plattform), in deren jeweiligen Minimalkoordinaten (Gelenk- und Plattformkoordinaten) die Dynamik einzeln nach dem \textsc{Lagrange}schen Formalismus aufgestellt wird (vollständige Massenmatrix $\tilde{\bm{M}}$, Coriolis- und Fliehkraftterme $\tilde{\bm{c}}$, Gravitationsterme $\tilde{\bm{g}}$) \cite{DoThanhKotHeiOrt2009b}.
-Anschließend erfolgt die Projektion der Dynamik in die Minimal-/Plattformkoordinaten $\bm{x}$ des Roboters durch Anwendung des \textsc{D'Alembert}schen Prinzips, woraus die Dynamik-Terme $\bm{M},\bm{c},\bm{g}$ bezogen auf die Plattform resultieren \cite{DoThanhKotHeiOrt2009b,AbdellatifHei2009} (siehe mittlerer Block in Bild\,\ref{fig:details_kindyn}).
-Die Jacobi-Matrix $\tilde{\bm{J}}$ aus der inversen Kinematik kann direkt ohne Neuberechnung für die Dynamik-Projektionsmatrix $\tilde{\bm{R}}$ eingesetzt werden.
-Durch die Verwendung rotatorischer Zwangsbedingungen \cite{SchapplerTapOrt2019c} zusätzlich zu den translatorischen Zwangsbedingungen kann die implizite Annahme aus \cite{AbdellatifHei2009} aufgehoben werden, dass die Beinketten räumlicher Parallelkinematiken in Kugelgelenken enden müssen.
-Diese Bedingung wird z.\,B. von einigen der durch Gosselin et al. \cite{KongGos2007} und Gogu et al. \cite{Gogu2008} erzeugten Roboter nicht erfüllt.
+%Für die Bestimmung des Energieverbrauchs für eine Referenztrajektorie wird ein allgemeingültiger Ansatz für die \emph{inverse Dynamik} beliebiger paralleler Roboter benötigt.
+%Das zu diesem Zweck in \cite{AbdellatifHei2009,DoThanhKotHeiOrt2009b} vorgestellte Prinzip der Energieäquivalenz wird dafür erweitert.
+%Zunächst erfolgt die Zerlegung des parallelen Roboters in einzelne Subsysteme (Beinketten und Plattform), in deren jeweiligen Minimalkoordinaten (Gelenk- und Plattformkoordinaten) die Dynamik einzeln nach dem \textsc{Lagrange}schen Formalismus aufgestellt wird (vollständige Massenmatrix $\tilde{\bm{M}}$, Coriolis- und Fliehkraftterme $\tilde{\bm{c}}$, Gravitationsterme $\tilde{\bm{g}}$) \cite{DoThanhKotHeiOrt2009b}.
+%Anschließend erfolgt die Projektion der Dynamik in die Minimal-/Plattformkoordinaten $\bm{x}$ des Roboters durch Anwendung des \textsc{D'Alembert}schen Prinzips, woraus die Dynamik-Terme $\bm{M},\bm{c},\bm{g}$ bezogen auf die Plattform resultieren \cite{DoThanhKotHeiOrt2009b,AbdellatifHei2009} (siehe mittlerer Block in Bild\,\ref{fig:details_kindyn}).
+%Die Jacobi-Matrix $\tilde{\bm{J}}$ aus der inversen Kinematik kann direkt ohne Neuberechnung für die Dynamik-Projektionsmatrix $\tilde{\bm{R}}$ eingesetzt werden.
+%Durch die Verwendung rotatorischer Zwangsbedingungen \cite{SchapplerTapOrt2019c} zusätzlich zu den translatorischen Zwangsbedingungen kann die implizite Annahme aus \cite{AbdellatifHei2009} aufgehoben werden, dass die Beinketten räumlicher Parallelkinematiken in Kugelgelenken enden müssen.
+%Diese Bedingung wird z.\,B. von einigen der durch Gosselin et al. \cite{KongGos2007} und Gogu et al. \cite{Gogu2008} erzeugten Roboter nicht erfüllt.
 
+To be able to determine the energy consumption of an arbitrary parallel robot for the reference trajectory of the dimensional synthesis, the inverse dynamics is required.
+The application of the principle of energy equivalence for parallel robots from \cite{AbdellatifHei2009,DoThanhKotHeiOrt2009b} has to be extended using the full kinematic constraints from the previous section.
+The formulation from Abdellatif et al. \cite{AbdellatifHei2009} only applies for parallel robots which can be described solely with translational constraints (\ref{equ:kinconstrAB}), i.e. robots with leg chains containing at most two links and end in spherical joints in the full mobility case.
+Some of the the robots resulting from the structural synthesis from Gosselin et al. \cite{KongGos2007} and Gogu et al. \cite{Gogu2008} do not meet this requirement.
 
+Following the approach from Do Thanh et al. \cite{DoThanhKotHeiOrt2009b} the parallel robot is decomposed into the subsystems leg chains and platform.
+The inverse dynamics for the subsystems in their respective minimal coordinates $\bm{q}_i$ and $\bm{x}$ can be obtained with standard methods such as the \textsc{Lagrange} equations.
+The resulting terms of the explicit dynamics equation can be assembled as the block diagonal of the full inertia matrix $\tilde{\bm{M}}$ and stacked as the full Coriolis and centrifugal forces vector $\tilde{\bm{c}}$ and gravitational forces vector $\tilde{\bm{g}}$.
+The implicit form of the dynamics can be assembled as well as
 \begin{equation}
-\tilde{\bm{M}}, \tilde{\bm{c}}, \tilde{\bm{g}}
+\tilde{\tau} = \tilde{\bm{M}} [\bm{q}^\transp, \bm{x}^\transp]^\transp + \tilde{\bm{c}} + \tilde{\bm{g}}.
+\label{equ:subsys_implicit_dyn}
 \end{equation}
 
+%, can be stacked in $\tilde{\bm{M}}$, $\tilde{\bm{c}}$, $\tilde{\bm{g}}$ and $\tilde{\bm{\tau}}$, $\tilde{\tau}$
+
+By applying the principle of \textsc{D'Alembert}, the dynamics of the subsystems can be projected into the minimal coordinates $\bm{x}$ of the parallel robot, corresponding to the constraint, closed-loop system, yielding
 \begin{equation}
-\tilde{\bm{R}}^\transp=\left(\tilde{\bm{J}}^{-\transp},\bm{1}\right)
+\bm{M}=\tilde{\bm{R}}^\transp\tilde{\bm{M}}\tilde{\bm{R}}, \quad
+\bm{c}=\tilde{\bm{R}}^\transp (\tilde{\bm{M}}\dot{\tilde{\bm{R}}}\dot{\bm{x}}+\tilde{\bm{c}}),
+\label{equ:invdyn_Mc}
+\end{equation}
+%
+\begin{equation}
+\bm{g}=\tilde{\bm{R}}^\transp\tilde{\bm{g}} \quad \mathrm{and} \quad 
+\bm{\tau}=\tilde{\bm{R}}^\transp\tilde{\bm{\tau}}.
+\label{equ:invdyn_gtau}
 \end{equation}
 
+The Jacobian matrix from the inverse kinematics step in (\ref{equ:jacobian}) can be used directly to obtain the projection matrix
+%
 \begin{equation}
-\bm{M}=\tilde{\bm{R}}^\transp\tilde{\bm{M}}\tilde{\bm{R}}, \quad \bm{g}=\tilde{\bm{R}}^\transp\tilde{\bm{g}}
+\tilde{\bm{R}}^\transp=\left(\tilde{\bm{J}}^{-\transp},\bm{1}\right).
+\label{equ:dyn_projection_matrix}
 \end{equation}
-
+%
+To reduce the computational effort, the implicit form $\bm{\tau}$ of the inverse dynamics in (\ref{equ:invdyn_gtau}) should be used, avoiding the computation of the inertia and Coriolis terms in (\ref{equ:invdyn_Mc}), which are not used in the dimensional synthesis, unless investigations on inertial forces \cite{FrindtKreHes2010} or Eigen frequencies \cite{JamwalHusXie2015} require the inertia matrix $\bm{M}$.
+Further, this allows neglecting the matrix $\dot{\tilde{\bm{J}}}^{-1}$ in (\ref{equ:acceleration_jacobian}), which has low influence on the kinematics.
+The actuator force for the calculation of the power consumption of the parallel robot are obtained with the inverse Jacobian from (\ref{equ:jacobian_actuation}) to
 
 \begin{equation}
-\bm{c}=\tilde{\bm{R}}^\transp (\tilde{\bm{M}}\dot{\tilde{\bm{R}}}\dot{\bm{x}}+\tilde{\bm{c}})
-\end{equation}
-
-\begin{equation}
-\bm{\tau}_\mathrm{a}=\bm{J}^{-\transp} (\bm{M}\ddot{\bm{x}}+\bm{c}+\bm{g})
+\bm{\tau}_\mathrm{a}
+=\bm{J}^{-\transp} (\bm{M}\ddot{\bm{x}}+\bm{c}+\bm{g})
+=\bm{J}^{-\transp} \bm{\tau}.
+\label{equ:actforce}
 \end{equation}
 
 
@@ -329,7 +399,7 @@ Diese Bedingung wird z.\,B. von einigen der durch Gosselin et al. \cite{KongGos2
 
 
 \begin{equation}
-\bm{w}_{i} = -\bm{w}_{i,\mathrm{coupl}} + \bm{w}_{i,int}
+\bm{w}_{i} = -\bm{w}_{i,\mathrm{coupl}} + \bm{w}_{i,\mathrm{int}}
 \end{equation}
 
 
