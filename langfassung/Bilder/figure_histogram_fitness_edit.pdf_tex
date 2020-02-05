@@ -1,0 +1,74 @@
+%% Creator: Inkscape inkscape 0.91, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'figure_histogram_fitness_edit.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{226.77165354bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.5625)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{figure_histogram_fitness_edit.pdf}}%
+    \put(0.16567957,0.22300597){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{valid}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{figure_histogram_fitness_edit.pdf}}%
+    \put(0.17008929,0.30175101){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{material stress}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{figure_histogram_fitness_edit.pdf}}%
+    \put(0.16315972,0.4145139){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{condition }}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{figure_histogram_fitness_edit.pdf}}%
+    \put(0.4016627,0.3838978){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{joint limits}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{figure_histogram_fitness_edit.pdf}}%
+    \put(0.59405255,0.30011307){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{IK fails}}}%
+    \put(0.59405255,0.25274007){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{in traj.}}}%
+    \put(0.50648804,0.51291373){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{IK fails}}}%
+    \put(0.50655863,0.47209224){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{in workspace}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{figure_histogram_fitness_edit.pdf}}%
+    \put(0.85737593,0.31750001){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{legs too}}}%
+    \put(0.85611598,0.27592262){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{short}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{figure_histogram_fitness_edit.pdf}}%
+    \put(0.62303071,0.19415376){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{workspace}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{figure_histogram_fitness_edit.pdf}}%
+    \put(0.62933033,0.15434027){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{reachability}}}%
+    \put(0.1665111,0.37797617){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{number}}}%
+  \end{picture}%
+\endgroup%

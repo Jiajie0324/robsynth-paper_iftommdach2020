@@ -28,6 +28,7 @@
 \usepackage[fleqn]{nccmath} % Ausrichtung von Gleichungen
 
 \usepackage{graphicx}
+\usepackage{graphbox}   % allows to add keys to \includegraphics
 \graphicspath{{../kurzfassung/Bilder/}}
 \usepackage{color}
 \usepackage{geometry}
@@ -538,6 +539,19 @@ Der hohen Dimensionalität wurde durch eine Reduzierung der Abhängigkeiten zwis
 \subsection{Scenario}
 
 \subsection{Convergence and Distribution}
+
+
+\begin{figure}
+\graphicspath{{./Bilder/}}
+\centering
+% Bild so einfügen, dass das folgende Beschriftungsbild darüber liegt
+% Beim Einfügen des Histogramm-Bilds in InkScape entstehen Grafikfehler
+\includegraphics[align=t,smash=br,]{./Bilder/figure_histogram_fitness.pdf}
+\input{./Bilder/figure_histogram_fitness_edit.pdf_tex}
+\captionof{figure}{Histogram of the fitness function of all particles for one optimization of P6\underline{R}RRS.}
+\label{fig:figure_histogram_fitness}
+\end{figure}
+
 
 \subsection{Evaluation of Condition and Material Stress}
 
