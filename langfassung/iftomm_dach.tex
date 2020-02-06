@@ -29,7 +29,7 @@
 
 \usepackage{graphicx}
 \usepackage{graphbox}   % allows to add keys to \includegraphics
-\graphicspath{{../kurzfassung/Bilder/}}
+\graphicspath{{./Bilder/}}
 \usepackage{color}
 \usepackage{geometry}
 
@@ -314,7 +314,6 @@ can be used as an initial value for the gradient-based solution of the inverse k
 \label{sec:kindyn}
 
 \begin{figure*}
-\graphicspath{{./Bilder/}}
 \centering
 \input{./Bilder/Details_Kin_Dyn.pdf_tex}
 \captionof{figure}{Unified calculation of the inverse kinematics and inverse dynamics for application in the dimensional synthesis}
@@ -392,7 +391,6 @@ The internal forces can be reconstructed by adapting the procedure presented in 
 
 
 \begin{figure}
-\graphicspath{{./Bilder/}}
 \centering
 \input{./Bilder/PKM_internal_forces.pdf_tex}
 \captionof{figure}{Internal forces in the leg chains of the parallel robot}
@@ -480,10 +478,11 @@ In the following, the problem formulation is elaborated in Sec.\,\ref{sec:opt_fo
 \label{sec:opt_formulation}
 
 \begin{figure*}
-    \centering
-    \input{../kurzfassung/Bilder/Optimierung_Uebersicht.pdf_tex}
-    \captionof{figure}{Überblick über die PSO-Optimierung und die Struktur der Fitness-Funktion mit hierarchischen Nebenbedingungen.}
-    \label{fig:uebersicht}
+
+\centering
+\input{./Bilder/optimization_overview.pdf_tex}
+\captionof{figure}{Overview of the PSO optimization and the structure of the fitness function with hiearchichal constraints.}
+\label{fig:uebersicht}
 \end{figure*}
 
 The ambition of the design optimization is to find the set of robot parameters (``particle'') $\bm{p}_\mathrm{opt}$, which minimizes the fitness function $f(\bm{p})$, leading to an optimal design.
@@ -603,10 +602,11 @@ Es wurde eine Optimierung der 6\underline{P}RRS- und  6\underline{R}RRS-Kinemati
 Die der Optimierung zugrunde liegende Aufgabe ist das Abfahren der Eckpunkte eines Würfels mit Kantenlänge $30\,\textrm{mm}$ und Kippwinkeln bis zu $10^\circ$ mit einem Beschleunigungs-Trapez-Profil mit einer Gesamt-Verfahrdauer von ca. $11\,\textrm{s}$.
 
 \begin{figure*}
-	\centering
-	\input{../kurzfassung/Bilder/Optimierung_Ergebnisse.pdf_tex}
-	\captionof{figure}{Ergebnisse der Maßsynthese für vier Beispiel-PKM mit Angabe der Zielfunktion $E_\mathrm{Netz}$ und der Parameteranzahl $\mathrm{dim}(\bm{p})$.}
-	\label{fig:ergebnisse}
+\centering
+\graphicspath{{../kurzfassung/Bilder/}}
+\input{../kurzfassung/Bilder/Optimierung_Ergebnisse.pdf_tex}
+\captionof{figure}{Ergebnisse der Maßsynthese für vier Beispiel-PKM mit Angabe der Zielfunktion $E_\mathrm{Netz}$ und der Parameteranzahl $\mathrm{dim}(\bm{p})$.}
+\label{fig:ergebnisse}
 \end{figure*}
 
 %Durch die Vorgabe einer maximalen Plattform-Geschwindigkeit von $1\,\textrm{m/s}$ bzw. $60^\circ\textrm{/s}$ und -Beschleunigung von $3\,\textrm{m/s}^2$ bzw. $180^\circ\textrm{/s}^2$ und einer Zusatzmasse von $3\,\textrm{kg}$ wird versucht, einen ausreichend großen Einfluss der Dynamik auf das Optimierungsergebnis zu erzielen.
@@ -629,7 +629,6 @@ Der hohen Dimensionalität wurde durch eine Reduzierung der Abhängigkeiten zwis
 
 
 \begin{figure}
-\graphicspath{{./Bilder/}}
 \centering
 % Bild so einfügen, dass das folgende Beschriftungsbild darüber liegt
 % Beim Einfügen des Histogramm-Bilds in InkScape entstehen Grafikfehler

@@ -1,0 +1,102 @@
+%% Creator: Inkscape inkscape 0.91, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'optimization_overview.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{476.22047244bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.26785714)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{optimization_overview.pdf}}%
+    \put(0.01582413,0.21231484){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Requirements,}}}%
+    \put(0.20799403,0.2106979){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{PSO: parameters variation,}}}%
+    \put(0.2089351,0.17614924){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{stopping criteria}}}%
+    \put(0.54288623,0.21231484){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{fitness function: model update,}}}%
+    \put(0.54178191,0.18051692){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{constraints and objective function}}}%
+    \put(0.17940474,0.09430085){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{geometry}}}%
+    \put(0.18096464,0.07330228){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{plausible?}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{optimization_overview.pdf}}%
+    \put(0.34367441,0.09490067){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{IK}}}%
+    \put(0.31919595,0.07270206){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{solvable?}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{optimization_overview.pdf}}%
+    \put(0.46210701,0.09550038){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{joint limits}}}%
+    \put(0.45694731,0.07450171){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{complied?}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{optimization_overview.pdf}}%
+    \put(0.22716173,0.00970603){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$f=v_1$}}}%
+    \put(0.3706727,0.00970603){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$f=v_2$}}}%
+    \put(0.5149036,0.00970603){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$f=v_3$}}}%
+    \put(0.64713527,0.00970603){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$f=v_4$}}}%
+    \put(0.27952258,0.09896752){\color[rgb]{0.58823529,0.58823529,0.58823529}\makebox(0,0)[lb]{\smash{yes}}}%
+    \put(0.42339019,0.10356806){\color[rgb]{0.58823529,0.58823529,0.58823529}\makebox(0,0)[lb]{\smash{yes}}}%
+    \put(0.56305163,0.10144471){\color[rgb]{0.58823529,0.58823529,0.58823529}\makebox(0,0)[lb]{\smash{yes}}}%
+    \put(0.92109323,0.20657886){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$f$}}}%
+    \put(0.01642409,0.18051692){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Initialisation}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{optimization_overview.pdf}}%
+    \put(0.06698184,0.09578799){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{model}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{optimization_overview.pdf}}%
+    \put(0.07068061,0.06914633){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{update}}}%
+    \put(0.49306493,0.21069339){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{p}$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{optimization_overview.pdf}}%
+    \put(0.01609499,0.09820048){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{p}$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{optimization_overview.pdf}}%
+    \put(0.87387984,0.09457615){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{objective $z$}}}%
+    \put(0.93579579,0.00970583){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$f=z$}}}%
+    \put(0.69915057,0.10066413){\color[rgb]{0.58823529,0.58823529,0.58823529}\makebox(0,0)[lb]{\smash{yes}}}%
+    \put(0.87192701,0.06625993){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(e.g. energy)}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{optimization_overview.pdf}}%
+    \put(0.74824768,0.09549997){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{stress}}}%
+    \put(0.7397282,0.0745013){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{limit ok?}}}%
+    \put(0.78544533,0.00970562){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$f=v_5$}}}%
+    \put(0.82688259,0.10066413){\color[rgb]{0.58823529,0.58823529,0.58823529}\makebox(0,0)[lb]{\smash{yes}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{optimization_overview.pdf}}%
+    \put(0.59913351,0.09550038){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{condition}}}%
+    \put(0.59061403,0.07450171){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{number ok?}}}%
+    \put(0.189855,0.02913883){\color[rgb]{0.58823529,0.58823529,0.58823529}\makebox(0,0)[lb]{\smash{no}}}%
+    \put(0.33035855,0.02913883){\color[rgb]{0.58823529,0.58823529,0.58823529}\makebox(0,0)[lb]{\smash{no}}}%
+    \put(0.47471006,0.02913883){\color[rgb]{0.58823529,0.58823529,0.58823529}\makebox(0,0)[lb]{\smash{no}}}%
+    \put(0.60663931,0.02913883){\color[rgb]{0.58823529,0.58823529,0.58823529}\makebox(0,0)[lb]{\smash{no}}}%
+    \put(0.74417535,0.02913883){\color[rgb]{0.58823529,0.58823529,0.58823529}\makebox(0,0)[lb]{\smash{no}}}%
+  \end{picture}%
+\endgroup%
