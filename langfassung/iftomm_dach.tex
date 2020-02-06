@@ -213,7 +213,7 @@ This general model extends the formulation in textbooks \cite{Merlet2006,BriotKh
 %A set of kinematic constraints $\bm{\Phi}$ is used to close the kinematic loops w
 
 \subsection{Full Kinematic Constraints}
-
+\label{sec:kinematics}
 %\cite{SchapplerTapOrt2019c}
 
 
@@ -311,6 +311,7 @@ For an efficient calculation of the whole trajectory of the platform for time st
 can be used as an initial value for the gradient-based solution of the inverse kinematics problem.
 
 \subsection{Unified Kinematics and Dynamics}
+\label{sec:kindyn}
 
 \begin{figure*}
 \graphicspath{{./Bilder/}}
@@ -319,7 +320,7 @@ can be used as an initial value for the gradient-based solution of the inverse k
 \captionof{figure}{Unified calculation of the inverse kinematics and inverse dynamics for application in the dimensional synthesis}
 \label{fig:details_kindyn}
 \end{figure*}
-
+%, (\ref{equ:invdyn_leg}), (\ref{equ:coupling_wrench_leg}), (\ref{equ:intforce_fromcoupling}),
 
 %Für die Bestimmung des Energieverbrauchs für eine Referenztrajektorie wird ein allgemeingültiger Ansatz für die \emph{inverse Dynamik} beliebiger paralleler Roboter benötigt.
 %Das zu diesem Zweck in \cite{AbdellatifHei2009,DoThanhKotHeiOrt2009b} vorgestellte Prinzip der Energieäquivalenz wird dafür erweitert.
@@ -381,6 +382,7 @@ By defining the constraints on velocity level \cite{Gogu2008}, the calculation o
 The dynamics are then effectively obtained with \textsc{Jourdain}'s principle (``virtual power''), leading to the same result.
 
 \subsection{Internal Forces in Parallel Robots Legs}
+\label{sec:intforce}
 
 For an evaluation of the mechanical stress in the structure of the parallel robots legs, the internal forces and moments have to be known.
 The projection-based dynamics does not produce cutting forces, since they do not perform work.
@@ -401,6 +403,7 @@ With the known joint velocity $\dot{\bm{q}}_i$ and acceleration $\ddot{\bm{q}}_i
 %
 \begin{equation}
 \bm{w}_{i,\mathrm{int}}=\bm{w}_{i,\mathrm{int}}(\bm{q}_i,\dot{\bm{q}}_i,\ddot{\bm{q}}_i)
+\label{equ:intforce_leg}
 \end{equation} % =\begin{pmatrix}\bm{w}_{i,\mathrm{int},0}^\transp & \cdots & \bm{w}_{i,\mathrm{int},n_i}^\transp\end{pmatrix}^\transp
 %
 can be computed with the recursive Newton-Euler algorithm for serial link kinematics.
@@ -410,6 +413,7 @@ As sketched in Fig.\,\ref{fig:PKM_internal_forces}, the single leg chain $i$ cut
 \bm{\tau}_i
 =\bm{M}_i \ddot{\bm{q}}_i + \bm{c}_i + \bm{g}_i
 =\bm{\tau}_{\mathrm{m},i} + \bm{J}_{i}^{\transp} \bm{w}_{B_i}.
+\label{equ:invdyn_leg}
 \end{equation}
 %
 The Jacobian $\bm{J}_{i}$ projects the external wrench (from perspective of the cut open leg chain) into the joint space coordinates $\bm{q}_i$ of the leg chain.
@@ -417,6 +421,7 @@ By assuming no kinematic redundancy and singularity, the equation can be rewritt
 %
 \begin{equation}
 \bm{w}_{B_i}=\bm{J}_{i}^{-\transp} (\bm{\tau}_i - \bm{\tau}_{\mathrm{m},i}),
+\label{equ:coupling_wrench_leg}
 \end{equation}
 %
 yielding the cut force and moment $\bm{w}_{B_i}$ in the coupling point $B_i$.
@@ -424,13 +429,43 @@ The motor torque $\bm{\tau}_{\mathrm{m},i}$ in the leg chain has zeros for passi
 
 \begin{equation}
 \bm{w}_{i,\mathrm{coupl}}=\bm{J}_{i,\mathrm{full}}^{\transp} \bm{w}_{B_i}
+\label{equ:intforce_fromcoupling}
 \end{equation}
 
 
 \begin{equation}
 \bm{w}_{i} = -\bm{w}_{i,\mathrm{coupl}} + \bm{w}_{i,\mathrm{int}}
+\label{equ:intforce_total}
 \end{equation}
 
+\subsection{Energy Consumption}
+\label{sec:energy}
+
+Since the energy consumption of the parallel robot for a reference trajectory is a scalar value and is correlated with other criteria such as moved mass and joint speeds, it is a good candidate for an objective function of the dimensional synthesis.
+%
+It is assumed that all electric drives of the actuated joints can exchange power in a common DC link, which represents a future scenario for improving energy efficiency in industrial applications.
+Assuming no losses in conversion, the mechanical power of the single robot actuators can be summed up to the electric DC link power
+%
+\begin{equation}
+P_{\mathrm{link}}=\bm{\tau}_\mathrm{a}^\transp \dot{\bm{q}}_\mathrm{a}.
+\label{equ:power_link_mech}
+\end{equation}
+%
+Assuming no energy storage or recovery, the electric power required from the grid results to
+%
+\begin{equation}
+P_{\mathrm{grid}}=\left\{\begin{array}{ll} P_{\mathrm{link}}, & P_{\mathrm{link}}>0 \\0, & \mathrm{otherwise.}\end{array}\right.
+\label{equ:power_link_grid}
+\end{equation}
+%
+By integrating the power over the time with
+%
+\begin{equation}
+E_{\mathrm{grid}}=\int{} P_{\mathrm{grid}}
+\label{equ:energy_integral}
+\end{equation}
+%
+the energy consumption of the parallel robot in the reference trajectory can be obtained.
 
 \section{Optimization}
 \label{sec:opti}
@@ -441,19 +476,6 @@ The motor torque $\bm{\tau}_{\mathrm{m},i}$ in the leg chain has zeros for passi
 
 \subsection{Objective Function}
 
-
-\begin{equation}
-P_{\mathrm{Kreis}}=\bm{\tau}_\mathrm{a}^\transp \dot{\bm{q}}_\mathrm{a}
-\end{equation}
-
-
-\begin{equation}
-P_{\mathrm{Netz}}=\left\{\begin{array}{ll} P_{\mathrm{Kreis}}, & P_{\mathrm{Kreis}}>0 \\0, & \mathrm{sonst}\end{array}\right.
-\end{equation}
-
-\begin{equation}
-E_{\mathrm{Netz}}=\int{} P_{\mathrm{Netz}}
-\end{equation}
 
 
 \begin{equation}

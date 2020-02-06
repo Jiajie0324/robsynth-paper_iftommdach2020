@@ -48,24 +48,24 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.1875)%
+  \begin{picture}(1,0.16666667)%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{Details_Kin_Dyn.pdf}}%
-    \put(0.05663643,0.15863008){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\emph{Inverse Kinematics}}}}%
-    \put(0.00739964,0.13162443){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{for $k=1,...,n_t$ (Trajectory)}}}%
-    \put(0.02258691,0.10121151){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{velocity/acceleration: (\ref{equ:jacobian}), (\ref{equ:acceleration_jacobian})}}}%
-    \put(0.02231693,0.07136561){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{IK a priori (\ref{equ:IK_initialvalue})}}}%
+    \put(0.01295918,0.13175176){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\emph{Inverse Kinematics (Sec. \ref{sec:kinematics})}}}}%
+    \put(0.00739964,0.10148291){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{for $k=1,...,n_t$ (Trajectory)}}}%
+    \put(0.02258691,0.07178106){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{velocity/acceleration: (\ref{equ:jacobian}), (\ref{equ:acceleration_jacobian})}}}%
+    \put(0.02231693,0.04168016){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{IK a priori (\ref{equ:IK_initialvalue})}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{Details_Kin_Dyn.pdf}}%
-    \put(0.41493384,0.15863008){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\emph{Inverse Dynamics}}}}%
+    \put(0.37797617,0.13175176){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\emph{Inverse Dynamics (Sec. \ref{sec:kindyn})}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{Details_Kin_Dyn.pdf}}%
-    \put(0.76531172,0.15863008){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\emph{Zielfunktion: Energie}}}}%
-    \put(0.0227369,0.04527168){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{IK correction e.g. \cite{SchapplerTapOrt2019c}}}}%
-    \put(0.37282242,0.13162443){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Subsystems: $\tilde{\bm{M}}, \tilde{\bm{c}}, \tilde{\bm{g}}$, (\ref{equ:subsys_implicit_dyn})}}}%
-    \put(0.37336838,0.10198061){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Projection: (\ref{equ:dyn_projection_matrix}), (\ref{equ:invdyn_Mc}), (\ref{equ:invdyn_gtau})}}}%
-    \put(0.37278041,0.07096143){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Actuator force: (\ref{equ:actforce})}}}%
-    \put(0.7346495,0.13162443){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$P_{\mathrm{Kreis}}=\bm{\tau}_\mathrm{a}^\transp \dot{\bm{q}}_\mathrm{a}$}}}%
-    \put(0.7346495,0.08647102){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$P_{\mathrm{Netz}}=\left\{\begin{array}{ll} P_{\mathrm{Kreis}}, & P_{\mathrm{Kreis}}>0 \\0, & \mathrm{sonst}\end{array}\right.$}}}%
-    \put(0.7346495,0.04131761){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$E_{\mathrm{Netz}}=\int{} P_{\mathrm{Netz}}$}}}%
+    \put(0.73171384,0.13160473){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\emph{Objective and Constraints:}}}}%
+    \put(0.0227369,0.01167379){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{IK correction e.g. \cite{SchapplerTapOrt2019c}}}}%
+    \put(0.37282242,0.10148291){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Subsystems: $\tilde{\bm{M}}, \tilde{\bm{c}}, \tilde{\bm{g}}$, (\ref{equ:subsys_implicit_dyn})}}}%
+    \put(0.37336838,0.07192799){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Projection: (\ref{equ:dyn_projection_matrix}), (\ref{equ:invdyn_Mc}), (\ref{equ:invdyn_gtau})}}}%
+    \put(0.37278041,0.04153312){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Actuator force: (\ref{equ:actforce})}}}%
+    \put(0.73144295,0.10148291){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Energy (Sec.\,\ref{sec:energy}):}}}%
+    \put(0.73131699,0.04084021){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Internal force (Sec.\,\ref{sec:intforce}):}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=4]{Details_Kin_Dyn.pdf}}%
-    \put(0.7346495,0.0116738){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$z=f_\mathrm{norm}(E_{\mathrm{Netz}})$}}}%
+    \put(0.730687,0.01081277){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(\ref{equ:intforce_leg}) -- (\ref{equ:intforce_total})}}}%
+    \put(0.730687,0.07092015){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(\ref{equ:power_link_mech}) -- (\ref{equ:energy_integral})}}}%
   \end{picture}%
 \endgroup%
