@@ -241,7 +241,7 @@ The translational part of the full kinematic constraints can be formulated as th
 \end{equation}
 %
 as established in the state of the art \cite{Merlet2006} and sketched in Fig.\,\ref{fig:PKM_kinematics}.
-The minimal form of the kinematic constraints rotational part is calculated with the Euler angles of the rotational difference of the frames $\ks{E_i}$ on the leg chain and $\ks{B_i}$ on the platform, with
+The minimal form of the kinematic constraints rotational part is calculated with the Euler angles $\bm{\phi}_{XYZ}$ of the rotational difference of the frames $\ks{E_i}$ on the leg chain and $\ks{B_i}$ on the platform, with
 %
 \begin{align}
 \bm{\Phi}_{\mathrm{r},i}(\bm{q}_i,\bm{x})
@@ -280,12 +280,12 @@ The full parallel robot inverse Jacobian
 \end{equation}
 %
 is obtained by time differentiation of the constraint equation (\ref{equ:constr_Phi_PKM})  and relates the velocities $\dot{\bm{q}}$ of all joints and the platform $\dot{\bm{x}}$.
-To extract only velocity of the actuated joints $\dot{\bm{q}}_\mathrm{a}$, the corresponding rows in $\dot{\bm{q}}$ are extracted with the selection matrix $\bm{P}_{\mathrm{a}}$ with
+To extract only velocity $\dot{\bm{q}}_\mathrm{a}$ of the actuated joints, the corresponding rows in $\dot{\bm{q}}$ are extracted with the selection matrix $\bm{P}_{\mathrm{a}}$ with
 %
 \begin{equation}
-\bm{J}^{-1}=\bm{P}_{\mathrm{a}} \tilde{\bm{J}}^{-1}
-\quad \mathrm{and} \quad
 \bm{q}_{\mathrm{a}} = \bm{P}_{\mathrm{a}} \bm{q}
+\quad \mathrm{and} \quad
+\bm{J}^{-1}=\bm{P}_{\mathrm{a}} \tilde{\bm{J}}^{-1}
 \label{equ:jacobian_actuation}
 \end{equation}
 %
@@ -297,7 +297,7 @@ The joint accelerations can be obtained by differential calculus to
 \label{equ:acceleration_jacobian}
 \end{equation}
 %
-The nonlinear terms $\bm{\Phi}_{\bm{q}}$ and $\bm{\Phi}_{\bm{x}}$ can be partially  calculated in analytic form, as described in \cite{SchapplerTapOrt2019c}.
+The nonlinear terms $\bm{\Phi}_{\bm{q}}$ and $\bm{\Phi}_{\bm{x}}$ in (\ref{equ:jacobian}) can be partially  calculated in analytic form, as described in \cite{SchapplerTapOrt2019c}.
 The inversion of the $36 \times 36$-matrix $\bm{\Phi}_{\bm{q}}$ (in the full-mobility case) should be performed numerically.
 The derivatives of the terms required for (\ref{equ:acceleration_jacobian}) can also be calculated symbolically.
 
@@ -456,10 +456,10 @@ P_{\mathrm{grid}}=\left\{\begin{array}{ll} P_{\mathrm{link}}, & P_{\mathrm{link}
 \label{equ:power_link_grid}
 \end{equation}
 %
-By integrating the power over the time with
+By integrating the power over time with
 %
 \begin{equation}
-E_{\mathrm{grid}}=\int{} P_{\mathrm{grid}}
+E_{\mathrm{grid}}=\int{} P_{\mathrm{grid}}\mathrm{d} t
 \label{equ:energy_integral}
 \end{equation}
 %
@@ -468,24 +468,16 @@ the energy consumption of the parallel robot in the reference trajectory can be 
 \section{Optimization}
 \label{sec:opti}
 
+The dimensional synthesis of parallel robots is implemented as a global optimization of the kinematic parameters of the robot.
+Performing a multi-objective optimization requires to select a solution on the pareto-front in the hyper-space of all different objective criteria.
+When trying to select the best robot architecture from many possibilities for a given task, an unambiguous criterion has to be used not necessarily requiring a human decision.
+Therefore, a single-objective optimization is performed, where the energy consumption is used as an exemplary criterion and different constraints are used.
+The particle swarm optimization is employed since it has, together with the genetic algorithm, proven to be efficient for this kind of design problem.
+In the following, the problem formulation is elaborated in Sec.\,\ref{sec:opt_formulation}, the definition of the robot parameters is described in Sec.\,\ref{sec:opt_params} and the objective function and the various constraints are defined in Sec.\,\ref{sec:opt_objective} and Sec.\,\ref{sec:opt_constraints}.
+
+
 \subsection{Formulation of the Problem}
-
-* Normierung für hierarchische Optimierung
-* atan-Funktion
-* Grenzen einsetzen
-
-Für das hochdimensionale Problem der Parameterfindung der Roboter wird die etablierte Partikel-Schwarm-Optimierung (PSO) eingesetzt, wie in Bild\,\ref{fig:uebersicht} skizziert.
-Zur effizienten Berücksichtigung von Nebenbedingungen werden diese hierarchisch berechnet und normierte Strafterme $s_i$ direkt in der stückweise definierten Fitness-Funktion $f$ eingesetzt.
-Als skalare Zielfunktion $z$ wird der Energieverbrauch des Roboters über eine Referenz-Trajektorie $\bm{x}(t)$ gewählt, was einen direkten Vergleich unterschiedlicher Kinematiken erlaubt.
-Des Weiteren wird eine Korrelation mit anderen Zielfunktionen wie Gesamtmasse des Systems oder der Gleichförmigkeit der Eigenschaften (Konditionszahl der Jacobi-Matrix) erwartet.
-Die hierarchische Eigenschaft wird durch die Bedingung $s_1(\bm{p})>s_2(\bm{p})>\dots>z(\bm{p})$ und eine Normierung umgesetzt.
-
-
-Zur Bestimmung von Nebenbedingungen wie der Einhaltung der Gelenkwinkelgrenzen ist eine Berechnung der passiven Gelenke und der Plattform-Koppelgelenke notwendig.
-%Eine analytische Elimination der passiven Gelenke ist nicht für alle automatisch synthetisierten Strukturen aus möglich.
-Zusätzlich wird ein effizienter und allgemeingültiger Ansatz für die Dynamik benötigt.
-Der in Bild\,\ref{fig:details_kindyn} dargestellte und im Folgenden skizzierte  Ansatz erfüllt diese Anforderungen.
-
+\label{sec:opt_formulation}
 
 \begin{figure*}
     \centering
@@ -494,12 +486,52 @@ Der in Bild\,\ref{fig:details_kindyn} dargestellte und im Folgenden skizzierte  
     \label{fig:uebersicht}
 \end{figure*}
 
+The ambition of the design optimization is to find the set of robot parameters (``particle'') $\bm{p}_\mathrm{opt}$, which minimizes the fitness function $f(\bm{p})$, leading to an optimal design.
+Many parameter combinations however do not present a valid solution, since they violate some constraint.
+Since the bottleneck in the optimization process is the computation time, an efficient way of handling the constraints is to abort the processing of a particle once one of the constraints is not met.
+Therefore, from the different possibilities of including constraints in the optimization \cite{Jordehi2015}, an adaption of the static penalty approach is used which can be termed as ``hierarchical constraints''.
+The penalty terms $v_i$ are defined hierarchically according to the infeasibility of the solution with
+%
+\begin{equation}
+v_1(\bm{p})>v_2(\bm{p})>\dots>z(\bm{p}),
+\end{equation}
+%
+where $z$ represents the objective function as opposed to the fitness function $f$, which contains the penalty terms in a piece-wise definition, which is depicted in Fig.\,\ref{fig:uebersicht}.
+
+To increase the convergence of the optimization, the degree of violation $\rho>0$ of the constraints is included in the penalties and normalized with the function
+%
+\begin{equation}
+f_\mathrm{norm}(\rho) = \frac{2}{\pi} \mathrm{arctan}(\rho)
+%\quad \mathrm{with} \quad
+%0 < f_\mathrm{norm}(\rho) < 1
+\label{equ:fnorm}
+\end{equation}
+%
+to the range of 0 to 1.
+By multiplying (\ref{equ:fnorm}) with a different factor, each constraint penalty $p_i$ has a dedicated range in the possible values for the fitness function $f$.
+
+%Zur effizienten Berücksichtigung von Nebenbedingungen werden diese hierarchisch berechnet und normierte Strafterme $s_i$ direkt in der stückweise definierten Fitness-Funktion $f$ eingesetzt.
+%Als skalare Zielfunktion $z$ wird der Energieverbrauch des Roboters über eine Referenz-Trajektorie $\bm{x}(t)$ gewählt, was einen direkten Vergleich unterschiedlicher Kinematiken erlaubt.
+%Des Weiteren wird eine Korrelation mit anderen Zielfunktionen wie Gesamtmasse des Systems oder der Gleichförmigkeit der Eigenschaften (Konditionszahl der Jacobi-Matrix) erwartet.
+%Die hierarchische Eigenschaft wird durch die Bedingung  und eine Normierung umgesetzt.
+
+
+%Eine analytische Elimination der passiven Gelenke ist nicht für alle automatisch synthetisierten Strukturen aus möglich.
+%Zusätzlich wird ein effizienter und allgemeingültiger Ansatz für die Dynamik benötigt.
+%Der in Bild\,\ref{fig:details_kindyn} dargestellte und im Folgenden skizzierte  Ansatz erfüllt diese Anforderungen.
+
+
+
+
+
 
 \subsection{Definition of Parameters}
+\label{sec:opt_params}
 
 * Definition von Parametern: Abhängigkeit zwischen den Parametern, Skalierung
 
 \subsection{Objective Function}
+\label{sec:opt_objective}
 
 Since the energy consumption of the parallel robot for a reference trajectory is a scalar value and is correlated with other criteria such as moved mass and joint speeds, it is a good candidate for an objective function of the dimensional synthesis.
 The range of values for the energy taken from the grid from (\ref{equ:energy_integral}) is not known in advance.
@@ -519,12 +551,16 @@ Aus der aufintegrierten Energie $E_\mathrm{Netz}$ wird durch eine Normierung $f_
 
 
 \subsection{Constraints}
+\label{sec:opt_constraints}
 
 \subsubsection{Geometric Feasibility}
 
 \subsubsection{Inverse Kinematics of Points and Trajectory}
 
 \subsubsection{Joint Limits: Range, Velocity, Configuration}
+
+
+Zur Bestimmung von Nebenbedingungen wie der Einhaltung der Gelenkwinkelgrenzen ist eine Berechnung der passiven Gelenke und der Plattform-Koppelgelenke notwendig.
 
 Joint range
 
