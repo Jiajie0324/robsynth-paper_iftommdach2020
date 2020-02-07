@@ -530,6 +530,24 @@ The scaling $\rho_{\mathrm{scale}}$ adjusts the range of the values of $\rho$ wh
 \subsection{Definition of Parameters}
 \label{sec:opt_params}
 
+To reduce the nonlinearity of the fitness $f$ function with respect to the optimization parameters $\bm{p}$, a conversion between optimization parameters and physical kinematic parameters of the robot is performed.
+The measure especially aims at reducing the coupling between parameters.
+Therefore, the following meta-parameters of the optimization are introduced:
+\begin{itemize}
+\item the scaling parameter $p_\mathrm{scale}$ increases the size of the whole robot without changing its characteristics,% as far as possible,
+\item the platform scaling parameter $p_\mathrm{plfscale}$ scales the diameter of the moving platform relative to the base.
+\end{itemize}
+
+The kinematic parameters of the parallel robots are
+\begin{itemize}
+\item base diameter $d_\mathrm{base}=p_\mathrm{scale} p_\mathrm{base}$
+\item platform diameter $d_\mathrm{plf}=p_\mathrm{plfscale} d_\mathrm{base}$
+\item distance $d_\mathrm{pairdist}=d_\mathrm{base} p_\mathrm{pdscale}$ of coupling point pairs, in case of a pair-wise alignment at the base (Fig.\,xxx z)
+\item pair distance xxx for the moving platform
+\item elevation of the coupling joint, in case of a pyramidal alignment of the first joint axis of the leg chains
+\end{itemize}
+
+
 * Definition von Parametern: Abhängigkeit zwischen den Parametern, Skalierung
 
 
