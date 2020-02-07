@@ -397,7 +397,7 @@ The internal forces can be reconstructed by adapting the procedure presented in 
 \label{fig:PKM_internal_forces}
 \end{figure}
 
-With the known joint velocity $\dot{\bm{q}}_i$ and acceleration $\ddot{\bm{q}}_i$ from (\ref{equ:jacobian}) and (\ref{equ:acceleration_jacobian}) for all active and passive joints of the leg chain $i$, the internal forces
+With the known joint velocity $\dot{\bm{q}}_i$ and acceleration $\ddot{\bm{q}}_i$ from (\ref{equ:jacobian}) and (\ref{equ:acceleration_jacobian}) for all active and passive joints of the leg chain $i$, the stacked internal forces and moments
 %
 \begin{equation}
 \bm{w}_{i,\mathrm{int}}=\bm{w}_{i,\mathrm{int}}(\bm{q}_i,\dot{\bm{q}}_i,\ddot{\bm{q}}_i)
@@ -467,8 +467,8 @@ the energy consumption of the parallel robot in the reference trajectory can be 
 \label{sec:opti}
 
 The dimensional synthesis of parallel robots is implemented as a global optimization of the kinematic parameters of the robot.
-Performing a multi-objective optimization requires to select a solution on the pareto-front in the hyper-space of all different objective criteria.
-When trying to select the best robot architecture from many possibilities for a given task, an unambiguous criterion has to be used not necessarily requiring a human decision.
+As reasoned in \cite{JamwalHusXie2015,Ramirez2018}, performing a multi-objective optimization requires to select a solution on the pareto-front in the hyper-surface of all different objective criteria.
+When trying to select the best robot architecture from many possibilities for a given task, an unambiguous criterion has to be used not requiring a human decision \cite{Ramirez2018} or trial-and-error on weighting factors of different criteria \cite{JamwalHusXie2015}.
 Therefore, a single-objective optimization is performed, where the energy consumption is used as an exemplary criterion and different constraints are used.
 The particle swarm optimization is employed since it has, together with the genetic algorithm, proven to be efficient for this kind of design problem.
 In the following, the problem formulation is elaborated in Sec.\,\ref{sec:opt_formulation}, the definition of the robot parameters is described in Sec.\,\ref{sec:opt_params} and the objective function and the various constraints are defined in Sec.\,\ref{sec:opt_objective} and Sec.\,\ref{sec:opt_constraints}.
@@ -489,7 +489,7 @@ The ambition of the design optimization is to find the set of robot parameters (
 Many parameter combinations however do not present a valid solution, since they violate some constraint.
 Since the bottleneck in the optimization process is the computation time, an efficient way of handling the constraints is to abort the processing of a particle once one of the constraints is not met.
 Therefore, from the different possibilities of including constraints in the optimization \cite{Jordehi2015}, an adaption of the static penalty approach is used which can be termed as ``hierarchical constraints''.
-The penalty terms $v_i$ are defined hierarchically according to the infeasibility of the solution with
+Following \cite{Ramirez2018}, the penalty terms $v_i$ are defined hierarchically according to the infeasibility of the solution with
 %
 \begin{equation}
 v_1(\bm{p})>v_2(\bm{p})>\dots>z(\bm{p}),
@@ -497,17 +497,20 @@ v_1(\bm{p})>v_2(\bm{p})>\dots>z(\bm{p}),
 %
 where $z$ represents the objective function as opposed to the fitness function $f$, which contains the penalty terms in a piece-wise definition, which is depicted in Fig.\,\ref{fig:uebersicht}.
 
-To increase the convergence of the optimization, the degree of violation $\rho>0$ of the constraints is included in the penalties and normalized with the function
+To increase the convergence of the optimization with respect to the constant penalties of \cite{Ramirez2018}, the degree of violation $\rho>0$ of the constraints is included in the penalties $v_i$ and normalized with the function
 %
 \begin{equation}
-f_\mathrm{norm}(\rho) = \frac{2}{\pi} \mathrm{arctan}(\rho)
+f_\mathrm{norm}(\rho) = \frac{2}{\pi} \mathrm{arctan}(\rho / \rho_{\mathrm{scale}})
 %\quad \mathrm{with} \quad
 %0 < f_\mathrm{norm}(\rho) < 1
 \label{equ:fnorm}
 \end{equation}
 %
-to the range of 0 to 1.
-By multiplying (\ref{equ:fnorm}) with a different factor, each constraint penalty $p_i$ has a dedicated range in the possible values for the fitness function $f$.
+to the range of $0$ to $1$.
+Since it is not always possible to determine the upper limit of $\rho$ for any kind of parameter values, the saturation of (\ref{equ:fnorm}) ensures that each constraint penalty $v_i$ has a dedicated range in the possible values for the fitness function $f$.
+The scaling $\rho_{\mathrm{scale}}$ adjusts the range of the values of $\rho$ which lie in the saturation of $f_\mathrm{norm} \approx 1$.
+%By multiplying (\ref{equ:fnorm}) with a different factor, each constraint penalty $p_i$ has a dedicated range in the possible values for the fitness function $f$.
+
 
 %Zur effizienten Berücksichtigung von Nebenbedingungen werden diese hierarchisch berechnet und normierte Strafterme $s_i$ direkt in der stückweise definierten Fitness-Funktion $f$ eingesetzt.
 %Als skalare Zielfunktion $z$ wird der Energieverbrauch des Roboters über eine Referenz-Trajektorie $\bm{x}(t)$ gewählt, was einen direkten Vergleich unterschiedlicher Kinematiken erlaubt.
@@ -529,70 +532,108 @@ By multiplying (\ref{equ:fnorm}) with a different factor, each constraint penalt
 
 * Definition von Parametern: Abhängigkeit zwischen den Parametern, Skalierung
 
+
+
 \subsection{Objective Function}
 \label{sec:opt_objective}
 
 Since the energy consumption of the parallel robot for a reference trajectory is a scalar value and is correlated with other criteria such as moved mass and joint speeds, it is a good candidate for an objective function of the dimensional synthesis.
-The range of values for the energy taken from the grid from (\ref{equ:energy_integral}) is not known in advance.
+The range of values for the energy from (\ref{equ:energy_integral}) is not known in advance.
 The objective function
 %
 \begin{equation}
 z=f_\mathrm{norm}(E_{\mathrm{Netz}})
 \end{equation}
 %
-is therefore constructed by normalizing the energy value.
+is therefore constructed by normalizing and saturating the energy value with the function from (\ref{equ:fnorm}).
 
-Für die Berechnung der \emph{Energie als Zielfunktion} (rechter Block in Bild\,\ref{fig:details_kindyn}) erfolgt eine Projektion der Dynamik auf die Antriebskräfte $\bm{\tau}_\mathrm{a}$. 
-Für die dafür notwendige Jacobi-Matrix $\bm{J}$ müssen lediglich die entsprechenden Spalten aus $\tilde{\bm{J}}$ gewählt werden.
-Es wird angenommen, dass alle Antriebe ihre Leistung in einem elektrischen Zwischenkreis austauschen können (resultierend zu $P_\mathrm{Kreis}$), was einem zukünftigen Szenario zur Erhöhung der Energieeffizienz entspricht.
-Für die aus dem Netz aufzunehmende Leistung $P_\mathrm{Netz}$ wird die Möglichkeit einer  Rückspeisung ausgeschlossen.
-Aus der aufintegrierten Energie $E_\mathrm{Netz}$ wird durch eine Normierung $f_\mathrm{norm}(\cdot)$ (mittels arctan-Funktion) der Zielfunktionswert $z$ gebildet.
+
+%Für die Berechnung der \emph{Energie als Zielfunktion} (rechter Block in Bild\,\ref{fig:details_kindyn}) erfolgt eine Projektion der Dynamik auf die Antriebskräfte $\bm{\tau}_\mathrm{a}$. 
+%Für die dafür notwendige Jacobi-Matrix $\bm{J}$ müssen lediglich die entsprechenden Spalten aus $\tilde{\bm{J}}$ gewählt werden.
+%Es wird angenommen, dass alle Antriebe ihre Leistung in einem elektrischen Zwischenkreis austauschen können (resultierend zu $P_\mathrm{Kreis}$), was einem zukünftigen Szenario zur Erhöhung der Energieeffizienz entspricht.
+%Für die aus dem Netz aufzunehmende Leistung $P_\mathrm{Netz}$ wird die Möglichkeit einer  Rückspeisung ausgeschlossen.
+%Aus der aufintegrierten Energie $E_\mathrm{Netz}$ wird durch eine Normierung $f_\mathrm{norm}(\cdot)$ (mittels arctan-Funktion) der Zielfunktionswert $z$ gebildet.
 
 
 \subsection{Constraints}
 \label{sec:opt_constraints}
 
+As introduced in Sec.\,\ref{sec:opt_formulation}, a hierarchy of constraints is assumed \cite{Ramirez2018} which extends the classical problem formulation in constrained optimization, where all constraints are handled equally as equality or inequality constraints \cite{Jordehi2015}.
+
 \subsubsection{Geometric Feasibility}
+
+First, the geometric feasibility of the parallel robot kinematic parameters is tested.
+If the legs are too short to close the distance between base and platform radius, the first constraint penalty $v_\mathrm{leglength}$ is set.
+If the coupling point $B_i$ is not reachable with the maximum length of a leg chain for any corner point of the workspace, the second penalty $v_\mathrm{cplreach}$ is set to a value corresponding to the longest missing leg length.
 
 \subsubsection{Inverse Kinematics of Points and Trajectory}
 
+Next, the inverse kinematics is solved for all corner points of the workspace.
+The mean remaining violation of the kinematic constraints of (\ref{equ:constr_Phi_PKM}) serves as a penalty $v_\mathrm{IKcorner}$.
+If this remains below the tolerance, i.e. all corner points are reachable, the inverse kinematics for the reference trajectory is calculated according to the left part of Fig.\,\ref{fig:details_kindyn}.
+The first erroneous trajectory sample $k_{\mathrm{err}}$ in relation to the trajectory length $n_t$ serves as a penalty value $v_\mathrm{IKtraj}$.
+
 \subsubsection{Joint Limits: Range, Velocity, Configuration}
 
-
-Zur Bestimmung von Nebenbedingungen wie der Einhaltung der Gelenkwinkelgrenzen ist eine Berechnung der passiven Gelenke und der Plattform-Koppelgelenke notwendig.
-
-Joint range
-
-
-
-Joint speed
-
+For the given joint trajectory $\bm{q}(t)$ constraints on the feasibility regarding joint motion are checked.
+First, limits on the joint range %$\mathrm{max\bm{q}_\mathrm{min} < \bm{q} < \bm{q}_\mathrm{max}$ are checked and the amount of exce
+%
 \begin{equation}
-f_{\mathrm{jspeed},k} = \max\limits_{t}(\dot{q}_k(t)) / \dot{q}_{k,\mathrm{max}}
+\bm{q}_\mathrm{range} = \max\limits_{t} \bm{q}(t) - \min\limits_{t} \bm{q}(t)
+\label{equ:joint_range}
 \end{equation}
-\begin{equation}
-p_{\mathrm{jspeed}} = f_\mathrm{Norm}(\max\limits_{k} f_{\mathrm{jspeed},k}-1)
-\end{equation}
+%
+are checked, where for revolute joints the $2\pi$-periodicity is regarded with an extended algorithm for (\ref{equ:joint_range}).
+The allowed range of motion $\bm{q}_\mathrm{range,max}$ of revolute joints can be set lower for universal and spherical joints than for single-DoF revolute joints.
+The maximum exceedance relative to the respective range results in the penalty term $v_\mathrm{jointrange}$.
+%
+Exceeding the maximum joint velocity $\dot{\bm{q}}_\mathrm{max}$ results in the penalty $v_\mathrm{jointvelo}$ and already indicates a bad-conditioned Jacobian.
+%
+Since a flipping of joint configurations (``elbow up/down'') can not be completely prevented in the gradient-based inverse kinematics, despite the initial value from (\ref{equ:IK_initialvalue}), the difference between the numeric differentiation of the joint positions $\bm{q}(t)$ from  and the velocities from the Jacobian in (\ref{equ:jacobian}) are taken as a penalty $v_\mathrm{configflip}$.
+
+%\begin{equation}
+%f_{\mathrm{jspeed},k} = \max\limits_{t}(\dot{q}_k(t)) / \dot{q}_{k,\mathrm{max}}
+%\end{equation}
+%\begin{equation}
+%v_{\mathrm{jspeed}} = f_\mathrm{Norm}(\max\limits_{k} f_{\mathrm{jspeed},k}-1)
+%\end{equation}
+
 \subsubsection{Condition Number of the Jacobian}
 
+If the joint trajectory has proven valid in the previous steps, the condition number of the Jacobian from (\ref{equ:jacobian_actuation}) is calculated for the trajectory.
+If the condition number for any sample of the trajectory exceeds a threshold value, this indicates high actuator velocities or forces and leads to the penalty
+%
 \begin{equation}
-p_{\mathrm{cond}} = f_\mathrm{Norm}(\mathrm{log}(\max\limits_{t}( \mathrm{cond}(\bm{J}(t))))/k_{\mathrm{cond}})
+v_{\mathrm{cond}} = f_\mathrm{norm}(\mathrm{log}[\max\limits_{t}  \mathrm{cond}(\bm{J}(t))]). % /k_{\mathrm{cond}}
 \end{equation}
+%
+%where the scaling $k_{\mathrm{cond}}$ serves to adjust the range of condition numbers which lie in the saturation of $f_\mathrm{norm} \approx 1$.
 
 \subsubsection{Material Stress from Internal Forces}
 
-\begin{itemize}
-\item Schnittkräfte und -momente $\bm{w}_{i}$ werden benutzt, um Materialspannung $\sigma_ij$ für alle Segmente $j$ der Beinkette zu berechnen
-\item Modell: Hohlzylinder
-\end{itemize}
-
+To ensure a valid solution from the point of robot dynamics, internal forces in the leg chains are calculated according to Sec.\,\ref{sec:intforce}.
+The force and moment in link $j$ of leg chain $i$ are combined in the wrench vector $\bm{w}_{i,j}^\transp=[\bm{f}_{i,j}^\transp, \bm{m}_{i,j}^\transp]$, as depicted in Fig.\,\ref{fig:PKM_internal_forces}.
+The location of the maximum mechanical stress of each link is assumed to be proximal to the base and is calculated, simplified by neglecting torsional and shear stress, with 
+%
 \begin{equation}
-f_\mathrm{stress} = \max\limits_{i,j} \frac{\sigma_{i,j}}{\sigma_{i,j,\mathrm{max}}} % \max\limits_{i \in \{1,..m\}} \max\limits_{j \in \{1,..n_i\}}
+\sigma_{i,j} = \max\limits_{t} \lVert\bm{f}_{i,j}\rVert / A_0 + \lVert\bm{m}_{i,j}\rVert / W,
+\end{equation}
+%
+where $A_0$ is the sectional area and $W$ the resistance moment of the link structure, which is assumed to be a hollow cylinder.
+The number
+%
+\begin{equation}
+f_\mathrm{stress} = \max\limits_{i,j} \frac{\sigma_{i,j}}{\sigma_{\mathrm{max}}} % \max\limits_{i \in \{1,..m\}} \max\limits_{j \in \{1,..n_i\}}
+\end{equation}
+%
+describes the maximum relative exceedance of the yield stress $\sigma_{\mathrm{max}}$ of the material for all links of the parallel robot and results in the penalty value
+%
+\begin{equation}
+v_{\mathrm{stress}} = f_\mathrm{Norm}(f_\mathrm{stress}-1)
+\quad \mathrm{for} \quad 
+f_\mathrm{stress} > 1.
 \end{equation}
 
-\begin{equation}
-p_{\mathrm{stress}} = f_\mathrm{Norm}(f_\mathrm{stress}-1)
-\end{equation}
 
 \section{Simulation Results}
 \label{sec:results}
