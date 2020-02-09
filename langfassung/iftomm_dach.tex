@@ -26,7 +26,7 @@
 \newcommand{\transp}[0]{{\mathrm{T}}}
 \newcommand{\ks}[1]{{(\mathrm{CS})}_{#1}}
 \usepackage[fleqn]{nccmath} % Ausrichtung von Gleichungen
-
+\usepackage{paralist}
 \usepackage{graphicx}
 \usepackage{graphbox}   % allows to add keys to \includegraphics
 \graphicspath{{./Bilder/}}
@@ -467,8 +467,8 @@ the energy consumption of the parallel robot in the reference trajectory can be 
 \label{sec:opti}
 
 The dimensional synthesis of parallel robots is implemented as a global optimization of the kinematic parameters of the robot.
-As reasoned in \cite{JamwalHusXie2015,Ramirez2018}, performing a multi-objective optimization requires to select a solution on the pareto-front in the hyper-surface of all different objective criteria.
-When trying to select the best robot architecture from many possibilities for a given task, an unambiguous criterion has to be used not requiring a human decision \cite{Ramirez2018} or trial-and-error on weighting factors of different criteria \cite{JamwalHusXie2015}.
+As reasoned in \cite{JamwalHusXie2015,Ramirez2018}, performing a multi-objective optimization requires selecting a solution on the Pareto hyper-surface of all different objective criteria.
+When trying to select the best robot architecture from many possibilities for a given task, an unambiguous criterion has to be used, not requiring a human decision \cite{Ramirez2018} or trial-and-error on weighting factors of different criteria \cite{JamwalHusXie2015}.
 Therefore, a single-objective optimization is performed, where the energy consumption is used as an exemplary criterion and different constraints are used.
 The particle swarm optimization is employed since it has, together with the genetic algorithm, proven to be efficient for this kind of design problem.
 In the following, the problem formulation is elaborated in Sec.\,\ref{sec:opt_formulation}, the definition of the robot parameters is described in Sec.\,\ref{sec:opt_params} and the objective function and the various constraints are defined in Sec.\,\ref{sec:opt_objective} and Sec.\,\ref{sec:opt_constraints}.
@@ -495,9 +495,9 @@ Following \cite{Ramirez2018}, the penalty terms $v_i$ are defined hierarchically
 v_1(\bm{p})>v_2(\bm{p})>\dots>z(\bm{p}),
 \end{equation}
 %
-where $z$ represents the objective function as opposed to the fitness function $f$, which contains the penalty terms in a piece-wise definition, which is depicted in Fig.\,\ref{fig:uebersicht}.
+where $z$ represents the objective function and $v_i$ the penalty terms for the constraints, which are included in the piece-wise definition of the fitness function $f$, depicted in Fig.\,\ref{fig:uebersicht}.
 
-To increase the convergence of the optimization with respect to the constant penalties of \cite{Ramirez2018}, the degree of violation $\rho>0$ of the constraints is included in the penalties $v_i$ and normalized with the function
+To increase the convergence of the optimization as opposed to  constant penalties e.g. used in \cite{Ramirez2018}, the degree of violation $\rho>0$ of the constraints is included in the penalties $v_i$ and normalized with the function
 %
 \begin{equation}
 f_\mathrm{norm}(\rho) = \frac{2}{\pi} \mathrm{arctan}(\rho / \rho_{\mathrm{scale}})
@@ -533,24 +533,35 @@ The scaling $\rho_{\mathrm{scale}}$ adjusts the range of the values of $\rho$ wh
 To reduce the nonlinearity of the fitness $f$ function with respect to the optimization parameters $\bm{p}$, a conversion between optimization parameters and physical kinematic parameters of the robot is performed.
 The measure especially aims at reducing the coupling between parameters.
 Therefore, the following meta-parameters of the optimization are introduced:
-\begin{itemize}
+\begin{compactitem}
 \item the scaling parameter $p_\mathrm{scale}$ increases the size of the whole robot without changing its characteristics,% as far as possible,
 \item the platform scaling parameter $p_\mathrm{plfscale}$ scales the diameter of the moving platform relative to the base.
-\end{itemize}
+\end{compactitem}
 
 The kinematic parameters of the parallel robots are
-\begin{itemize}
-\item base diameter $d_\mathrm{base}=p_\mathrm{scale} p_\mathrm{base}$
-\item platform diameter $d_\mathrm{plf}=p_\mathrm{plfscale} d_\mathrm{base}$
-\item distance $d_\mathrm{pairdist}=d_\mathrm{base} p_\mathrm{pdscale}$ of coupling point pairs, in case of a pair-wise alignment at the base (Fig.\,xxx z)
-\item pair distance xxx for the moving platform
-\item elevation of the coupling joint, in case of a pyramidal alignment of the first joint axis of the leg chains
-\end{itemize}
-
-
-* Definition von Parametern: Abhängigkeit zwischen den Parametern, Skalierung
-
-
+%
+\begin{compactitem}
+\item the base diameter $d_\mathrm{base}=p_\mathrm{scale} p_\mathrm{base}$,
+\item the platform diameter $d_\mathrm{plf}=p_\mathrm{plfscale} d_\mathrm{base}$,
+\item the distance $d_\mathrm{basepairdist}=d_\mathrm{base} p_\mathrm{bpdscale}$ of coupling point pairs, in case of a pair-wise alignment at the base (Fig.\,\ref{fig:ergebnisse},a)
+\item the pair distance $d_\mathrm{plfpairdist}=d_\mathrm{plf} p_\mathrm{ppdscale}$ for the moving platform (Fig.\,\ref{fig:ergebnisse},a,b),
+\item the elevation $\alpha_\mathrm{Pyr}$ of the coupling joint, in case of a pyramidal alignment of the first joint axis of the leg chains (Fig.\,\ref{fig:ergebnisse},a,b),
+\item the \textsc{Denavit-Hartenberg}-parameters for links $1\le i \le n_i$, $\alpha_{i,\mathrm{DH}}=p_{\alpha_i}$, $a_{i,\mathrm{DH}}=p_\mathrm{scale} p_{a_i}$, $\theta_{i,\mathrm{DH}}=p_{\theta_i}$ and $d_{i,\mathrm{DH}}=p_\mathrm{scale} p_{d_i}$, describing the serial link leg chains kinematics.
+\end{compactitem}
+%
+Depending on the base and platform morphology (circular, pair-wise, pyramidal) and the kinematics of the symmetric legs, a different number of kinematic parameters
+%
+\begin{equation}
+\bm{p}_\mathrm{kin}=[d_\mathrm{base}, d_\mathrm{plf}, d_\mathrm{basepairdist}, \cdots, d_{{n_i},\mathrm{DH}} ]^\transp % alpha_\mathrm{Pyr}, \alpha_{i,\mathrm{DH}},a_{i,\mathrm{DH}}, \theta_{i,\mathrm{DH}}
+\end{equation}
+%
+and corresponding optimization parameters
+%
+\begin{equation}
+\bm{p}=[p_\mathrm{scale}, p_\mathrm{base}, p_\mathrm{plfscale}, p_\mathrm{bpdscale}, \cdots, p_{d_{n_i}}]^\transp
+\end{equation}
+%
+are subject to the optimization.
 
 \subsection{Objective Function}
 \label{sec:opt_objective}
