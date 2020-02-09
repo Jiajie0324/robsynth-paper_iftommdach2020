@@ -116,11 +116,11 @@ Moritz Schappler, Prof. Dr.-Ing. Tobias Ortmaier, Leibniz Universität Hannover,
 
 \foreignlanguage{german}{
 \begin{myabstract} Kurzfassung \end{myabstract}
-Durch systematische Struktursynthese wurden bislang eine Vielzahl unterschiedlicher Parallelkinematiken (PKM) beschrieben. 
+Durch systematische Struktursynthese wurden bislang eine Vielzahl unterschiedlicher parallelkinematischer Maschinen (PKM) beschrieben. 
 Um die passendste Roboterkinematik für eine gegebene Aufgabe zu finden, ist eine effiziente und allgemeingültige Auswahlsystematik erforderlich. 
 Für einfache Systeme mit mehrwertigen Gelenken wie die Gough-Stewart-PKM liegen bereits Modellierungs- und Optimierungsverfahren vor. 
 Für komplexere Strukturen mit mehr einwertigen Gelenken ist die Auswahl an Verfahren eingeschränkter. 
-Der vorliegende Beitrag führt allgemeine Ansätze für die Modellierung der Kinematik und Dynamik zusammen, um eine für die Maßsynthese von PKM besonders effiziente Struktur zu erhalten.}
+Der vorliegende Beitrag führt allgemeine Ansätze für die Modellierung der Kinematik und Dynamik zusammen, um die Maßsynthese von PKM besonders effizient zu gestalten.}
 
 
 \vspace{12pt} % Bitte nicht entfernen.
@@ -130,8 +130,8 @@ Der vorliegende Beitrag führt allgemeine Ansätze für die Modellierung der Kin
 A variety of different structures for parallel kinematic machines (PKM) have been found by means of systematic structural synthesis.
 To find the structure that is suited best for a specific task an efficient and generic selection method is necessary.
 For simple structures with multi-degree-of-freedom joints like the Gough-Stewart-robot methods for modeling and dimensional optimization are well established.
-For more complex structures with single-degree-of-freedom joints less methods are available.
-This contribution combines general approaches for the modeling of the kinematics and dynamics of parallel robots to obtain an especially efficient structure for the dimensional synthesis of PKM.
+Less methods are available for more complex structures with single-degree-of-freedom joints.
+This contribution combines general approaches for the modeling of the kinematics and dynamics of parallel robots to obtain an efficient dimensional synthesis of PKM.
 
 \vspace{18pt} % Bitte nicht entfernen.
 
@@ -141,26 +141,31 @@ This contribution combines general approaches for the modeling of the kinematics
 \section{Introduction}
 
 \begin{itemize}
-\item Die Struktursynthese paralleler Roboter hat durch die systematische Nutzung der Schraubentheorie \cite{KongGos2007} und der evolutionären Morphologie \cite{Gogu2008} eine Vielzahl neuer Parallelkinematiken hervorgebracht, für die Großteils noch keine praktische Anwendung gefunden wurde.
+\item Die Struktursynthese paralleler Roboter hat durch die systematische Nutzung der Schraubentheorie \cite{KongGos2007} und der evolutionären Morphologie \cite{Gogu2008} eine Vielzahl neuer Parallelkinematiken hervorgebracht, für die Großteils noch keine praktische Anwendung gefunden wurde, obwohl es bereits einige unterschiedliche PKM-Demonstratoren an Forschungseinrichtungen gibt \cite{Merlet2006}.
 \item Um für gegebene Anforderungen an einen Roboter den bestgeeignetsten auszuwählen, ist eine automatische Auslegung (Maßsynthese) notwendig, die für die Vielzahl verfügbarer Kinematiken anwendbar ist.
-\item Der vorliegende Beitrag behandelt eine allgemeine Methodik für die Maßsynthese paralleler Kinematiken unter Ausnutzung struktureller Eigenschaften von Kinematik und Dynamik sowie der effizienten Strukturierung des Optimierungsproblems.
-\item Maßsynthese paralleler Roboter großer Schwerpunkt in den 2000er Jahren [Quellen]
-\item Bisher hauptsächlich Fokus auf Klassischen PKM mit mehrwertigen Gelenken und wenigen Gliedern [Quellen]
-\item Keine systematische Berücksichtigung der Schnittkräfte mittels analytischer Modelle, nur mit FEM [Quellen]
-\item Ursache ist die voraussichtlich niedrigere Steifigkeit und Kollisionsanfälligkeit von PKM mit mehrgliedrigen Beinketten
+%\item Der vorliegende Beitrag behandelt eine allgemeine Methodik für die Maßsynthese paralleler Kinematiken unter Ausnutzung struktureller Eigenschaften von Kinematik und Dynamik sowie der effizienten Strukturierung des Optimierungsproblems.
+\item Maßsynthese paralleler Roboter großer Schwerpunkt in den 2000er Jahren \cite{MbarekNefCor2005,Krefft2006,FrindtKreHes2010} durch Forschung deutscher Produktionstechnik-Instituten und internationen Forschungsgruppen \cite{CarboneOttCec2007,KelaiaiaComZaa2012,JamwalHusXie2015}
+\item Es wurde festgestellt, dass die theoretisch erreichbaren Eigenschaften von PKM wesentlich von der Auslegung der Maschinen abhängen und die Maßsynthese eine größere Rolle als bei seriellen Robotern einnimmt \cite{Merlet2006}
+\item Bisher hauptsächlich Fokus auf Klassischen PKM mit mehrwertigen Gelenken und wenigen Gliedern, da durch die technische Ausgestaltung eine hohe Steifigkeit erreicht werden kann, die für Bearbeitungsprozesse entscheidend ist \cite{MbarekNefCor2005}
+%\item Ursache ist die voraussichtlich niedrigere Steifigkeit und Kollisionsanfälligkeit von PKM mit mehrgliedrigen Beinketten
 \end{itemize}
 
-Quellen (z.B.)
-\cite{JamwalHusXie2015}
-\cite{Krefft2006}
-\cite{CarboneOttCec2007}
-\cite{ZhouBaiHan2011}
+%Quellen (z.B.)
+%\cite{JamwalHusXie2015}
+%
+%\cite{CarboneOttCec2007}
+%\cite{ZhouBaiHan2011}
 
 Einschränkungen Stand der Technik
 \begin{itemize}
-\item Modellierung häufig nicht generisch sondern an zu optimierenden Roboter angepasst
+\item Maßsynthese in Beispielen häufig nur für einen Roboter durchgeführt z.B. Delta-Roboter \cite{KelaiaiaComZaa2012}, Gough-Stewart [Quelle], Hexa \cite{Krefft2006}, bislang in \cite{Krefft2006} als Ausblick beschriebene kombinierte Struktur- und Maßsynthese nur für serielle Roboter durchgeführt \cite{Ramirez2018}.
 \item Für PKM mit mehrgliedrigen Beinketten gibt es nicht immer eine analytische Lösung von Kinematik und Dynamik
-\item mehrkriterielle Optimierung relativ aufwändig
+\item Auslegung wird überwiegend basierend auf kinematischer und kinetostatischer Merkmale ausgeführt \cite{CarboneOttCec2007}, die Dynamik wird nur selten betrachtet, z.B. durch die Berechnung einer minimal möglichen Beschleunigung basierend auf Antriebskräften und bewegte Masse \cite{Krefft2006}.
+Eine teilweise Betrachtung der Dynamik erfolgt durch die Konditionszahl der Massenmatrix in \cite{KelaiaiaComZaa2012} oder Eigenfrequenz berechnet aus Massen- und Steifigkeitsmatrix in \cite{JamwalHusXie2015}. Bei seriellen Robotern öfter Anwendung in Maßsynthese, z.B. durch Berechnung mit Adams \cite{ZhouBaiHan2011}
+\item Auswahl von Antrieben bisher hauptsächlich bei seriellen Robotern ein Thema, z.B. \cite{ZhouBaiHan2011} und nicht bei PKM, da Antriebe bei PKM klassischerweise Gestellfest angeordnet sind und die Auswahl wenig Rückwirkung auf den Roboter hat
+\item mehrkriterielle Pareto-Optimierung relativ stark verbreitet, z.B. durch Algorithmen Strength Pareto Evolutionary Algorithm \cite{Krefft2006,KelaiaiaComZaa2012},  nondominated sorting
+algorithm (NSGA II) \cite {JamwalHusXie2015} (angeblich besser). Mehrkriterielle Optimierung mit Gewichtung gilt als ineffizient \cite{JamwalHusXie2015}
+\item Keine systematische Berücksichtigung der Schnittkräfte mittels analytischer Modelle, nur mit FEM für serielle Roboter in wenigen Quellen, z.B. parametrisches CAD-Modell mit Ansys \cite{ZhouBai2015} und von-Mises Vergleichsspannung
 \end{itemize}
 
 Beiträge des Papers
