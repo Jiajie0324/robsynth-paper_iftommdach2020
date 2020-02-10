@@ -6,8 +6,8 @@ clc
 
 dimsynthpath = fileparts(which('structgeomsynth_path_init.m'));
 importdir = fullfile(dimsynthpath, 'dimsynth', 'results');
-filter = 'IFToMMDACH_Vgl_Winkel*_20200205_nachts';
-outputdir = fullfile(dimsynthpath, 'dimsynth', 'results', 'IFToMMDACH_Vgl_20200205_nachts');
+filter = 'IFToMMDACH_Vgl_Winkel*_20200206_nachts_Wdh*';
+outputdir = fullfile(dimsynthpath, 'dimsynth', 'results', 'IFToMMDACH_Vgl_20200206_nachts');
 mkdirs(outputdir);
 %% Zusammenstellen der Ergebnisse
 reslist = dir(fullfile(importdir, filter));
