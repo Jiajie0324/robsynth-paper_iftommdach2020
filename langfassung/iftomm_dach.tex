@@ -643,6 +643,15 @@ v_{\mathrm{cond}} = f_\mathrm{norm}(\mathrm{log}[\max\limits_{t}  \mathrm{cond}(
 %
 %where the scaling $k_{\mathrm{cond}}$ serves to adjust the range of condition numbers which lie in the saturation of $f_\mathrm{norm} \approx 1$.
 
+
+\begin{figure*}[b]
+    \centering
+    \graphicspath{{../kurzfassung/Bilder/}}
+    \input{../kurzfassung/Bilder/Optimierung_Ergebnisse.pdf_tex}
+    \captionof{figure}{Ergebnisse der Maßsynthese für vier Beispiel-PKM mit Angabe der Zielfunktion $E_\mathrm{Netz}$ und der Parameteranzahl $\mathrm{dim}(\bm{p})$.}
+    \label{fig:ergebnisse}
+\end{figure*}
+
 \subsubsection{Material Stress from Internal Forces}
 
 To ensure a valid solution from the point of robot dynamics, internal forces in the leg chains are calculated according to Sec.\,\ref{sec:intforce}.
@@ -672,17 +681,12 @@ f_\mathrm{stress} > 1.
 \section{Simulation Results}
 \label{sec:results}
 
+
 Erste Ergebnisse der Methodik sind beispielhaft in Bild\,\ref{fig:ergebnisse} dargestellt.
 Es wurde eine Optimierung der 6\underline{P}RRS- und  6\underline{R}RRS-Kinematik durchgeführt, wobei das Kugelgelenk (S) einmal beibehalten und einmal durch drei versetzt angeordnete Drehgelenke (RRR) ersetzt wurde, um die allgemeinere Dynamik-Modellierung in der Maßsynthese zu validieren.
 Die der Optimierung zugrunde liegende Aufgabe ist das Abfahren der Eckpunkte eines Würfels mit Kantenlänge $30\,\textrm{mm}$ und Kippwinkeln bis zu $10^\circ$ mit einem Beschleunigungs-Trapez-Profil mit einer Gesamt-Verfahrdauer von ca. $11\,\textrm{s}$.
 
-\begin{figure*}
-\centering
-\graphicspath{{../kurzfassung/Bilder/}}
-\input{../kurzfassung/Bilder/Optimierung_Ergebnisse.pdf_tex}
-\captionof{figure}{Ergebnisse der Maßsynthese für vier Beispiel-PKM mit Angabe der Zielfunktion $E_\mathrm{Netz}$ und der Parameteranzahl $\mathrm{dim}(\bm{p})$.}
-\label{fig:ergebnisse}
-\end{figure*}
+
 
 %Durch die Vorgabe einer maximalen Plattform-Geschwindigkeit von $1\,\textrm{m/s}$ bzw. $60^\circ\textrm{/s}$ und -Beschleunigung von $3\,\textrm{m/s}^2$ bzw. $180^\circ\textrm{/s}^2$ und einer Zusatzmasse von $3\,\textrm{kg}$ wird versucht, einen ausreichend großen Einfluss der Dynamik auf das Optimierungsergebnis zu erzielen.
 Die Optimierungsparameter der durchgeführten Maßsynthese sind u.\,a. die Größenskalierung des Roboters, die \textsc{Denavit-Hartenberg}-Parameter der seriellen Beinketten, die Durchmesser von Gestell und Plattform und Morphologieparameter wie Koppelpunktpaarabstand und Neigung des gestellnahen Gelenks.
@@ -713,15 +717,25 @@ Der hohen Dimensionalität wurde durch eine Reduzierung der Abhängigkeiten zwis
 \label{fig:figure_histogram_fitness}
 \end{figure}
 
+\begin{figure}
+    \centering
+    % Bild so einfügen, dass das folgende Beschriftungsbild darüber liegt
+    % Beim Einfügen des Histogramm-Bilds in InkScape entstehen Grafikfehler
+    \includegraphics{./Bilder/figure_calctime_vs_fval.pdf}
+    \captionof{figure}{Box plot of computation times of the particles of P6\underline{R}RRS in multiple repetitions corresponding to bars in Fig\,\ref{fig:figure_histogram_fitness}.}
+    \label{fig:figure_boxplot_comptime}
+\end{figure}
 
 \subsection{Evaluation of Condition and Material Stress}
 
 \begin{figure}
-    \centering
-    \includegraphics{./Bilder/figure_matstress_vs_condition.pdf}
-    \captionof{figure}{Relation of material stress and Jacobian condition number}
-    \label{fig:eval_matstress_vs_condition}
+\centering
+\includegraphics{./Bilder/figure_matstress_vs_condition.pdf}
+\captionof{figure}{Relation of material stress and Jacobian condition number}
+\label{fig:eval_matstress_vs_condition}
 \end{figure}
+
+
 
 
 
