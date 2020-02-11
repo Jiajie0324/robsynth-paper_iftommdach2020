@@ -57,7 +57,7 @@
     \put(0.5747489,0.22604868){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{III: 6\underline{R}RRS}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=4]{Optimierung_Ergebnisse.pdf}}%
     \put(0.81689366,0.22604868){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{IV: 6\underline{R}RRRRR}}}%
-    \put(0.01299729,0.01209546){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$E_\mathrm{grid}=25\,\textrm{J}, \mathrm{dim}(\bm{p})=15$}}}%
+    \put(0.01299729,0.01209546){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$E_\mathrm{grid}=25\,\textrm{J}, \mathrm{dim}(\bm{p})=16$}}}%
     \put(0.26288154,0.01209546){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$E_\mathrm{grid}=46\,\textrm{J}, \mathrm{dim}(\bm{p})=19$}}}%
     \put(0.51994159,0.01209546){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$E_\mathrm{grid}=71\,\textrm{J}, \mathrm{dim}(\bm{p})=12$}}}%
     \put(0.77150572,0.01209546){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$E_\mathrm{grid}=67\,\textrm{J}, \mathrm{dim}(\bm{p})=15$}}}%

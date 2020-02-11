@@ -645,10 +645,10 @@ v_{\mathrm{cond}} = f_\mathrm{norm}(\mathrm{log}[\max\limits_{t}  \mathrm{cond}(
 
 
 \begin{figure*}[b]
-    \centering
-    \input{./Bilder/Optimierung_Ergebnisse.pdf_tex}
-    \captionof{figure}{Ergebnisse der Maßsynthese für vier Beispiel-PKM mit Angabe der Zielfunktion $E_\mathrm{grid}$ und der Parameteranzahl $\mathrm{dim}(\bm{p})$.}
-    \label{fig:ergebnisse}
+\centering
+\input{./Bilder/Optimierung_Ergebnisse.pdf_tex}
+\captionof{figure}{Results of the dimensional synthesis of four robots with objective function $E_\mathrm{grid}$ and number of parameters $\mathrm{dim}(\bm{p})$.}
+\label{fig:ergebnisse}
 \end{figure*}
 
 \subsubsection{Material Stress from Internal Forces}
@@ -691,8 +691,8 @@ f_\mathrm{stress} > 1.
 In the following, first simulative results for the optimization scheme from Sec.\,\ref{sec:opti} are presented.
 The dimensional synthesis of two architectures of parallel robots with full mobility in two variants each is performed.
 A detailed description of the simulation scenario and the robot parametrization is presented in Sec.\,\ref{sec:res_scenario}.
-The functionality of the hierarchic constraints and the convergence of the optimization is verified in Sec.\,\ref{sec:res_convergence}.
-An analysis on the use of the material stress constraint is performed in Sec.\,\ref{sec:res_matstress} and the influence of tilting angles on the overall performance is investigated in Sec.\,\ref{sec:res_condition_pivoting}.
+The functionality of the hierarchical constraints and the convergence of the optimization is verified in Sec.\,\ref{sec:res_convergence}.
+An analysis on the use of the material stress constraint is performed in Sec.\,\ref{sec:res_matstress} and the influence of tilting angles on the overall outcome of the optimization is investigated in Sec.\,\ref{sec:res_condition_pivoting}.
 
 %Erste Ergebnisse der Methodik sind beispielhaft in Bild\,\ref{fig:ergebnisse} dargestellt.
 %Es wurde eine Optimierung der 6\underline{P}RRS- und  6\underline{R}RRS-Kinematik durchgeführt, wobei das Kugelgelenk (S) einmal beibehalten und einmal durch drei versetzt angeordnete Drehgelenke (RRR) ersetzt wurde, um die allgemeinere Dynamik-Modellierung in der Maßsynthese zu validieren.
@@ -712,23 +712,23 @@ An analysis on the use of the material stress constraint is performed in Sec.\,\
 \subsection{Scenario}
 \label{sec:res_scenario}
 
-The architectures for the dimensional synthesis are the 6\underline{P}RRS- and 6\underline{R}RRS PKM, shown in Fig.\,\ref{fig:ergebnisse},\,a,\,c, where ``6'' marks the number of leg chains, ``R'' denotes a revolute, ``P'' a prismatic and ``S'' a spherical joint and the underscore marks the actuation.
-The generality of the kinematics and dynamics model laid out in Sec.\,\ref{sec:sysmdl} is highlighted by comparing two different variants of the architectures: One robot with leg chains ending in spherical joints (S), Fig.\,\ref{fig:ergebnisse},\,a,\,c, and one with leg chains ending in three distinctive revolute joints (RRR), Fig.\,\ref{fig:ergebnisse},\,b,\,d.
+The architectures for the dimensional synthesis are the 6\underline{P}RRS and 6\underline{R}RRS PKM, shown in Fig.\,\ref{fig:ergebnisse},\,a,\,c, where ``6'' marks the number of leg chains, ``R'' denotes a revolute, ``P'' a prismatic, ``S'' a spherical joint and the underscore marks the actuation.
+The generality of the kinematics and dynamics model laid out in Sec.\,\ref{sec:sysmdl} is highlighted by comparing two different variants of each architecture: One robot with leg chains ending in spherical joints (S), Fig.\,\ref{fig:ergebnisse},\,a,\,c, and one with leg chains ending in three distinctive revolute joints (RRR), Fig.\,\ref{fig:ergebnisse},\,b,\,d.
 
 The optimization was performed with the \textsc{Matlab}-implementation of the particle swarm optimization \cite{MatlabPSO} with 30 generations and 100 particles using the methods described in Sec.\,\ref{sec:sysmdl} and Sec.\,\ref{sec:opti}.
 
 All robot leg chain links were assumed to be thin tubes (hollow cylinders) with diameter 13\,mm and material thickness of 0.8\,mm.
 The moving platform is assumed to be a circular disk with thickness 10\,mm and the parts to be of Aluminum alloy AlCu4PbMgMn.
 
-The kinematics of the leg chains are the result of a structural synthesis \cite{Ramirez2018} and are part of a minimal set of serial link kinematic chains.
-This results in a very general description of the kinematics with many free parameters, with only the parameters
+The leg chains are the result of a structural synthesis \cite{Ramirez2018} and are part of a minimal set of serial-link kinematic chains.
+This results in a very general description of the kinematics with many free DH-parameters (in the modified notation of Khalil \cite{KhalilDom2002}), with only the DH-parameters
 %
 \begin{align}
-\alpha_{1,\mathrm{DH}}=0, \quad \alpha_{5,\mathrm{DH}}=\pi/2, \quad \alpha_{6,\mathrm{DH}}=\pi/2
+\alpha_{1,\mathrm{DH}}=0, \quad \alpha_{5/6,\mathrm{DH}}=\pi/2, \quad  d_{6,\mathrm{DH}}=0
 \end{align}
 %
-(in the modified DH-notation of Khalil \cite{KhalilDom2002}) set constant for all robots.
-For the architecture I (6\underline{P}RRS), only the DH-Parameters $a$/$d$ of the last two joints are set to zeros due to the S-joint.
+set constant for all robots.
+For the architecture I (6\underline{P}RRS), the DH-Parameters $a_5$/$a_6$/$d_5$ of the last two joints are set to zeros due to the S-joint.
 %
 All other parameters are subject to the optimization, resulting in 15 variable kinematic parameters
 % Parameter der Roboter: Vektoren
@@ -749,9 +749,9 @@ The variant II (6\underline{P}RRRRR) without spherical joints has three addition
 \bm{p}_\mathrm{kin,II}=[\bm{p}_\mathrm{kin,I}^\transp,a_{5,\mathrm{DH}},d_{5,\mathrm{DH}},a_{6,\mathrm{DH}}]^\transp
 \end{align}
 and
-20 optimization parameters.
+19 optimization parameters.
 %
-For architecture III (6\underline{R}RRS), a simplified base and platform coupling of the leg chains is selected, leaving only 12 parameters, including the scaling parameter, and
+For architecture III (6\underline{R}RRS), a simplified base and platform coupling of the leg chains is selected, leaving only 12 optimization parameters, including the scaling parameter, and
 %Nur wenige DH-Parameter gesetzt:
 %
 %Roboter P6RRRRRR10V3G1P1A1; inkl Skalierung 12 Parameter:
@@ -768,9 +768,9 @@ Dissolving the S-joint gives variant IV (6\underline{R}RRRRR) and again adds thr
 \bm{p}_\mathrm{kin,IV}=[\bm{p}_\mathrm{kin,III}^\transp,a_{5,\mathrm{DH}},d_{5,\mathrm{DH}},a_{6,\mathrm{DH}}]^\transp.
 \end{align}
 
-The parallel robots have to execute a reference trajectory in the workspace center, which is a cube with edge length 30\,mm, visible in Fig.\,\ref{fig:ergebnisse}.
-The tilting angles of the end effector are chosen as up to $90^\circ$, depending on the evaluation in the following sections.
-To make demands on the robot dynamics, which is the basis for the optimization criterion energy, the corners are connected with rest-to-rest motions with an acceleration trapezoid profile.
+The parallel robots have to execute a reference cube trajectory in the center of the workspace with edge length 30\,mm, visible in Fig.\,\ref{fig:ergebnisse}.
+The tilting angles of the end effector are chosen differently up to $90^\circ$, depending on the evaluation in the following sections.
+To make demands on the robot dynamics, which is the basis for the optimization criterion energy, the corners of the cube are connected with rest-to-rest motions with a  trapezoid profile in acceleration.
 %\begin{equation}
 %\bm{p}=\begin{pmatrix} p_\mathrm{scale}\\ p_\mathrm{base}\\ p_\mathrm{plfscale}\\ p_\mathrm{bpdscale}\\ \cdots\\ p_{d_{n_i}}\end{pmatrix}^\transp
 %\end{equation}
@@ -871,7 +871,7 @@ On the contrary, the structures with three R-joints instead of one S-joint seem 
 \label{sec:summary}
 
 A general methodology for the modeling and dimensional synthesis of parallel robots is presented, which differs from similar work by being applicable to non-classical parallel robots, the use of a single-objective optimization, the concepts of hierarchical constraints and consumed energy as objective. 
-Further work will extend the constraint formulation with considering self-collisions and comparing robots with and without task-redundancy.
+Further work will extend the constraint formulation with considering self-collisions, further plausibility checks and comparing robots with and without task-redundancy and the integration of design optimization of link geometry and drive selection.
 %In dem Konferenzvortrag werden die Ergebnisse und der Ansatz der Optimierung im Detail und weitere Beispiele vorgestellt.
 %%Dafür wird die Optimierung für weitere Kinematiken und längere Optimierungsdauern durchgeführt sowie statistischen Untersuchungen angestrebt.
 %Perspektivisch wird auch die Integration der Entwurfsoptimierung von Antriebs- und Segmentdimensionierung und die Behandlung zusätzlicher Nebenbedingungen und Zielfunktionen diskutiert.
