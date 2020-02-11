@@ -1,0 +1,87 @@
+%% Creator: Inkscape inkscape 0.91, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'Optimierung_Ergebnisse.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{476.22047244bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.25595238)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{Optimierung_Ergebnisse.pdf}}%
+    \put(0.07774023,0.22604868){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{I: 6\underline{P}RRS}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{Optimierung_Ergebnisse.pdf}}%
+    \put(0.3177251,0.22604868){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{II: 6\underline{P}RRRRR}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{Optimierung_Ergebnisse.pdf}}%
+    \put(0.5747489,0.22604868){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{III: 6\underline{R}RRS}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{Optimierung_Ergebnisse.pdf}}%
+    \put(0.81689366,0.22604868){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{IV: 6\underline{R}RRRRR}}}%
+    \put(0.01299729,0.01209546){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$E_\mathrm{grid}=25\,\textrm{J}, \mathrm{dim}(\bm{p})=15$}}}%
+    \put(0.26288154,0.01209546){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$E_\mathrm{grid}=46\,\textrm{J}, \mathrm{dim}(\bm{p})=19$}}}%
+    \put(0.51994159,0.01209546){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$E_\mathrm{grid}=71\,\textrm{J}, \mathrm{dim}(\bm{p})=12$}}}%
+    \put(0.77150572,0.01209546){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$E_\mathrm{grid}=67\,\textrm{J}, \mathrm{dim}(\bm{p})=15$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{Optimierung_Ergebnisse.pdf}}%
+    \put(0.06626415,0.20089016){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{active prismatic joint}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{Optimierung_Ergebnisse.pdf}}%
+    \put(0.00931402,0.07908298){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{moving}}}}%
+    \put(0.2668283,0.20400612){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{passive}}}}%
+    \put(0.2670083,0.18474732){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{revolute joint}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{Optimierung_Ergebnisse.pdf}}%
+    \put(0.4149851,0.19013295){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{base}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{Optimierung_Ergebnisse.pdf}}%
+    \put(0.06753687,0.18137523){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{with linear guidance}}}}%
+    \put(0.63531557,0.2070618){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{active}}}}%
+    \put(0.63658831,0.18754687){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{revolute joint}}}}%
+    \put(0.40878845,0.0658373){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{trajectory}}}}%
+    \put(0.40908843,0.04603846){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{(cube)}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{Optimierung_Ergebnisse.pdf}}%
+    \put(0.54902486,0.04461285){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{spherical joint}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{Optimierung_Ergebnisse.pdf}}%
+    \put(0.88960219,0.19106025){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{links of leg}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{Optimierung_Ergebnisse.pdf}}%
+    \put(0.52597805,0.18803308){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{leg chains}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=12]{Optimierung_Ergebnisse.pdf}}%
+    \put(0.00931402,0.05871939){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{platform}}}}%
+  \end{picture}%
+\endgroup%
