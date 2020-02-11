@@ -646,9 +646,8 @@ v_{\mathrm{cond}} = f_\mathrm{norm}(\mathrm{log}[\max\limits_{t}  \mathrm{cond}(
 
 \begin{figure*}[b]
     \centering
-    \graphicspath{{../kurzfassung/Bilder/}}
-    \input{../kurzfassung/Bilder/Optimierung_Ergebnisse.pdf_tex}
-    \captionof{figure}{Ergebnisse der Maßsynthese für vier Beispiel-PKM mit Angabe der Zielfunktion $E_\mathrm{Netz}$ und der Parameteranzahl $\mathrm{dim}(\bm{p})$.}
+    \input{./Bilder/Optimierung_Ergebnisse.pdf_tex}
+    \captionof{figure}{Ergebnisse der Maßsynthese für vier Beispiel-PKM mit Angabe der Zielfunktion $E_\mathrm{grid}$ und der Parameteranzahl $\mathrm{dim}(\bm{p})$.}
     \label{fig:ergebnisse}
 \end{figure*}
 
@@ -681,20 +680,26 @@ f_\mathrm{stress} > 1.
 \section{Simulation Results}
 \label{sec:results}
 
+Hier nur Einleitungstext:
+\begin{itemize}
+\item Beispielhafte Durchführung der Maßsynthese für zwei Roboterkinematiken in zwei Varianten (siehe Ergebnisbild)
+\item Prinzipielle Funktionsweise des vorgestellten Ansatzes und qualitative Ergebnisse werden gezeigt
+\item Parametrierung der Struktursegmente als Hohlzylinder mit Parameter ..., Plattform als Kreisscheibe (Aluminium-Legierung Materialparameter)
+\item Detaillierte Betrachtung der Ergebnisse hinsichtlich Vorstellung der Roboter \ref{sec:res_scenario}, Funktionalität der hierarchischen Nebenbedingungen in \ref{sec:res_convergence}, Prüfung der vermuteten Notwendigkeit der Betrachtung von Materialspannung in \ref{sec:res_matstress}, Schwenkwinkel in \ref{sec:res_condition_pivoting}
+\end{itemize}
 
 Erste Ergebnisse der Methodik sind beispielhaft in Bild\,\ref{fig:ergebnisse} dargestellt.
 Es wurde eine Optimierung der 6\underline{P}RRS- und  6\underline{R}RRS-Kinematik durchgeführt, wobei das Kugelgelenk (S) einmal beibehalten und einmal durch drei versetzt angeordnete Drehgelenke (RRR) ersetzt wurde, um die allgemeinere Dynamik-Modellierung in der Maßsynthese zu validieren.
-Die der Optimierung zugrunde liegende Aufgabe ist das Abfahren der Eckpunkte eines Würfels mit Kantenlänge $30\,\textrm{mm}$ und Kippwinkeln bis zu $10^\circ$ mit einem Beschleunigungs-Trapez-Profil mit einer Gesamt-Verfahrdauer von ca. $11\,\textrm{s}$.
 
-
+Der PSO-Algorithmus wurde mit 30 Generationen und 70 Individuen parametriert, was angesichts der 15 bis 19 Optimierungsparameter noch gering erscheint.
+Der hohen Dimensionalität wurde durch eine Reduzierung der Abhängigkeiten zwischen Parametern und plausibel gewählten Grenzen begegnet.
 
 %Durch die Vorgabe einer maximalen Plattform-Geschwindigkeit von $1\,\textrm{m/s}$ bzw. $60^\circ\textrm{/s}$ und -Beschleunigung von $3\,\textrm{m/s}^2$ bzw. $180^\circ\textrm{/s}^2$ und einer Zusatzmasse von $3\,\textrm{kg}$ wird versucht, einen ausreichend großen Einfluss der Dynamik auf das Optimierungsergebnis zu erzielen.
-Die Optimierungsparameter der durchgeführten Maßsynthese sind u.\,a. die Größenskalierung des Roboters, die \textsc{Denavit-Hartenberg}-Parameter der seriellen Beinketten, die Durchmesser von Gestell und Plattform und Morphologieparameter wie Koppelpunktpaarabstand und Neigung des gestellnahen Gelenks.
+%Die Optimierungsparameter der durchgeführten Maßsynthese sind u.\,a. die Größenskalierung des Roboters, die \textsc{Denavit-Hartenberg}-Parameter der seriellen Beinketten, die Durchmesser von Gestell und Plattform und Morphologieparameter wie Koppelpunktpaarabstand und Neigung des gestellnahen Gelenks.
 %Über die Modellierung der Beinsegmente als Hohlzylinder und der Plattform als Kreisscheibe führt die Veränderung der kinematikbeeinflussenden Parameter
 %Parameter wie Gelenk- und Antriebsauswahl, Stärke von Beinsegmenten und Plattform wurden nicht optimiert sondern in späteren Untersuchungen als Entwurfsoptimierung separat betrachtet.
 %Einfluss auf die Ergebnisse hatten daher nur die Modellierung der Beinsegmente als Hohlzylinder und der Plattform als Kreisscheibe.
-Der PSO-Algorithmus wurde mit 30 Generationen und 70 Individuen parametriert, was angesichts der 15 bis 19 Optimierungsparameter noch gering erscheint.
-Der hohen Dimensionalität wurde durch eine Reduzierung der Abhängigkeiten zwischen Parametern und plausibel gewählten Grenzen begegnet.
+
 
 
 
@@ -703,9 +708,63 @@ Der hohen Dimensionalität wurde durch eine Reduzierung der Abhängigkeiten zwis
 
 
 \subsection{Scenario}
+\label{sec:res_scenario}
+
+Es wurde eine Optimierung der 6\underline{P}RRS- und  6\underline{R}RRS-Kinematik durchgeführt, wobei das Kugelgelenk (S) einmal beibehalten und einmal durch drei versetzt angeordnete Drehgelenke (RRR) ersetzt wurde, um die allgemeinere Dynamik-Modellierung in der Maßsynthese zu validieren.
+
+Parameter der Roboter: Vektoren
+
+Roboter P6PRRRRR6V2G8P3A1; 15 Kinematik-Parameter, mit Skalierung 16 Opt-Parameter:
+
+\begin{align}
+\bm{p}_\mathrm{kin,I}=[&d_\mathrm{base}, d_\mathrm{plf}, \theta_{1,\mathrm{DH}}, \alpha_{2,\mathrm{DH}}, a_{2,\mathrm{DH}}, d_{2,\mathrm{DH}}, \alpha_{3,\mathrm{DH}}, \nonumber \\
+&a_{3,\mathrm{DH}}, d_{3,\mathrm{DH}}, \alpha_{4,\mathrm{DH}},a_{4,\mathrm{DH}}, d_{4,\mathrm{DH}},\nonumber \\
+&d_\mathrm{basepairdist}, d_\mathrm{plfpairdist}, \alpha_\mathrm{Pyr} ]^\transp % alpha_\mathrm{Pyr}, \alpha_{i,\mathrm{DH}},a_{i,\mathrm{DH}}, \theta_{i,\mathrm{DH}}
+\end{align}
+
+P6PRRRRR6G8P3A1; 19 Parameter:
+
+\begin{align}
+\bm{p}_\mathrm{kin,II}=[\bm{p}_\mathrm{kin,I}^\transp,a_{5,\mathrm{DH}},d_{5,\mathrm{DH}},a_{6,\mathrm{DH}}]^\transp
+\end{align}
+
+Nur wenige DH-Parameter gesetzt:
+\begin{align}
+\alpha_{1,\mathrm{DH}}=0, \quad \alpha_{5,\mathrm{DH}}=\pi/2, \quad \alpha_{6,\mathrm{DH}}=\pi/2
+\end{align}
+
+
+
+Roboter P6RRRRRR10V3G1P1A1; inkl Skalierung 12 Parameter:
+
+\begin{align}
+\bm{p}_\mathrm{kin,III}=[&d_\mathrm{base}, d_\mathrm{plf}, \alpha_{2,\mathrm{DH}}, a_{2,\mathrm{DH}}, d_{2,\mathrm{DH}}, \alpha_{3,\mathrm{DH}}, \nonumber \\
+&a_{3,\mathrm{DH}}, d_{3,\mathrm{DH}}, \alpha_{4,\mathrm{DH}},a_{4,\mathrm{DH}}, d_{4,\mathrm{DH}}]^\transp % alpha_\mathrm{Pyr}, \alpha_{i,\mathrm{DH}},a_{i,\mathrm{DH}}, \theta_{i,\mathrm{DH}}
+\end{align}
+
+P6RRRRRR10G1P1A1; 15 Parameter:
+
+\begin{align}
+\bm{p}_\mathrm{kin,IV}=[\bm{p}_\mathrm{kin,III}^\transp,a_{5,\mathrm{DH}},d_{5,\mathrm{DH}},a_{6,\mathrm{DH}}]^\transp
+\end{align}
+
+Nur wenige DH-Parameter gesetzt:
+\begin{align}
+\alpha_{1,\mathrm{DH}}=0, \quad \alpha_{5,\mathrm{DH}}, \quad \alpha_{6,\mathrm{DH}}=\pi/2
+\end{align}
+
+
+%\begin{equation}
+%\bm{p}=\begin{pmatrix} p_\mathrm{scale}\\ p_\mathrm{base}\\ p_\mathrm{plfscale}\\ p_\mathrm{bpdscale}\\ \cdots\\ p_{d_{n_i}}\end{pmatrix}^\transp
+%\end{equation}
+
+Die der Optimierung zugrunde liegende Aufgabe ist das Abfahren der Eckpunkte eines Würfels mit Kantenlänge $30\,\textrm{mm}$ und unterschiedlichen Kippwinkeln TODO! mit einem Beschleunigungs-Trapez-Profil mit einer Gesamt-Verfahrdauer von ca. $11\,\textrm{s}$. TODO: Aktualisieren
+
+
+Ergebnis-Bild: Welcher Roboter ist der beste?
 
 \subsection{Convergence and Distribution}
-
+\label{sec:res_convergence}
 
 \begin{figure}
 \centering
@@ -718,20 +777,21 @@ Der hohen Dimensionalität wurde durch eine Reduzierung der Abhängigkeiten zwis
 \end{figure}
 
 \begin{figure}
-    \centering
-    % Bild so einfügen, dass das folgende Beschriftungsbild darüber liegt
-    % Beim Einfügen des Histogramm-Bilds in InkScape entstehen Grafikfehler
-    \includegraphics{./Bilder/figure_calctime_vs_fval.pdf}
-    \captionof{figure}{Box plot of computation times of the particles of P6\underline{R}RRS in multiple repetitions corresponding to bars in Fig\,\ref{fig:figure_histogram_fitness}.}
-    \label{fig:figure_boxplot_comptime}
+\centering
+% Bild so einfügen, dass das folgende Beschriftungsbild darüber liegt
+% Beim Einfügen des Histogramm-Bilds in InkScape entstehen Grafikfehler
+\includegraphics{./Bilder/figure_calctime_vs_fval.pdf}
+\captionof{figure}{Box plot of computation times of the particles of P6\underline{R}RRS in multiple repetitions corresponding to bars in Fig\,\ref{fig:figure_histogram_fitness}.}
+\label{fig:figure_boxplot_comptime}
 \end{figure}
 
 \subsection{Evaluation of Condition and Material Stress}
+\label{sec:res_matstress}
 
 \begin{figure}
 \centering
 \includegraphics{./Bilder/figure_matstress_vs_condition.pdf}
-\captionof{figure}{Relation of material stress and Jacobian condition number}
+\captionof{figure}{Relation of material stress and Jacobian condition number for low tilting angles of about $10^\circ$}
 \label{fig:eval_matstress_vs_condition}
 \end{figure}
 
@@ -739,7 +799,17 @@ Der hohen Dimensionalität wurde durch eine Reduzierung der Abhängigkeiten zwis
 
 
 
-\subsection{Evaluation of Condition and Pivoting Angles}
+\subsection{Evaluation of Results and Pivoting Angles}
+\label{sec:res_condition_pivoting}
+
+\begin{figure}
+    \centering
+    % Bild so einfügen, dass das folgende Beschriftungsbild darüber liegt
+    % Beim Einfügen des Histogramm-Bilds in InkScape entstehen Grafikfehler
+    \includegraphics{./Bilder/figure_energy_vs_tiltangle.pdf}
+    \captionof{figure}{Comparison of optimization results in different maximum tilt angles of the cube trajectory. Horizontal axes values are shifted from -1.5 to 1.5 for facility of inspection. 9 Repetitions for 4 robots and 5 angles.}
+    \label{fig:figure_energy_vs_tiltangle}
+\end{figure}
 
 %Neuer Absatz: Detail zu Optimierung
 %\begin{itemize}
