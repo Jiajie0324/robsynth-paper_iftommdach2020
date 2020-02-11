@@ -83,5 +83,9 @@
     \put(0.52597805,0.18803308){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{leg chains}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=12]{Optimierung_Ergebnisse.pdf}}%
     \put(0.00931402,0.05871939){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{platform}}}}%
+    \put(0.01243122,0.22795938){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(a)}}}%
+    \put(0.26639946,0.22781234){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(b)}}}%
+    \put(0.52036772,0.22795938){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(c)}}}%
+    \put(0.77433603,0.22781234){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(d)}}}%
   \end{picture}%
 \endgroup%

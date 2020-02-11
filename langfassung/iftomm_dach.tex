@@ -409,7 +409,7 @@ With the known joint velocity $\dot{\bm{q}}_i$ and acceleration $\ddot{\bm{q}}_i
 \label{equ:intforce_leg}
 \end{equation} % =\begin{pmatrix}\bm{w}_{i,\mathrm{int},0}^\transp & \cdots & \bm{w}_{i,\mathrm{int},n_i}^\transp\end{pmatrix}^\transp
 %
-can be computed with the recursive Newton-Euler algorithm for serial link kinematics.
+can be computed with the recursive Newton-Euler algorithm for serial link kinematics \cite{KhalilDom2002}.
 As sketched in Fig.\,\ref{fig:PKM_internal_forces}, the single leg chain $i$ cut open can be regarded as a serial link chain with an external wrench $\bm{w}_{B_i}$ acting at the last joint, giving the dynamics equation
  %
 \begin{equation}
@@ -680,19 +680,25 @@ f_\mathrm{stress} > 1.
 \section{Simulation Results}
 \label{sec:results}
 
-Hier nur Einleitungstext:
-\begin{itemize}
-\item Beispielhafte Durchführung der Maßsynthese für zwei Roboterkinematiken in zwei Varianten (siehe Ergebnisbild)
-\item Prinzipielle Funktionsweise des vorgestellten Ansatzes und qualitative Ergebnisse werden gezeigt
-\item Parametrierung der Struktursegmente als Hohlzylinder mit Parameter ..., Plattform als Kreisscheibe (Aluminium-Legierung Materialparameter)
-\item Detaillierte Betrachtung der Ergebnisse hinsichtlich Vorstellung der Roboter \ref{sec:res_scenario}, Funktionalität der hierarchischen Nebenbedingungen in \ref{sec:res_convergence}, Prüfung der vermuteten Notwendigkeit der Betrachtung von Materialspannung in \ref{sec:res_matstress}, Schwenkwinkel in \ref{sec:res_condition_pivoting}
-\end{itemize}
+%Hier nur Einleitungstext:
+%\begin{itemize}
+%\item Beispielhafte Durchführung der Maßsynthese für zwei Roboterkinematiken in zwei Varianten (siehe Ergebnisbild)
+%\item Prinzipielle Funktionsweise des vorgestellten Ansatzes und qualitative Ergebnisse werden gezeigt
+%\item Parametrierung der Struktursegmente als Hohlzylinder mit Parameter ..., Plattform als Kreisscheibe (Aluminium-Legierung Materialparameter)
+%\item Detaillierte Betrachtung der Ergebnisse hinsichtlich Vorstellung der Roboter \ref{sec:res_scenario}, Funktionalität der hierarchischen Nebenbedingungen in \ref{sec:res_convergence}, Prüfung der vermuteten Notwendigkeit der Betrachtung von Materialspannung in \ref{sec:res_matstress}, Schwenkwinkel in \ref{sec:res_condition_pivoting}
+%\end{itemize}
 
-Erste Ergebnisse der Methodik sind beispielhaft in Bild\,\ref{fig:ergebnisse} dargestellt.
-Es wurde eine Optimierung der 6\underline{P}RRS- und  6\underline{R}RRS-Kinematik durchgeführt, wobei das Kugelgelenk (S) einmal beibehalten und einmal durch drei versetzt angeordnete Drehgelenke (RRR) ersetzt wurde, um die allgemeinere Dynamik-Modellierung in der Maßsynthese zu validieren.
+In the following, first simulative results for the optimization scheme from Sec.\,\ref{sec:opti} are presented.
+The dimensional synthesis of two architectures of parallel robots with full mobility in two variants each is performed.
+A detailed description of the simulation scenario and the robot parametrization is presented in Sec.\,\ref{sec:res_scenario}.
+The functionality of the hierarchic constraints and the convergence of the optimization is verified in Sec.\,\ref{sec:res_convergence}.
+An analysis on the use of the material stress constraint is performed in Sec.\,\ref{sec:res_matstress} and the influence of tilting angles on the overall performance is investigated in Sec.\,\ref{sec:res_condition_pivoting}.
 
-Der PSO-Algorithmus wurde mit 30 Generationen und 70 Individuen parametriert, was angesichts der 15 bis 19 Optimierungsparameter noch gering erscheint.
-Der hohen Dimensionalität wurde durch eine Reduzierung der Abhängigkeiten zwischen Parametern und plausibel gewählten Grenzen begegnet.
+%Erste Ergebnisse der Methodik sind beispielhaft in Bild\,\ref{fig:ergebnisse} dargestellt.
+%Es wurde eine Optimierung der 6\underline{P}RRS- und  6\underline{R}RRS-Kinematik durchgeführt, wobei das Kugelgelenk (S) einmal beibehalten und einmal durch drei versetzt angeordnete Drehgelenke (RRR) ersetzt wurde, um die allgemeinere Dynamik-Modellierung in der Maßsynthese zu validieren.
+
+%Der PSO-Algorithmus wurde mit 30 Generationen und 70 Individuen parametriert, was angesichts der 15 bis 19 Optimierungsparameter noch gering erscheint.
+%Der hohen Dimensionalität wurde durch eine Reduzierung der Abhängigkeiten zwischen Parametern und plausibel gewählten Grenzen begegnet.
 
 %Durch die Vorgabe einer maximalen Plattform-Geschwindigkeit von $1\,\textrm{m/s}$ bzw. $60^\circ\textrm{/s}$ und -Beschleunigung von $3\,\textrm{m/s}^2$ bzw. $180^\circ\textrm{/s}^2$ und einer Zusatzmasse von $3\,\textrm{kg}$ wird versucht, einen ausreichend großen Einfluss der Dynamik auf das Optimierungsergebnis zu erzielen.
 %Die Optimierungsparameter der durchgeführten Maßsynthese sind u.\,a. die Größenskalierung des Roboters, die \textsc{Denavit-Hartenberg}-Parameter der seriellen Beinketten, die Durchmesser von Gestell und Plattform und Morphologieparameter wie Koppelpunktpaarabstand und Neigung des gestellnahen Gelenks.
@@ -703,90 +709,112 @@ Der hohen Dimensionalität wurde durch eine Reduzierung der Abhängigkeiten zwis
 
 
 
-
-
-
-
 \subsection{Scenario}
 \label{sec:res_scenario}
 
-Es wurde eine Optimierung der 6\underline{P}RRS- und  6\underline{R}RRS-Kinematik durchgeführt, wobei das Kugelgelenk (S) einmal beibehalten und einmal durch drei versetzt angeordnete Drehgelenke (RRR) ersetzt wurde, um die allgemeinere Dynamik-Modellierung in der Maßsynthese zu validieren.
+The architectures for the dimensional synthesis are the 6\underline{P}RRS- and 6\underline{R}RRS PKM, shown in Fig.\,\ref{fig:ergebnisse},\,a,\,c, where ``6'' marks the number of leg chains, ``R'' denotes a revolute, ``P'' a prismatic and ``S'' a spherical joint and the underscore marks the actuation.
+The generality of the kinematics and dynamics model laid out in Sec.\,\ref{sec:sysmdl} is highlighted by comparing two different variants of the architectures: One robot with leg chains ending in spherical joints (S), Fig.\,\ref{fig:ergebnisse},\,a,\,c, and one with leg chains ending in three distinctive revolute joints (RRR), Fig.\,\ref{fig:ergebnisse},\,b,\,d.
 
-Parameter der Roboter: Vektoren
+The optimization was performed with the \textsc{Matlab}-implementation of the particle swarm optimization \cite{MatlabPSO} with 30 generations and 100 particles using the methods described in Sec.\,\ref{sec:sysmdl} and Sec.\,\ref{sec:opti}.
 
-Roboter P6PRRRRR6V2G8P3A1; 15 Kinematik-Parameter, mit Skalierung 16 Opt-Parameter:
+All robot leg chain links were assumed to be thin tubes (hollow cylinders) with diameter 13\,mm and material thickness of 0.8\,mm.
+The moving platform is assumed to be a circular disk with thickness 10\,mm and the parts to be of Aluminum alloy AlCu4PbMgMn.
 
+The kinematics of the leg chains are the result of a structural synthesis \cite{Ramirez2018} and are part of a minimal set of serial link kinematic chains.
+This results in a very general description of the kinematics with many free parameters, with only the parameters
+%
+\begin{align}
+\alpha_{1,\mathrm{DH}}=0, \quad \alpha_{5,\mathrm{DH}}=\pi/2, \quad \alpha_{6,\mathrm{DH}}=\pi/2
+\end{align}
+%
+(in the modified DH-notation of Khalil \cite{KhalilDom2002}) set constant for all robots.
+For the architecture I (6\underline{P}RRS), only the DH-Parameters $a$/$d$ of the last two joints are set to zeros due to the S-joint.
+%
+All other parameters are subject to the optimization, resulting in 15 variable kinematic parameters
+% Parameter der Roboter: Vektoren
+% Roboter P6PRRRRR6V2G8P3A1; 15 Kinematik-Parameter, mit Skalierung 16 Opt-Parameter:
+%
 \begin{align}
 \bm{p}_\mathrm{kin,I}=[&d_\mathrm{base}, d_\mathrm{plf}, \theta_{1,\mathrm{DH}}, \alpha_{2,\mathrm{DH}}, a_{2,\mathrm{DH}}, d_{2,\mathrm{DH}}, \alpha_{3,\mathrm{DH}}, \nonumber \\
 &a_{3,\mathrm{DH}}, d_{3,\mathrm{DH}}, \alpha_{4,\mathrm{DH}},a_{4,\mathrm{DH}}, d_{4,\mathrm{DH}},\nonumber \\
 &d_\mathrm{basepairdist}, d_\mathrm{plfpairdist}, \alpha_\mathrm{Pyr} ]^\transp % alpha_\mathrm{Pyr}, \alpha_{i,\mathrm{DH}},a_{i,\mathrm{DH}}, \theta_{i,\mathrm{DH}}
 \end{align}
-
-P6PRRRRR6G8P3A1; 19 Parameter:
-
+%
+and 16 optimization parameters (including the scaling parameter), as elaborated in Sec.\,\ref{sec:opt_params}.
+The variant II (6\underline{P}RRRRR) without spherical joints has three additional kinematic parameters, yielding
+%
+%P6PRRRRR6G8P3A1; 19 Parameter:
+%
 \begin{align}
 \bm{p}_\mathrm{kin,II}=[\bm{p}_\mathrm{kin,I}^\transp,a_{5,\mathrm{DH}},d_{5,\mathrm{DH}},a_{6,\mathrm{DH}}]^\transp
 \end{align}
-
-Nur wenige DH-Parameter gesetzt:
-\begin{align}
-\alpha_{1,\mathrm{DH}}=0, \quad \alpha_{5,\mathrm{DH}}=\pi/2, \quad \alpha_{6,\mathrm{DH}}=\pi/2
-\end{align}
-
-
-
-Roboter P6RRRRRR10V3G1P1A1; inkl Skalierung 12 Parameter:
-
+and
+20 optimization parameters.
+%
+For architecture III (6\underline{R}RRS), a simplified base and platform coupling of the leg chains is selected, leaving only 12 parameters, including the scaling parameter, and
+%Nur wenige DH-Parameter gesetzt:
+%
+%Roboter P6RRRRRR10V3G1P1A1; inkl Skalierung 12 Parameter:
+%
 \begin{align}
 \bm{p}_\mathrm{kin,III}=[&d_\mathrm{base}, d_\mathrm{plf}, \alpha_{2,\mathrm{DH}}, a_{2,\mathrm{DH}}, d_{2,\mathrm{DH}}, \alpha_{3,\mathrm{DH}}, \nonumber \\
-&a_{3,\mathrm{DH}}, d_{3,\mathrm{DH}}, \alpha_{4,\mathrm{DH}},a_{4,\mathrm{DH}}, d_{4,\mathrm{DH}}]^\transp % alpha_\mathrm{Pyr}, \alpha_{i,\mathrm{DH}},a_{i,\mathrm{DH}}, \theta_{i,\mathrm{DH}}
+&a_{3,\mathrm{DH}}, d_{3,\mathrm{DH}}, \alpha_{4,\mathrm{DH}},a_{4,\mathrm{DH}}, d_{4,\mathrm{DH}}]^\transp. % alpha_\mathrm{Pyr}, \alpha_{i,\mathrm{DH}},a_{i,\mathrm{DH}}, \theta_{i,\mathrm{DH}}
 \end{align}
-
-P6RRRRRR10G1P1A1; 15 Parameter:
-
+Dissolving the S-joint gives variant IV (6\underline{R}RRRRR) and again adds three parameters:
+%
+%P6RRRRRR10G1P1A1; 15 Parameter:
+%
 \begin{align}
-\bm{p}_\mathrm{kin,IV}=[\bm{p}_\mathrm{kin,III}^\transp,a_{5,\mathrm{DH}},d_{5,\mathrm{DH}},a_{6,\mathrm{DH}}]^\transp
+\bm{p}_\mathrm{kin,IV}=[\bm{p}_\mathrm{kin,III}^\transp,a_{5,\mathrm{DH}},d_{5,\mathrm{DH}},a_{6,\mathrm{DH}}]^\transp.
 \end{align}
 
-Nur wenige DH-Parameter gesetzt:
-\begin{align}
-\alpha_{1,\mathrm{DH}}=0, \quad \alpha_{5,\mathrm{DH}}, \quad \alpha_{6,\mathrm{DH}}=\pi/2
-\end{align}
-
-
+The parallel robots have to execute a reference trajectory in the workspace center, which is a cube with edge length 30\,mm, visible in Fig.\,\ref{fig:ergebnisse}.
+The tilting angles of the end effector are chosen as up to $90^\circ$, depending on the evaluation in the following sections.
+To make demands on the robot dynamics, which is the basis for the optimization criterion energy, the corners are connected with rest-to-rest motions with an acceleration trapezoid profile.
 %\begin{equation}
 %\bm{p}=\begin{pmatrix} p_\mathrm{scale}\\ p_\mathrm{base}\\ p_\mathrm{plfscale}\\ p_\mathrm{bpdscale}\\ \cdots\\ p_{d_{n_i}}\end{pmatrix}^\transp
 %\end{equation}
 
-Die der Optimierung zugrunde liegende Aufgabe ist das Abfahren der Eckpunkte eines Würfels mit Kantenlänge $30\,\textrm{mm}$ und unterschiedlichen Kippwinkeln TODO! mit einem Beschleunigungs-Trapez-Profil mit einer Gesamt-Verfahrdauer von ca. $11\,\textrm{s}$. TODO: Aktualisieren
+%Die der Optimierung zugrunde liegende Aufgabe ist das Abfahren der Eckpunkte eines Würfels mit Kantenlänge $30\,\textrm{mm}$ und unterschiedlichen Kippwinkeln TODO! mit einem Beschleunigungs-Trapez-Profil mit einer Gesamt-Verfahrdauer von ca. $11\,\textrm{s}$. TODO: Aktualisieren
 
 
-Ergebnis-Bild: Welcher Roboter ist der beste?
+%Ergebnis-Bild: Welcher Roboter ist der beste?
 
 \subsection{Convergence and Distribution}
 \label{sec:res_convergence}
 
+The distribution of the values of the fitness function of Fig.\,\ref{fig:uebersicht} for a typical run of the optimization is shown as a histogram in Fig.\,\ref{fig:histogram_fitness} at the example of the 6\underline{R}RRS.
+The fitness values correspond to the constraint violation terms in Fig.\,\ref{fig:histogram_fitness}, described in Sec.\,\ref{sec:opt_constraints}.
+Blue parts of the bars represent particles from the last generation of the PSO and green parts represent the first generations.
+By the qualitative distribution of ``good'' particles (on the left) at the end of the optimization (blue) and ``bad'' particles (at the right) at the beginning, a convergence of the optimization to ``good'' solutions can be concluded.
+%
 \begin{figure}
 \centering
 % Bild so einfügen, dass das folgende Beschriftungsbild darüber liegt
 % Beim Einfügen des Histogramm-Bilds in InkScape entstehen Grafikfehler
 \includegraphics[align=t,smash=br,]{./Bilder/figure_histogram_fitness.pdf}
 \input{./Bilder/figure_histogram_fitness_edit.pdf_tex}
-\captionof{figure}{Histogram of the fitness function of all particles for one optimization of P6\underline{R}RRS.}
+\captionof{figure}{Histogram of the fitness function values $f$ of all particles for one optimization of 6\underline{R}RRS with generation highlight.}
 \label{fig:histogram_fitness}
 \end{figure}
+%
+A box-plot of the computation time necessary to calculate the fitness function in Fig.\,\ref{fig:boxplot_comptime} proves that the idea of hierarchical constraints works in principle: Particles violating severe constraints are excluded earlier and need less computation time than better solutions.
+The box-plots are ordered in classes corresponding to the bars in Fig\,\ref{fig:histogram_fitness}.
+The spread in computation times can be explained by the gradient-based inverse kinematics.
 
 \begin{figure}
 \centering
-% Bild so einfügen, dass das folgende Beschriftungsbild darüber liegt
-% Beim Einfügen des Histogramm-Bilds in InkScape entstehen Grafikfehler
 \includegraphics{./Bilder/figure_calctime_vs_fval.pdf}
-\captionof{figure}{Box plot of computation times of the particles of P6\underline{R}RRS in multiple repetitions corresponding to bars in Fig\,\ref{fig:histogram_fitness}.}
+\captionof{figure}{Box-plot of computation times of the particles of P6\underline{R}RRS in multiple repetitions corresponding to bars in Fig\,\ref{fig:histogram_fitness}.}
 \label{fig:boxplot_comptime}
 \end{figure}
 
 \subsection{Evaluation of Condition and Material Stress}
 \label{sec:res_matstress}
+
+As elaborated in the introduction, using internal forces and material stress in uncommon in the dimensional synthesis of parallel robots.
+Fig.\,\ref{fig:eval_matstress_vs_condition} shows that for the rather lightweight link geometries, the technical limit of the material stress in the final results of multiple runs is nearly reached.
+Further, a strong correlation of Jacobian condition number an material stress is not evident, therefore it can be concluded that under the mentioned conditions the consideration of this constraint is useful.
 
 \begin{figure}
 \centering
@@ -797,29 +825,31 @@ Ergebnis-Bild: Welcher Roboter ist der beste?
 
 
 
-
-
 \subsection{Evaluation of Results and Pivoting Angles}
 \label{sec:res_condition_pivoting}
 
+The distribution of final results of multiple runs of the optimization is shown in Fig.\,\ref{fig:energy_vs_tiltangle} and Fig.\,\ref{fig:condition_vs_tiltangle} for different maximal tilting angles in the reference trajectory.
+The robots with an S-joint seem to perform better than the ones without, as can be summarized from Fig.\,\ref{fig:energy_vs_tiltangle}.
+
+%regarding the objective (consumed energy) in Fig.\,\ref{fig:energy_vs_tiltangle} and the worst condition number during the trajectory in Fig.\,\ref{fig:condition_vs_tiltangle}, which is a common criterion in the dimensional synthesis.
+
 \begin{figure}
-    \centering
-    % Bild so einfügen, dass das folgende Beschriftungsbild darüber liegt
-    % Beim Einfügen des Histogramm-Bilds in InkScape entstehen Grafikfehler
-    \includegraphics{./Bilder/figure_energy_vs_tiltangle.pdf}
-    \captionof{figure}{Comparison of optimization results in different maximum tilt angles of the cube trajectory. Horizontal axes values are shifted from -1.5 to 1.5 for facility of inspection. 9 Repetitions for 4 robots and 5 angles.}
-    \label{fig:energy_vs_tiltangle}
+\centering
+\includegraphics{./Bilder/figure_energy_vs_tiltangle.pdf}
+\captionof{figure}{Comparison of optimization results in different maximum tilt angles of the cube trajectory. Horizontal axes values are shifted from -1.5 to 1.5 for facility of inspection. 9 Repetitions for 4 robots and 5 angles.}
+\label{fig:energy_vs_tiltangle}
+\end{figure}
+
+On the contrary, the structures with three R-joints instead of one S-joint seem to have a better (lower) condition number in the final results, as can be seen in Fig.\,\ref{fig:condition_vs_tiltangle}.
+
+\begin{figure}
+\centering
+\includegraphics{./Bilder/figure_condition_vs_tiltangle.pdf}
+\captionof{figure}{Worst condition numbers for the results from Fig.\,\ref{fig:energy_vs_tiltangle}}
+\label{fig:condition_vs_tiltangle}
 \end{figure}
 
 
-\begin{figure}
-    \centering
-    % Bild so einfügen, dass das folgende Beschriftungsbild darüber liegt
-    % Beim Einfügen des Histogramm-Bilds in InkScape entstehen Grafikfehler
-    \includegraphics{./Bilder/figure_condition_vs_tiltangle.pdf}
-    \captionof{figure}{...}
-    \label{fig:condition_vs_tiltangle}
-\end{figure}
 
 %Neuer Absatz: Detail zu Optimierung
 %\begin{itemize}
@@ -837,18 +867,20 @@ Ergebnis-Bild: Welcher Roboter ist der beste?
 
 
 
-\section{Summary}
+\section{Summary and Outlook}
 \label{sec:summary}
 
-In dem Konferenzvortrag werden die Ergebnisse und der Ansatz der Optimierung im Detail und weitere Beispiele vorgestellt.
-%Dafür wird die Optimierung für weitere Kinematiken und längere Optimierungsdauern durchgeführt sowie statistischen Untersuchungen angestrebt.
-Perspektivisch wird auch die Integration der Entwurfsoptimierung von Antriebs- und Segmentdimensionierung und die Behandlung zusätzlicher Nebenbedingungen und Zielfunktionen diskutiert.
+A general methodology for the modeling and dimensional synthesis of parallel robots is presented, which differs from similar work by being applicable to non-classical parallel robots, the use of a single-objective optimization, the concepts of hierarchical constraints and consumed energy as objective. 
+Further work will extend the constraint formulation with considering self-collisions and comparing robots with and without task-redundancy.
+%In dem Konferenzvortrag werden die Ergebnisse und der Ansatz der Optimierung im Detail und weitere Beispiele vorgestellt.
+%%Dafür wird die Optimierung für weitere Kinematiken und längere Optimierungsdauern durchgeführt sowie statistischen Untersuchungen angestrebt.
+%Perspektivisch wird auch die Integration der Entwurfsoptimierung von Antriebs- und Segmentdimensionierung und die Behandlung zusätzlicher Nebenbedingungen und Zielfunktionen diskutiert.
 
 %Als weitere Arbeiten sind Plausibilisierungen hinsichtlich Straftermen für Selbstkollisionen und die Reduktion der Optimierungsparameter geplant.
 
 \section{Acknowledgement}
 
-Die Autoren bedanken sich für die Unterstützung durch die Deutsche Forschungsgemeinschaft (DFG, OR 196/33-1).
+The authors acknowledge the support by the Deutsche Forschungsgemeinschaft (DFG) under grant OR 196/33-1.
 
 \bibliographystyle{spmpsci_unsrt}
 \bibliography{literatur}

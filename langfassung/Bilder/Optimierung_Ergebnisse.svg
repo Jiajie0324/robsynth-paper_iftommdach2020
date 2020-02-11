@@ -637,9 +637,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="3.959798"
-     inkscape:cx="102.94838"
-     inkscape:cy="38.679041"
+     inkscape:zoom="1.979899"
+     inkscape:cx="407.16954"
+     inkscape:cy="107.13241"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -674,14 +674,14 @@
     <image
        sodipodi:absref="/home/schappler/IMES/REPO/dok/paper_iftommdach_2020/langfassung/Bilder/../../kurzfassung/Bilder/PaperRob1_Rob7_P6PRRRRR6V2G4P3A1_Skizze_3D_r864.png"
        xlink:href="../../kurzfassung/Bilder/PaperRob1_Rob7_P6PRRRRR6V2G4P3A1_Skizze_3D_r864.png"
-       width="141.7323"
-       height="119.4139"
-       preserveAspectRatio="none"
-       id="image4392"
-       x="0"
-       y="903.9483"
+       transform="matrix(1.1433157,0,0,1.1433157,-0.55828052,-120.35756)"
        clip-path="url(#clipPath4542)"
-       transform="matrix(1.1433157,0,0,1.1433157,-0.55828052,-120.35756)" />
+       y="903.9483"
+       x="0"
+       id="image4392"
+       preserveAspectRatio="none"
+       height="119.4139"
+       width="141.7323" />
     <rect
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.88582677;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        id="rect10448"
@@ -693,14 +693,14 @@
     <image
        sodipodi:absref="/home/schappler/IMES/REPO/dok/paper_iftommdach_2020/langfassung/Bilder/../../kurzfassung/Bilder/PaperRob3_Rob1_P6RRRRRR10V3G1P1A1_r864.png"
        xlink:href="../../kurzfassung/Bilder/PaperRob3_Rob1_P6RRRRRR10V3G1P1A1_r864.png"
-       transform="translate(-0.75761449,11.242387)"
-       clip-path="url(#clipPath4411)"
-       width="181.97641"
-       height="124.99998"
-       preserveAspectRatio="none"
-       id="image4393"
+       y="917.36224"
        x="283.02365"
-       y="917.36224" />
+       id="image4393"
+       preserveAspectRatio="none"
+       height="124.99998"
+       width="181.97641"
+       clip-path="url(#clipPath4411)"
+       transform="translate(-0.75761449,11.242387)" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend-0)"
        d="m 0,54.505427 20,0"
@@ -709,14 +709,14 @@
     <image
        sodipodi:absref="/home/schappler/IMES/REPO/dok/paper_iftommdach_2020/langfassung/Bilder/../../kurzfassung/Bilder/PaperRob2_Rob17_P6PRRRRR6G4P3A1_Skizze_3D_r864.png"
        xlink:href="../../kurzfassung/Bilder/PaperRob2_Rob17_P6PRRRRR6G4P3A1_Skizze_3D_r864.png"
-       width="141.7323"
-       height="118.1624"
-       preserveAspectRatio="none"
-       id="image4403"
-       x="153.26773"
-       y="910.19983"
+       transform="matrix(1.1180232,0,0,1.1180232,-24.478139,-91.48204)"
        clip-path="url(#clipPath4385)"
-       transform="matrix(1.1180232,0,0,1.1180232,-24.478139,-91.48204)" />
+       y="910.19983"
+       x="153.26773"
+       id="image4403"
+       preserveAspectRatio="none"
+       height="118.1624"
+       width="141.7323" />
     <rect
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.6493696;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        id="rect4500-2-8-9-7-3"
@@ -874,14 +874,14 @@
     <image
        sodipodi:absref="/home/schappler/IMES/REPO/dok/paper_iftommdach_2020/langfassung/Bilder/../../kurzfassung/Bilder/PaperRob4_Rob1_P6RRRRRR10G1P1A1_r864.png"
        xlink:href="../../kurzfassung/Bilder/PaperRob4_Rob1_P6RRRRRR10G1P1A1_r864.png"
-       transform="matrix(1.0901144,0,0,1.0901144,-41.421023,-74.369365)"
-       clip-path="url(#clipPath4579)"
-       width="177.16537"
-       height="121.239"
-       preserveAspectRatio="none"
-       id="image4561"
+       y="917.36224"
        x="435.00006"
-       y="917.36224" />
+       id="image4561"
+       preserveAspectRatio="none"
+       height="121.239"
+       width="177.16537"
+       clip-path="url(#clipPath4579)"
+       transform="matrix(1.0901144,0,0,1.0901144,-41.421023,-74.369365)" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -1166,5 +1166,53 @@
    id="tspan4901-1-3">\small{</tspan>platform<tspan
    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.25000012px;font-family:times;-inkscape-font-specification:times"
    id="tspan4903-2-5">}</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="7.4000015"
+       y="916.66357"
+       id="text4244-7-3-367"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4246-0-6-53"
+         x="7.4000015"
+         y="916.66357"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">(a)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="158.58112"
+       y="916.7511"
+       id="text4244-7-3-367-2"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4246-0-6-53-9"
+         x="158.58112"
+         y="916.7511"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">(b)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="309.76224"
+       y="916.66357"
+       id="text4244-7-3-367-2-1"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4246-0-6-53-9-2"
+         x="309.76224"
+         y="916.66357"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">(c)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="460.94339"
+       y="916.7511"
+       id="text4244-7-3-367-2-1-7"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4246-0-6-53-9-2-0"
+         x="460.94339"
+         y="916.7511"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">(d)</tspan></text>
   </g>
 </svg>
