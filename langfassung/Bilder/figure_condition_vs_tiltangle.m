@@ -5,9 +5,16 @@
 
 clear
 clc
+close all
 
 outputdir = fileparts(which('figure_condition_vs_tiltangle.m'));
 
+%% Definitionen
+colors = [[0 80 155 ]/255; ...%imesblau
+          [231 123 41 ]/255;... %imesorange
+          [200 211 23 ]/255;... %imesgrün
+          [0 0 0]]; % schwarz
+        
 %% Zusammenfassungen der bisherige Versuche laden
 dimsynthpath = fileparts(which('structgeomsynth_path_init.m'));
 resdirtotal = fullfile(dimsynthpath, 'dimsynth', 'results');
@@ -43,18 +50,19 @@ for i = 1:length(Robots)
   RobName = Robots{i};
   I_Robi = strcmp(ResTab_ges.Name, RobName);
   I = I_Robi & I_iO;
-  plot(180/pi*ResTab_ges.MaxTiltAngle(I)+shift(i), ResTab_ges.Kondition_phys(I), plotsymbollist{i});
+  plot(180/pi*ResTab_ges.MaxTiltAngle(I)+shift(i), ResTab_ges.Kondition_phys(I), ...
+    plotsymbollist{i}, 'color', colors(i,:));
 end
 grid on;
 h = legend(Robots_TL, 'orientation', 'horizontal'); 
 h.ItemTokenSize(1) = 15; %https://de.mathworks.com/matlabcentral/answers/438845-change-figure-legend-horizontal-spacing#answer_398095
 xlabel('Max. Tilt Angle in Traj. in deg');
 ylabel('cond(J)');
-xlim([30, 95]);
-ylim([0, 250]);
+xlim([35, 95]);
+ylim([0, 230]);
 figure_format_publication(gca);
-set_size_plot_subplot(1,8,5,gca,...
-  0.13,0.01,0.15,0.16,0,0); % bl,br,hu,hd,bdx,bdy
+set_size_plot_subplot(1,8,4.5,gca,...
+  0.13,0.01,0.11,0.18,0,0); % bl,br,hu,hd,bdx,bdy
 set(h, 'Position', [0.15,0.93,0.7,0.05]);
 
 export_fig(1, fullfile(outputdir, sprintf('figure_condition_vs_tiltangle.pdf')));

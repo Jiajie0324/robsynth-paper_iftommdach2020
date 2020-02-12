@@ -8,6 +8,12 @@ clc
 
 outputdir = fileparts(which('figure_matstress_vs_condition.m'));
 
+%% Definitionen
+colors = [[0 80 155 ]/255; ...%imesblau
+          [231 123 41 ]/255;... %imesorange
+          [200 211 23 ]/255;... %imesgrün
+          [0 0 0]]; % schwarz
+
 %% Zusammenfassungen der bisherige Versuche laden
 dimsynthpath = fileparts(which('structgeomsynth_path_init.m'));
 resdirtotal = fullfile(dimsynthpath, 'dimsynth', 'results');
@@ -43,7 +49,8 @@ for i = 1:length(Robots)
   RobName = Robots{i};
   I_Robi = strcmp(ResTab_ges.Name, RobName);
   I = I_Robi;
-  plot(ResTab_ges.Kondition_phys(I), 100*ResTab_ges.Materialspannung(I), plotsymbollist{i});
+  plot(ResTab_ges.Kondition_phys(I), 100*ResTab_ges.Materialspannung(I), ...
+    plotsymbollist{i}, 'color', colors(i,:));
 end
 grid on;
 h = legend(Robots_TL, 'orientation', 'horizontal'); 
@@ -51,9 +58,9 @@ h.ItemTokenSize(1) = 15; %https://de.mathworks.com/matlabcentral/answers/438845-
 xlabel('cond(J)');
 ylabel('mat. stress in %');
 xlim([0, 220]);
-ylim([0, 100]);
+ylim([0, 105]);
 figure_format_publication(gca);
+set_size_plot_subplot(1,8,4.5,gca,...
+  0.13,0.01,0.11,0.18,0,0); % bl,br,hu,hd,bdx,bdy
 set(h, 'Position', [0.15,0.93,0.7,0.05]);
-set_size_plot_subplot(1,8,5,gca,...
-  0.12,0.01,0.15,0.16,0,0); % bl,br,hu,hd,bdx,bdy
 export_fig(1, fullfile(outputdir, sprintf('figure_matstress_vs_condition.pdf')));
