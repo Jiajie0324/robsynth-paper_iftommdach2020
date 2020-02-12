@@ -150,14 +150,14 @@ This contribution combines general approaches for the modeling of the kinematics
 %%\item Ursache ist die voraussichtlich niedrigere Steifigkeit und Kollisionsanfälligkeit von PKM mit mehrgliedrigen Beinketten
 %\end{itemize}
 
-The structural synthesis of parallel robots by means of screw theory \cite{KongGos2007} or evolutionary morphology \cite{Gogu2008} has produced a variety of different parallel robots.
+The structural synthesis of parallel robots by means of screw theory \cite{KongGos2007} or evolutionary morphology \cite{Gogu2008} has produced a variety of different architectures.
 However, for only few of them a specific application has been found despite numerous research demonstrators focusing on single aspects of the robots \cite{Merlet2006}.
-An automatic dimensioning (dimensional synthesis) for all existing types of robots is necessary to select the robot that is suited best for a specific given application.
-It is well established that the theoretical advantages of parallel robots are strongly dependent on the dimensioning and the dimensional synthesis has a more important role than for serial robots \cite{Merlet2006}.
+It is well established that the theoretical advantages of parallel robots are strongly dependent on their dimensioning \cite{Merlet2006}. % and the dimensional synthesis has a more important role than for serial robots \cite{Merlet2006}.
+An automatic dimensioning (i.e. dimensional synthesis) for all existing types of robots is necessary to select the robot that is suited best for a specific given application.
 Therefore, the aspect of selecting a structure (structural synthesis) and choosing specific parameter values (dimensional synthesis) should be performed in a combined structural and dimensional synthesis \cite{Krefft2006}.
-Efforts on the dimensional synthesis constitute a major part in the research of parallel robots, beginning in the early 2000s driven by international robotics research groups \cite{CarboneOttCec2007,KelaiaiaComZaa2012,JamwalHusXie2015} and German researchers in the area of machine tools \cite{MbarekNefCor2005,Krefft2006,FrindtKreHes2010}.
-Until today, research is focused mainly on parallel robots with leg chains with the minimal amount of links and joints with multiple degrees of freedom (DoF) like universal and spherical joints.
-This has advantages for the stiffness of the machine, which is essential for machining tasks \cite{MbarekNefCor2005}.
+Efforts on the dimensional synthesis constitute a major part in the research of parallel robots, beginning in the early 2000s driven by international robotics research groups, e.g. \cite{Merlet2006,CarboneOttCec2007}, and German researchers in the field of machine tools, e.g. \cite{MbarekNefCor2005,Krefft2006,FrindtKreHes2010}.
+Until today, research is focused mainly on parallel robots with leg chains with the minimal amount of links and joints with multiple degrees of freedom (DoF), like universal and spherical joints.
+This has advantages for the stiffness, which is essential for machining tasks \cite{MbarekNefCor2005}.
 
 
 %Quellen (z.B.)
@@ -178,30 +178,33 @@ This has advantages for the stiffness of the machine, which is essential for mac
 %\item Keine systematische Berücksichtigung der Schnittkräfte mittels analytischer Modelle, nur mit FEM für serielle Roboter in wenigen Quellen, z.B. parametrisches CAD-Modell mit Ansys \cite{ZhouBai2015} und von-Mises Vergleichsspannung
 %\end{itemize}
 
-Only few authors report a dimensional synthesis for multiple different robots with the ambition to compare them by this means, e.g. \cite{Krefft2006} with two different architectures of Delta robots or \cite{Ramirez2018} with serial robots.
+Only few authors report a dimensional synthesis for multiple different robots with the ambition to compare them by this means, e.g. \cite{Krefft2006} in a case study for two different architectures of Delta robots or \cite{Ramirez2018} for serial robots.
 Most authors perform the dimensional synthesis for specific structures, such as the  Delta robot \cite{StockMil2003,KelaiaiaComZaa2012}, the Hexa robot \cite{Krefft2006}, the CaPaMan \cite{CarboneOttCec2007} or a cable-driven ankle rehabilitation robot \cite{JamwalHusXie2015}.
-The synthesis is mainly focused on kinematic characteristics such as workspace and conditioning of the Jacobian \cite{CarboneOttCec2007,KelaiaiaComZaa2012} or kinetostatic characteristics such as the stiffness \cite{CarboneOttCec2007,KelaiaiaComZaa2012}.% of the manipulator and its isotropy in the workspace and in different directions [].
+The synthesis is mainly focused on kinematic characteristics such as workspace and conditioning of the Jacobian or kinetostatic characteristics such as the stiffness \cite{CarboneOttCec2007,KelaiaiaComZaa2012}. % of the manipulator and its isotropy in the workspace and in different directions [].
 The dynamics of the parallel robot is only regarded in some cases, e.g. by taking the minimal possible acceleration of the machine as a constraint \cite{Krefft2006}.
 A partly consideration of dynamics aspects is performed by assessing the condition number of the mass matrix in \cite{KelaiaiaComZaa2012} or the Eigen frequencies of the robot obtained from the mass and stiffness matrix in \cite{JamwalHusXie2015}.
-In the dimensional synthesis of serial robots, the dynamics gets more attention, e.g. by using a multi-body simulation tool like \textsc{Adams} in the optimization loop \cite{ZhouBaiHan2011}.
-The selection of the drive train of the actuated joints, as e.g. treated in \cite{ZhouBaiHan2011} for serial robots, is rarely part of the synthesis of parallel robots, since the drives mounted at the robot base have little effect on the robot dynamics.
-A consideration of material stress and internal forces is to the best knowledge of the authors only performed in the dimensional synthesis of serial robots, e.g. by \cite{ZhouBai2015} who perform FE analyses with Ansys for a parametric CAD model inside the optimization loop.
+In the dimensional synthesis of serial robots more attention is paid to the dynamics equation, e.g. by \cite{ZhouBaiHan2011} using a multi-body simulation tool like \textsc{Adams} in the optimization loop.
+%The selection of the drive train of the actuated joints, as e.g. treated in \cite{ZhouBaiHan2011} for serial robots, is rarely part of the synthesis of parallel robots, since the drives mounted at the robot base have little effect on the robot dynamics.
+A consideration of material stress and internal forces is to the best knowledge of the authors only performed in the dimensional synthesis of serial robots, e.g. by \cite{ZhouBai2015} who perform FE analyses with \textsc{Ansys} for a parametric CAD model inside the optimization loop.
 
-Usually, a heuristic multi-objective optimization is performed in the dimensional synthesis, e.g. with the Strength Pareto Evolutionary Algorithm \cite{Krefft2006,KelaiaiaComZaa2012} or the Nondominated Sorting
-Algorithm (NSGA II) \cite{JamwalHusXie2015}.
-The single-objective optimization is claimed to be insufficient by \cite{JamwalHusXie2015}.
+Usually, a heuristic multi-objective optimization is performed in the dimensional synthesis, e.g. with the Strength Pareto Evolutionary Algorithm \cite{Krefft2006,KelaiaiaComZaa2012} or the Nondominated Sorting Genetic Algorithm \cite{JamwalHusXie2015}.
+Using a weighted sum to incorporate multiple objectives is prone to the subjectivity of the user \cite{JamwalHusXie2015}. % and may prevent a clear comparison of different arch  requires high effort in defining the weights and \cite{JamwalHusXie2015}
+%The optimization with a weighted sum of different objectives is claimed to be insufficient by.
 %Some groups also used algorithms like SQP \cite{CarboneOttCec2007}.
 
-This paper addresses the aspect of a combined dimensional synthesis using a dynamics-based criterion.
 
+To be able to perform a dynamics-based optimization of general parallel robots without assumptions on the joint types, this paper addresses a general and efficient formulation of the optimization problem.
+%To encounter possible gaps in the dimensional synthesis of parallel robots using dynamics-based criteria, this paper addresses a general and efficient formulation of the optimization problem which can be extended to all possible parallel robots without assumptions on the type of joints.
+%This paper addresses the aspect of a combined dimensional synthesis using a dynamics-based criterion.
+%
 The contributions of the paper are
 \begin{compactitem}
 %\item Anwendung der allgemeinen PKM-Modellierung auf nicht-konventionelle PKM
 %\item Vorschlag einer effizienten Optimierungsstruktur für die Maßsynthese von PKM
 %\item Beispiele und simulative Validierung des Verfahrens
-\item the application of a general kinematics and dynamics model on the dimensional synthesis of non-conventional parallel robots,
-\item the proposition of an efficient structure for the optimization of robot dimensions
-\item examples and simulative results for the proposed approach.
+\item the application of a general kinematic and dynamics model on the dimensional synthesis of non-conventional parallel robots,
+\item the proposition of an efficient optimization structure,
+\item examples and simulative results.
 \end{compactitem}
 
 The remainder of the paper is structured as follows: The general model of the kinematics and dynamics is presented in Sec.\,\ref{sec:sysmdl}.
@@ -267,7 +270,8 @@ The translational part of the full kinematic constraints can be formulated as th
 
 %
 \begin{equation}
-\bm{\Phi}_{\mathrm{t},i}(\bm{q}_i,\bm{x}) = - \bm{r}_{A_iB_i}(\bm{x}) + \bm{r}_{A_iB_i}(\bm{q}_i),
+\bm{\Phi}_{\mathrm{t},i}(\bm{q}_i,\bm{x}) = - \bm{r}_{A_iB_i}(\bm{x}) + \bm{r}_{A_iB_i}(\bm{q}_i)
+\overset{!}{=} \bm{0},
 \label{equ:kinconstrAB}
 \end{equation}
 %
@@ -277,7 +281,8 @@ The minimal form of the kinematic constraints rotational part is calculated with
 \begin{align}
 \bm{\Phi}_{\mathrm{r},i}(\bm{q}_i,\bm{x})
 =
-\bm{\phi}_{XYZ}\left(\rotmat{0}{B_i}^\transp (\bm{x}_{\mathrm{r}})\rotmat{0}{E_i}(\bm{q}_i)\right),
+\bm{\phi}_{XYZ}\left(\rotmat{0}{B_i}^\transp (\bm{x}_{\mathrm{r}})\rotmat{0}{E_i}(\bm{q}_i)\right)
+\overset{!}{=} \bm{0},
 \label{equ:Phir_def_i}
 \end{align}
 %
@@ -304,9 +309,11 @@ The kinematic constraints for the whole robot are then stacked of the terms for 
 The full parallel robot inverse Jacobian 
 %
 \begin{equation}
-\tilde{\bm{J}}^{-1}=-\bm{\Phi}_{\bm{q}}^{-1} \bm{\Phi}_{\bm{x}}
+\tilde{\bm{J}}^{-1}=-\left( \frac{\partial \bm{\Phi}}{\partial \bm{q}} \right)^{-1} \left( \frac{\partial \bm{\Phi}}{\partial \bm{x}} \right)
 \quad \mathrm{with} \quad
-\dot{\bm{q}}=\tilde{\bm{J}}^{-1} \dot{\bm{x}}
+\dot{\bm{q}}=\tilde{\bm{J}}^{-1} \dot{\bm{x}}% , \quad
+%\quad \mathrm{and} \quad 
+%\bm{\Phi}_{\bm{q}}=\frac{\partial \bm{\Phi}}{\partial \bm{q}}
 \label{equ:jacobian}
 \end{equation}
 %
@@ -356,7 +363,7 @@ can be used as an initial value for the gradient-based solution of the inverse k
 %Das zu diesem Zweck in \cite{AbdellatifHei2009,DoThanhKotHeiOrt2009b} vorgestellte Prinzip der Energieäquivalenz wird dafür erweitert.
 %Zunächst erfolgt die Zerlegung des parallelen Roboters in einzelne Subsysteme (Beinketten und Plattform), in deren jeweiligen Minimalkoordinaten (Gelenk- und Plattformkoordinaten) die Dynamik einzeln nach dem \textsc{Lagrange}schen Formalismus aufgestellt wird (vollständige Massenmatrix $\tilde{\bm{M}}$, Coriolis- und Fliehkraftterme $\tilde{\bm{c}}$, Gravitationsterme $\tilde{\bm{g}}$) \cite{DoThanhKotHeiOrt2009b}.
 %Anschließend erfolgt die Projektion der Dynamik in die Minimal-/Plattformkoordinaten $\bm{x}$ des Roboters durch Anwendung des \textsc{D'Alembert}schen Prinzips, woraus die Dynamik-Terme $\bm{M},\bm{c},\bm{g}$ bezogen auf die Plattform resultieren \cite{DoThanhKotHeiOrt2009b,AbdellatifHei2009} (siehe mittlerer Block in Bild\,\ref{fig:details_kindyn}).
-%Die Jacobi-Matrix $\tilde{\bm{J}}$ aus der inversen Kinematik kann direkt ohne Neuberechnung für die Dynamik-Projektionsmatrix $\tilde{\bm{R}}$ eingesetzt werden.
+%Die Jacobi-Matrix $\tilde{\bm{J}}$ aus der inversen Kinematik kann direkt ohne Neuberechnung für die Dynamik-Projektionsmatrix $\tilde{\bm{D}}$ eingesetzt werden.
 %Durch die Verwendung rotatorischer Zwangsbedingungen \cite{SchapplerTapOrt2019c} zusätzlich zu den translatorischen Zwangsbedingungen kann die implizite Annahme aus \cite{AbdellatifHei2009} aufgehoben werden, dass die Beinketten räumlicher Parallelkinematiken in Kugelgelenken enden müssen.
 %Diese Bedingung wird z.\,B. von einigen der durch Gosselin et al. \cite{KongGos2007} und Gogu et al. \cite{Gogu2008} erzeugten Roboter nicht erfüllt.
 
@@ -376,25 +383,35 @@ The implicit form of the dynamics can be assembled as well as
 
 %, can be stacked in $\tilde{\bm{M}}$, $\tilde{\bm{c}}$, $\tilde{\bm{g}}$ and $\tilde{\bm{\tau}}$, $\tilde{\tau}$
 
-By applying the principle of \textsc{D'Alembert}, the dynamics of the subsystems can be projected into the minimal coordinates $\bm{x}$ of the parallel robot, corresponding to the constraint, closed-loop system, yielding
+By applying the principle of \textsc{D'Alembert}, the dynamics of the subsystems can be projected into the minimal coordinates $\bm{x}$ of the parallel robot.
+To this end, the Jacobian matrix from the inverse kinematics step in (\ref{equ:jacobian}) is extended by a unit matrix corresponding to the platform coordinates to obtain the projection matrix
+%
 \begin{equation}
-\bm{M}=\tilde{\bm{R}}^\transp\tilde{\bm{M}}\tilde{\bm{R}}, \quad
-\bm{c}=\tilde{\bm{R}}^\transp (\tilde{\bm{M}}\dot{\tilde{\bm{R}}}\dot{\bm{x}}+\tilde{\bm{c}}),
+\tilde{\bm{D}}^\transp=\left(\tilde{\bm{J}}^{-\transp},\bm{1}\right).
+\label{equ:dyn_projection_matrix}
+\end{equation}
+%
+The projection of the dynamics %corresponds to the constraint, closed-loop system and 
+ gives
+%
+\begin{equation}
+\bm{M}=\tilde{\bm{D}}^\transp\tilde{\bm{M}}\tilde{\bm{D}}, \quad
+\bm{c}=\tilde{\bm{D}}^\transp (\tilde{\bm{M}}\dot{\tilde{\bm{D}}}\dot{\bm{x}}+\tilde{\bm{c}}),
 \label{equ:invdyn_Mc}
 \end{equation}
 %
 \begin{equation}
-\bm{g}=\tilde{\bm{R}}^\transp\tilde{\bm{g}} \quad \mathrm{and} \quad 
-\bm{\tau}=\tilde{\bm{R}}^\transp\tilde{\bm{\tau}}.
+\bm{g}=\tilde{\bm{D}}^\transp\tilde{\bm{g}} \quad \mathrm{and} \quad 
+\bm{\tau}=\tilde{\bm{D}}^\transp\tilde{\bm{\tau}}.
 \label{equ:invdyn_gtau}
 \end{equation}
 
-The Jacobian matrix from the inverse kinematics step in (\ref{equ:jacobian}) can be used directly to obtain the projection matrix
-%
-\begin{equation}
-\tilde{\bm{R}}^\transp=\left(\tilde{\bm{J}}^{-\transp},\bm{1}\right).
-\label{equ:dyn_projection_matrix}
-\end{equation}
+%The Jacobian matrix from the inverse kinematics step in (\ref{equ:jacobian}) can be used directly to obtain the projection matrix
+%%
+%\begin{equation}
+%\tilde{\bm{D}}^\transp=\left(\tilde{\bm{J}}^{-\transp},\bm{1}\right).
+%\label{equ:dyn_projection_matrix}
+%\end{equation}
 %
 To reduce the computational effort, the implicit form $\bm{\tau}$ of the inverse dynamics in (\ref{equ:invdyn_gtau}) should be used, avoiding the computation of the inertia and Coriolis terms in (\ref{equ:invdyn_Mc}), which are not used in the dimensional synthesis, unless investigations on inertial forces \cite{FrindtKreHes2010} or Eigen frequencies \cite{JamwalHusXie2015} require the inertia matrix $\bm{M}$.
 Further, this allows neglecting the matrix $\dot{\tilde{\bm{J}}}^{-1}$ in (\ref{equ:acceleration_jacobian}), which has low influence on the kinematics.
