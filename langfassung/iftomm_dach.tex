@@ -128,8 +128,8 @@ Der vorliegende Beitrag führt allgemeine Ansätze für die Modellierung der Kin
 
 \begin{myabstract} Abstract \end{myabstract}
 A variety of different structures for parallel kinematic machines (PKM) have been found by means of systematic structural synthesis.
-To find the structure that is suited best for a specific task an efficient and generic selection method is necessary.
-For simple structures with multi-degree-of-freedom joints like the Gough-Stewart-robot methods for modeling and dimensional optimization are well established.
+To find the structure that is suited best for a specific task, an efficient and generic selection method is necessary.
+For simple structures with multi-degree-of-freedom joints like the Gough-Stewart robot, methods for modeling and dimensional optimization are well established.
 Less methods are available for more complex structures with single-degree-of-freedom joints.
 This contribution combines general approaches for the modeling of the kinematics and dynamics of parallel robots to obtain an efficient dimensional synthesis of PKM.
 
@@ -150,6 +150,13 @@ This contribution combines general approaches for the modeling of the kinematics
 %\item Ursache ist die voraussichtlich niedrigere Steifigkeit und Kollisionsanfälligkeit von PKM mit mehrgliedrigen Beinketten
 \end{itemize}
 
+The structural synthesis of parallel robots by means of screw theory \cite{KongGos2007} or evolutionary morphology \cite{Gogu2008} has produced a variety of different parallel robots.
+However, for only few of them a specific application has been found despite numerous research demonstrators \cite{Merlet2006} focusing on single aspects of the robots.
+Automatic dimensioning (dimensional synthesis) practical for all existing types of robots is necessary to select the robot that is suited best for a specific given application.
+It is well established that the theoretical advantages of parallel robots are strongly dependent on the dimensioning and the dimensional synthesis has a more important role than for serial robots \cite{Merlet2006}.
+Efforts on the dimensional synthesis constitute a major part in the research of parallel robots, beginning in the early 2000s driven by German researchers in the area of machine tools \cite{MbarekNefCor2005,Krefft2006,FrindtKreHes2010} and international robotics research groups \cite{CarboneOttCec2007,KelaiaiaComZaa2012,JamwalHusXie2015}.
+Until today, research was focused mainly on parallel robots with 
+
 %Quellen (z.B.)
 %\cite{JamwalHusXie2015}
 %
@@ -160,7 +167,7 @@ Einschränkungen Stand der Technik
 \begin{itemize}
 \item Maßsynthese in Beispielen häufig nur für einen Roboter durchgeführt z.B. Delta-Roboter \cite{KelaiaiaComZaa2012}, Gough-Stewart [Quelle], Hexa \cite{Krefft2006}, bislang in \cite{Krefft2006} als Ausblick beschriebene kombinierte Struktur- und Maßsynthese nur für serielle Roboter durchgeführt \cite{Ramirez2018}.
 \item Für PKM mit mehrgliedrigen Beinketten gibt es nicht immer eine analytische Lösung von Kinematik und Dynamik
-\item Auslegung wird überwiegend basierend auf kinematischer und kinetostatischer Merkmale ausgeführt \cite{CarboneOttCec2007}, die Dynamik wird nur selten betrachtet, z.B. durch die Berechnung einer minimal möglichen Beschleunigung basierend auf Antriebskräften und bewegte Masse \cite{Krefft2006}.
+\item Auslegung wird überwiegend basierend auf kinematischer und kinetostatischer Merkmale ausgeführt \cite{CarboneOttCec2007} [...], die Dynamik wird nur selten betrachtet, z.B. durch die Berechnung einer minimal möglichen Beschleunigung basierend auf Antriebskräften und bewegte Masse \cite{Krefft2006}.
 Eine teilweise Betrachtung der Dynamik erfolgt durch die Konditionszahl der Massenmatrix in \cite{KelaiaiaComZaa2012} oder Eigenfrequenz berechnet aus Massen- und Steifigkeitsmatrix in \cite{JamwalHusXie2015}. Bei seriellen Robotern öfter Anwendung in Maßsynthese, z.B. durch Berechnung mit Adams \cite{ZhouBaiHan2011}
 \item Auswahl von Antrieben bisher hauptsächlich bei seriellen Robotern ein Thema, z.B. \cite{ZhouBaiHan2011} und nicht bei PKM, da Antriebe bei PKM klassischerweise Gestellfest angeordnet sind und die Auswahl wenig Rückwirkung auf den Roboter hat
 \item mehrkriterielle Pareto-Optimierung relativ stark verbreitet, z.B. durch Algorithmen Strength Pareto Evolutionary Algorithm \cite{Krefft2006,KelaiaiaComZaa2012},  nondominated sorting
@@ -444,15 +451,15 @@ The motor torque $\bm{\tau}_{\mathrm{m},i}$ in the leg chain has zeros for passi
 \subsection{Energy Consumption}
 \label{sec:energy}
 
-It is assumed that all electric drives of the actuated joints can exchange power in a common DC link without loss, which represents a (simplified) future scenario for improving energy efficiency in industrial applications.
-The mechanical power of the single robot actuators can be summed up to the electric DC link power
+It is assumed that all electric drives of the actuated joints can exchange power in a common DC link, which is the case for newly installed robots, and enables improving energy efficiency in industrial production.
+The mechanical power of the single robot actuators can be summed up (assuming no losses) to the electric DC link power
 %
 \begin{equation}
 P_{\mathrm{link}}=\bm{\tau}_\mathrm{a}^\transp \dot{\bm{q}}_\mathrm{a}.
 \label{equ:power_link_mech}
 \end{equation}
 %
-Assuming no energy storage or recovery, the electric power required from the grid results to
+Assuming no energy storage or recuperation, the electric power required from the grid results to
 %
 \begin{equation}
 P_{\mathrm{grid}}=\left\{\begin{array}{ll} P_{\mathrm{link}}, & P_{\mathrm{link}}>0 \\0, & \mathrm{otherwise.}\end{array}\right.
@@ -462,7 +469,7 @@ P_{\mathrm{grid}}=\left\{\begin{array}{ll} P_{\mathrm{link}}, & P_{\mathrm{link}
 By integrating the power over time with
 %
 \begin{equation}
-E_{\mathrm{grid}}=\int{} P_{\mathrm{grid}}\mathrm{d} t
+E_{\mathrm{grid}}=\int_{0}^{T_\mathrm{Traj}} P_{\mathrm{grid}} \, \mathrm{d}t
 \label{equ:energy_integral}
 \end{equation}
 %
