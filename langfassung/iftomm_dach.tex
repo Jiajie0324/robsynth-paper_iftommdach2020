@@ -180,7 +180,7 @@ This has advantages for the stiffness of the machine, which is essential for mac
 
 Only few authors report a dimensional synthesis for multiple different robots with the ambition to compare them by this means, e.g. \cite{Krefft2006} with two different architectures of Delta robots or \cite{Ramirez2018} with serial robots.
 Most authors perform the dimensional synthesis for specific structures, such as the  Delta robot \cite{StockMil2003,KelaiaiaComZaa2012}, the Hexa robot \cite{Krefft2006}, the CaPaMan \cite{CarboneOttCec2007} or a cable-driven ankle rehabilitation robot \cite{JamwalHusXie2015}.
-The synthesis is mainly focused on kinematic characteristics such as workspace [] and conditioning of the Jacobian [] or kinetostatic characteristics such as the stiffness [] of the manipulator and its isotropy in the workspace and in different directions [].
+The synthesis is mainly focused on kinematic characteristics such as workspace and conditioning of the Jacobian \cite{CarboneOttCec2007,KelaiaiaComZaa2012} or kinetostatic characteristics such as the stiffness \cite{CarboneOttCec2007,KelaiaiaComZaa2012}.% of the manipulator and its isotropy in the workspace and in different directions [].
 The dynamics of the parallel robot is only regarded in some cases, e.g. by taking the minimal possible acceleration of the machine as a constraint \cite{Krefft2006}.
 A partly consideration of dynamics aspects is performed by assessing the condition number of the mass matrix in \cite{KelaiaiaComZaa2012} or the Eigen frequencies of the robot obtained from the mass and stiffness matrix in \cite{JamwalHusXie2015}.
 In the dimensional synthesis of serial robots, the dynamics gets more attention, e.g. by using a multi-body simulation tool like \textsc{Adams} in the optimization loop \cite{ZhouBaiHan2011}.
@@ -189,7 +189,8 @@ A consideration of material stress and internal forces is to the best knowledge 
 
 Usually, a heuristic multi-objective optimization is performed in the dimensional synthesis, e.g. with the Strength Pareto Evolutionary Algorithm \cite{Krefft2006,KelaiaiaComZaa2012} or the Nondominated Sorting
 Algorithm (NSGA II) \cite{JamwalHusXie2015}.
-The single-objective optimization is by some authors \cite{JamwalHusXie2015} claimed to be insufficient.
+The single-objective optimization is claimed to be insufficient by \cite{JamwalHusXie2015}.
+%Some groups also used algorithms like SQP \cite{CarboneOttCec2007}.
 
 This paper addresses the aspect of a combined dimensional synthesis using a dynamics-based criterion.
 
