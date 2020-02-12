@@ -5,6 +5,7 @@
 
 clear
 clc
+close all
 
 outputdir = fileparts(which('figure_calctime_vs_fval.m'));
 
@@ -77,9 +78,9 @@ grid on;
 boxplot(BPData, GVar);
 xlim([2.5, 12.5])
 xlabel('upper limit of $\mathrm{log}(f)$', 'interpreter', 'latex');
-ylabel('comp. time per particle in s');
+ylabel('time per particle in s');
 figure_format_publication(gca);
 % set(h, 'Position', [0.15,0.93,0.7,0.05]);
-set_size_plot_subplot(1,8,5,gca,...
-  0.12,0.01,0.01,0.16,0,0); % bl,br,hu,hd,bdx,bdy
+set_size_plot_subplot(1,8,4.5,gca,...
+  0.10,0.01,0.01,0.18,0,0); % bl,br,hu,hd,bdx,bdy
 export_fig(1, fullfile(outputdir, sprintf('figure_calctime_vs_fval.pdf')));
