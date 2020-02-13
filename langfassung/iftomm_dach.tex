@@ -162,7 +162,9 @@ This has advantages for the stiffness, which is essential for machining tasks \c
 
 \begin{figure*}[b]
     \centering
+    \vspace{-0.3cm} % Sonst Abstand zwischen Bild und Unterschrift ziemlich groß
     \input{./Bilder/Details_Kin_Dyn.pdf_tex}
+    \vspace{-0.4cm} % Sonst Abstand zwischen Bild und Unterschrift ziemlich groß
     \captionof{figure}{Unified calculation of the inverse kinematics and inverse dynamics for application in the dimensional synthesis}
     \label{fig:details_kindyn}
 \end{figure*}
@@ -249,15 +251,16 @@ The joint coordinates $\bm{q}_i$ of each leg chain $i$ are stacked as
     \graphicspath{{./Bilder/}}
     \centering
     \input{Bilder/PKM_Kinematik.pdf_tex}
+    \vspace{-0.4cm} % Sonst Abstand zwischen Bild und Unterschrift ziemlich groß
     \captionof{figure}{Sketch of the general parallel robot kinematics}
     \label{fig:PKM_kinematics}
 \end{figure}
 
 
-This general model extends the formulation in textbooks \cite{Merlet2006,BriotKha2015} by including coordinates of passive \emph{and} coupling joints to avoid assumptions on the solvability of the kinematic equations (``minimal kinematics set'', \cite{Merlet2006}).
+This general model extends the textbook formulations \cite{Merlet2006,BriotKha2015} by including passive \emph{and} coupling joints to avoid assumptions on the solvability of the kinematic equations (``minimal kinematics set'', \cite{Merlet2006}).
 %By defining the coupling as frame $\ks{B_i}$ instead of the position of the last joint of the leg chain, arbitrary alignments of the coupling joint can be realized.
 %A set of kinematic constraints $\bm{\Phi}$ is used to close the kinematic loops w
-The following sections introduce the unified kinematic (Sec.\,\ref{sec:kinematics}) and dynamics (Sec.\,\ref{sec:kindyn}) modeling, which leads to the calculation of internal forces (Sec.\,\ref{sec:intforce}) and energy (Sec.\,\ref{sec:energy}) used in the dimensional synthesis of parallel robots and sketched in Fig.\,\ref{fig:details_kindyn}.
+The following sections introduce the unified kinematic (Sec.\,\ref{sec:kinematics}) and dynamics (Sec.\,\ref{sec:kindyn}) modeling, which leads to the internal forces (Sec.\,\ref{sec:intforce}) and energy (Sec.\,\ref{sec:energy}) used in the dimensional synthesis of parallel robots and sketched in Fig.\,\ref{fig:details_kindyn}.
 
 
 
@@ -349,12 +352,12 @@ The joint accelerations can be obtained by differential calculus as
 \ddot{\bm{q}}=\tilde{\bm{J}}^{-1}\ddot{\bm{x}}+\dot{\tilde{\bm{J}}}^{-1}\dot{\bm{x}}.
 \label{equ:acceleration_jacobian}
 \end{equation}
-%
+
 The partial derivatives in (\ref{equ:jacobian}) can be partly  calculated in analytic form, as described in \cite{SchapplerTapOrt2019c}.
 The inversion of the $36 \times 36$-matrix $\partial \bm{\Phi} / \partial \bm{q}$ (in the full-mobility case) should be performed numerically.
 The derivatives of the terms required for (\ref{equ:acceleration_jacobian}) can also be partly calculated symbolically.
 
-For an efficient calculation of the whole robot trajectory for time step $k$ with $t=k \Delta t$ with $k=1,...,n_t$, the kinematic relation
+For an efficient calculation of the whole robot trajectory for time step $k$ with $t=k \Delta t$ with $k=1,...,n_t$, the relation
 %
 \begin{equation}
 \bm{q}_{k+1}=\bm{q}_k+\dot{\bm{q}}_k \Delta t+\frac{1}{2}\ddot{\bm{q}}_k\Delta t^2
@@ -448,55 +451,73 @@ The dynamics are then effectively obtained with Jourdain's principle (``virtual 
 \label{sec:intforce}
 
 For an evaluation of the mechanical stress in the structure of the parallel robots legs, the internal forces and moments have to be known.
-The projection-based dynamics does not produce cutting forces, since they do not perform work.
-Using the Newton-Euler algorithm would provide these forces, but requires setting up a system of equations, which may be less generic than the projection approach.
+The projection-based dynamics does not produce cutting forces, since they do not perform work, except in actuated joints.
+Using the Newton-Euler algorithm would provide these forces, but requires setting up a large system of equations and is therefore only applicable to specific mechanisms such as the Gough-Stewart robot \cite{Merlet2006}.
+Therefore, the internal forces are reconstructed by adapting the procedure presented in \cite{KhalilGue2004}.
 
-The internal forces can be reconstructed by adapting the procedure presented in \cite{KhalilGue2004}.
 
-
-\begin{figure}
-\centering
-\input{./Bilder/PKM_internal_forces.pdf_tex}
-\captionof{figure}{Internal forces in the leg chains of the parallel robot}
-\label{fig:PKM_internal_forces}
-\end{figure}
-
-With the known joint velocity $\dot{\bm{q}}_i$ and acceleration $\ddot{\bm{q}}_i$ from (\ref{equ:jacobian}) and (\ref{equ:acceleration_jacobian}) for all active and passive joints of the leg chain $i$, the stacked internal forces and moments
+With the known joint velocity $\dot{\bm{q}}_i$ and acceleration $\ddot{\bm{q}}_i$ from (\ref{equ:jacobian}) and (\ref{equ:acceleration_jacobian}) for all active and passive joints of the leg chain $i$, the stacked forces and moments
 %
 \begin{equation}
-\bm{w}_{i,\mathrm{int}}=\bm{w}_{i,\mathrm{int}}(\bm{q}_i,\dot{\bm{q}}_i,\ddot{\bm{q}}_i)
+%\bm{w}_{i,\mathrm{int}}
+%=
+\bm{w}_{i,\mathrm{int}}(\bm{q}_i,\dot{\bm{q}}_i,\ddot{\bm{q}}_i)
+=
+(\bm{w}_{i,0,\mathrm{int}}^\transp,\bm{w}_{i,1,\mathrm{int}}^\transp,\cdots,\bm{w}_{i,n_i,\mathrm{int}}^\transp)^\transp
 \label{equ:intforce_leg}
 \end{equation} % =\begin{pmatrix}\bm{w}_{i,\mathrm{int},0}^\transp & \cdots & \bm{w}_{i,\mathrm{int},n_i}^\transp\end{pmatrix}^\transp
 %
-can be computed with the recursive Newton-Euler algorithm for serial link kinematics \cite{KhalilDom2002,SaminFis2013}.
-As sketched in Fig.\,\ref{fig:PKM_internal_forces}, the single leg chain $i$ cut open can be regarded as a serial link chain with an external wrench $\bm{w}_{B_i}$ acting at the last joint, giving the dynamics equation
+from the internal dynamics can be computed with the recursive Newton-Euler algorithm  \cite{KhalilDom2002,SaminFis2013}.
+As sketched in Fig.\,\ref{fig:PKM_internal_forces}, the single leg chain $i$ cut open at the platform can be regarded as a serial link chain with an external wrench $\bm{w}_{B_i}$ acting at the last joint, giving the dynamics equation
  %
 \begin{equation}
-\bm{\tau}_i
+\bm{\tau}_{i,\mathrm{int}}
 =\bm{M}_i \ddot{\bm{q}}_i + \bm{c}_i + \bm{g}_i
-=\bm{\tau}_{\mathrm{m},i} + \bm{J}_{i}^{\transp} \bm{w}_{B_i}.
+=\bm{\tau}_{\mathrm{m},i} + \bm{J}_{i}^{\transp} \bm{w}_{B_i},
 \label{equ:invdyn_leg}
 \end{equation}
 %
-The Jacobian $\bm{J}_{i}$ projects the external wrench (from perspective of the cut open leg chain) into the joint space coordinates $\bm{q}_i$ of the leg chain.
-By assuming no kinematic redundancy and singularity, the equation can be rewritten to
+where $\bm{\tau}_{i,\mathrm{int}}$ is equal to the elements of $\bm{w}_{i,\mathrm{int}}$ corresponding to the respective actuated joint \cite{KhalilDom2002}.
+
+\begin{figure}
+    \centering
+    \input{./Bilder/PKM_internal_forces.pdf_tex}
+    \vspace{-0.4cm} % Sonst Abstand zwischen Bild und Unterschrift ziemlich groß
+    \captionof{figure}{Internal forces in the leg chains of the parallel robot}
+    \label{fig:PKM_internal_forces}
+\end{figure}
+
+%
+The Jacobian $\bm{J}_{i}$ projects the external wrench $\bm{w}_{B_i}$ (from perspective of the cut open leg chain) into the joint space coordinates $\bm{q}_i$ of the leg chain.
+By assuming neither redundancy nor singularity, the equation can be rewritten to
 %
 \begin{equation}
-\bm{w}_{B_i}=\bm{J}_{i}^{-\transp} (\bm{\tau}_i - \bm{\tau}_{\mathrm{m},i}),
+\bm{w}_{B_i}
+=
+(\bm{f}_{B_i}^\transp, \bm{m}_{B_i}^\transp)^\transp
+=
+\bm{J}_{i}^{-\transp} (\bm{\tau}_{i,\mathrm{int}} - \bm{\tau}_{\mathrm{m},i}),
 \label{equ:coupling_wrench_leg}
 \end{equation}
 %
-yielding the cut force and moment $\bm{w}_{B_i}$ in the coupling point $B_i$.
-The motor torque $\bm{\tau}_{\mathrm{m},i}$ in the leg chain has zeros for passive joints and the corresponding entry $\bm{\tau}_{\mathrm{a},i}$ from (\ref{equ:actforce}).
-
+yielding the cut force $\bm{f}_{B_i}$ and moment $\bm{m}_{B_i}$ in the coupling point $B_i$.
+The vector of motor torques $\bm{\tau}_{\mathrm{m},i}$ in the leg chain has zeros for passive joints and the corresponding entry $\bm{\tau}_{\mathrm{a},i}$ from (\ref{equ:actforce}).
+The cut wrenches in all joints of the leg chain $i$ induced by the parallel coupling are obtained by
+%
 \begin{equation}
-\bm{w}_{i,\mathrm{coupl}}=\bm{J}_{i,\mathrm{full}}^{\transp} \bm{w}_{B_i}
+\bm{w}_{i,\mathrm{coupl}}=\bm{J}_{i,\mathrm{full}}^{\transp} \bm{w}_{B_i},
 \label{equ:intforce_fromcoupling}
 \end{equation}
-
+%
+using the full geometric Jacobian $\bm{J}_{i,\mathrm{full}}$ of the leg chain.
+Finally, the cut wrench in the joints (with the effect of internal dynamics \emph{and} coupling forces) results to
 
 \begin{equation}
-\bm{w}_{i} = -\bm{w}_{i,\mathrm{coupl}} + \bm{w}_{i,\mathrm{int}}
+\bm{w}_{i} 
+= 
+\bm{w}_{i,\mathrm{int}} - \bm{w}_{i,\mathrm{coupl}}
+=
+(\bm{w}_{i,0}^\transp,\bm{w}_{i,1}^\transp,\cdots,\bm{w}_{i,n_i}^\transp)^\transp.
 \label{equ:intforce_total}
 \end{equation}
 
