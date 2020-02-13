@@ -267,8 +267,8 @@ The following sections introduce the unified kinematic (Sec.\,\ref{sec:kinematic
 
 To be able to solve the inverse kinematics problem for all active and passive joint coordinates $\bm{q}$, a full set of kinematic constraints has to be defined.
 In the context of dimensional synthesis, a trajectory of the platform pose $\bm{x}(t)$ is given and has to be accomplished by the simulated parallel robot.
-These constraints can e.g. be defined as vector loops between two leg chains \cite{Gogu2008} or one leg and the platform \cite{Merlet2006}.
-The formulation of the full kinematic constraints on position level instead of velocity level has the advantage of providing a feasible residual for a gradient-based solution of the inverse kinematics problem, as presented by the authors in \cite{SchapplerTapOrt2019c}. 
+These constraints can e.g. be defined as vector loops between the respective leg chains \cite{Gogu2008} or one leg and the platform \cite{Merlet2006}.
+The formulation of the full kinematic constraints on position level instead of velocity level has the advantage of providing a feasible residual for a gradient-based solution of the inverse kinematics problem \cite{SchapplerTapOrt2019c}. %, as presented by the authors in . 
 %
 %able to solve the inverse kinematics problem 
 The translational part of the full kinematic constraints can be formulated as the difference of the coupling point position $B_i$ on the platform and the corresponding coupling joint $E_i$ on the leg chain $i$ with
@@ -283,7 +283,7 @@ The translational part of the full kinematic constraints can be formulated as th
 \end{equation}
 %
 as established in the state of the art \cite{Merlet2006} and sketched in Fig.\,\ref{fig:PKM_kinematics}.
-The minimal form of the kinematic constraints rotational part is calculated with the Euler angles $\bm{\phi}_{XYZ}$ of the rotational difference of the frames $\ks{E_i}$ on the leg chain and $\ks{B_i}$ on the platform, with
+The minimal form of the rotational part of the kinematic constraints is calculated with the Euler angles $\bm{\phi}_{XYZ}$ of the rotational difference of the frames $\ks{E_i}$ on the leg chain $i$ and the corresponding $\ks{B_i}$ on the platform, with
 %
 \begin{align}
 \bm{\Phi}_{\mathrm{r},i}(\bm{q}_i,\bm{x})
@@ -295,7 +295,7 @@ The minimal form of the kinematic constraints rotational part is calculated with
 %
 as elaborated in detail in \cite{SchapplerTapOrt2019c}.
 %
-The kinematic constraints for the whole robot are then stacked of the terms for the single leg chains with 
+The kinematic constraints for the whole robot are then stacked with the terms for the single leg chains to 
 %
 \begin{equation}
 \bm{\Phi}^\transp
@@ -303,9 +303,9 @@ The kinematic constraints for the whole robot are then stacked of the terms for 
 (\bm{\Phi}_1^\transp,
 \cdots,
 \bm{\Phi}_m^\transp
-)
+),
 \quad
-\mathrm{and}
+\mathrm{with}
 \quad
 \bm{\Phi}_i^\transp=(
 \bm{\Phi}_{\mathrm{t},i}^\transp, \bm{\Phi}_{\mathrm{r},i}^\transp
@@ -313,7 +313,7 @@ The kinematic constraints for the whole robot are then stacked of the terms for 
 \label{equ:constr_Phi_PKM}
 \end{equation}
 
-The full parallel robot inverse Jacobian 
+The full inverse Jacobian of the parallel robot
 %
 \begin{equation}
 \tilde{\bm{J}}^{-1}=-\left( \frac{\partial \bm{\Phi}}{\partial \bm{q}} \right)^{-1} \left( \frac{\partial \bm{\Phi}}{\partial \bm{x}} \right)
@@ -335,25 +335,25 @@ To extract only the velocity $\dot{\bm{q}}_\mathrm{a}$ of the actuated joints, t
 \end{equation}
 %
 giving the analytic Jacobian of the parallel robot, which is square for non-redundant robots. % and subject to investigations known from literature \cite{Merlet2006}.
-The joint accelerations can be obtained by differential calculus to
+The joint accelerations can be obtained by differential calculus as
 %
 \begin{equation}
 \ddot{\bm{q}}=\tilde{\bm{J}}^{-1}\ddot{\bm{x}}+\dot{\tilde{\bm{J}}}^{-1}\dot{\bm{x}}.
 \label{equ:acceleration_jacobian}
 \end{equation}
 %
-The nonlinear terms $\bm{\Phi}_{\bm{q}}$ and $\bm{\Phi}_{\bm{x}}$ in (\ref{equ:jacobian}) can be partially  calculated in analytic form, as described in \cite{SchapplerTapOrt2019c}.
-The inversion of the $36 \times 36$-matrix $\bm{\Phi}_{\bm{q}}$ (in the full-mobility case) should be performed numerically.
-The derivatives of the terms required for (\ref{equ:acceleration_jacobian}) can also be calculated symbolically.
+The partial derivatives in (\ref{equ:jacobian}) can be partly  calculated in analytic form, as described in \cite{SchapplerTapOrt2019c}.
+The inversion of the $36 \times 36$-matrix $\partial \bm{\Phi} / \partial \bm{q}$ (in the full-mobility case) should be performed numerically.
+The derivatives of the terms required for (\ref{equ:acceleration_jacobian}) can also be partly calculated symbolically.
 
-For an efficient calculation of the whole trajectory of the platform for time steps $t=k \Delta t$ with $k=1,...,n_t$, the kinematic relation
+For an efficient calculation of the whole robot trajectory for time step $k$ with $t=k \Delta t$ with $k=1,...,n_t$, the kinematic relation
 %
 \begin{equation}
 \bm{q}_{k+1}=\bm{q}_k+\dot{\bm{q}}_k \Delta t+\frac{1}{2}\ddot{\bm{q}}_k\Delta t^2
 \label{equ:IK_initialvalue}
 \end{equation}
 %
-can be used as an initial value for the gradient-based solution of the inverse kinematics problem.
+can be used as an initial value for the gradient-based solution of the inverse kinematics problem \cite{KhalilDom2002},\cite{SchapplerTapOrt2019c}.
 
 \subsection{Unified Kinematics and Dynamics}
 \label{sec:kindyn}
@@ -421,7 +421,7 @@ The projection of the dynamics %corresponds to the constraint, closed-loop syste
 %\label{equ:dyn_projection_matrix}
 %\end{equation}
 %
-To reduce the computational effort, the implicit form $\bm{\tau}$ of the inverse dynamics in (\ref{equ:invdyn_gtau}) should be used, avoiding the computation of the inertia and Coriolis terms in (\ref{equ:invdyn_Mc}), which are not used in the dimensional synthesis, unless investigations on inertial forces \cite{FrindtKreHes2010} or Eigen frequencies \cite{JamwalHusXie2015} require the inertia matrix $\bm{M}$.
+To reduce the computational effort, the implicit form $\bm{\tau}$ of the inverse dynamics in (\ref{equ:invdyn_gtau}) should be used, avoiding the explicit computation of the inertia and Coriolis terms in (\ref{equ:invdyn_Mc}), which are not used in the dimensional synthesis, unless investigations on inertial forces \cite{FrindtKreHes2010} or Eigen frequencies \cite{JamwalHusXie2015} require the inertia matrix $\bm{M}$.
 Further, this allows neglecting the matrix $\dot{\tilde{\bm{J}}}^{-1}$ in (\ref{equ:acceleration_jacobian}), which has low influence on the kinematics.
 The actuator force for the calculation of the power consumption of the parallel robot are obtained with the inverse Jacobian from (\ref{equ:jacobian_actuation}) to
 
@@ -462,7 +462,7 @@ With the known joint velocity $\dot{\bm{q}}_i$ and acceleration $\ddot{\bm{q}}_i
 \label{equ:intforce_leg}
 \end{equation} % =\begin{pmatrix}\bm{w}_{i,\mathrm{int},0}^\transp & \cdots & \bm{w}_{i,\mathrm{int},n_i}^\transp\end{pmatrix}^\transp
 %
-can be computed with the recursive Newton-Euler algorithm for serial link kinematics \cite{KhalilDom2002}.
+can be computed with the recursive Newton-Euler algorithm for serial link kinematics \cite{KhalilDom2002,SaminFis2013}.
 As sketched in Fig.\,\ref{fig:PKM_internal_forces}, the single leg chain $i$ cut open can be regarded as a serial link chain with an external wrench $\bm{w}_{B_i}$ acting at the last joint, giving the dynamics equation
  %
 \begin{equation}
