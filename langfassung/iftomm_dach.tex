@@ -160,6 +160,13 @@ Until today, research is focused mainly on parallel robots with leg chains with 
 This has advantages for the stiffness, which is essential for machining tasks \cite{MbarekNefCor2005}.
 
 
+\begin{figure*}[b]
+    \centering
+    \input{./Bilder/Details_Kin_Dyn.pdf_tex}
+    \captionof{figure}{Unified calculation of the inverse kinematics and inverse dynamics for application in the dimensional synthesis}
+    \label{fig:details_kindyn}
+\end{figure*}
+
 %Quellen (z.B.)
 %\cite{JamwalHusXie2015}
 %
@@ -218,6 +225,7 @@ The structure for defining the optimization problem of dimensional synthesis is 
 %\cite{BriotKha2015}
 
 
+
 %\begin{itemize}
 %\item Paralleler Roboter mit 6 FG, Plattform-Pose $\bm{x}$, translatorischer und rotatorischer Teil mit Euler-Winkeln
 %\item $m$ Beinketten mit den Gelenkwinkeln $\bm{q}_1$, ..., $\bm{q}_m$ jeweils mit allen aktiven und passiven Gelenken inklusive der Koppelgelenke mit der Plattform
@@ -265,7 +273,7 @@ The following sections introduce the unified kinematic (Sec.\,\ref{sec:kinematic
 %\item Durch Bildung der Gradienten ($\bm{\Phi}_\bm{q}$ und $\bm{\Phi}_\bm{x}$) können mit der vollständigen Jacobi-Matrix $\tilde{\bm{J}}$ neben den aktiven Gelenkkoordinaten $\bm{q}_\mathrm{a}$ auch passive Gelenke und Schnittgelenke der Plattform berechnet werden, die gemeinsam in $\bm{q}$ zusammengefasst sind.
 %\end{itemize}
 
-To be able to solve the inverse kinematics problem for all active and passive joint coordinates $\bm{q}$, a full set of kinematic constraints has to be defined.
+To be able to solve the inverse kinematics problem for all active and passive joint coordinates $\bm{q}$, a full set of kinematic constraints has to be defined to generate a determined system of equations.
 In the context of dimensional synthesis, a trajectory of the platform pose $\bm{x}(t)$ is given and has to be accomplished by the simulated parallel robot.
 These constraints can e.g. be defined as vector loops between the respective leg chains \cite{Gogu2008} or one leg and the platform \cite{Merlet2006}.
 The formulation of the full kinematic constraints on position level instead of velocity level has the advantage of providing a feasible residual for a gradient-based solution of the inverse kinematics problem \cite{SchapplerTapOrt2019c}. %, as presented by the authors in . 
@@ -358,12 +366,6 @@ can be used as an initial value for the gradient-based solution of the inverse k
 \subsection{Unified Kinematics and Dynamics}
 \label{sec:kindyn}
 
-\begin{figure*}[b]
-    \centering
-    \input{./Bilder/Details_Kin_Dyn.pdf_tex}
-    \captionof{figure}{Unified calculation of the inverse kinematics and inverse dynamics for application in the dimensional synthesis}
-    \label{fig:details_kindyn}
-\end{figure*}
 
 %, (\ref{equ:invdyn_leg}), (\ref{equ:coupling_wrench_leg}), (\ref{equ:intforce_fromcoupling}),
 
@@ -375,13 +377,13 @@ can be used as an initial value for the gradient-based solution of the inverse k
 %Durch die Verwendung rotatorischer Zwangsbedingungen \cite{SchapplerTapOrt2019c} zusätzlich zu den translatorischen Zwangsbedingungen kann die implizite Annahme aus \cite{AbdellatifHei2009} aufgehoben werden, dass die Beinketten räumlicher Parallelkinematiken in Kugelgelenken enden müssen.
 %Diese Bedingung wird z.\,B. von einigen der durch Gosselin et al. \cite{KongGos2007} und Gogu et al. \cite{Gogu2008} erzeugten Roboter nicht erfüllt.
 
-To be able to determine the energy consumption of an arbitrary parallel robot for the reference trajectory of the dimensional synthesis, the inverse dynamics is required.
+To be able to determine the energy consumption of an arbitrary parallel robot for a given reference trajectory in the dimensional synthesis, the inverse dynamics is required.
 The application of the principle of energy equivalence for parallel robots from \cite{AbdellatifHei2009,DoThanhKotHeiOrt2009b} has to be extended using the full kinematic constraints from the previous section.
 The formulation from Abdellatif et al. \cite{AbdellatifHei2009} only applies for parallel robots which can be described solely with translational constraints (\ref{equ:kinconstrAB}), i.e. robots with leg chains containing at most two links and end in spherical joints in the full mobility case.
 Some of the the robots resulting from the structural synthesis from Gosselin et al. \cite{KongGos2007} and Gogu et al. \cite{Gogu2008} do not meet this requirement.
 
 Following the more general approach from Do Thanh et al. \cite{DoThanhKotHeiOrt2009b} the parallel robot is decomposed into the subsystems leg chains and platform.
-The inverse dynamics for the subsystems in their respective minimal coordinates $\bm{q}_i$ and $\bm{x}$ can be obtained with standard methods such as the \textsc{Lagrange} equations.
+The inverse dynamics for the subsystems in their respective minimal coordinates $\bm{q}_i$ and $\bm{x}$ can be obtained with standard methods such as the Lagrange equations.
 The resulting terms of the explicit dynamics equation can be assembled as the block diagonal of the full inertia matrix $\tilde{\bm{M}}$ and stacked as the full Coriolis and centrifugal forces vector $\tilde{\bm{c}}$ and gravitational forces vector $\tilde{\bm{g}}$.
 The implicit form $\tilde{\tau}$ of the dynamics can be assembled as the sum of the single terms as
 \begin{equation}
@@ -391,11 +393,14 @@ The implicit form $\tilde{\tau}$ of the dynamics can be assembled as the sum of 
 
 %, can be stacked in $\tilde{\bm{M}}$, $\tilde{\bm{c}}$, $\tilde{\bm{g}}$ and $\tilde{\bm{\tau}}$, $\tilde{\tau}$
 
-By applying the principle of \textsc{D'Alembert}, the dynamics of the subsystems can be projected into the minimal coordinates $\bm{x}$ of the parallel robot.
+By applying the principle of D'Alembert, the dynamics of the subsystems can be projected into the minimal coordinates $\bm{x}$ of the parallel robot.
 To this end, the Jacobian matrix from the inverse kinematics step in (\ref{equ:jacobian}) is extended by a unit matrix corresponding to the platform coordinates to obtain the projection matrix
 %
 \begin{equation}
-\tilde{\bm{D}}^\transp=\left(\tilde{\bm{J}}^{-\transp},\bm{1}\right).
+\tilde{\bm{D}}^\transp=\left(\tilde{\bm{J}}^{-\transp},\bm{1}\right)
+%,\quad
+%\dot{\tilde{\bm{D}}}^\transp=\left(\dot{\tilde{\bm{J}}}^{-\transp},\bm{0}\right)
+.
 \label{equ:dyn_projection_matrix}
 \end{equation}
 %
@@ -421,22 +426,23 @@ The projection of the dynamics %corresponds to the constraint, closed-loop syste
 %\label{equ:dyn_projection_matrix}
 %\end{equation}
 %
-To reduce the computational effort, the implicit form $\bm{\tau}$ of the inverse dynamics in (\ref{equ:invdyn_gtau}) should be used, avoiding the explicit computation of the inertia and Coriolis terms in (\ref{equ:invdyn_Mc}), which are not used in the dimensional synthesis, unless investigations on inertial forces \cite{FrindtKreHes2010} or Eigen frequencies \cite{JamwalHusXie2015} require the inertia matrix $\bm{M}$.
-Further, this allows neglecting the matrix $\dot{\tilde{\bm{J}}}^{-1}$ in (\ref{equ:acceleration_jacobian}), which has low influence on the kinematics.
-The actuator force for the calculation of the power consumption of the parallel robot are obtained with the inverse Jacobian from (\ref{equ:jacobian_actuation}) to
-
+To reduce the computational effort, the implicit form $\bm{\tau}$ of the inverse dynamics in (\ref{equ:invdyn_gtau}) should be used.
+This avoids the explicit computation of the inertia and Coriolis terms in (\ref{equ:invdyn_Mc}), which are not used in the dimensional synthesis, unless investigations on inertial forces \cite{FrindtKreHes2010} or Eigen frequencies \cite{JamwalHusXie2015} require the inertia matrix $\bm{M}$.
+Furthermore, this allows neglecting the matrix $\dot{\tilde{\bm{J}}}^{-1}$ in (\ref{equ:acceleration_jacobian}), which has low influence on the kinematics.
+The actuator forces for the calculation of the power consumption of the parallel robot are obtained with the inverse Jacobian from (\ref{equ:jacobian_actuation}) as
+%
 \begin{equation}
 \bm{\tau}_\mathrm{a}
-=\bm{J}^{-\transp} (\bm{M}\ddot{\bm{x}}+\bm{c}+\bm{g})
-=\bm{J}^{-\transp} \bm{\tau}.
+=\bm{J}^{-\transp} \bm{\tau}
+=\bm{J}^{-\transp} (\bm{M}\ddot{\bm{x}}+\bm{c}+\bm{g}).
 \label{equ:actforce}
 \end{equation}
 
 \subsection{Discussion on Velocity Constraints}
 
-Using \textsc{D'Alembert}'s principle (``virtual work''), as proposed in \cite{DoThanhKotHeiOrt2009b} requires the definition of kinematic constraints at the position level, which demands some additional efforts for the orientation \cite{SchapplerTapOrt2019c}.
+Using D'Alembert's principle (``virtual work''), as proposed in \cite{DoThanhKotHeiOrt2009b} requires the definition of kinematic constraints at the position level, which demands some additional efforts for the orientation \cite{SchapplerTapOrt2019c}.
 By defining the constraints on velocity level \cite{Gogu2008}, the calculation of the Jacobian is simplified by being able to use angular velocities and corresponding geometric Jacobians instead of Euler angles and their gradient matrices \cite{SaminFis2013}.
-The dynamics are then effectively obtained with \textsc{Jourdain}'s principle (``virtual power''), leading to the same result.
+The dynamics are then effectively obtained with Jourdain's principle (``virtual power''), leading to the same result \cite{SaminFis2013}.
 
 \subsection{Internal Forces in Parallel Robots Legs}
 \label{sec:intforce}
@@ -604,7 +610,7 @@ The kinematic parameters of the parallel robots are
 \item the distance $d_\mathrm{basepairdist}=d_\mathrm{base} p_\mathrm{bpdscale}$ of coupling point pairs, in case of a pair-wise alignment at the base (Fig.\,\ref{fig:ergebnisse},a)
 \item the pair distance $d_\mathrm{plfpairdist}=d_\mathrm{plf} p_\mathrm{ppdscale}$ for the moving platform (Fig.\,\ref{fig:ergebnisse},a,b),
 \item the elevation $\alpha_\mathrm{Pyr}$ of the coupling joint, in case of a pyramidal alignment of the first joint axis of the leg chains (Fig.\,\ref{fig:ergebnisse},a,b),
-\item the \textsc{Denavit-Hartenberg}-parameters for links $1\le i \le n_i$, $\alpha_{i,\mathrm{DH}}=p_{\alpha_i}$, $a_{i,\mathrm{DH}}=p_\mathrm{scale} p_{a_i}$, $\theta_{i,\mathrm{DH}}=p_{\theta_i}$ and $d_{i,\mathrm{DH}}=p_\mathrm{scale} p_{d_i}$, describing the serial link leg chains kinematics.
+\item the Denavit-Hartenberg-parameters for links $1\le i \le n_i$, $\alpha_{i,\mathrm{DH}}=p_{\alpha_i}$, $a_{i,\mathrm{DH}}=p_\mathrm{scale} p_{a_i}$, $\theta_{i,\mathrm{DH}}=p_{\theta_i}$ and $d_{i,\mathrm{DH}}=p_\mathrm{scale} p_{d_i}$, describing the serial link leg chains kinematics.
 \end{compactitem}
 %
 Depending on the base and platform morphology (circular, pair-wise, pyramidal) and the kinematics of the symmetric legs, a different number of kinematic parameters
