@@ -731,7 +731,9 @@ v_{\mathrm{cond}} = f_\mathrm{norm}(\mathrm{log}[\max\limits_{t}  \mathrm{cond}(
 
 \begin{figure*}[b]
 \centering
+\vspace{-0.1cm} % Zur Anpassung des Layouts
 \input{./Bilder/Optimierung_Ergebnisse.pdf_tex}
+\vspace{-0.1cm} % Zur Anpassung des Layouts
 \captionof{figure}{Results of the dimensional synthesis of four robots with objective function $E_\mathrm{grid}$ and number of parameters $\mathrm{dim}(\bm{p})$.}
 \label{fig:ergebnisse}
 \end{figure*}
@@ -871,7 +873,7 @@ To make demands on the robot dynamics, which is the basis for the optimization c
 The distribution of the values of the fitness function of Fig.\,\ref{fig:uebersicht} for a typical run of the optimization is shown as a histogram in Fig.\,\ref{fig:histogram_fitness} at the example of the 6\underline{R}RRS.
 The fitness values correspond to the constraint violation terms in Fig.\,\ref{fig:histogram_fitness}, described in Sec.\,\ref{sec:opt_constraints}.
 Blue parts of the bars represent particles from the last generation of the PSO and green parts represent the first generations.
-By the qualitative distribution of ``good'' particles (on the left) at the end of the optimization (blue) and ``bad'' particles (at the right) at the beginning, a convergence of the optimization to ``good'' solutions can be concluded.
+By the qualitative distribution of ``good'' particles (on the left) at the end of the optimization (blue) and ``bad'' particles (at the right) at the beginning (green), a convergence of the optimization to ``good'' solutions can be concluded.
 %
 \begin{figure}
 \centering
@@ -895,24 +897,27 @@ The spread in computation times can be explained by the gradient-based inverse k
 \label{fig:boxplot_comptime}
 \end{figure}
 
-\subsection{Evaluation of Condition and Material Stress}
+\subsection{Condition and Material Stress}
 \label{sec:res_matstress}
 
-As elaborated in the introduction, using internal forces and material stress in uncommon in the dimensional synthesis of parallel robots.
-Fig.\,\ref{fig:eval_matstress_vs_condition} shows that for the rather lightweight link geometries, the technical limit of the material stress in the final results of multiple runs is nearly reached.
-Further, a strong correlation of Jacobian condition number an material stress is not evident, therefore it can be concluded that under the mentioned conditions the consideration of this constraint is useful.
+%As elaborated in the introduction, using internal forces and material stress is uncommon in the dimensional synthesis of parallel robots in literature.
+Fig.\,\ref{fig:eval_matstress_vs_condition} shows that for the rather lightweight link geometries the technical limit of the material stress in the final results of multiple runs is nearly reached.
+It is known that ill-conditioned Jacobian matrices may produce high joint velocities or forces \cite{Merlet2006}.
+From this it can be assumed that high condition numbers correlate with high material stress and the test of the condition number as a constraint would be sufficient.
+The distribution of the material stress in Fig.\,\ref{fig:eval_matstress_vs_condition} shows that a strong correlation of Jacobian condition number and material stress is not evident.
+Therefore it can be concluded that under the mentioned conditions the consideration of the material stress constraint is useful, yet unusual in literature on dimensional synthesis.
 
 \begin{figure}
 \centering
 \includegraphics{./Bilder/figure_matstress_vs_condition.pdf}
 \vspace{-0.4cm} % Sonst Abstand zwischen Bild und Unterschrift ziemlich groß
-\captionof{figure}{Relation of material stress and Jacobian condition number for low tilting angles of about $10^\circ$}
+\captionof{figure}{Relation of material stress and Jacobian condition number (in logarithmic scale) for low tilting angles of about $10^\circ$.}
 \label{fig:eval_matstress_vs_condition}
 \end{figure}
 
 
 
-\subsection{Evaluation of Results and Pivoting Angles}
+\subsection{Evaluation of Tilting Angles}
 \label{sec:res_condition_pivoting}
 
 The distribution of final results of multiple runs of the optimization is shown in Fig.\,\ref{fig:energy_vs_tiltangle} and Fig.\,\ref{fig:condition_vs_tiltangle} for different maximal tilting angles in the reference trajectory.
@@ -934,7 +939,7 @@ On the contrary, the structures with three R-joints instead of one S-joint seem 
 \centering
 \includegraphics{./Bilder/figure_condition_vs_tiltangle.pdf}
 \vspace{-0.4cm} % Sonst Abstand zwischen Bild und Unterschrift ziemlich groß
-\captionof{figure}{Worst condition numbers for the results from Fig.\,\ref{fig:energy_vs_tiltangle}}
+\captionof{figure}{Worst condition numbers for the results from Fig.\,\ref{fig:energy_vs_tiltangle}.}
 \label{fig:condition_vs_tiltangle}
 \end{figure}
 
