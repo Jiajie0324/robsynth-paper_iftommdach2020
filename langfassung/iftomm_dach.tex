@@ -470,16 +470,16 @@ With the known joint velocity $\dot{\bm{q}}_i$ and acceleration $\ddot{\bm{q}}_i
 \end{equation} % =\begin{pmatrix}\bm{w}_{i,\mathrm{int},0}^\transp & \cdots & \bm{w}_{i,\mathrm{int},n_i}^\transp\end{pmatrix}^\transp
 %
 from the internal dynamics can be computed with the recursive Newton-Euler algorithm  \cite{KhalilDom2002,SaminFis2013}.
-As sketched in Fig.\,\ref{fig:PKM_internal_forces}, the single leg chain $i$ cut open at the platform can be regarded as a serial link chain with an external wrench $\bm{w}_{B_i}$ acting at the last joint, giving the dynamics equation
+As sketched in Fig.\,\ref{fig:PKM_internal_forces}, the single leg chain $i$ cut open at the platform can be regarded as a serial link chain with an external wrench $\bm{w}_{B_i}$ acting at the last link, giving the dynamics equation
  %
 \begin{equation}
-\bm{\tau}_{i,\mathrm{int}}
+\bm{\tau}_{i}
 =\bm{M}_i \ddot{\bm{q}}_i + \bm{c}_i + \bm{g}_i
 =\bm{\tau}_{\mathrm{m},i} + \bm{J}_{i}^{\transp} \bm{w}_{B_i},
 \label{equ:invdyn_leg}
 \end{equation}
 %
-where $\bm{\tau}_{i,\mathrm{int}}$ is equal to the elements of $\bm{w}_{i,\mathrm{int}}$ corresponding to the respective actuated joint \cite{KhalilDom2002}.
+where $\bm{\tau}_{i}$ is equal to the elements of $\bm{w}_{i,\mathrm{int}}$ corresponding to the respective actuated joint \cite{KhalilDom2002}.
 
 \begin{figure}
     \centering
@@ -491,14 +491,14 @@ where $\bm{\tau}_{i,\mathrm{int}}$ is equal to the elements of $\bm{w}_{i,\mathr
 
 %
 The Jacobian $\bm{J}_{i}$ projects the external wrench $\bm{w}_{B_i}$ (from perspective of the cut open leg chain) into the joint space coordinates $\bm{q}_i$ of the leg chain.
-By assuming neither redundancy nor singularity, the equation can be rewritten to
+By assuming neither redundancy nor singularity, (\ref{equ:invdyn_leg}) can be rewritten to
 %
 \begin{equation}
 \bm{w}_{B_i}
 =
 (\bm{f}_{B_i}^\transp, \bm{m}_{B_i}^\transp)^\transp
 =
-\bm{J}_{i}^{-\transp} (\bm{\tau}_{i,\mathrm{int}} - \bm{\tau}_{\mathrm{m},i}),
+\bm{J}_{i}^{-\transp} (\bm{\tau}_{i} - \bm{\tau}_{\mathrm{m},i}),
 \label{equ:coupling_wrench_leg}
 \end{equation}
 %
