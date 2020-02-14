@@ -164,7 +164,7 @@ This has advantages for the stiffness, which is essential for machining tasks \c
     \centering
     \vspace{-0.3cm} % Sonst Abstand zwischen Bild und Unterschrift ziemlich groß
     \input{./Bilder/Details_Kin_Dyn.pdf_tex}
-    \vspace{-0.4cm} % Sonst Abstand zwischen Bild und Unterschrift ziemlich groß
+    \vspace{-0.5cm} % Sonst Abstand zwischen Bild und Unterschrift ziemlich groß
     \captionof{figure}{Unified calculation of the inverse kinematics and inverse dynamics for application in the dimensional synthesis}
     \label{fig:details_kindyn}
 \end{figure*}
@@ -250,6 +250,7 @@ The joint coordinates $\bm{q}_i$ of each leg chain $i$ are stacked as
 \begin{figure}
     \graphicspath{{./Bilder/}}
     \centering
+    \vspace{-0.2cm}
     \input{Bilder/PKM_Kinematik.pdf_tex}
     \vspace{-0.4cm} % Sonst Abstand zwischen Bild und Unterschrift ziemlich groß
     \captionof{figure}{Sketch of the general parallel robot kinematics}
@@ -354,6 +355,7 @@ The joint accelerations can be obtained by differential calculus as
 \end{equation}
 
 The partial derivatives in (\ref{equ:jacobian}) can be partly  calculated in analytic form, as described in \cite{SchapplerTapOrt2019c}.
+
 The inversion of the $36 \times 36$-matrix $\partial \bm{\Phi} / \partial \bm{q}$ (in the full-mobility case) should be performed numerically.
 The derivatives of the terms required for (\ref{equ:acceleration_jacobian}) can also be partly calculated symbolically.
 
@@ -510,7 +512,7 @@ The cut wrenches in all joints of the leg chain $i$ induced by the parallel coup
 \end{equation}
 %
 using the full geometric Jacobian $\bm{J}_{i,\mathrm{full}}$ of the leg chain.
-Finally, the cut wrench in the joints (with the effect of internal dynamics \emph{and} coupling forces) results to
+Equivalent to (\ref{equ:invdyn_leg}), the cut wrench in the joints (with the effect of internal dynamics \emph{and} coupling forces) results to
 
 \begin{equation}
 \bm{w}_{i} 
