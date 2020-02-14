@@ -385,12 +385,12 @@ can be used as an initial value for the gradient-based solution of the inverse k
 
 To be able to determine the energy consumption of an arbitrary parallel robot for a given reference trajectory in the dimensional synthesis, the inverse dynamics is required.
 The application of the principle of energy equivalence for parallel robots from \cite{AbdellatifHei2009,DoThanhKotHeiOrt2009b} has to be extended using the full kinematic constraints from the previous section.
-The formulation from Abdellatif et al. \cite{AbdellatifHei2009} only applies for parallel robots which can be described solely with translational constraints (\ref{equ:kinconstrAB}), i.e. robots with leg chains containing at most two links and end in spherical joints in the full mobility case.
+The formulation from Abdellatif et al. \cite{AbdellatifHei2009} only applies for parallel robots which can be described solely with translational constraints (\ref{equ:kinconstrAB}), i.e. robots with leg chains containing at most two links and ending in spherical joints in the full mobility case.
 Some of the the robots resulting from the structural synthesis from Gosselin et al. \cite{KongGos2007} and Gogu et al. \cite{Gogu2008} do not meet this requirement.
 
 Following the more general approach from Do Thanh et al. \cite{DoThanhKotHeiOrt2009b} the parallel robot is decomposed into the subsystems leg chains and platform.
 The inverse dynamics for the subsystems in their respective minimal coordinates $\bm{q}_i$ and $\bm{x}$ can be obtained with standard methods such as the Lagrange equations.
-The resulting terms of the explicit dynamics equation can be assembled as the block diagonal of the full inertia matrix $\tilde{\bm{M}}$ and stacked as the full Coriolis and centrifugal forces vector $\tilde{\bm{c}}$ and gravitational forces vector $\tilde{\bm{g}}$.
+The resulting terms of the explicit dynamics equation can be assembled as the block-diagonal full inertia matrix $\tilde{\bm{M}}$ and stacked as the full Coriolis and centrifugal forces vector $\tilde{\bm{c}}$ and gravitational forces vector $\tilde{\bm{g}}$.
 The implicit form $\tilde{\tau}$ of the dynamics can be assembled as the sum of the single terms as
 \begin{equation}
 \tilde{\tau} = \tilde{\bm{M}} [\ddot{\bm{q}}^\transp, \ddot{\bm{x}}^\transp]^\transp + \tilde{\bm{c}} + \tilde{\bm{g}}.
