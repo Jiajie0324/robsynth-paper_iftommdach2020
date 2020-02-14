@@ -50,24 +50,28 @@
   \makeatother%
   \begin{picture}(1,0.45)%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{PKM_internal_forces.pdf}}%
-    \put(0.05078256,0.02901815){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\tau_{i,1}$}}}%
+    \put(0.05078256,0.02196261){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\tau_{i,1}$}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{PKM_internal_forces.pdf}}%
-    \put(0.46421779,0.09072972){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\ks{0}$}}}%
-    \put(0.62343761,0.37694761){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\ks{P}$}}}%
+    \put(0.46421779,0.08367417){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\ks{0}$}}}%
+    \put(0.62343761,0.36989206){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\ks{P}$}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{PKM_internal_forces.pdf}}%
-    \put(0.0271696,0.2419679){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\tau_{i,2}$}}}%
+    \put(0.0271696,0.23491236){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\tau_{i,2}$}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=4]{PKM_internal_forces.pdf}}%
-    \put(0.02318432,0.35116257){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{}}}%
-    \put(0.42394465,0.30657356){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{w}_{B_i}$}}}%
+    \put(0.02318432,0.34410703){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{}}}%
+    \put(0.23318153,0.36812494){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{w}_{i,n_i}=\bm{w}_{B_i}$}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=5]{PKM_internal_forces.pdf}}%
-    \put(0.25596637,0.21039533){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{w}_{i,1}$}}}%
+    \put(0.25596637,0.20333978){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{w}_{i,2}$}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=6]{PKM_internal_forces.pdf}}%
-    \put(0.1166021,0.32888486){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{w}_{i,n_i}$}}}%
+    \put(0.1166021,0.32182932){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{w}_{i,n_i-1}$}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=7]{PKM_internal_forces.pdf}}%
-    \put(0.56229217,0.23920623){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{w}_{B_1}$}}}%
+    \put(0.55523662,0.23215068){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{w}_{B_1}$}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=8]{PKM_internal_forces.pdf}}%
-    \put(0.76012393,0.1831513){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{w}_{B_2}$}}}%
+    \put(0.76012393,0.17609575){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{w}_{B_2}$}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=9]{PKM_internal_forces.pdf}}%
-    \put(0.81135062,0.36362973){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{w}_{B_m}$}}}%
+    \put(0.81135062,0.35657418){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{w}_{B_m}$}}}%
+    \put(0.44328027,0.28841641){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{w}_{B_i}$}}}%
+    \put(0.24310968,0.09413305){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{link $i,1$}}}%
+    \put(0.36982529,0.15688417){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{link $i,n_i$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{PKM_internal_forces.pdf}}%
   \end{picture}%
 \endgroup%

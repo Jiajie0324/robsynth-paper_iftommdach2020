@@ -465,7 +465,7 @@ With the known joint velocity $\dot{\bm{q}}_i$ and acceleration $\ddot{\bm{q}}_i
 %=
 \bm{w}_{i,\mathrm{int}}(\bm{q}_i,\dot{\bm{q}}_i,\ddot{\bm{q}}_i)
 =
-(\bm{w}_{i,0,\mathrm{int}}^\transp,\bm{w}_{i,1,\mathrm{int}}^\transp,\cdots,\bm{w}_{i,n_i,\mathrm{int}}^\transp)^\transp
+(\bm{w}_{i,1,\mathrm{int}}^\transp,\cdots,\bm{w}_{i,n_i,\mathrm{int}}^\transp)^\transp
 \label{equ:intforce_leg}
 \end{equation} % =\begin{pmatrix}\bm{w}_{i,\mathrm{int},0}^\transp & \cdots & \bm{w}_{i,\mathrm{int},n_i}^\transp\end{pmatrix}^\transp
 %
@@ -483,9 +483,10 @@ where $\bm{\tau}_{i}$ is equal to the elements of $\bm{w}_{i,\mathrm{int}}$ corr
 
 \begin{figure}
     \centering
+    \vspace{-0.1cm} % Sonst Abstand zwischen Bild und Text darüber ziemlich groß
     \input{./Bilder/PKM_internal_forces.pdf_tex}
-    \vspace{-0.4cm} % Sonst Abstand zwischen Bild und Unterschrift ziemlich groß
-    \captionof{figure}{Internal forces in the leg chains of the parallel robot}
+    \vspace{-0.3cm} % Sonst Abstand zwischen Bild und Unterschrift ziemlich groß
+    \captionof{figure}{Internal forces in the leg chains of the parallel robot.}
     \label{fig:PKM_internal_forces}
 \end{figure}
 
@@ -519,7 +520,7 @@ Equivalent to (\ref{equ:invdyn_leg}), the cut wrench in the joints (with the eff
 = 
 \bm{w}_{i,\mathrm{int}} - \bm{w}_{i,\mathrm{coupl}}
 =
-(\bm{w}_{i,0}^\transp,\bm{w}_{i,1}^\transp,\cdots,\bm{w}_{i,n_i}^\transp)^\transp.
+(\bm{w}_{i,1}^\transp,\cdots,\bm{w}_{i,n_i}^\transp)^\transp.
 \label{equ:intforce_total}
 \end{equation}
 
