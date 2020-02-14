@@ -718,6 +718,7 @@ the difference between the numeric differentiation of the joint positions $\bm{q
 %\end{equation}
 
 \subsubsection{Condition Number of the Jacobian}
+\label{sec:constraint_jacobian}
 
 If the joint trajectory has proven valid in the previous steps, the condition number of the Jacobian from (\ref{equ:jacobian_actuation}) is calculated for all samples of the trajectory.
 If the condition number for any sample exceeds a threshold, this leads to the penalty
@@ -856,8 +857,8 @@ Dissolving the S joint into revolute joints gives variant IV (6\underline{R}RRRR
 \end{align}
 
 The parallel robots have to execute a reference cube trajectory in the center of the workspace with an edge length of 30\,mm, visible in Fig.\,\ref{fig:ergebnisse}.
-The tilting angles of the end effector are chosen differently up to $90^\circ$, depending on the evaluation in the following sections.
-To make demands on the robot dynamics, which is the basis for the optimization criterion energy, the corners of the cube are connected with rest-to-rest motions with a  trapezoid profile in acceleration.
+The tilting angles of the end effector are increased from $0^\circ$ to a maximum value depending on the evaluation. %chosen differently up to $90^\circ$, depending on the evaluation in the following sections.
+To make demands on the robot dynamics, which is the basis for the optimization criterion (energy), the corners of the cube are connected with rest-to-rest motions with a  trapezoid profile in acceleration.
 %\begin{equation}
 %\bm{p}=\begin{pmatrix} p_\mathrm{scale}\\ p_\mathrm{base}\\ p_\mathrm{plfscale}\\ p_\mathrm{bpdscale}\\ \cdots\\ p_{d_{n_i}}\end{pmatrix}^\transp
 %\end{equation}
@@ -881,6 +882,7 @@ By the qualitative distribution of ``good'' particles (on the left) at the end o
 % Beim Einfügen des Histogramm-Bilds in InkScape entstehen Grafikfehler
 \includegraphics[align=t,smash=br,]{./Bilder/figure_histogram_fitness.pdf}
 \input{./Bilder/figure_histogram_fitness_edit.pdf_tex}
+\vspace{-0.4cm} % Sonst Abstand zwischen Bild und Unterschrift ziemlich groß
 \captionof{figure}{Histogram of the fitness function values $f$ of all particles for one optimization of 6\underline{R}RRS with generation highlight.}
 \label{fig:histogram_fitness}
 \end{figure}
@@ -901,16 +903,16 @@ The spread in computation times can be explained by the gradient-based inverse k
 \label{sec:res_matstress}
 
 %As elaborated in the introduction, using internal forces and material stress is uncommon in the dimensional synthesis of parallel robots in literature.
-Fig.\,\ref{fig:eval_matstress_vs_condition} shows that for the rather lightweight link geometries the technical limit of the material stress in the final results of multiple runs is nearly reached.
+Fig.\,\ref{fig:eval_matstress_vs_condition} shows that for the relatively lightweight link geometries the technical limit of the material stress in the final results of multiple runs is nearly reached.
 It is known that ill-conditioned Jacobian matrices may produce high joint velocities or forces \cite{Merlet2006}.
-From this it can be assumed that high condition numbers correlate with high material stress and the test of the condition number as a constraint would be sufficient.
+From this it can be assumed that high condition numbers correlate with high material stress and the test of the condition number from Sec.\,\ref{sec:constraint_jacobian} as a constraint would be sufficient.
 The distribution of the material stress in Fig.\,\ref{fig:eval_matstress_vs_condition} shows that a strong correlation of Jacobian condition number and material stress is not evident.
 Therefore it can be concluded that under the mentioned conditions the consideration of the material stress constraint is useful, yet unusual in literature on dimensional synthesis.
 
 \begin{figure}
 \centering
 \includegraphics{./Bilder/figure_matstress_vs_condition.pdf}
-\vspace{-0.4cm} % Sonst Abstand zwischen Bild und Unterschrift ziemlich groß
+\vspace{-0.5cm} % Sonst Abstand zwischen Bild und Unterschrift ziemlich groß
 \captionof{figure}{Relation of material stress and Jacobian condition number (in logarithmic scale) for low tilting angles of about $10^\circ$.}
 \label{fig:eval_matstress_vs_condition}
 \end{figure}
@@ -921,7 +923,8 @@ Therefore it can be concluded that under the mentioned conditions the considerat
 \label{sec:res_condition_pivoting}
 
 The distribution of final results of multiple runs of the optimization is shown in Fig.\,\ref{fig:energy_vs_tiltangle} and Fig.\,\ref{fig:condition_vs_tiltangle} for different maximal tilting angles in the reference trajectory.
-The robots with an S-joint seem to perform better than the ones without, as can be summarized from Fig.\,\ref{fig:energy_vs_tiltangle}.
+The robots with an S joint seem to perform better than the ones without, as can be summarized from their lower Energy consumption (i.e. objective of the optimization) in Fig.\,\ref{fig:energy_vs_tiltangle}.
+The higher number of markers for the S joint PKM represents their higher ratio of successful runs of the optimization.
 
 %regarding the objective (consumed energy) in Fig.\,\ref{fig:energy_vs_tiltangle} and the worst condition number during the trajectory in Fig.\,\ref{fig:condition_vs_tiltangle}, which is a common criterion in the dimensional synthesis.
 
@@ -929,11 +932,12 @@ The robots with an S-joint seem to perform better than the ones without, as can 
 \centering
 \includegraphics{./Bilder/figure_energy_vs_tiltangle.pdf}
 \vspace{-0.4cm} % Sonst Abstand zwischen Bild und Unterschrift ziemlich groß
-\captionof{figure}{Comparison of optimization results in different maximum tilt angles of the cube trajectory. Horizontal axes values are shifted from -1.5 to 1.5 for facility of inspection. 9 Repetitions for 4 robots and 5 angles.}
+\captionof{figure}{Comparison of optimization results in different maximum tilt angles of the cube trajectory. Horizontal axes values are shifted from -1.5 to 1.5 for facility of inspection and the results are grouped according to the tilting angle.}
 \label{fig:energy_vs_tiltangle}
 \end{figure}
 
-On the contrary, the structures with three R-joints instead of one S-joint seem to have a better (lower) condition number in the final results, as can be seen in Fig.\,\ref{fig:condition_vs_tiltangle}.
+On the contrary, the structures with three R joints instead of one S joint seem to have a better (i.e. lower) condition number in the final results, as can be seen in Fig.\,\ref{fig:condition_vs_tiltangle}.
+%However, the result is still ambiguous due to the heuristic nature of the optimization.
 
 \begin{figure}
 \centering

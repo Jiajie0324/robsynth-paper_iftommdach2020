@@ -5,6 +5,7 @@
 
 clear
 clc
+close all
 
 outputdir = fileparts(which('figure_energy_vs_tiltangle.m'));
 
@@ -17,7 +18,7 @@ colors = [[0 80 155 ]/255; ...%imesblau
 %% Zusammenfassungen der bisherige Versuche laden
 dimsynthpath = fileparts(which('structgeomsynth_path_init.m'));
 resdirtotal = fullfile(dimsynthpath, 'dimsynth', 'results');
-resdirs = {'IFToMMDACH_Vgl_20200206_nachts'};
+resdirs = {'IFToMMDACH_Vgl_20200206_nachts', 'IFToMMDACH_Vgl_20200212_nachts', 'IFToMMDACH_Vgl_20200211'};
 for i = 1:length(resdirs)
   tablepath = fullfile(resdirtotal, resdirs{i}, 'all_results.csv');
   ResTab_i = readtable(tablepath, 'HeaderLines', 1);
@@ -40,7 +41,7 @@ Robots_TL = Robots;
 for i = 1:length(Robots_TL_List)
   Robots_TL = strrep(Robots_TL, Robots_TL_List{i}{1}, Robots_TL_List{i}{2});
 end
-% Bild zeichnen
+%% Bild zeichnen
 figure(1);clf;hold on;
 plotsymbollist = {'^', 'o', 'x', 's'};
 shift = [-1.5, -0.5, .5, 1.5];
@@ -55,10 +56,22 @@ end
 grid on;
 h = legend(Robots_TL, 'orientation', 'horizontal'); 
 h.ItemTokenSize(1) = 15; %https://de.mathworks.com/matlabcentral/answers/438845-change-figure-legend-horizontal-spacing#answer_398095
-xlabel('Max. Tilt Angle in Traj. in deg');
+xlh = xlabel('Maximum Tilt Angle in Trajectory in deg');
 ylabel('Energy in J');
-xlim([30, 95]);
-ylim([70, 240]);
+xlim([-5, 89]);
+ylim([60, 240]);
+% Grid und Achseneinteilung so verändern, dass es Abschnittsweise für jeden
+% Winkelschritt eine Sammlung von Werten gibt
+TiltAngles = 180/pi*unique(ResTab_ges.MaxTiltAngle);
+TAintermediate = TiltAngles(1:end-1)+diff(TiltAngles)/2;
+set(gca, 'xtick', TAintermediate, 'xticklabel', {})
+[X_off, X_slope] = get_relative_position_in_axes(gca, 'x');
+[Y_off, Y_slope] = get_relative_position_in_axes(gca, 'y');
+set(xlh, 'position', [X_off+X_slope*(0), Y_off+Y_slope*(-1.25),1]);
+for i = 1:length(TiltAngles)-1
+  text(TiltAngles(i)-3, Y_off+Y_slope*(-1.1), sprintf('%1.0f',TiltAngles(i)), 'FontSize', 8);
+end
+
 figure_format_publication(gca);
 set_size_plot_subplot(1,8,4.5,gca,...
   0.13,0.01,0.11,0.18,0,0); % bl,br,hu,hd,bdx,bdy
