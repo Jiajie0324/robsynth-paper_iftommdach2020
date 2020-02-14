@@ -55,12 +55,17 @@ end
 grid on;
 h = legend(Robots_TL, 'orientation', 'horizontal'); 
 h.ItemTokenSize(1) = 15; %https://de.mathworks.com/matlabcentral/answers/438845-change-figure-legend-horizontal-spacing#answer_398095
-xlabel('cond(J)');
-ylabel('mat. stress in %');
+xlh = xlabel('cond(J)');
+ylabel('material stress in %');
 xlim([0, 220]);
 ylim([0, 105]);
 figure_format_publication(gca);
-set_size_plot_subplot(1,8,4.5,gca,...
-  0.13,0.01,0.11,0.18,0,0); % bl,br,hu,hd,bdx,bdy
-set(h, 'Position', [0.15,0.93,0.7,0.05]);
+% Achsbeschriftung nach oben verschieben
+[X_off, X_slope] = get_relative_position_in_axes(gca, 'x');
+[Y_off, Y_slope] = get_relative_position_in_axes(gca, 'y');
+set(xlh, 'Position', [X_off+X_slope*(-0.6),Y_off+Y_slope*(-1.1),1]);
+set_size_plot_subplot(1,8,4,gca,...
+  0.13,0.01,0.13,0.14,0,0); % bl,br,hu,hd,bdx,bdy
+set(gca, 'XScale', 'log'); % Zur Übersichtlichkeit -> Mehr Werte in kleinem Bereich
+set(h, 'Position', [0.17,0.91,0.7,0.05]);
 export_fig(1, fullfile(outputdir, sprintf('figure_matstress_vs_condition.pdf')));
