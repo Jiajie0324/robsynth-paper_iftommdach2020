@@ -105,14 +105,25 @@
 \begin{document}
 
 \begin{mytitle}
+Dimensional Synthesis of Parallel Robots: Unified Kinematics and\\ Dynamics using Full Kinematic Constraints \\[6pt] % Falls Zeilenumbruch erforderlich, \\[6pt] anfügen.
 \foreignlanguage{german}{
-Maßsynthese für Parallele Roboter: Einheitliche Kinematik und\\ Dynamik mit vollständigen kinematischen Zwangsbedingungen} \\[6pt] % Falls Zeilenumbruch erforderlich, \\[6pt] anfügen.
-Dimensional Synthesis of Parallel Robots: Unified Kinematics and\\ Dynamics using Full Kinematic Constraints
+Maßsynthese für Parallele Roboter: Einheitliche Kinematik und\\ Dynamik mit vollständigen kinematischen Zwangsbedingungen}
 \end{mytitle}
 
 Moritz Schappler, Prof. Dr.-Ing. Tobias Ortmaier, Leibniz Universität Hannover, Institut für Mechatronische Systeme, Appelstraße 11a, 30167 Hannover, Deutschland. Korrespondenz: moritz.schappler@imes.uni-hannover.de.
 
 \vspace{24pt} % Bitte nicht entfernen.
+
+\begin{myabstract} Abstract \end{myabstract}
+A variety of different structures for parallel kinematic machines (PKM) have been found by means of systematic structural synthesis.
+To find the structure that is suited best for a specific task, an efficient and generic selection method is necessary.
+For simple structures with multi-degree-of-freedom joints like the Gough-Stewart robot, methods for modeling and dimensional optimization are well established.
+Less methods are available for more complex structures with single-degree-of-freedom joints.
+This contribution combines general approaches for the modeling of the kinematics and dynamics of parallel robots to obtain an efficient dimensional synthesis of PKM.
+
+
+\vspace{12pt} % Bitte nicht entfernen.
+
 
 \foreignlanguage{german}{
 \begin{myabstract} Kurzfassung \end{myabstract}
@@ -122,16 +133,6 @@ Für einfache Systeme mit mehrwertigen Gelenken wie die Gough-Stewart-PKM liegen
 Für komplexere Strukturen mit mehr einwertigen Gelenken ist die Auswahl an Verfahren eingeschränkter. 
 Der vorliegende Beitrag führt allgemeine Ansätze für die Modellierung der Kinematik und Dynamik zusammen, um die Maßsynthese von PKM besonders effizient zu gestalten.}
 
-
-\vspace{12pt} % Bitte nicht entfernen.
-
-
-\begin{myabstract} Abstract \end{myabstract}
-A variety of different structures for parallel kinematic machines (PKM) have been found by means of systematic structural synthesis.
-To find the structure that is suited best for a specific task, an efficient and generic selection method is necessary.
-For simple structures with multi-degree-of-freedom joints like the Gough-Stewart robot, methods for modeling and dimensional optimization are well established.
-Less methods are available for more complex structures with single-degree-of-freedom joints.
-This contribution combines general approaches for the modeling of the kinematics and dynamics of parallel robots to obtain an efficient dimensional synthesis of PKM.
 
 \vspace{18pt} % Bitte nicht entfernen.
 
@@ -157,7 +158,7 @@ An automatic dimensioning (i.e. dimensional synthesis) for all existing types of
 Therefore, the aspect of selecting a structure (structural synthesis) and choosing specific parameter values (dimensional synthesis) should be performed in a combined structural and dimensional synthesis \cite{Krefft2006}.
 Efforts on the dimensional synthesis constitute a major part in the research of parallel robots, beginning in the early 2000s driven by international robotics research groups, e.g. \cite{Merlet2006,CarboneOttCec2007}, and German researchers in the field of machine tools, e.g. \cite{MbarekNefCor2005,Krefft2006,FrindtKreHes2010}.
 Until today, research is focused mainly on parallel robots with leg chains with the minimal amount of links and joints with multiple degrees of freedom (DoF), like universal and spherical joints.
-This has advantages for the stiffness, which is essential for machining tasks \cite{MbarekNefCor2005}.
+This has advantages regarding the stiffness, which is essential for machining tasks \cite{MbarekNefCor2005}.
 
 
 \begin{figure*}[b]
@@ -188,16 +189,16 @@ This has advantages for the stiffness, which is essential for machining tasks \c
 %\end{itemize}
 
 Only few authors report a dimensional synthesis for multiple different robots with the ambition to compare them by this means, e.g. \cite{Krefft2006} in a case study for two different architectures of Delta robots or \cite{Ramirez2018} for serial robots.
-Most authors perform the dimensional synthesis for specific structures, such as the  Delta robot \cite{StockMil2003,KelaiaiaComZaa2012}, the Hexa robot \cite{Krefft2006}, the CaPaMan \cite{CarboneOttCec2007} or a cable-driven ankle rehabilitation robot \cite{JamwalHusXie2015}.
+Most authors perform the dimensional synthesis for specific structures, such as the  Delta robot \cite{StockMil2003,KelaiaiaComZaa2012}, the Hexa robot \cite{Krefft2006}, the CaPaMan \cite{CarboneOttCec2007} or a cable-driven ankle rehabilitation robot in \cite{JamwalHusXie2015}.
 The synthesis is mainly focused on kinematic characteristics such as workspace and conditioning of the Jacobian or kinetostatic characteristics such as the stiffness \cite{CarboneOttCec2007,KelaiaiaComZaa2012}. % of the manipulator and its isotropy in the workspace and in different directions [].
 The dynamics of the parallel robot is only regarded in some cases, e.g. by taking the minimal possible acceleration of the machine as a constraint \cite{Krefft2006}.
 A partly consideration of dynamics aspects is performed by assessing the condition number of the mass matrix in \cite{KelaiaiaComZaa2012} or the Eigen frequencies of the robot obtained from the mass and stiffness matrix in \cite{JamwalHusXie2015}.
-In the dimensional synthesis of serial robots more attention is paid to the dynamics equation, e.g. by \cite{ZhouBaiHan2011} using a multi-body simulation tool like \textsc{Adams} in the optimization loop.
+In the dimensional synthesis of serial robots more attention is paid to the dynamics, e.g. by \cite{ZhouBaiHan2011} using a multi-body simulation tool like \textsc{Adams} in the optimization loop.
 %The selection of the drive train of the actuated joints, as e.g. treated in \cite{ZhouBaiHan2011} for serial robots, is rarely part of the synthesis of parallel robots, since the drives mounted at the robot base have little effect on the robot dynamics.
 A consideration of material stress and internal forces is to the best knowledge of the authors only performed in the dimensional synthesis of serial robots, e.g. by \cite{ZhouBai2015} who perform FE analyses with \textsc{Ansys} for a parametric CAD model inside the optimization loop.
 
 Usually, a heuristic multi-objective optimization is performed in the dimensional synthesis, e.g. with the Strength Pareto Evolutionary Algorithm \cite{Krefft2006,KelaiaiaComZaa2012} or the Nondominated Sorting Genetic Algorithm \cite{JamwalHusXie2015}.
-Using a weighted sum to incorporate multiple objectives is prone to the subjectivity of the user \cite{JamwalHusXie2015}. % and may prevent a clear comparison of different arch  requires high effort in defining the weights and \cite{JamwalHusXie2015}
+Using a weighted sum to incorporate multiple objectives is prone to the subjectivity of the user \cite{Merlet2006,JamwalHusXie2015}. % and may prevent a clear comparison of different arch  requires high effort in defining the weights and \cite{JamwalHusXie2015}
 %The optimization with a weighted sum of different objectives is claimed to be insufficient by.
 %Some groups also used algorithms like SQP \cite{CarboneOttCec2007}.
 
@@ -213,11 +214,11 @@ The contributions of the paper are
 %\item Beispiele und simulative Validierung des Verfahrens
 \item the application of a general kinematic and dynamics model on the dimensional synthesis of non-conventional parallel robots,
 \item the proposition of an efficient optimization structure,
-\item examples and simulative results.
+\item simulative results and their discussion.
 \end{compactitem}
 
 The remainder of the paper is structured as follows: The general model of the kinematics and dynamics is presented in Sec.\,\ref{sec:sysmdl}.
-The structure for defining the optimization problem of dimensional synthesis is sketched in Sec.\,\ref{sec:opti} followed by the results in Sec.\,\ref{sec:results} and a summary in Sec.\,\ref{sec:summary}.
+The structure for defining the optimization problem of the dimensional synthesis is sketched in Sec.\,\ref{sec:opti} followed by the results in Sec.\,\ref{sec:results} and a summary in Sec.\,\ref{sec:summary}.
 
 \section{System Description and Model}
 \label{sec:sysmdl}
@@ -261,7 +262,7 @@ The joint coordinates $\bm{q}_i$ of each leg chain $i$ are stacked as
 This general model extends the textbook formulations \cite{Merlet2006,BriotKha2015} by including passive \emph{and} coupling joints to avoid assumptions on the solvability of the kinematic equations (``minimal kinematics set'', \cite{Merlet2006}).
 %By defining the coupling as frame $\ks{B_i}$ instead of the position of the last joint of the leg chain, arbitrary alignments of the coupling joint can be realized.
 %A set of kinematic constraints $\bm{\Phi}$ is used to close the kinematic loops w
-The following sections introduce the unified kinematic (Sec.\,\ref{sec:kinematics}) and dynamics (Sec.\,\ref{sec:kindyn}) modeling, which leads to the internal forces (Sec.\,\ref{sec:intforce}) and energy (Sec.\,\ref{sec:energy}) used in the dimensional synthesis of parallel robots and sketched in Fig.\,\ref{fig:details_kindyn}.
+The following sections introduce the unified kinematic (Sec.\,\ref{sec:kinematics}) and dynamics (Sec.\,\ref{sec:kindyn}) modeling, which leads to the internal forces (Sec.\,\ref{sec:intforce}) and energy (Sec.\,\ref{sec:energy}) used in the dimensional synthesis of parallel robots, as sketched in Fig.\,\ref{fig:details_kindyn}.
 
 
 
@@ -569,7 +570,7 @@ In the following, the problem formulation is elaborated in Sec.\,\ref{sec:opt_fo
 
 \centering
 \input{./Bilder/optimization_overview.pdf_tex}
-\captionof{figure}{Overview of the PSO optimization and the structure of the fitness function with hiearchichal constraints.}
+\captionof{figure}{Overview of the PSO optimization and the structure of the fitness function with hierarchichal constraints.}
 \label{fig:uebersicht}
 \end{figure*}
 
