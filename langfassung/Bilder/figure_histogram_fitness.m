@@ -30,5 +30,5 @@ set_size_plot_subplot(figh,8,5,ah,...
 ylabel('Frequency of occurence');
 xlabel('log(fitness)');
 title('');
-
+ylim([0,1999]); % Damit oben keine Beschriftung ist
 export_fig(figh, fullfile(outputdir, sprintf('figure_histogram_fitness.pdf')));
