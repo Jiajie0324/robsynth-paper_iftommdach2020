@@ -50,25 +50,28 @@
   \makeatother%
   \begin{picture}(1,0.5625)%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{figure_histogram_fitness_edit.pdf}}%
-    \put(0.16567957,0.22300597){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{valid}}}%
+    \put(0.1542143,0.17487701){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{valid}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{figure_histogram_fitness_edit.pdf}}%
-    \put(0.17008929,0.30175101){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{material stress}}}%
+    \put(0.15872984,0.26647326){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{material}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{figure_histogram_fitness_edit.pdf}}%
-    \put(0.16315972,0.4145139){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{condition }}}%
+    \put(0.15841235,0.3721806){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{condition }}}%
     \put(0,0){\includegraphics[width=\unitlength,page=4]{figure_histogram_fitness_edit.pdf}}%
-    \put(0.4016627,0.3838978){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{joint limits}}}%
+    \put(0.42711315,0.40405652){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{joint}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=5]{figure_histogram_fitness_edit.pdf}}%
-    \put(0.59405255,0.30011307){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{IK fails}}}%
-    \put(0.59405255,0.25274007){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{in traj.}}}%
-    \put(0.50648804,0.51291373){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{IK fails}}}%
-    \put(0.50655863,0.47209224){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{in workspace}}}%
+    \put(0.59405255,0.19427984){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{IK fails}}}%
+    \put(0.59405255,0.14690684){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{in traj.}}}%
+    \put(0.4994325,0.51291373){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{IK fails}}}%
+    \put(0.49950308,0.47209224){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{in workspace}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=6]{figure_histogram_fitness_edit.pdf}}%
-    \put(0.85737593,0.31750001){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{legs too}}}%
-    \put(0.85611598,0.27592262){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{short}}}%
+    \put(0.85737593,0.32513005){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{too}}}%
+    \put(0.85611598,0.28297817){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{short}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=7]{figure_histogram_fitness_edit.pdf}}%
-    \put(0.62303071,0.19415376){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{workspace}}}%
+    \put(0.53836386,0.32115366){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{workspace}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=8]{figure_histogram_fitness_edit.pdf}}%
-    \put(0.62933033,0.15434027){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{reachability}}}%
-    \put(0.1665111,0.37797617){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{number}}}%
+    \put(0.54466344,0.28134016){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{reachability}}}%
+    \put(0.15872984,0.33816271){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{number}}}%
+    \put(0.15872984,0.23371532){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{stress}}}%
+    \put(0.85737593,0.36361308){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{legs}}}%
+    \put(0.42397343,0.36046327){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{limits}}}%
   \end{picture}%
 \endgroup%

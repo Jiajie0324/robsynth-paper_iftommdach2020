@@ -19,6 +19,11 @@ axh_ges = get(figh, 'Children');
 delete(axh_ges([2 4 5 6]))
 
 ah = axh_ges(1);
+% Senkrechten Strich entfernen
+lh = get(ah, 'children');
+I_line = strcmp(get(lh,'type'), {'line'});
+delete(lh(I_line));
+
 figure_format_publication(ah);
 set_size_plot_subplot(figh,8,5,ah,...
   0.15,0.03,0.04,0.16,0,0); % bl,br,hu,hd,bdx,bdy
