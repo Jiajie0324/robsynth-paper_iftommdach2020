@@ -71,16 +71,16 @@
     \put(0.4149851,0.19013295){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{base}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=8]{Optimierung_Ergebnisse.pdf}}%
     \put(0.06753687,0.18137523){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{with linear guidance}}}}%
-    \put(0.63531557,0.2070618){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{active}}}}%
-    \put(0.63658831,0.18754687){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{revolute joint}}}}%
+    \put(0.6554743,0.2070618){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{active revo-}}}}%
+    \put(0.6668264,0.18754687){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{lute joint}}}}%
     \put(0.40878845,0.0658373){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{trajectory}}}}%
     \put(0.40908843,0.04603846){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{(cube)}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=9]{Optimierung_Ergebnisse.pdf}}%
-    \put(0.54902486,0.04461285){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{spherical joint}}}}%
+    \put(0.5502976,0.03782499){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{spherical joint}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=10]{Optimierung_Ergebnisse.pdf}}%
-    \put(0.88960219,0.19106025){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{links of leg}}}}%
+    \put(0.90020816,0.19530264){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{links of leg}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=11]{Optimierung_Ergebnisse.pdf}}%
-    \put(0.52597805,0.18803308){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{leg chains}}}}%
+    \put(0.52173566,0.19439666){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{leg chains}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=12]{Optimierung_Ergebnisse.pdf}}%
     \put(0.00931402,0.05871939){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\small{platform}}}}%
     \put(0.01243122,0.22795938){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(a)}}}%
