@@ -574,8 +574,9 @@ In the following, the problem formulation is elaborated in Sec.\,\ref{sec:opt_fo
 
 The ambition of the design optimization is to find the set of robot parameters (``particle'') $\bm{p}_\mathrm{opt}$, which minimizes the fitness function $f(\bm{p})$, leading to an optimal design.
 Many parameter combinations however do not present a valid solution, since they violate some constraint.
-Since the bottleneck in the optimization process is the computation time, an efficient way of handling the constraints is to abort the processing of a particle once one of the constraints is not met.
-Therefore, from the different possibilities of including constraints in the optimization \cite{Jordehi2015}, an adaption of the static penalty approach is used which can be termed as ``hierarchical constraints''.
+The bottleneck in the optimization process is the computation time.
+Therefore, an efficient way of handling the constraints is to abort the processing of a particle once one of the constraints is not met.
+From the different possibilities of including constraints in the optimization \cite{Jordehi2015}, an adaption of the static penalty approach is used which is termed  ``hierarchical constraints'' in this paper.
 Following \cite{Ramirez2018}, the penalty terms $v_i$ are defined hierarchically according to the infeasibility of the solution with
 %
 \begin{equation}
@@ -621,18 +622,18 @@ To reduce the nonlinearity of the fitness $f$ function with respect to the optim
 The measure especially aims at reducing the coupling between parameters.
 Therefore, the following meta-parameters of the optimization are introduced:
 \begin{compactitem}
-\item the scaling parameter $p_\mathrm{scale}$ increases the size of the whole robot without changing its characteristics,% as far as possible,
+\item the scaling parameter $p_\mathrm{scale}$ increases the size of the whole robot (platform and legs) without changing its overall kinematics characteristics,% as far as possible,
 \item the platform scaling parameter $p_\mathrm{plfscale}$ scales the diameter of the moving platform relative to the base.
 \end{compactitem}
 
-The kinematic parameters of the parallel robots are
+The kinematic parameters $\bm{p}_\mathrm{kin}$ of the parallel robots are
 %
 \begin{compactitem}
 \item the base diameter $d_\mathrm{base}=p_\mathrm{scale} p_\mathrm{base}$,
 \item the platform diameter $d_\mathrm{plf}=p_\mathrm{plfscale} d_\mathrm{base}$,
-\item the distance $d_\mathrm{basepairdist}=d_\mathrm{base} p_\mathrm{bpdscale}$ of coupling point pairs, in case of a pair-wise alignment at the base (Fig.\,\ref{fig:ergebnisse},a)
-\item the pair distance $d_\mathrm{plfpairdist}=d_\mathrm{plf} p_\mathrm{ppdscale}$ for the moving platform (Fig.\,\ref{fig:ergebnisse},a,b),
-\item the elevation $\alpha_\mathrm{Pyr}$ of the coupling joint, in case of a pyramidal alignment of the first joint axis of the leg chains (Fig.\,\ref{fig:ergebnisse},a,b),
+\item the distance $d_\mathrm{basepairdist}=d_\mathrm{base} p_\mathrm{bpdscale}$ of coupling point pairs with scaling $p_\mathrm{bpdscale}$, in case of a pair-wise alignment at the base (Fig.\,\ref{fig:ergebnisse},a),
+\item the pair distance $d_\mathrm{plfpairdist}=d_\mathrm{plf} p_\mathrm{ppdscale}$ with scaling $p_\mathrm{ppdscale}$ for the moving platform (Fig.\,\ref{fig:ergebnisse},a,b),
+\item the elevation $\alpha_\mathrm{Pyr}$ of the base coupling joint, in case of a pyramidal alignment of the first joint axis of the leg chains (Fig.\,\ref{fig:ergebnisse},a,b),
 \item the Denavit-Hartenberg-parameters for links $1\le i \le n_i$, $\alpha_{i,\mathrm{DH}}=p_{\alpha_i}$, $a_{i,\mathrm{DH}}=p_\mathrm{scale} p_{a_i}$, $\theta_{i,\mathrm{DH}}=p_{\theta_i}$ and $d_{i,\mathrm{DH}}=p_\mathrm{scale} p_{d_i}$, describing the serial link leg chains kinematics.
 \end{compactitem}
 %
@@ -653,12 +654,12 @@ are subject to the optimization.
 \subsection{Objective Function}
 \label{sec:opt_objective}
 
-Since the energy consumption of the parallel robot for a reference trajectory is a scalar value and is correlated with other criteria such as moved mass and joint speeds, it is a good candidate for an objective function of the dimensional synthesis.
+Since the energy consumption of the parallel robot for a reference trajectory is a scalar value and is correlated with other criteria such as moved mass and joint speeds, it is well suited for an objective function of the dimensional synthesis.
 The range of values for the energy from (\ref{equ:energy_integral}) is not known in advance.
 The objective function
 %
 \begin{equation}
-z=f_\mathrm{norm}(E_{\mathrm{Netz}})
+z=f_\mathrm{norm}(E_{\mathrm{grid}})
 \end{equation}
 %
 is therefore constructed by normalizing and saturating the energy value with the function from (\ref{equ:fnorm}).
@@ -681,17 +682,18 @@ As introduced in Sec.\,\ref{sec:opt_formulation}, a hierarchy of constraints is 
 First, the geometric feasibility of the parallel robot kinematic parameters is tested.
 If the legs are too short to close the distance between base and platform radius, the first constraint penalty $v_\mathrm{leglength}$ is set.
 If the coupling point $B_i$ is not reachable with the maximum length of a leg chain for any corner point of the workspace, the second penalty $v_\mathrm{cplreach}$ is set to a value corresponding to the longest missing leg length.
+%Please note that the feasibility regarding self-collisions is not checked at the current state of the work.
 
 \subsubsection{Inverse Kinematics of Points and Trajectory}
 
 Next, the inverse kinematics is solved for all corner points of the workspace.
-The mean remaining violation of the kinematic constraints of (\ref{equ:constr_Phi_PKM}) serves as a penalty $v_\mathrm{IKcorner}$.
-If this remains below the tolerance, i.e. all corner points are reachable, the inverse kinematics for the reference trajectory is calculated according to the left part of Fig.\,\ref{fig:details_kindyn}.
+The mean remaining violation of the kinematic constraints $\bm{\Phi}$ serves as a penalty $v_\mathrm{IKcorner}$.
+If this remains below the tolerance, i.e. all corner points are reachable in the desired orientation, the inverse kinematics for the reference trajectory of the optimization is calculated. % according to the left part of Fig.\,\ref{fig:details_kindyn}.
 The first erroneous trajectory sample $k_{\mathrm{err}}$ in relation to the trajectory length $n_t$ serves as a penalty value $v_\mathrm{IKtraj}$.
 
 \subsubsection{Joint Limits: Range, Velocity, Configuration}
 
-For the given joint trajectory $\bm{q}(t)$ constraints on the feasibility regarding joint motion are checked.
+For the obtained joint trajectory $\bm{q}(t)$ constraints on the feasibility regarding joint motion are checked.
 First, limits on the joint range %$\mathrm{max\bm{q}_\mathrm{min} < \bm{q} < \bm{q}_\mathrm{max}$ are checked and the amount of exce
 %
 \begin{equation}
@@ -699,13 +701,14 @@ First, limits on the joint range %$\mathrm{max\bm{q}_\mathrm{min} < \bm{q} < \bm
 \label{equ:joint_range}
 \end{equation}
 %
-are checked, where for revolute joints the $2\pi$-periodicity is regarded with an extended algorithm for (\ref{equ:joint_range}).
+are tested, where for revolute joints the $2\pi$-periodicity is regarded with an extended algorithm for (\ref{equ:joint_range}).
 The allowed range of motion $\bm{q}_\mathrm{range,max}$ of revolute joints can be set lower for universal and spherical joints than for single-DoF revolute joints.
 The maximum exceedance relative to the respective range results in the penalty term $v_\mathrm{jointrange}$.
 %
 Exceeding the maximum joint velocity $\dot{\bm{q}}_\mathrm{max}$ results in the penalty $v_\mathrm{jointvelo}$ and already indicates a bad-conditioned Jacobian.
 %
-Since a flipping of joint configurations (``elbow up/down'') can not be completely prevented in the gradient-based inverse kinematics, despite the initial value from (\ref{equ:IK_initialvalue}), the difference between the numeric differentiation of the joint positions $\bm{q}(t)$ from  and the velocities from the Jacobian in (\ref{equ:jacobian}) are taken as a penalty $v_\mathrm{configflip}$.
+Since a flipping of joint configurations (``elbow up/down'') can not be completely prevented in the gradient-based inverse kinematics, % despite the initial value from (\ref{equ:IK_initialvalue}),
+the difference between the numeric differentiation of the joint positions $\bm{q}(t)$ from the inverse kinematics and the velocities from the Jacobian in (\ref{equ:jacobian}) are taken as a penalty $v_\mathrm{configflip}$.
 
 %\begin{equation}
 %f_{\mathrm{jspeed},k} = \max\limits_{t}(\dot{q}_k(t)) / \dot{q}_{k,\mathrm{max}}
@@ -716,8 +719,8 @@ Since a flipping of joint configurations (``elbow up/down'') can not be complete
 
 \subsubsection{Condition Number of the Jacobian}
 
-If the joint trajectory has proven valid in the previous steps, the condition number of the Jacobian from (\ref{equ:jacobian_actuation}) is calculated for the trajectory.
-If the condition number for any sample of the trajectory exceeds a threshold value, this indicates high actuator velocities or forces and leads to the penalty
+If the joint trajectory has proven valid in the previous steps, the condition number of the Jacobian from (\ref{equ:jacobian_actuation}) is calculated for all samples of the trajectory.
+If the condition number for any sample exceeds a threshold, this leads to the penalty
 %
 \begin{equation}
 v_{\mathrm{cond}} = f_\mathrm{norm}(\mathrm{log}[\max\limits_{t}  \mathrm{cond}(\bm{J}(t))]). % /k_{\mathrm{cond}}
@@ -743,19 +746,19 @@ The location of the maximum mechanical stress of each link is assumed to be prox
 \sigma_{i,j} = \max\limits_{t} \lVert\bm{f}_{i,j}\rVert / A_0 + \lVert\bm{m}_{i,j}\rVert / W,
 \end{equation}
 %
-where $A_0$ is the sectional area and $W$ the resistance moment of the link structure, which is assumed to be a hollow cylinder.
+where $A_0=\mathrm{const}$ is the sectional area and $W=\mathrm{const}$ is the resistance moment, which are depending on the link geometry and are not subject to optimization.
 The number
 %
 \begin{equation}
-f_\mathrm{stress} = \max\limits_{i,j} \frac{\sigma_{i,j}}{\sigma_{\mathrm{max}}} % \max\limits_{i \in \{1,..m\}} \max\limits_{j \in \{1,..n_i\}}
+k_\mathrm{stress} = \max\limits_{i,j} \frac{\sigma_{i,j}}{\sigma_{\mathrm{max}}} % \max\limits_{i \in \{1,..m\}} \max\limits_{j \in \{1,..n_i\}}
 \end{equation}
 %
 describes the maximum relative exceedance of the yield stress $\sigma_{\mathrm{max}}$ of the material for all links of the parallel robot and results in the penalty value
 %
 \begin{equation}
-v_{\mathrm{stress}} = f_\mathrm{Norm}(f_\mathrm{stress}-1)
+v_{\mathrm{stress}} = f_\mathrm{Norm}(k_\mathrm{stress}-1)
 \quad \mathrm{for} \quad 
-f_\mathrm{stress} > 1.
+k_\mathrm{stress} > 1.
 \end{equation}
 
 
@@ -794,13 +797,13 @@ An analysis on the use of the material stress constraint is performed in Sec.\,\
 \subsection{Scenario}
 \label{sec:res_scenario}
 
-The architectures for the dimensional synthesis are the 6\underline{P}RRS and 6\underline{R}RRS PKM, shown in Fig.\,\ref{fig:ergebnisse},\,a,\,c, where ``6'' marks the number of leg chains, ``R'' denotes a revolute, ``P'' a prismatic, ``S'' a spherical joint and the underscore marks the actuation.
-The generality of the kinematics and dynamics model laid out in Sec.\,\ref{sec:sysmdl} is highlighted by comparing two different variants of each architecture: One robot with leg chains ending in spherical joints (S), Fig.\,\ref{fig:ergebnisse},\,a,\,c, and one with leg chains ending in three distinctive revolute joints (RRR), Fig.\,\ref{fig:ergebnisse},\,b,\,d.
+The architectures for the dimensional synthesis are the 6\underline{P}RRS and 6\underline{R}RRS PKM, shown in Fig.\,\ref{fig:ergebnisse},a,c, where ``6'' marks the number of leg chains, ``R'' denotes a revolute, ``P'' a prismatic, ``S'' a spherical joint and the underscore marks the actuation.
+The generality of the kinematics and dynamics model laid out in Sec.\,\ref{sec:sysmdl} is highlighted by comparing two different variants of each architecture: One robot with leg chains ending in spherical joints (S), Fig.\,\ref{fig:ergebnisse},a,c, and one with leg chains ending in three distinctive revolute joints (RRR), Fig.\,\ref{fig:ergebnisse},b,d.
 
 The optimization was performed with the \textsc{Matlab}-implementation of the particle swarm optimization \cite{MatlabPSO} with 30 generations and 100 particles using the methods described in Sec.\,\ref{sec:sysmdl} and Sec.\,\ref{sec:opti}.
 
-All robot leg chain links were assumed to be thin tubes (hollow cylinders) with diameter 13\,mm and material thickness of 0.8\,mm.
-The moving platform is assumed to be a circular disk with thickness 10\,mm and the parts to be of Aluminum alloy AlCu4PbMgMn.
+All robot links were assumed to be thin tubes (hollow cylinders) with diameter 13\,mm and material thickness of 0.8\,mm.
+The moving platform is assumed to be a circular disk with a thickness of 10\,mm and the parts to be of aluminum alloy AlCu4PbMgMn.
 
 The leg chains are the result of a structural synthesis \cite{Ramirez2018} and are part of a minimal set of serial-link kinematic chains.
 This results in a very general description of the kinematics with many free DH-parameters (in the modified notation of Khalil \cite{KhalilDom2002}), with only the DH-parameters
@@ -810,9 +813,9 @@ This results in a very general description of the kinematics with many free DH-p
 \end{align}
 %
 set constant for all robots.
-For the architecture I (6\underline{P}RRS), the DH-Parameters $a_5$/$a_6$/$d_5$ of the last two joints are set to zeros due to the S-joint.
+For the architecture I (6\underline{P}RRS), the DH-Parameters $a_5$/$a_6$/$d_5$ of the last two joints are set to zeros to model the S-joint.
 %
-All other parameters are subject to the optimization, resulting in 15 variable kinematic parameters
+All other parameters are subject to optimization, resulting in 15 variable kinematic parameters
 % Parameter der Roboter: Vektoren
 % Roboter P6PRRRRR6V2G8P3A1; 15 Kinematik-Parameter, mit Skalierung 16 Opt-Parameter:
 %
@@ -822,7 +825,7 @@ All other parameters are subject to the optimization, resulting in 15 variable k
 &d_\mathrm{basepairdist}, d_\mathrm{plfpairdist}, \alpha_\mathrm{Pyr} ]^\transp % alpha_\mathrm{Pyr}, \alpha_{i,\mathrm{DH}},a_{i,\mathrm{DH}}, \theta_{i,\mathrm{DH}}
 \end{align}
 %
-and 16 optimization parameters (including the scaling parameter), as elaborated in Sec.\,\ref{sec:opt_params}.
+and 16 optimization parameters (including the scaling parameter $p_\mathrm{scale}$), as elaborated in Sec.\,\ref{sec:opt_params}.
 The variant II (6\underline{P}RRRRR) without spherical joints has three additional kinematic parameters, yielding
 %
 %P6PRRRRR6G8P3A1; 19 Parameter:
@@ -842,7 +845,7 @@ For architecture III (6\underline{R}RRS), a simplified base and platform couplin
 \bm{p}_\mathrm{kin,III}=[&d_\mathrm{base}, d_\mathrm{plf}, \alpha_{2,\mathrm{DH}}, a_{2,\mathrm{DH}}, d_{2,\mathrm{DH}}, \alpha_{3,\mathrm{DH}}, \nonumber \\
 &a_{3,\mathrm{DH}}, d_{3,\mathrm{DH}}, \alpha_{4,\mathrm{DH}},a_{4,\mathrm{DH}}, d_{4,\mathrm{DH}}]^\transp. % alpha_\mathrm{Pyr}, \alpha_{i,\mathrm{DH}},a_{i,\mathrm{DH}}, \theta_{i,\mathrm{DH}}
 \end{align}
-Dissolving the S-joint gives variant IV (6\underline{R}RRRRR) and again adds three parameters:
+Dissolving the S joint into revolute joints gives variant IV (6\underline{R}RRRRR) and again adds three parameters:
 %
 %P6RRRRRR10G1P1A1; 15 Parameter:
 %
@@ -850,7 +853,7 @@ Dissolving the S-joint gives variant IV (6\underline{R}RRRRR) and again adds thr
 \bm{p}_\mathrm{kin,IV}=[\bm{p}_\mathrm{kin,III}^\transp,a_{5,\mathrm{DH}},d_{5,\mathrm{DH}},a_{6,\mathrm{DH}}]^\transp.
 \end{align}
 
-The parallel robots have to execute a reference cube trajectory in the center of the workspace with edge length 30\,mm, visible in Fig.\,\ref{fig:ergebnisse}.
+The parallel robots have to execute a reference cube trajectory in the center of the workspace with an edge length of 30\,mm, visible in Fig.\,\ref{fig:ergebnisse}.
 The tilting angles of the end effector are chosen differently up to $90^\circ$, depending on the evaluation in the following sections.
 To make demands on the robot dynamics, which is the basis for the optimization criterion energy, the corners of the cube are connected with rest-to-rest motions with a  trapezoid profile in acceleration.
 %\begin{equation}
