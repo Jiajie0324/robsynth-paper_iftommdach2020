@@ -50,14 +50,14 @@
   \makeatother%
   \begin{picture}(1,0.13529412)%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{Details_Kin_Dyn.pdf}}%
-    \put(0.01032495,0.10223976){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\emph{Inverse Kinematics (Sec. \ref{sec:kinematics})}}}}%
-    \put(0.00483082,0.07232691){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{for $k=1,...,n_t$ (Trajectory)}}}%
-    \put(0.01983941,0.0429744){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{velocity/acceleration: (\ref{equ:jacobian}), (\ref{equ:acceleration_jacobian})}}}%
-    \put(0.01957261,0.01322782){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{IK: a priori (\ref{equ:IK_initialvalue}), correction \cite{SchapplerTapOrt2019c}}}}%
+    \put(0.02028574,0.10223976){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\emph{Inverse Kinematics (Sec. \ref{sec:kinematics})}}}}%
+    \put(0.00815108,0.07232691){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{for $k=1,...,n_t$ (trajectory)}}}%
+    \put(0.02315967,0.0429744){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{velocity/acceleration: (\ref{equ:jacobian}), (\ref{equ:acceleration_jacobian})}}}%
+    \put(0.02289287,0.01322782){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{IK: a priori (\ref{equ:IK_initialvalue}), correction \cite{SchapplerTapOrt2019c}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{Details_Kin_Dyn.pdf}}%
-    \put(0.37104763,0.10223976){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\emph{Inverse Dynamics (Sec. \ref{sec:kindyn})}}}}%
+    \put(0.37768815,0.10223976){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\emph{Inverse Dynamics (Sec. \ref{sec:kindyn})}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{Details_Kin_Dyn.pdf}}%
-    \put(0.69074131,0.10209446){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\emph{Objective and Constraints:}}}}%
+    \put(0.72062366,0.10209446){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\emph{Objective and Constraints}}}}%
     \put(0.36595452,0.07232691){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Subsystems: $\tilde{\bm{M}}, \tilde{\bm{c}}, \tilde{\bm{g}}$, (\ref{equ:subsys_implicit_dyn})}}}%
     \put(0.36649405,0.0431197){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Projection: (\ref{equ:dyn_projection_matrix}), (\ref{equ:invdyn_Mc}), (\ref{equ:invdyn_gtau})}}}%
     \put(0.365913,0.01308252){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Actuator force: (\ref{equ:actforce})}}}%

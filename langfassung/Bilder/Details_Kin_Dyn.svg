@@ -266,9 +266,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.979899"
-     inkscape:cx="276.90759"
-     inkscape:cy="-15.808295"
+     inkscape:zoom="3.959798"
+     inkscape:cx="379.57312"
+     inkscape:cy="37.710416"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -310,13 +310,13 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="6.2193623"
+       x="12.219362"
        y="990.77686"
        id="text4244"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4246"
-         x="6.2193623"
+         x="12.219362"
          y="990.77686"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times"><tspan
    style="font-size:1.25000012px"
@@ -328,25 +328,25 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="2.9099023"
+       x="4.9099026"
        y="1008.7952"
        id="text4244-3"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4246-6"
-         x="2.9099023"
+         x="4.9099026"
          y="1008.7952"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">for $k=1,...,n_t$ (Trajectory)</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">for $k=1,...,n_t$ (trajectory)</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="11.950512"
+       x="13.950512"
        y="1026.4761"
        id="text4244-3-7"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4246-6-5"
-         x="11.950512"
+         x="13.950512"
          y="1026.4761"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">velocity/acceleration: (<tspan
    style="font-size:1.25000012px"
@@ -356,13 +356,13 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="11.7898"
+       x="13.7898"
        y="1044.3943"
        id="text4244-3-7-3"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4246-6-5-5"
-         x="11.7898"
+         x="13.7898"
          y="1044.3943"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times">IK: a priori (<tspan
    style="font-size:1.25000012px"
@@ -379,13 +379,13 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="223.5051"
+       x="227.5051"
        y="990.77686"
        id="text4244-7"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4246-0"
-         x="223.5051"
+         x="227.5051"
          y="990.77686"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times"><tspan
    style="font-size:1.25000012px"
@@ -404,17 +404,17 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="416.07651"
+       x="434.07651"
        y="990.86438"
        id="text4244-7-3"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4246-0-6"
-         x="416.07651"
+         x="434.07651"
          y="990.86438"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.50000095px;font-family:Times;-inkscape-font-specification:Times"><tspan
    style="font-size:1.25000012px"
-   id="tspan4488">\emph{</tspan>Objective and Constraints:<tspan
+   id="tspan4488">\emph{</tspan>Objective and Constraints<tspan
    style="font-size:1.25000012px"
    id="tspan4490">}</tspan></tspan></text>
     <text
