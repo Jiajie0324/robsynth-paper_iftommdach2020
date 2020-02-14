@@ -156,7 +156,7 @@ However, for only few of them a specific application has been found despite nume
 It is well established that the theoretical advantages of parallel robots are strongly dependent on their dimensioning \cite{Merlet2006}. % and the dimensional synthesis has a more important role than for serial robots \cite{Merlet2006}.
 An automatic dimensioning (i.e. dimensional synthesis) for all existing types of robots is necessary to select the robot that is suited best for a specific given application.
 Therefore, the aspect of selecting a structure (structural synthesis) and choosing specific parameter values (dimensional synthesis) should be performed in a combined structural and dimensional synthesis \cite{Krefft2006}.
-Efforts on the dimensional synthesis constitute a major part in the research of parallel robots, beginning in the early 2000s driven by international robotics research groups, e.g. \cite{Merlet2006,CarboneOttCec2007}, and German researchers in the field of machine tools, e.g. \cite{MbarekNefCor2005,Krefft2006,FrindtKreHes2010}.
+Efforts on the dimensional synthesis constitute a major part in the research of parallel robots, beginning in the early 2000s driven by international robotics research groups, e.g. \cite{Merlet2006,CarboneOttCec2007}, and German researchers in the field of machine tools, e.g. \cite{Frindt2001,MbarekNefCor2005,Krefft2006,FrindtKreHes2010}.
 Until today, research is focused mainly on parallel robots with leg chains with the minimal amount of links and joints with multiple degrees of freedom (DoF), like universal and spherical joints.
 This has advantages regarding the stiffness, which is essential for machining tasks \cite{MbarekNefCor2005}.
 
@@ -189,7 +189,7 @@ This has advantages regarding the stiffness, which is essential for machining ta
 %\end{itemize}
 
 Only few authors report a dimensional synthesis for multiple different robots with the ambition to compare them by this means, e.g. \cite{Krefft2006} in a case study for two different architectures of Delta robots or \cite{Ramirez2018} for serial robots.
-Most authors perform the dimensional synthesis for specific structures, such as the  Delta robot \cite{StockMil2003,KelaiaiaComZaa2012}, the Hexa robot \cite{Krefft2006}, the CaPaMan \cite{CarboneOttCec2007} or a cable-driven ankle rehabilitation robot in \cite{JamwalHusXie2015}.
+Most authors perform the dimensional synthesis for specific structures, such as the  Delta robot \cite{StockMil2003,KelaiaiaComZaa2012}, the Hexa robot \cite{Frindt2001,Krefft2006}, the CaPaMan \cite{CarboneOttCec2007} or a cable-driven ankle rehabilitation robot in \cite{JamwalHusXie2015}.
 The synthesis is mainly focused on kinematic characteristics such as workspace and conditioning of the Jacobian or kinetostatic characteristics such as the stiffness \cite{CarboneOttCec2007,KelaiaiaComZaa2012}. % of the manipulator and its isotropy in the workspace and in different directions [].
 The dynamics of the parallel robot is only regarded in some cases, e.g. by taking the minimal possible acceleration of the machine as a constraint \cite{Krefft2006}.
 A partly consideration of dynamics aspects is performed by assessing the condition number of the mass matrix in \cite{KelaiaiaComZaa2012} or the Eigen frequencies of the robot obtained from the mass and stiffness matrix in \cite{JamwalHusXie2015}.
@@ -251,9 +251,9 @@ The joint coordinates $\bm{q}_i$ of each leg chain $i$ are stacked as
 \begin{figure}
     \graphicspath{{./Bilder/}}
     \centering
-    \vspace{-0.2cm}
+    \vspace{-0.1cm}
     \input{Bilder/PKM_Kinematik.pdf_tex}
-    \vspace{-0.4cm} % Sonst Abstand zwischen Bild und Unterschrift ziemlich groß
+    \vspace{-0.2cm} % Sonst Abstand zwischen Bild und Unterschrift ziemlich groß
     \captionof{figure}{Sketch of the general parallel robot kinematics}
     \label{fig:PKM_kinematics}
 \end{figure}
@@ -982,7 +982,7 @@ Future research will cover comparing robots with and without task redundancy as 
 \section{Acknowledgement}
 
 The authors acknowledge the support by the Deutsche Forschungsgemeinschaft (DFG) under grant OR 196/33-1.\\
-\textsc{Matlab} Code to reproduce the results is available at GitHub \cite{GitHubThisPaper}.
+\textsc{Matlab} Code to reproduce the results is available at GitHub under  https://github.com/SchapplM/robsynth-paper\_iftommdach2020. %GitHub \cite{GitHubThisPaper}.
 
 \bibliographystyle{spmpsci_unsrt}
 \bibliography{literatur}
