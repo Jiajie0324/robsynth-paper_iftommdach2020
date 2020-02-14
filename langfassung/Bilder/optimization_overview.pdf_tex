@@ -64,13 +64,13 @@
     \put(0.45538743,0.09550038){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{joint limits}}}%
     \put(0.4603071,0.07450171){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{complied?}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=4]{optimization_overview.pdf}}%
-    \put(0.22716173,0.03322455){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$f=v_\mathrm{leglength}$}}}%
-    \put(0.3706727,0.03322455){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$f=v_\mathrm{IKcorner}$}}}%
-    \put(0.5149036,0.03322455){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$f=v_\mathrm{jointrange}$}}}%
-    \put(0.64713527,0.00970603){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$f=v_{\mathrm{cond}}$}}}%
-    \put(0.27952258,0.09896752){\color[rgb]{0.58823529,0.58823529,0.58823529}\makebox(0,0)[lb]{\smash{yes}}}%
-    \put(0.42339019,0.10356806){\color[rgb]{0.58823529,0.58823529,0.58823529}\makebox(0,0)[lb]{\smash{yes}}}%
-    \put(0.56305163,0.10144471){\color[rgb]{0.58823529,0.58823529,0.58823529}\makebox(0,0)[lb]{\smash{yes}}}%
+    \put(0.22716173,0.03322455){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$v_\mathrm{leglength}$}}}%
+    \put(0.3706727,0.03322455){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$v_\mathrm{IKcorner}$}}}%
+    \put(0.5149036,0.03322455){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$v_\mathrm{jointrange}$}}}%
+    \put(0.64713527,0.00970603){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$v_{\mathrm{cond}}$}}}%
+    \put(0.27616279,0.10020827){\color[rgb]{0.58823529,0.58823529,0.58823529}\makebox(0,0)[lb]{\smash{yes}}}%
+    \put(0.41331082,0.10020827){\color[rgb]{0.58823529,0.58823529,0.58823529}\makebox(0,0)[lb]{\smash{yes}}}%
+    \put(0.55969184,0.10020827){\color[rgb]{0.58823529,0.58823529,0.58823529}\makebox(0,0)[lb]{\smash{yes}}}%
     \put(0.92109323,0.19985929){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$f$}}}%
     \put(0.01642409,0.17379735){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{initialisation}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=5]{optimization_overview.pdf}}%
@@ -82,24 +82,25 @@
     \put(0.01609499,0.09820048){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\bm{p}$}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=8]{optimization_overview.pdf}}%
     \put(0.87387984,0.09457615){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{objective $z$}}}%
-    \put(0.93579579,0.00970583){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$f=z$}}}%
-    \put(0.69915057,0.10066413){\color[rgb]{0.58823529,0.58823529,0.58823529}\makebox(0,0)[lb]{\smash{yes}}}%
+    \put(0.93579579,0.00970583){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$z$}}}%
+    \put(0.69579078,0.10020827){\color[rgb]{0.58823529,0.58823529,0.58823529}\makebox(0,0)[lb]{\smash{yes}}}%
     \put(0.87192701,0.06625993){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(e.g. energy)}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=9]{optimization_overview.pdf}}%
     \put(0.73144874,0.09549997){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{mechanical}}}%
     \put(0.7397282,0.0745013){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{stress ok?}}}%
-    \put(0.78544533,0.00970562){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$f=v_{\mathrm{stress}}$}}}%
-    \put(0.83360217,0.10066413){\color[rgb]{0.58823529,0.58823529,0.58823529}\makebox(0,0)[lb]{\smash{yes}}}%
+    \put(0.78544533,0.00970562){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$v_{\mathrm{stress}}$}}}%
+    \put(0.83360217,0.10020827){\color[rgb]{0.58823529,0.58823529,0.58823529}\makebox(0,0)[lb]{\smash{yes}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=10]{optimization_overview.pdf}}%
-    \put(0.59913351,0.09550038){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{condition}}}%
-    \put(0.59061403,0.07450171){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{number ok?}}}%
-    \put(0.189855,0.03921819){\color[rgb]{0.58823529,0.58823529,0.58823529}\makebox(0,0)[lb]{\smash{no}}}%
-    \put(0.33035855,0.03921819){\color[rgb]{0.58823529,0.58823529,0.58823529}\makebox(0,0)[lb]{\smash{no}}}%
-    \put(0.47471006,0.03921819){\color[rgb]{0.58823529,0.58823529,0.58823529}\makebox(0,0)[lb]{\smash{no}}}%
-    \put(0.60663931,0.03921819){\color[rgb]{0.58823529,0.58823529,0.58823529}\makebox(0,0)[lb]{\smash{no}}}%
-    \put(0.74417535,0.03921819){\color[rgb]{0.58823529,0.58823529,0.58823529}\makebox(0,0)[lb]{\smash{no}}}%
-    \put(0.22716173,0.01309576){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$f=v_\mathrm{cplreach}$}}}%
-    \put(0.3706727,0.01309576){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$f=v_\mathrm{IKtraj}$}}}%
-    \put(0.5149036,0.01309576){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$f=v_\mathrm{jointvelo}$}}}%
+    \put(0.59241394,0.09550038){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{condition}}}%
+    \put(0.58389445,0.07450171){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{number ok?}}}%
+    \put(0.19321479,0.03249862){\color[rgb]{0.58823529,0.58823529,0.58823529}\makebox(0,0)[lb]{\smash{no}}}%
+    \put(0.33371834,0.03249862){\color[rgb]{0.58823529,0.58823529,0.58823529}\makebox(0,0)[lb]{\smash{no}}}%
+    \put(0.47806985,0.03249862){\color[rgb]{0.58823529,0.58823529,0.58823529}\makebox(0,0)[lb]{\smash{no}}}%
+    \put(0.60999909,0.03249862){\color[rgb]{0.58823529,0.58823529,0.58823529}\makebox(0,0)[lb]{\smash{no}}}%
+    \put(0.74753513,0.03249862){\color[rgb]{0.58823529,0.58823529,0.58823529}\makebox(0,0)[lb]{\smash{no}}}%
+    \put(0.22716173,0.01309576){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$v_\mathrm{cplreach}$}}}%
+    \put(0.3706727,0.01309576){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$v_\mathrm{IKtraj}$}}}%
+    \put(0.5149036,0.01309576){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$v_\mathrm{jointvelo}$}}}%
+    \put(0.06457197,0.01309986){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$f=\cdots$}}}%
   \end{picture}%
 \endgroup%
