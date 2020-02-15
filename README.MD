@@ -30,15 +30,15 @@ For the optimization and the figure generation to work, the following steps have
 
 1. Install Matlab with global optimization toolbox (tested with R2019a)
 2. Download Matlab dependencies for the toolchain of dimensional synthesis:
-  * https://github.com/SchapplM/robsynth-robotics_toolbox
+  * https://github.com/SchapplM/robotics-toolbox
   * https://github.com/SchapplM/robsynth-serroblib
   * https://github.com/SchapplM/robsynth-parroblib
   * https://github.com/SchapplM/robsynth-structdimsynth
   * https://github.com/SchapplM/robsynth-modelgen
-  * https://github.com/SchapplM/robsynth-dep-matlab
-  * https://github.com/SchapplM/robsynth-dep-geometry
-  * https://github.com/SchapplM/robsynth-dep-traj
-  * https://github.com/SchapplM/robsynth-dep-ext
+  * https://github.com/SchapplM/matlab_toolbox
+  * https://github.com/SchapplM/robotics-dep-geometry
+  * https://github.com/SchapplM/robotics-dep-traj
+  * https://github.com/SchapplM/robotics-dep-ext
 3. Set up the toolboxes to work and modify the following files according to the instructions
   * robsynth-serroblib/maplerepo_path.m.template (has to link to robsynth-modelgen)
   * robsynth-modelgen/robotics_repo_path.template (has to link to robsynth-robotics_toolbox)
