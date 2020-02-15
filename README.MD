@@ -29,18 +29,19 @@ This repository contains Matlab scripts and Latex code to reproduce all figures 
 For the optimization and the figure generation to work, the following steps have to be performed:
 
 1. Install Matlab with global optimization toolbox (tested with R2019a)
-2. Download Matlab dependencies for the toolchain of dimensional synthesis:
-  * https://github.com/SchapplM/robotics-toolbox
-  * https://github.com/SchapplM/robsynth-serroblib
-  * https://github.com/SchapplM/robsynth-parroblib
-  * https://github.com/SchapplM/robsynth-structdimsynth
-  * https://github.com/SchapplM/robsynth-modelgen
-  * https://github.com/SchapplM/matlab_toolbox
-  * https://github.com/SchapplM/robotics-dep-geometry
-  * https://github.com/SchapplM/robotics-dep-traj
-  * https://github.com/SchapplM/robotics-dep-ext
-3. Set up the toolboxes to work and modify the following files according to the instructions
+2. Set up the Matlab mex compiler, if not already done
+3. Download Matlab dependencies for the toolchain of dimensional synthesis:
+  * https://github.com/SchapplM/robotics-toolbox (tested with rev. bcb2e77; 2020-02-15)
+  * https://github.com/SchapplM/robsynth-serroblib (tested with rev. 03793751f; 2020-02-15)
+  * https://github.com/SchapplM/robsynth-parroblib (tested with rev. 0bc0de4; 2020-02-15)
+  * https://github.com/SchapplM/robsynth-structdimsynth (tested with rev. 65592dc; 2020-02-15)
+  * https://github.com/SchapplM/robsynth-modelgen (tested with rev. 0f11fd8; 2020-02-15)
+  * https://github.com/SchapplM/matlab_toolbox (tested with rev. 366f149; 2020-02-15)
+  * https://github.com/SchapplM/robotics-dep-geometry (tested with rev. 8bbd334; 2020-02-15)
+  * https://github.com/SchapplM/robotics-dep-traj (tested with rev. 41ceefd; 2020-02-15)
+  * https://github.com/SchapplM/robotics-dep-ext (tested with rev. 0b45dcc; 2020-02-15)
+4. Set up the toolboxes to work and modify the following files according to the instructions
   * robsynth-serroblib/maplerepo_path.m.template (has to link to robsynth-modelgen)
   * robsynth-modelgen/robotics_repo_path.template (has to link to robsynth-robotics_toolbox)
-4. Run the path initialization scripts (`..._path_init.m`) of all downloaded software repos in Matlab. Put the run commands in the startup.m file of Matlab for easier use.
+5. Run the path initialization scripts (`..._path_init.m`) of all downloaded software repos in Matlab. Put the run commands in the startup.m file of Matlab for easier use.
 
