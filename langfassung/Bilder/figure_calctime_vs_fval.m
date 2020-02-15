@@ -1,6 +1,7 @@
 % Erstelle ein Bild mit Rechenzeit vs Zielfunktionswert
 % Vorher wurde die Optimierung mit cds_example_3T3R_PKM_wiederholbarkeit.m
 % gestartet
+% Erzeugt Fig. 7 im Paper
 
 % Moritz Schappler, moritz.schappler@imes.uni-hannover.de, 2020-02
 % (C) Institut für Mechatronische Systeme, Universität Hannover
