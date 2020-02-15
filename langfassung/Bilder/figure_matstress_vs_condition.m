@@ -9,17 +9,25 @@
 clear
 clc
 
-outputdir = fileparts(which('figure_matstress_vs_condition.m'));
+% Benutzereingabe: Bei true werden die Daten für das Paper aus dem
+% Data-Ordner genommen. Bei false werden die Daten aus dem Ergebnis-Ordner
+% der Maßsynthese genommen.
+origdaten = true;
 
 %% Definitionen
+outputdir = fileparts(which('figure_matstress_vs_condition.m'));
 colors = [[0 80 155 ]/255; ...%imesblau
           [231 123 41 ]/255;... %imesorange
           [200 211 23 ]/255;... %imesgrün
           [0 0 0]]; % schwarz
 
 %% Zusammenfassungen der bisherige Versuche laden
-dimsynthpath = fileparts(which('structgeomsynth_path_init.m'));
-resdirtotal = fullfile(dimsynthpath, 'dimsynth', 'results');
+if ~origdaten
+  dimsynthpath = fileparts(which('structgeomsynth_path_init.m'));
+  resdirtotal = fullfile(dimsynthpath, 'dimsynth', 'results');
+else
+  resdirtotal = fullfile(outputdir, '..', 'Data');
+end
 resdirs = {'IFToMMDACH_Vgl_20200203_nachts', ...
            'IFToMMDACH_Vgl_Winkel_20200129', ...
            'IFToMMDACH_Vgl_Winkel10_20200131_nachts'};
