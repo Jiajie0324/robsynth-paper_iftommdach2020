@@ -1,12 +1,21 @@
 % Lade alle Ergebnistabellen und gebe eine Übersicht der Ergebnisse für
-% jeden Roboter
+% jeden Roboter (zweite Version, mehr Auswertungen)
+% 
+% Benutzung: 
+% Die Ergebnisse aus config_dimsynth/cds_example_3T3R_PKM_winkel_vgl.m
+% werden hiermit geladen und in Bildern und Tabellen zusammengefasst
+
+% Moritz Schappler, moritz.schappler@imes.uni-hannover.de, 2020-02
+% (C) Institut für Mechatronische Systeme, Universität Hannover
 
 clear
 clc
 
 dimsynthpath = fileparts(which('structgeomsynth_path_init.m'));
 importdir = fullfile(dimsynthpath, 'dimsynth', 'results');
+% Name der einzelnen Durchläufe der Optimierung
 filter = 'IFToMMDACH_Vgl_Winkel*_20200206_nachts_Wdh*';
+% Verzeichnis, in das die Zusammenfassung gespeichert wird
 outputdir = fullfile(dimsynthpath, 'dimsynth', 'results', 'IFToMMDACH_Vgl_20200206_nachts');
 mkdirs(outputdir);
 %% Zusammenstellen der Ergebnisse

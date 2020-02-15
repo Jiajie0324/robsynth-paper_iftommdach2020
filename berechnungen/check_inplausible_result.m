@@ -1,3 +1,9 @@
+% Skript zur Plausibilitätsprüfung von Ergebnissen der Maßsynthese
+% Das konkrete Ergebnis muss im Code eingegeben werden
+
+% Moritz Schappler, moritz.schappler@imes.uni-hannover.de, 2020-02
+% (C) Institut für Mechatronische Systeme, Universität Hannover
+
 clear
 clc
 repodir = fullfile(fileparts(which('structgeomsynth_path_init.m')), 'dimsynth', 'results');

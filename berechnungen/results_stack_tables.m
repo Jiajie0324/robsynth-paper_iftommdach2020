@@ -1,5 +1,8 @@
 % Lade alle Ergebnistabellen und gebe eine Übersicht der Ergebnisse für
-% jeden Roboter
+% jeden Roboter (erste Version)
+
+% Moritz Schappler, moritz.schappler@imes.uni-hannover.de, 2020-02
+% (C) Institut für Mechatronische Systeme, Universität Hannover
 
 clear
 clc

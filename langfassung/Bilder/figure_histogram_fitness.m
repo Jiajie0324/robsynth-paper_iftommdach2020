@@ -1,6 +1,8 @@
 % Bild für Vergleich von Materialbelastung und Konditionszahl der Jacobi
+% Vorher wurde die Optimierung mit cds_example_3T3R_PKM_wiederholbarkeit.m
+% gestartet und ein Optimierungsverlauf daraus ausgewählt
 
-% Moritz Schappler, moritz.schappler@imes.uni-hannover.de, 2019-08
+% Moritz Schappler, moritz.schappler@imes.uni-hannover.de, 2020-02
 % (C) Institut für Mechatronische Systeme, Universität Hannover
 
 clear

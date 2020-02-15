@@ -1,6 +1,7 @@
 % Einstellungen für komb. Struktur- und Maßsynthese für 3T3R PKM
+% Erzeugung der Bilder für die Kurzfassung des IFToMM-DACH-Papers
 
-% Moritz Schappler, moritz.schappler@imes.uni-hannover.de, 2019-09
+% Moritz Schappler, moritz.schappler@imes.uni-hannover.de, 2019-11
 % (C) Institut für Mechatronische Systeme, Universität Hannover
 
 clc
@@ -8,13 +9,13 @@ clear
 
 % Aufgaben-FG
 DoF = [1 1 1 1 1 1];
-Traj_no = 1;
+Traj_no = 1; % Würfel-Trajektorie mit geringen Schwenkwinkeln und Verdrehungen
 
 Set = cds_settings_defaults(struct('DoF', DoF));
 Set.task.Ts = 1e-2;
 Set.task.Tv = 1e-1;
 Set.task.profile = 1;
-Set.task.maxangle = 10*pi/180; 
+Set.task.maxangle = 10*pi/180;
 Traj = cds_gen_traj(DoF, Traj_no, Set.task);
 
 Set.optimization.objective = 'energy';%'condition';
@@ -35,11 +36,7 @@ Set.general.verbosity = 3;
 Set.general.matfile_verbosity = 0;
 Set.structures.use_serial = false;
 Set.optimization.ee_rotation = false;
-% Nur Auswahl Kugelgelenk-Ende-PKM
-Set.structures.whitelist = {'P6RRRRRR10G1P1A1'};% ... % 'P6RRRRRR10V3G1P3A1', 'P6RRRRRR10V3G8P3A1',
-% %   'P6PRRRRR6V2G8P3A1', 'P6RPRRRR12V2G8P1A1', ...
-% %   'P6RRPRRR14V3G8P3A1'};
-% Große Auswahl an Robotern:
+% Temporäre Auswahl an Robotern bei Findung geeigneter Kandidaten:
 % Set.structures.whitelist = { ...
 % 'P6RRRRRR10G1P1A1', 'P6RRRRRR10V3G1P1A1', ... % IndRob G1P1
 % 'P6RRRRRR10G1P1A2',  'P6RRRRRR10V3G1P1A2', ... % IndRob G1P1
@@ -56,7 +53,6 @@ Set.structures.whitelist = {'P6RRRRRR10G1P1A1'};% ... % 'P6RRRRRR10V3G1P3A1', 'P
 % 'P6RRPRRR14G8P3A1', 'P6RRPRRR14V3G8P3A1'}; % 6UPS
 
 % Auswahl für Paper
-
 Set.structures.whitelist = { ...
   'P6PRRRRR6G8P1A1', 'P6PRRRRR6V2G8P1A1', ...
   'P6PRRRRR6G8P3A1', 'P6PRRRRR6V2G8P3A1', ...

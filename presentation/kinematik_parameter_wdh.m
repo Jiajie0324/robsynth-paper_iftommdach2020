@@ -1,6 +1,8 @@
 % Bild für Wiederholbarkeit der Kinematikparameter
+% Zeichne Linienverlauf der Parameter für wiederholte Durchführung der
+% Optimierung
 
-% Moritz Schappler, moritz.schappler@imes.uni-hannover.de, 2019-08
+% Moritz Schappler, moritz.schappler@imes.uni-hannover.de, 2020-02
 % (C) Institut für Mechatronische Systeme, Universität Hannover
 
 clear

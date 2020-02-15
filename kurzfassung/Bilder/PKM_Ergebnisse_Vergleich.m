@@ -1,3 +1,11 @@
+% Erzeuge hochaufgelöste Bilder der einzelnen Roboter aus den
+% Optimierungsergebnissen.
+% Vorher wurde die Optimierung mit dem Skript
+% config_dimsynth/cds_example_3T3R_PKM.m gestartet.
+
+% Moritz Schappler, moritz.schappler@imes.uni-hannover.de, 2020-02
+% (C) Institut für Mechatronische Systeme, Universität Hannover
+
 clc
 clear
 close all
