@@ -4,7 +4,18 @@ Authors:
 
 Moritz Schappler, Prof. Dr.-Ing. Tobias Ortmaier
 
-This code is supplemental material to the following submission to IFToMM D-A-CH Konferenz 2020
+This code is supplemental material to the following submission to IFToMM D-A-CH Konferenz 2020:
+
+```bib
+@Conference{SchapplerOrt2020,
+  author    = {Schappler, Moritz and Ortmaier, Tobias},
+  title     = {Dimensional Synthesis of Parallel Robots: Unified Kinematics and Dynamics using Full Kinematic Constraints},
+  booktitle = {6. IFToMM D-A-CH Konferenz 2020},
+  year      = {2019},
+  month     = {February},
+  doi       = {10.17185/duepublico/71211},
+}
+```
 
 ## Abstract
 
