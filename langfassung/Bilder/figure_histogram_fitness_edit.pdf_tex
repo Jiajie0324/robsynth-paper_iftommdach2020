@@ -1,4 +1,4 @@
-%% Creator: Inkscape inkscape 0.91, www.inkscape.org
+%% Creator: Inkscape inkscape 0.92.3, www.inkscape.org
 %% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
 %% Accompanies image file 'figure_histogram_fitness_edit.pdf' (pdf, eps, ps)
 %%
@@ -35,6 +35,8 @@
     \renewcommand\transparent[1]{}%
   }%
   \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
   \ifx\svgwidth\undefined%
     \setlength{\unitlength}{226.77165354bp}%
     \ifx\svgscale\undefined%
@@ -49,29 +51,31 @@
   \global\let\svgscale\undefined%
   \makeatother%
   \begin{picture}(1,0.5625)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{figure_histogram_fitness_edit.pdf}}%
-    \put(0.17538094,0.1889881){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{valid}}}%
+    \put(0.18199553,0.18898813){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}valid\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{figure_histogram_fitness_edit.pdf}}%
-    \put(0.17989649,0.28058436){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{material}}}%
+    \put(0.18651108,0.28058439){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}material\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{figure_histogram_fitness_edit.pdf}}%
-    \put(0.179579,0.3862917){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{condition }}}%
+    \put(0.18619358,0.38629173){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}condition \end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=4]{figure_histogram_fitness_edit.pdf}}%
-    \put(0.41360639,0.42454716){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{joint}}}%
+    \put(0.42022097,0.42454719){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}joint\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=5]{figure_histogram_fitness_edit.pdf}}%
-    \put(0.59405255,0.23661313){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{IK fails}}}%
-    \put(0.59405255,0.18924013){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{in traj.}}}%
-    \put(0.4994325,0.52702483){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{IK fails}}}%
-    \put(0.49950308,0.48620334){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{in workspace}}}%
+    \put(0.60066713,0.23661316){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}IK fails\end{tabular}}}}%
+    \put(0.60066713,0.18924015){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}in traj.\end{tabular}}}}%
+    \put(0.50604708,0.52702485){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}IK fails\end{tabular}}}}%
+    \put(0.50611767,0.48620337){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}in workspace\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=6]{figure_histogram_fitness_edit.pdf}}%
-    \put(0.85737593,0.33924115){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{too}}}%
-    \put(0.85611598,0.29708926){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{short}}}%
+    \put(0.86399052,0.33924118){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}too\end{tabular}}}}%
+    \put(0.86273057,0.29708929){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}short\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=7]{figure_histogram_fitness_edit.pdf}}%
-    \put(0.53836386,0.36348695){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{workspace}}}%
+    \put(0.54497844,0.36348698){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}workspace\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=8]{figure_histogram_fitness_edit.pdf}}%
-    \put(0.54466344,0.32367346){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{reachability}}}%
-    \put(0.17989649,0.3522738){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{number}}}%
-    \put(0.17989649,0.24782642){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{stress}}}%
-    \put(0.85737593,0.37772418){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{legs}}}%
-    \put(0.41046667,0.38095392){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{limits}}}%
+    \put(0.55127802,0.32367348){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}reachability\end{tabular}}}}%
+    \put(0.18651108,0.35227383){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}number\end{tabular}}}}%
+    \put(0.18651108,0.24782644){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}stress\end{tabular}}}}%
+    \put(0.86399052,0.3777242){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}legs\end{tabular}}}}%
+    \put(0.41708126,0.38095395){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{0}\smash{\begin{tabular}[t]{l}limits\end{tabular}}}}%
   \end{picture}%
 \endgroup%
